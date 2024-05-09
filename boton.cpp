@@ -1,10 +1,9 @@
 #include "boton.h"
 
-Boton::Boton(QRadioButton *qbutton,int codigo, QObject *parent): QObject(parent) {
+Boton::Boton(int codigo, QObject *parent): QObject(parent) {
     this->codigo = codigo;
-    miBoton = qbutton;
 
-    connect(miBoton,&QRadioButton::clicked, this, &Boton::pressed);
+    //connect(miBoton,&QRadioButton::clicked, this, &Boton::pressed);
 }
 
 int Boton::getCodigo(){

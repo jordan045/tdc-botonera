@@ -9,7 +9,7 @@ class Boton: public QObject
     Q_OBJECT
 
 public:
-    Boton(QRadioButton *qbutton,int codigo, QObject *parent = nullptr);
+    Boton(int codigo, QObject *parent = nullptr);
     void setCodigo(int);
     int getCodigo();
     int getChar();
@@ -18,7 +18,6 @@ public slots:
 
 private:
     int codigo;
-    QRadioButton *miBoton;
 };
 
 #endif // BOTON_H

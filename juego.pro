@@ -12,12 +12,12 @@ SOURCES += \
     boton.cpp \
     main.cpp \
     mainwindow.cpp \
-    zona.cpp
+    range.cpp
 
 HEADERS += \
     boton.h \
     mainwindow.h \
-    zona.h
+    range.h
 
 FORMS += \
     mainwindow.ui
