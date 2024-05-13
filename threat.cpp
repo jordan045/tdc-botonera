@@ -45,5 +45,9 @@ threat::threat(QWidget *parent) :
     QObject::connect(btn_4,&QRadioButton::clicked,logic_btn_4,&Boton::pressed);
     QObject::connect(btn_5,&QRadioButton::clicked,logic_btn_5,&Boton::pressed);
 
+    btn_2->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
+                         "QRadioButton::indicator::unchecked {image: url(':/img/range/img/2.png')}"
+                         "QRadioButton::indicator::checked {image: url(':/img/range/img/2_pressed.png')}");
+
 }
 

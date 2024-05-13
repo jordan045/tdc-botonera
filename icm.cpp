@@ -53,5 +53,26 @@ icm::icm(QWidget *parent) :
     QObject::connect(btn_6,&QPushButton::clicked,logic_btn_6,&Boton::pressed);
     QObject::connect(btn_7,&QPushButton::clicked,logic_btn_7,&Boton::pressed);
 
+    btn_1->setStyleSheet("QPushButton {width: 80px; height: 80px;}"
+                         "QPushButton{image: url(':/img/range/img/2.png')}"
+                         "QPushButton::pressed {image: url(':/img/range/img/1_pressed.png')}");
+    btn_2->setStyleSheet("QPushButton {width: 80px; height: 80px;}"
+                         "QPushButton{image: url(':/img/range/img/2.png')}"
+                         "QPushButton::pressed {image: url(':/img/range/img/2_pressed.png')}");
+    btn_3->setStyleSheet("QPushButton {width: 80px; height: 80px;}"
+                         "QPushButton{image: url(':/img/range/img/2.png')}"
+                         "QPushButton::pressed {image: url(':/img/range/img/2_pressed.png')}");
+    btn_4->setStyleSheet("QPushButton {width: 80px; height: 80px;}"
+                         "QPushButton{image: url(':/img/range/img/2.png')}"
+                         "QPushButton::pressed {image: url(':/img/range/img/2_pressed.png')}");
+    btn_5->setStyleSheet("QPushButton {width: 80px; height: 80px;}"
+                         "QPushButton{image: url(':/img/range/img/2.png')}"
+                         "QPushButton::pressed {image: url(':/img/range/img/2_pressed.png')}");
+    btn_6->setStyleSheet("QPushButton {width: 80px; height: 80px;}"
+                         "QPushButton{image: url(':/img/range/img/2.png')}"
+                         "QPushButton::pressed {image: url(':/img/range/img/2_pressed.png')}");
+    btn_7->setStyleSheet("QPushButton {width: 80px; height: 80px;}"
+                         "QPushButton{image: url(':/img/range/img/2.png')}"
+                         "QPushButton::pressed {image: url(':/img/range/img/2_pressed.png')}");
 }
 

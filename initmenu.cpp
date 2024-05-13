@@ -23,18 +23,30 @@ initMenu::initMenu(QWidget *parent) :
     layout->addWidget(btn_3);
 
 
-    QObject::connect(btn_1,&QPushButton::clicked,this,&initMenu::iniciarModo);
-    QObject::connect(btn_2,&QPushButton::clicked,this,&initMenu::iniciarModo);
-    QObject::connect(btn_3,&QPushButton::clicked,this,&initMenu::iniciarModo);
+    QObject::connect(btn_1,&QPushButton::clicked,this,&initMenu::iniciarModo1);
+    QObject::connect(btn_2,&QPushButton::clicked,this,&initMenu::iniciarModo2);
+    QObject::connect(btn_3,&QPushButton::clicked,this,&initMenu::iniciarModo3);
 
 
 
     this->setLayout(layout);
 }
 
-void initMenu::iniciarModo(QPushButton b)
+void initMenu::iniciarModo1()
 {
-    miBotonera->setmodo();
+    miBotonera->setmodo(1);
+    miBotonera->iniciar();
+    this->close();
+}
+void initMenu::iniciarModo2()
+{
+    miBotonera->setmodo(2);
+    miBotonera->iniciar();
+    this->close();
+}
+void initMenu::iniciarModo3()
+{
+    miBotonera->setmodo(3);
     miBotonera->iniciar();
     this->close();
 }

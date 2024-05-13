@@ -46,5 +46,7 @@ label::label(QWidget *parent) :
     QObject::connect(btn_5,&QPushButton::clicked,logic_btn_5,&Boton::pressed);
 
 
+
+
 }
 

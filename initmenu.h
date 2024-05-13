@@ -10,8 +10,9 @@ public:
     explicit initMenu(QWidget *parent = nullptr);
 
 private slots:
-    void iniciarModo(int m);
-
+    void iniciarModo1();
+    void iniciarModo2();
+    void iniciarModo3();
 private:
     botonera *miBotonera;
 };
