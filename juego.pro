@@ -10,14 +10,30 @@ CONFIG += c++17
 
 SOURCES += \
     boton.cpp \
+    botonera.cpp \
+    center.cpp \
+    display.cpp \
+    icm.cpp \
+    initmenu.cpp \
+    label.cpp \
     main.cpp \
     mainwindow.cpp \
-    range.cpp
+    qek.cpp \
+    range.cpp \
+    threat.cpp
 
 HEADERS += \
     boton.h \
+    botonera.h \
+    center.h \
+    display.h \
+    icm.h \
+    initmenu.h \
+    label.h \
     mainwindow.h \
-    range.h
+    qek.h \
+    range.h \
+    threat.h
 
 FORMS += \
     mainwindow.ui

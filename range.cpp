@@ -91,7 +91,7 @@ range::range(QWidget *parent) :
                          "QRadioButton::indicator::checked {image: url(':/img/range/img/128_pressed.png')}");
 
     btn_256->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                         "QRadioButton::indicator::unchecked {image: url(':/img/range/img/128.png')}"
-                         "QRadioButton::indicator::checked {image: url(':/img/range/img/128_pressed.png')}");
+                         "QRadioButton::indicator::unchecked {image: url(':/img/range/img/256.png')}"
+                         "QRadioButton::indicator::checked {image: url(':/img/range/img/256_pressed.png')}");
 
 }
