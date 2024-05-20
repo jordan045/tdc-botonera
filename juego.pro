@@ -12,12 +12,8 @@ SOURCES += \
     boton.cpp \
     botonera.cpp \
     center.cpp \
-<<<<<<< HEAD
-    display.cpp \
     estado.cpp \
-=======
     display_mode.cpp \
->>>>>>> 07647974e487b971433d97acc7c5e5cc46f4d6c7
     icm.cpp \
     initmenu.cpp \
     label.cpp \
@@ -31,12 +27,8 @@ HEADERS += \
     boton.h \
     botonera.h \
     center.h \
-<<<<<<< HEAD
-    display.h \
     estado.h \
-=======
     display_mode.h \
->>>>>>> 07647974e487b971433d97acc7c5e5cc46f4d6c7
     icm.h \
     initmenu.h \
     label.h \
