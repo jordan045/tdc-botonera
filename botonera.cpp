@@ -20,8 +20,8 @@ void botonera::setmodo(int i)
 
 void botonera::iniciar()
 {
-    QGridLayout *layout = new QGridLayout;
-
+    QHBoxLayout *layout = new QHBoxLayout();
+/*
     layout->addWidget(r,0,1);
     layout->addWidget(q,1,1);
     layout->addWidget(t,2,1);
@@ -29,11 +29,22 @@ void botonera::iniciar()
     layout->addWidget(d,3,1);
     layout->addWidget(l,4,1);
     layout->addWidget(c,0,2);
+*/
+    QVBoxLayout *midLay = new QVBoxLayout();
+    midLay->addWidget(r);
+    midLay->addWidget(q);
+    midLay->addWidget(t);
+    midLay->addWidget(d);
+    midLay->addWidget(l);
 
-    QString texto = QString::number(modo);
-    QLabel *label = new QLabel(texto);
+    layout->addWidget(i);
+    layout->addLayout(midLay);
+    layout->addWidget(c);
 
-    layout->addWidget(label,0,3);
+    //QString texto = QString::number(modo);
+    //QLabel *label = new QLabel(texto);
+
+    //layout->addWidget(label,0,3);
     this->setLayout(layout);
     this->show();
 }

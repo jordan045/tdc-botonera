@@ -2,7 +2,6 @@
 
 Boton::Boton(int codigo, QObject *parent): QObject(parent) {
     this->codigo = codigo;
-
     //connect(miBoton,&QRadioButton::clicked, this, &Boton::pressed);
 }
 

@@ -206,6 +206,5 @@ qek::qek(QWidget *parent) :
     QObject::connect(btn_31, &QPushButton::clicked, logic_btn_31, &Boton::pressed);
     QObject::connect(btn_32, &QPushButton::clicked, logic_btn_32, &Boton::pressed);
 
-
 }
 

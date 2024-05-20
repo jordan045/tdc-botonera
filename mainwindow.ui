@@ -17,10 +17,10 @@
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>180</y>
-      <width>719</width>
-      <height>80</height>
+      <x>9</x>
+      <y>9</y>
+      <width>156</width>
+      <height>17</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -101,7 +101,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
