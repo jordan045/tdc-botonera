@@ -13,6 +13,7 @@ SOURCES += \
     botonera.cpp \
     center.cpp \
     display.cpp \
+    estado.cpp \
     icm.cpp \
     initmenu.cpp \
     label.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     botonera.h \
     center.h \
     display.h \
+    estado.h \
     icm.h \
     initmenu.h \
     label.h \
