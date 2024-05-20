@@ -84,28 +84,35 @@ void range::style()
 {
 
     btn_2->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                         "QRadioButton::indicator::unchecked {image: url(':/img/range/img/2.png')}"
-                         "QRadioButton::indicator::checked {image: url(':/img/range/img/2_pressed.png')}");
+                         "QRadioButton::indicator::unchecked {image: url(':/range/img/Range/2.png')}"
+                         "QRadioButton::indicator::checked {image: url(':/range/img/Range/2_pressed.png)}");
+
     btn_4->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                         "QRadioButton::indicator::unchecked {image: url(':/img/range/img/4.png')}"
-                         "QRadioButton::indicator::checked {image: url(':/img/range/img/4_pressed.png')}");
+                         "QRadioButton::indicator::unchecked {image: url(':/range/img/Range/4.png')}"
+                         "QRadioButton::indicator::checked {image: url(':/range/img/Range/4_pressed.png')}");
+
     btn_8->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                         "QRadioButton::indicator::unchecked {image: url(':/img/range/img/8.png')}"
-                         "QRadioButton::indicator::checked {image: url(':/img/range/img/8_pressed.png')}");
+                         "QRadioButton::indicator::unchecked {image: url(':/range/img/Range/8.png')}"
+                         "QRadioButton::indicator::checked {image: url(':/range/img/Range/8_pressed.png')}");
+
     btn_16->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                          "QRadioButton::indicator::unchecked {image: url(':/img/range/img/16.png')}"
-                          "QRadioButton::indicator::checked {image: url(':/img/range/img/16_pressed.png')}");
+                          "QRadioButton::indicator::unchecked {image: url(':/range/img/Range/16.png')}"
+                          "QRadioButton::indicator::checked {image: url(':/range/img/Range/16_pressed.png')}");
+
     btn_32->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                          "QRadioButton::indicator::unchecked {image: url(':/img/range/img/32.png')}"
-                          "QRadioButton::indicator::checked {image: url(':/img/range/img/32_pressed.png')}");
+                          "QRadioButton::indicator::unchecked {image: url(':/range/img/Range/32.png')}"
+                          "QRadioButton::indicator::checked {image: url(':/range/img/Range/32_pressed.png')}");
+
     btn_64->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                          "QRadioButton::indicator::unchecked {image: url(':/img/range/img/64.png')}"
-                          "QRadioButton::indicator::checked {image: url(':/img/range/img/64_pressed.png')}");
+                          "QRadioButton::indicator::unchecked {image: url(':/range/img/Range/64.png')}"
+                          "QRadioButton::indicator::checked {image: url(':/range/img/Range/64_pressed.png')}");
+
     btn_128->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                           "QRadioButton::indicator::unchecked {image: url(':/img/range/img/128.png')}"
-                           "QRadioButton::indicator::checked {image: url(':/img/range/img/128_pressed.png')}");
+                           "QRadioButton::indicator::unchecked {image: url(':/range/img/Range/128.png')}"
+                           "QRadioButton::indicator::checked {image: url(':/range/img/Range/128_pressed.png')}");
+
     btn_256->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                           "QRadioButton::indicator::unchecked {image: url(':/img/range/img/256.png')}"
-                           "QRadioButton::indicator::checked {image: url(':/img/range/img/256_pressed.png')}");
+                           "QRadioButton::indicator::unchecked {image: url(':/range/img/Range/256.png')}"
+                           "QRadioButton::indicator::checked {image: url(':/range/img/Range/256_pressed.png')}");
 }
 

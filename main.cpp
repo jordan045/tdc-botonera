@@ -7,7 +7,7 @@
 #include <qek.h>
 #include <threat.h>
 #include <center.h>
-#include <display.h>
+#include <display_mode.h>
 #include <QVBoxLayout>
 #include <botonera.h>
 #include <initmenu.h>

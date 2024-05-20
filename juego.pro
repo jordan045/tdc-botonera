@@ -12,7 +12,7 @@ SOURCES += \
     boton.cpp \
     botonera.cpp \
     center.cpp \
-    display.cpp \
+    display_mode.cpp \
     icm.cpp \
     initmenu.cpp \
     label.cpp \
@@ -26,7 +26,7 @@ HEADERS += \
     boton.h \
     botonera.h \
     center.h \
-    display.h \
+    display_mode.h \
     icm.h \
     initmenu.h \
     label.h \
@@ -44,6 +44,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    rsc.qrc
+    resources.qrc
 
 DISTFILES +=

@@ -8,7 +8,7 @@
 #include <qek.h>
 #include <threat.h>
 #include <center.h>
-#include <display.h>
+#include <display_mode.h>
 
 class botonera : public QWidget
 {
@@ -26,7 +26,7 @@ public slots:
    qek *q;
    threat *t;
    center *c;
-   display *d;
+   display_mode *d;
    icm *i;
    int modo;
 };

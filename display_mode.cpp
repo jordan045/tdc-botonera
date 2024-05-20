@@ -1,10 +1,10 @@
-#include "display.h"
+#include "display_mode.h"
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QButtonGroup>
 #include <boton.h>
 
-display::display(QWidget *parent) :
+display_mode::display_mode(QWidget *parent) :
     QWidget(parent)
 {
     auto *btn_1 = new QPushButton("1",this);
@@ -15,15 +15,15 @@ display::display(QWidget *parent) :
     auto *btn_6 = new QPushButton("6",this);
     auto *btn_7 = new QPushButton("7",this);
 
-    QButtonGroup *display_group = new QButtonGroup(this);
+    QButtonGroup *display_mode_group = new QButtonGroup(this);
 
-    display_group->addButton(btn_1,1);
-    display_group->addButton(btn_2,2);
-    display_group->addButton(btn_3,3);
-    display_group->addButton(btn_4,4);
-    display_group->addButton(btn_5,5);
-    display_group->addButton(btn_6,6);
-    display_group->addButton(btn_7,7);
+    display_mode_group->addButton(btn_1,1);
+    display_mode_group->addButton(btn_2,2);
+    display_mode_group->addButton(btn_3,3);
+    display_mode_group->addButton(btn_4,4);
+    display_mode_group->addButton(btn_5,5);
+    display_mode_group->addButton(btn_6,6);
+    display_mode_group->addButton(btn_7,7);
 
     auto layout = new QHBoxLayout;
     layout->addWidget(btn_1);
