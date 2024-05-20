@@ -17,4 +17,7 @@
         <file>img/256.png</file>
         <file>img/256_pressed.png</file>
     </qresource>
+    <qresource prefix="/img/icm">
+        <file>img/ICM/1.png</file>
+    </qresource>
 </RCC>

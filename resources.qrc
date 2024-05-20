@@ -1,0 +1,111 @@
+<RCC>
+    <qresource prefix="/icm">
+        <file>img/ICM/1.png</file>
+        <file>img/ICM/1_pressed.png</file>
+        <file>img/ICM/2.png</file>
+        <file>img/ICM/2_pressed.png</file>
+        <file>img/ICM/3.png</file>
+        <file>img/ICM/3_pressed.png</file>
+        <file>img/ICM/4.png</file>
+        <file>img/ICM/4_pressed.png</file>
+        <file>img/ICM/5.png</file>
+        <file>img/ICM/5_pressed.png</file>
+        <file>img/ICM/6.png</file>
+        <file>img/ICM/6_pressed.png</file>
+        <file>img/ICM/7.png</file>
+        <file>img/ICM/7_pressed.png</file>
+    </qresource>
+    <qresource prefix="/threat">
+        <file>img/Threat/6_min.png</file>
+        <file>img/Threat/6_min_pressed.png</file>
+        <file>img/Threat/12_sec.png</file>
+        <file>img/Threat/12_sec_pressed.png</file>
+        <file>img/Threat/15_min.png</file>
+        <file>img/Threat/15_min_pressed.png</file>
+        <file>img/Threat/30_sec.png</file>
+        <file>img/Threat/30_sec_pressed.png</file>
+        <file>img/Threat/reset.png</file>
+        <file>img/Threat/reset_pressed.png</file>
+    </qresource>
+    <qresource prefix="/center">
+        <file>img/Center/cent.png</file>
+        <file>img/Center/cent_pressed.png</file>
+        <file>img/Center/coc.png</file>
+        <file>img/Center/coc_pressed.png</file>
+        <file>img/Center/cooc.png</file>
+        <file>img/Center/cooc_pressed.png</file>
+        <file>img/Center/oc.png</file>
+        <file>img/Center/oc_pressed.png</file>
+        <file>img/Center/reset_obm.png</file>
+        <file>img/Center/reset_obm_pressed.png</file>
+        <file>img/Center/data_req.png</file>
+        <file>img/Center/data_req_pressed.png</file>
+    </qresource>
+    <qresource prefix="/label_selection">
+        <file>img/Label Selection/ampl_info.png</file>
+        <file>img/Label Selection/ampl_info_pressed.png</file>
+        <file>img/Label Selection/link_stat.png</file>
+        <file>img/Label Selection/link_stat_pressed.png</file>
+        <file>img/Label Selection/ms.png</file>
+        <file>img/Label Selection/ms_pressed.png</file>
+        <file>img/Label Selection/tn.png</file>
+        <file>img/Label Selection/tn_pressed.png</file>
+        <file>img/Label Selection/trkm.png</file>
+        <file>img/Label Selection/trkm_pressed.png</file>
+    </qresource>
+    <qresource prefix="/range">
+        <file>img/Range/2_pressed.png</file>
+        <file>img/Range/4.png</file>
+        <file>img/Range/4_pressed.png</file>
+        <file>img/Range/8.png</file>
+        <file>img/Range/8_pressed.png</file>
+        <file>img/Range/16.png</file>
+        <file>img/Range/16_pressed.png</file>
+        <file>img/Range/32.png</file>
+        <file>img/Range/32_pressed.png</file>
+        <file>img/Range/64.png</file>
+        <file>img/Range/64_pressed.png</file>
+        <file>img/Range/128.png</file>
+        <file>img/Range/128_pressed.png</file>
+        <file>img/Range/256.png</file>
+        <file>img/Range/256_pressed.png</file>
+    </qresource>
+    <qresource prefix="/display_selection">
+        <file>img/Display Selection/air.png</file>
+        <file>img/Display Selection/air_pressed.png</file>
+        <file>img/Display Selection/bear_sel.png</file>
+        <file>img/Display Selection/bear_sel_pressed.png</file>
+        <file>img/Display Selection/fig.png</file>
+        <file>img/Display Selection/fig_pressed.png</file>
+        <file>img/Display Selection/link_sel.png</file>
+        <file>img/Display Selection/link_sel_pressed.png</file>
+        <file>img/Display Selection/ref_pos.png</file>
+        <file>img/Display Selection/ref_pos_pressed.png</file>
+        <file>img/Display Selection/sub_surf.png</file>
+        <file>img/Display Selection/sub_surf_pressed.png</file>
+        <file>img/Display Selection/surf.png</file>
+        <file>img/Display Selection/surf_pressed.png</file>
+        <file>img/Display Selection/warf_sel.png</file>
+        <file>img/Display Selection/warf_sel_pressed.png</file>
+    </qresource>
+    <qresource prefix="/display_mode">
+        <file>img/Display Mode/emerg.png</file>
+        <file>img/Display Mode/emerg_pressed.png</file>
+        <file>img/Display Mode/hm.png</file>
+        <file>img/Display Mode/hm_pressed.png</file>
+        <file>img/Display Mode/own_curs.png</file>
+        <file>img/Display Mode/own_curs_pressed.png</file>
+        <file>img/Display Mode/rr.png</file>
+        <file>img/Display Mode/rr_pressed.png</file>
+        <file>img/Display Mode/symb_large.png</file>
+        <file>img/Display Mode/symb_large_pressed.png</file>
+        <file>img/Display Mode/syst_alarm.png</file>
+        <file>img/Display Mode/syst_alarm_pressed.png</file>
+        <file>img/Display Mode/tm.png</file>
+        <file>img/Display Mode/tm_pressed.png</file>
+    </qresource>
+    <qresource prefix="/qek">
+        <file>img/QEK/qek.png</file>
+        <file>img/QEK/qek_pressed.png</file>
+    </qresource>
+</RCC>

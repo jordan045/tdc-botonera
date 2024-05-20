@@ -8,41 +8,76 @@
 qek::qek(QWidget *parent) :
     QWidget(parent)
 {
-    auto *btn_1 = new QPushButton("1",this);
-    auto *btn_2 = new QPushButton("2",this);
-    auto *btn_3 = new QPushButton("3",this);
-    auto *btn_4 = new QPushButton("4",this);
-    auto *btn_5 = new QPushButton("5",this);
-    auto *btn_6 = new QPushButton("6",this);
-    auto *btn_7 = new QPushButton("7",this);
-    auto *btn_8 = new QPushButton("8",this);
+    auto *btn_1 = new QPushButton("",this);
+    auto *btn_2 = new QPushButton("",this);
+    auto *btn_3 = new QPushButton("",this);
+    auto *btn_4 = new QPushButton("",this);
+    auto *btn_5 = new QPushButton("",this);
+    auto *btn_6 = new QPushButton("",this);
+    auto *btn_7 = new QPushButton("",this);
+    auto *btn_8 = new QPushButton("",this);
 
-    auto *btn_9 = new QPushButton("9",this);
-    auto *btn_10 = new QPushButton("10",this);
-    auto *btn_11 = new QPushButton("11",this);
-    auto *btn_12 = new QPushButton("12",this);
-    auto *btn_13 = new QPushButton("13",this);
-    auto *btn_14 = new QPushButton("14",this);
-    auto *btn_15 = new QPushButton("15",this);
-    auto *btn_16 = new QPushButton("16",this);
+    auto *btn_9 = new QPushButton("",this);
+    auto *btn_10 = new QPushButton("",this);
+    auto *btn_11 = new QPushButton("",this);
+    auto *btn_12 = new QPushButton("",this);
+    auto *btn_13 = new QPushButton("",this);
+    auto *btn_14 = new QPushButton("",this);
+    auto *btn_15 = new QPushButton("",this);
+    auto *btn_16 = new QPushButton("",this);
 
-    auto *btn_17 = new QPushButton("17",this);
-    auto *btn_18 = new QPushButton("18",this);
-    auto *btn_19 = new QPushButton("19",this);
-    auto *btn_20 = new QPushButton("20",this);
-    auto *btn_21 = new QPushButton("21",this);
-    auto *btn_22 = new QPushButton("22",this);
-    auto *btn_23 = new QPushButton("23",this);
-    auto *btn_24 = new QPushButton("24",this);
+    auto *btn_17 = new QPushButton("",this);
+    auto *btn_18 = new QPushButton("",this);
+    auto *btn_19 = new QPushButton("",this);
+    auto *btn_20 = new QPushButton("",this);
+    auto *btn_21 = new QPushButton("",this);
+    auto *btn_22 = new QPushButton("",this);
+    auto *btn_23 = new QPushButton("",this);
+    auto *btn_24 = new QPushButton("",this);
 
-    auto *btn_25 = new QPushButton("25",this);
-    auto *btn_26 = new QPushButton("26",this);
-    auto *btn_27 = new QPushButton("27",this);
-    auto *btn_28 = new QPushButton("28",this);
-    auto *btn_29 = new QPushButton("29",this);
-    auto *btn_30 = new QPushButton("30",this);
-    auto *btn_31 = new QPushButton("31",this);
-    auto *btn_32 = new QPushButton("32",this);
+    auto *btn_25 = new QPushButton("",this);
+    auto *btn_26 = new QPushButton("",this);
+    auto *btn_27 = new QPushButton("",this);
+    auto *btn_28 = new QPushButton("",this);
+    auto *btn_29 = new QPushButton("",this);
+    auto *btn_30 = new QPushButton("",this);
+    auto *btn_31 = new QPushButton("",this);
+    auto *btn_32 = new QPushButton("",this);
+
+    btn_1->setCheckable(true); btn_1->setFlat(true);
+    btn_2->setCheckable(true); btn_2->setFlat(true);
+    btn_3->setCheckable(true); btn_3->setFlat(true);
+    btn_4->setCheckable(true); btn_4->setFlat(true);
+    btn_5->setCheckable(true); btn_5->setFlat(true);
+    btn_6->setCheckable(true); btn_6->setFlat(true);
+    btn_7->setCheckable(true); btn_7->setFlat(true);
+    btn_8->setCheckable(true); btn_8->setFlat(true);
+    btn_9->setCheckable(true); btn_9->setFlat(true);
+    btn_10->setCheckable(true); btn_10->setFlat(true);
+    btn_11->setCheckable(true); btn_11->setFlat(true);
+    btn_12->setCheckable(true); btn_12->setFlat(true);
+    btn_13->setCheckable(true); btn_13->setFlat(true);
+    btn_14->setCheckable(true); btn_14->setFlat(true);
+    btn_15->setCheckable(true); btn_15->setFlat(true);
+    btn_16->setCheckable(true); btn_16->setFlat(true);
+    btn_17->setCheckable(true); btn_17->setFlat(true);
+    btn_18->setCheckable(true); btn_18->setFlat(true);
+    btn_19->setCheckable(true); btn_19->setFlat(true);
+    btn_20->setCheckable(true); btn_20->setFlat(true);
+    btn_21->setCheckable(true); btn_21->setFlat(true);
+    btn_22->setCheckable(true); btn_22->setFlat(true);
+    btn_23->setCheckable(true); btn_23->setFlat(true);
+    btn_24->setCheckable(true); btn_24->setFlat(true);
+    btn_25->setCheckable(true); btn_25->setFlat(true);
+    btn_26->setCheckable(true); btn_26->setFlat(true);
+    btn_27->setCheckable(true); btn_27->setFlat(true);
+    btn_28->setCheckable(true); btn_28->setFlat(true);
+    btn_29->setCheckable(true); btn_29->setFlat(true);
+    btn_30->setCheckable(true); btn_30->setFlat(true);
+    btn_31->setCheckable(true); btn_31->setFlat(true);
+    btn_32->setCheckable(true); btn_32->setFlat(true);
+
+
 
     QButtonGroup *icm_group = new QButtonGroup(this);
 
@@ -205,6 +240,12 @@ qek::qek(QWidget *parent) :
     QObject::connect(btn_30, &QPushButton::clicked, logic_btn_30, &Boton::pressed);
     QObject::connect(btn_31, &QPushButton::clicked, logic_btn_31, &Boton::pressed);
     QObject::connect(btn_32, &QPushButton::clicked, logic_btn_32, &Boton::pressed);
+
+    this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
+                        "QPushButton {image: url(':/qek/img/QEK/qek.png')}"
+                        "QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}"
+                        "QPushButton:hover {background-color: rgba(0,0,0,0); }"
+                        "QPushButton:pressed {background-color: rgba(0,0,0,0);");
 
 }
 

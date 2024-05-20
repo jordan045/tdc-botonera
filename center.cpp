@@ -7,49 +7,57 @@
 center::center(QWidget *parent) :
     QWidget(parent)
 {
-    auto *btn_1 = new QPushButton("1",this);
-    auto *btn_2 = new QPushButton("2",this);
-    auto *btn_3 = new QPushButton("3",this);
-    auto *btn_4 = new QPushButton("4",this);
-    auto *btn_5 = new QPushButton("5",this);
-    auto *btn_6 = new QPushButton("6",this);
-
-    QButtonGroup *label_group = new QButtonGroup(this);
-
-    label_group->addButton(btn_1,1);
-    label_group->addButton(btn_2,2);
-    label_group->addButton(btn_3,3);
-    label_group->addButton(btn_4,4);
-    label_group->addButton(btn_5,5);
-    label_group->addButton(btn_6,6);
+    auto *cu_or_off_cent = new QPushButton("",this);
+    auto *cu_or_cent = new QPushButton("",this);
+    auto *off_cent = new QPushButton("",this);
+    auto *cent = new QPushButton("",this);
+    auto *reset_obm = new QPushButton("",this);
+    auto *data_req = new QPushButton("",this);
 
     auto layout = new QVBoxLayout;
-    layout->addWidget(btn_1);
-    layout->addWidget(btn_2);
-    layout->addWidget(btn_3);
-    layout->addWidget(btn_4);
-    layout->addWidget(btn_5);
-    layout->addWidget(btn_6);
+    layout->addWidget(cu_or_off_cent);
+    layout->addWidget(cu_or_cent);
+    layout->addWidget(off_cent);
+    layout->addWidget(cent);
+    layout->addWidget(reset_obm);
+    layout->addWidget(data_req);
 
 
     this->setLayout(layout);
 
     //graphic buttons
-    auto *logic_btn_1   = new Boton(1,this);
-    auto *logic_btn_2   = new Boton(2,this);
-    auto *logic_btn_3   = new Boton(3,this);
-    auto *logic_btn_4  = new Boton(4,this);
-    auto *logic_btn_5  = new Boton(5,this);
-    auto *logic_btn_6  = new Boton(6,this);
+    auto *logic_cu_or_off_cent   = new Boton(1,this);
+    auto *logic_cu_or_cent   = new Boton(2,this);
+    auto *logic_off_cent   = new Boton(3,this);
+    auto *logic_cent  = new Boton(4,this);
+    auto *logic_reset_obm  = new Boton(5,this);
+    auto *logic_data_req  = new Boton(6,this);
 
 
-    QObject::connect(btn_1,&QPushButton::clicked,logic_btn_1,&Boton::pressed);
-    QObject::connect(btn_2,&QPushButton::clicked,logic_btn_2,&Boton::pressed);
-    QObject::connect(btn_3,&QPushButton::clicked,logic_btn_3,&Boton::pressed);
-    QObject::connect(btn_4,&QPushButton::clicked,logic_btn_4,&Boton::pressed);
-    QObject::connect(btn_5,&QPushButton::clicked,logic_btn_5,&Boton::pressed);
-    QObject::connect(btn_6,&QPushButton::clicked,logic_btn_6,&Boton::pressed);
+    QObject::connect(cu_or_off_cent,&QPushButton::clicked,logic_cu_or_off_cent,&Boton::pressed);
+    QObject::connect(cu_or_cent,&QPushButton::clicked,logic_cu_or_cent,&Boton::pressed);
+    QObject::connect(off_cent,&QPushButton::clicked,logic_off_cent,&Boton::pressed);
+    QObject::connect(cent,&QPushButton::clicked,logic_cent,&Boton::pressed);
+    QObject::connect(reset_obm,&QPushButton::clicked,logic_reset_obm,&Boton::pressed);
+    QObject::connect(data_req,&QPushButton::clicked,logic_data_req,&Boton::pressed);
 
+    this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
+                        "QPushButton:hover {background-color: rgba(0,0,0,0); }"
+                        "QPushButton:pressed {background-color: rgba(0,0,0,0);");
 
+    cu_or_off_cent->setStyleSheet("QPushButton {image: url(':/center/img/Center/cooc.png')}"
+                                "QPushButton:pressed {image: url(':/center/img/Center/cooc_pressed.png')}");
+
+    cu_or_cent->setStyleSheet("QPushButton {image: url(':/center/img/Center/coc.png')}"
+                                  "QPushButton:pressed {image: url(':/center/img/Center/coc_pressed.png')}");
+
+    off_cent->setStyleSheet("QPushButton {image: url(':/center/img/Center/oc.png')}"
+                                  "QPushButton:pressed {image: url(':/center/img/Center/oc_pressed.png')}");
+
+    cent->setStyleSheet("QPushButton {image: url(':/center/img/Center/cent.png')}"
+                                  "QPushButton:pressed {image: url(':/center/img/Center/cent_pressed.png')}");
+
+    reset_obm->setStyleSheet("QPushButton {image: url(':/center/img/Center/reset_obm.png')}"
+                                  "QPushButton:pressed {image: url(':/center/img/Center/reset_obm_pressed.png')}");
 }
 

@@ -9,7 +9,7 @@ botonera::botonera(QWidget *parent) :
     q = new qek();
     t = new threat();
     c = new center();
-    d = new display();
+    d = new display_mode();
     i = new icm();
 }
 
