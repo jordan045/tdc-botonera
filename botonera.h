@@ -9,6 +9,7 @@
 #include <threat.h>
 #include <center.h>
 #include <display_mode.h>
+#include <display_selection.h>
 
 class botonera : public QWidget
 {
@@ -21,13 +22,14 @@ public slots:
    void iniciar();
 
    private:
-   range *r;
-   label *l;
-   qek *q;
-   threat *t;
-   center *c;
-   display_mode *d;
-   icm *i;
+   range *range_widget;
+   label *label_selection_widget;
+   qek *qek_widget;
+   threat *threat_assesment_widget;
+   center *center_widget;
+   display_mode *display_mode_widget;
+   Display_selection *display_selection_widget;
+   icm *icm_widget;
    int modo;
 };
 

@@ -26,12 +26,12 @@ center::center(QWidget *parent) :
     this->setLayout(layout);
 
     //graphic buttons
-    auto *logic_cu_or_off_cent   = new Boton(1,this);
-    auto *logic_cu_or_cent   = new Boton(2,this);
-    auto *logic_off_cent   = new Boton(3,this);
-    auto *logic_cent  = new Boton(4,this);
-    auto *logic_reset_obm  = new Boton(5,this);
-    auto *logic_data_req  = new Boton(6,this);
+    auto *logic_cu_or_off_cent   = new Boton("CU OR OFF CENT",this);
+    auto *logic_cu_or_cent   = new Boton("CU OR CENT",this);
+    auto *logic_off_cent   = new Boton("OFF CENT",this);
+    auto *logic_cent  = new Boton("CENT",this);
+    auto *logic_reset_obm  = new Boton("RESET OBM",this);
+    auto *logic_data_req  = new Boton("DATA REQ",this);
 
 
     QObject::connect(cu_or_off_cent,&QPushButton::clicked,logic_cu_or_off_cent,&Boton::pressed);

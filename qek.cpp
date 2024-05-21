@@ -169,41 +169,41 @@ qek::qek(QWidget *parent) :
     this->setLayout(layoutgral);
 
     //graphic buttons
-    auto *logic_btn_1  = new Boton(1, this);
-    auto *logic_btn_2  = new Boton(2, this);
-    auto *logic_btn_3  = new Boton(3, this);
-    auto *logic_btn_4  = new Boton(4, this);
-    auto *logic_btn_5  = new Boton(5, this);
-    auto *logic_btn_6  = new Boton(6, this);
-    auto *logic_btn_7  = new Boton(7, this);
-    auto *logic_btn_8  = new Boton(8, this);
+    auto *logic_btn_1  = new Boton("QEK 1", this);
+    auto *logic_btn_2  = new Boton("QEK 2", this);
+    auto *logic_btn_3  = new Boton("QEK 3", this);
+    auto *logic_btn_4  = new Boton("QEK 4", this);
+    auto *logic_btn_5  = new Boton("QEK 5", this);
+    auto *logic_btn_6  = new Boton("QEK 6", this);
+    auto *logic_btn_7  = new Boton("QEK 7", this);
+    auto *logic_btn_8  = new Boton("QEK 8", this);
 
-    auto *logic_btn_9  = new Boton(9, this);
-    auto *logic_btn_10 = new Boton(10, this);
-    auto *logic_btn_11 = new Boton(11, this);
-    auto *logic_btn_12 = new Boton(12, this);
-    auto *logic_btn_13 = new Boton(13, this);
-    auto *logic_btn_14 = new Boton(14, this);
-    auto *logic_btn_15 = new Boton(15, this);
-    auto *logic_btn_16 = new Boton(16, this);
+    auto *logic_btn_9  = new Boton("QEK 9", this);
+    auto *logic_btn_10 = new Boton("QEK 10", this);
+    auto *logic_btn_11 = new Boton("QEK 11", this);
+    auto *logic_btn_12 = new Boton("QEK 12", this);
+    auto *logic_btn_13 = new Boton("QEK 13", this);
+    auto *logic_btn_14 = new Boton("QEK 14", this);
+    auto *logic_btn_15 = new Boton("QEK 15", this);
+    auto *logic_btn_16 = new Boton("QEK 16", this);
 
-    auto *logic_btn_17 = new Boton(17, this);
-    auto *logic_btn_18 = new Boton(18, this);
-    auto *logic_btn_19 = new Boton(19, this);
-    auto *logic_btn_20 = new Boton(20, this);
-    auto *logic_btn_21 = new Boton(21, this);
-    auto *logic_btn_22 = new Boton(22, this);
-    auto *logic_btn_23 = new Boton(23, this);
-    auto *logic_btn_24 = new Boton(24, this);
+    auto *logic_btn_17 = new Boton("QEK 17", this);
+    auto *logic_btn_18 = new Boton("QEK 18", this);
+    auto *logic_btn_19 = new Boton("QEK 19", this);
+    auto *logic_btn_20 = new Boton("QEK 20", this);
+    auto *logic_btn_21 = new Boton("QEK 21", this);
+    auto *logic_btn_22 = new Boton("QEK 22", this);
+    auto *logic_btn_23 = new Boton("QEK 23", this);
+    auto *logic_btn_24 = new Boton("QEK 24", this);
 
-    auto *logic_btn_25 = new Boton(25, this);
-    auto *logic_btn_26 = new Boton(26, this);
-    auto *logic_btn_27 = new Boton(27, this);
-    auto *logic_btn_28 = new Boton(28, this);
-    auto *logic_btn_29 = new Boton(29, this);
-    auto *logic_btn_30 = new Boton(30, this);
-    auto *logic_btn_31 = new Boton(31, this);
-    auto *logic_btn_32 = new Boton(32, this);
+    auto *logic_btn_25 = new Boton("QEK 25", this);
+    auto *logic_btn_26 = new Boton("QEK 26", this);
+    auto *logic_btn_27 = new Boton("QEK 27", this);
+    auto *logic_btn_28 = new Boton("QEK 28", this);
+    auto *logic_btn_29 = new Boton("QEK 29", this);
+    auto *logic_btn_30 = new Boton("QEK 30", this);
+    auto *logic_btn_31 = new Boton("QEK 31", this);
+    auto *logic_btn_32 = new Boton("QEK 32", this);
 
     QObject::connect(btn_1, &QPushButton::clicked, logic_btn_1, &Boton::pressed);
     QObject::connect(btn_2, &QPushButton::clicked, logic_btn_2, &Boton::pressed);

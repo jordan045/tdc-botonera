@@ -44,11 +44,11 @@ label::label(QWidget *parent) :
     this->setLayout(layout);
 
     //graphic buttons
-    auto *logic_ms   = new Boton(1,this);
-    auto *logic_trkm   = new Boton(2,this);
-    auto *logic_ampl_info   = new Boton(3,this);
-    auto *logic_link_stat  = new Boton(4,this);
-    auto *logic_tn  = new Boton(5,this);
+    auto *logic_ms   = new Boton("MS",this);
+    auto *logic_trkm   = new Boton("TRKM",this);
+    auto *logic_ampl_info   = new Boton("AMPL INFO",this);
+    auto *logic_link_stat  = new Boton("LINK STAT",this);
+    auto *logic_tn  = new Boton("TN",this);
 
 
     QObject::connect(ms,&QPushButton::clicked,logic_ms,&Boton::pressed);

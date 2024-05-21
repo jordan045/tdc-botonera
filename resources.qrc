@@ -69,6 +69,7 @@
         <file>img/Range/128_pressed.png</file>
         <file>img/Range/256.png</file>
         <file>img/Range/256_pressed.png</file>
+        <file>img/Range/2.png</file>
     </qresource>
     <qresource prefix="/display_selection">
         <file>img/Display Selection/air.png</file>

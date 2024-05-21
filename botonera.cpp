@@ -1,16 +1,19 @@
 #include "botonera.h"
+#include "display_selection.h"
 #include <QVBoxLayout>
 #include <QLabel>
+
 botonera::botonera(QWidget *parent) :
     QWidget(parent)
 {
-    r = new range();
-    l = new label();
-    q = new qek();
-    t = new threat();
-    c = new center();
-    d = new display_mode();
-    i = new icm();
+    range_widget = new range();
+    label_selection_widget = new label();
+    qek_widget = new qek();
+    threat_assesment_widget = new threat();
+    center_widget = new center();
+    display_mode_widget = new display_mode();
+    icm_widget = new icm();
+    display_selection_widget = new Display_selection();
 }
 
 void botonera::setmodo(int i)
@@ -31,15 +34,16 @@ void botonera::iniciar()
     layout->addWidget(c,0,2);
 */
     QVBoxLayout *midLay = new QVBoxLayout();
-    midLay->addWidget(r);
-    midLay->addWidget(q);
-    midLay->addWidget(t);
-    midLay->addWidget(d);
-    midLay->addWidget(l);
+    midLay->addWidget(range_widget);
+    midLay->addWidget(qek_widget);
+    midLay->addWidget(threat_assesment_widget);
+    midLay->addWidget(display_mode_widget);
+    midLay->addWidget(label_selection_widget);
+    midLay->addWidget(display_selection_widget);
 
-    layout->addWidget(i);
+    layout->addWidget(icm_widget);
     layout->addLayout(midLay);
-    layout->addWidget(c);
+    layout->addWidget(center_widget);
 
     //QString texto = QString::number(modo);
     //QLabel *label = new QLabel(texto);

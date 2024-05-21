@@ -33,11 +33,11 @@ threat::threat(QWidget *parent) :
     this->setLayout(layout);
 
     //graphic buttons
-    auto *logic_btn_12_sec  = new Boton(1,this);
-    auto *logic_btn_30_sec  = new Boton(2,this);
-    auto *logic_btn_6_min  = new Boton(3,this);
-    auto *logic_btn_15_min  = new Boton(4,this);
-    auto *logic_btn_reset  = new Boton(5,this);
+    auto *logic_btn_12_sec  = new Boton("12 SEC",this);
+    auto *logic_btn_30_sec  = new Boton("30 SEC",this);
+    auto *logic_btn_6_min   = new Boton("6 MIN",this);
+    auto *logic_btn_15_min  = new Boton("15 MIN",this);
+    auto *logic_btn_reset   = new Boton("RESET",this);
 
 
     QObject::connect(btn_12_sec,&QRadioButton::clicked,logic_btn_12_sec,&Boton::pressed);

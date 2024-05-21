@@ -46,13 +46,13 @@ icm::icm(QWidget *parent) :
     this->setLayout(layout);
 
     //graphic buttons
-    auto *logic_btn_1 = new Boton(1,this);
-    auto *logic_btn_2 = new Boton(2,this);
-    auto *logic_btn_3 = new Boton(3,this);
-    auto *logic_btn_4 = new Boton(4,this);
-    auto *logic_btn_5 = new Boton(5,this);
-    auto *logic_btn_6 = new Boton(6,this);
-    auto *logic_btn_7 = new Boton(7,this);
+    auto *logic_btn_1 = new Boton("ICM 1",this);
+    auto *logic_btn_2 = new Boton("ICM 2",this);
+    auto *logic_btn_3 = new Boton("ICM 3",this);
+    auto *logic_btn_4 = new Boton("ICM 4",this);
+    auto *logic_btn_5 = new Boton("ICM 5",this);
+    auto *logic_btn_6 = new Boton("ICM 6",this);
+    auto *logic_btn_7 = new Boton("ICM 7",this);
 
     QObject::connect(btn_1,&QPushButton::clicked,logic_btn_1,&Boton::pressed);
     QObject::connect(btn_2,&QPushButton::clicked,logic_btn_2,&Boton::pressed);

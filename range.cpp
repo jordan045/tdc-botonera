@@ -29,14 +29,14 @@ void range::createGraphicsButtons()
 
 void range::createLogicButtons()
 {
-    logic_btn_2   = new Boton(2,this);
-    logic_btn_4   = new Boton(4,this);
-    logic_btn_8   = new Boton(8,this);
-    logic_btn_16  = new Boton(16,this);
-    logic_btn_32  = new Boton(32,this);
-    logic_btn_64  = new Boton(64,this);
-    logic_btn_128 = new Boton(128,this);
-    logic_btn_256 = new Boton(256,this);
+    logic_btn_2   = new Boton("RANGE 2",this);
+    logic_btn_4   = new Boton("RANGE 4",this);
+    logic_btn_8   = new Boton("RANGE 8",this);
+    logic_btn_16  = new Boton("RANGE 16",this);
+    logic_btn_32  = new Boton("RANGE 32",this);
+    logic_btn_64  = new Boton("RANGE 64",this);
+    logic_btn_128 = new Boton("RANGE 128",this);
+    logic_btn_256 = new Boton("RANGE 256",this);
 }
 
 void range::createButtonGroup()
@@ -85,7 +85,7 @@ void range::style()
 
     btn_2->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
                          "QRadioButton::indicator::unchecked {image: url(':/range/img/Range/2.png')}"
-                         "QRadioButton::indicator::checked {image: url(':/range/img/Range/2_pressed.png)}");
+                         "QRadioButton::indicator::checked {image: url(':/range/img/Range/2_pressed.png')}");
 
     btn_4->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
                          "QRadioButton::indicator::unchecked {image: url(':/range/img/Range/4.png')}"
