@@ -12,6 +12,7 @@ SOURCES += \
     boton.cpp \
     botonera.cpp \
     center.cpp \
+    estado.cpp \
     display_mode.cpp \
     display_selection.cpp \
     icm.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     boton.h \
     botonera.h \
     center.h \
+    estado.h \
     display_mode.h \
     display_selection.h \
     icm.h \
