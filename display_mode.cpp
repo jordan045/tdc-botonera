@@ -1,12 +1,16 @@
 #include "display_mode.h"
+#include "botonera.h"
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QButtonGroup>
 #include <boton.h>
 
-display_mode::display_mode(QWidget *parent) :
-    QWidget(parent)
+display_mode::display_mode(botonera *b)
 {
+    qDebug() << "Display Mode ready";
+
+    miBotonera = b;
+
     auto *hm = new QPushButton("",this);
     auto *rr = new QPushButton("",this);
     auto *own_curs = new QPushButton("",this);
@@ -36,7 +40,7 @@ display_mode::display_mode(QWidget *parent) :
     syst_alarm->setCheckable(true);
     syst_alarm->setFlat(true);
 
-    QButtonGroup *display_mode_group = new QButtonGroup(this);
+    QButtonGroup *display_mode_group = new QButtonGroup();
     display_mode_group->setExclusive(false);
 
     display_mode_group->addButton(hm,1);
@@ -59,13 +63,13 @@ display_mode::display_mode(QWidget *parent) :
     this->setLayout(layout);
 
     //graphic buttons
-    auto *logic_hm   = new Boton("HM",this);
-    auto *logic_rr   = new Boton("RR",this);
-    auto *logic_own_curs   = new Boton("OWN CURS",this);
-    auto *logic_symb_large  = new Boton("SYMB LARGE",this);
-    auto *logic_tm  = new Boton("TM",this);
-    auto *logic_emerg  = new Boton("EMERG",this);
-    auto *logic_syst_alarm = new Boton("SYST ALARM",this);
+    auto *logic_hm   = new Boton(this, "HM");
+    auto *logic_rr   = new Boton(this, "RR");
+    auto *logic_own_curs   = new Boton(this, "OWN CURS");
+    auto *logic_symb_large  = new Boton(this, "SYMB LARGE");
+    auto *logic_tm  = new Boton(this, "TM");
+    auto *logic_emerg  = new Boton(this, "EMERG");
+    auto *logic_syst_alarm = new Boton(this, "SYST ALARM");
 
     QObject::connect(hm,&QPushButton::clicked,logic_hm,&Boton::pressed);
     QObject::connect(rr,&QPushButton::clicked,logic_rr,&Boton::pressed);
@@ -77,7 +81,7 @@ display_mode::display_mode(QWidget *parent) :
 
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
                         "QPushButton:hover {background-color: rgba(0,0,0,0); }"
-                        "QPushButton:checked {background-color: rgba(0,0,0,0);");
+                        "QPushButton:checked {background-color: rgba(0,0,0,0);}");
 
     hm->setStyleSheet("QPushButton {image: url(':/display_mode/img/Display Mode/hm.png')}"
                       "QPushButton:checked {image: url(':/display_mode/img/Display Mode/hm_pressed.png')}");
@@ -101,4 +105,9 @@ display_mode::display_mode(QWidget *parent) :
                               "QPushButton:checked {image: url(':/display_mode/img/Display Mode/syst_alarm_pressed.png')}");
 
 
+}
+
+void display_mode::sendCode(QString code)
+{
+    miBotonera->sendCodeToEstado(this, &code);
 }

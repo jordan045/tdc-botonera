@@ -1,12 +1,19 @@
 #ifndef CENTER_H
 #define CENTER_H
 
+#include "Zone.h"
 #include <QWidget>
-class center : public QWidget
+
+class botonera;
+class center : public Zone
 {
-    Q_OBJECT
+
 public:
-    explicit center(QWidget *parent = nullptr);
+    explicit center(botonera *b);
+    void sendCode(QString code) override;
+
+private:
+    botonera *miBotonera;
 };
 
 #endif // CENTER_H

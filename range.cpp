@@ -1,18 +1,26 @@
 #include "range.h"
+#include "botonera.h"
 #include <QRadioButton>
 #include <QHBoxLayout>
 #include <QButtonGroup>
 #include <boton.h>
 
-range::range(QWidget *parent) :
-    QWidget(parent)
+range::range(botonera *b)
+
 {
+    qDebug() << "range ready";
+    miBotonera = b;
     createGraphicsButtons();
     createLogicButtons();
     createButtonGroup();
     connection();
     createLayout();
     style();
+}
+
+void range::sendCode(QString code)
+{
+    miBotonera->sendCodeToEstado(this, &code);
 }
 
 void range::createGraphicsButtons()
@@ -29,19 +37,19 @@ void range::createGraphicsButtons()
 
 void range::createLogicButtons()
 {
-    logic_btn_2   = new Boton("RANGE 2",this);
-    logic_btn_4   = new Boton("RANGE 4",this);
-    logic_btn_8   = new Boton("RANGE 8",this);
-    logic_btn_16  = new Boton("RANGE 16",this);
-    logic_btn_32  = new Boton("RANGE 32",this);
-    logic_btn_64  = new Boton("RANGE 64",this);
-    logic_btn_128 = new Boton("RANGE 128",this);
-    logic_btn_256 = new Boton("RANGE 256",this);
+    logic_btn_2   = new Boton(this,"RANGE 2");
+    logic_btn_4   = new Boton(this,"RANGE 4");
+    logic_btn_8   = new Boton(this,"RANGE 8");
+    logic_btn_16  = new Boton(this,"RANGE 16");
+    logic_btn_32  = new Boton(this,"RANGE 32");
+    logic_btn_64  = new Boton(this,"RANGE 64");
+    logic_btn_128 = new Boton(this,"RANGE 128");
+    logic_btn_256 = new Boton(this,"RANGE 256");
 }
 
 void range::createButtonGroup()
 {
-    range_group = new QButtonGroup(this);
+    range_group = new QButtonGroup();
     range_group->addButton(btn_2,2);
     range_group->addButton(btn_4,4);
     range_group->addButton(btn_8,8);

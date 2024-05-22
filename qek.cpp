@@ -1,13 +1,17 @@
 #include "qek.h"
+#include "botonera.h"
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QButtonGroup>
 #include <QVBoxLayout>
 #include <boton.h>
 
-qek::qek(QWidget *parent) :
-    QWidget(parent)
+qek::qek(botonera *b)
 {
+    qDebug() << "QEK ready";
+
+    miBotonera = b;
+
     auto *btn_1 = new QPushButton("",this);
     auto *btn_2 = new QPushButton("",this);
     auto *btn_3 = new QPushButton("",this);
@@ -79,7 +83,7 @@ qek::qek(QWidget *parent) :
 
 
 
-    QButtonGroup *icm_group = new QButtonGroup(this);
+    QButtonGroup *icm_group = new QButtonGroup();
 
     icm_group->addButton(btn_1,1);
     icm_group->addButton(btn_2,2);
@@ -169,41 +173,41 @@ qek::qek(QWidget *parent) :
     this->setLayout(layoutgral);
 
     //graphic buttons
-    auto *logic_btn_1  = new Boton("QEK 1", this);
-    auto *logic_btn_2  = new Boton("QEK 2", this);
-    auto *logic_btn_3  = new Boton("QEK 3", this);
-    auto *logic_btn_4  = new Boton("QEK 4", this);
-    auto *logic_btn_5  = new Boton("QEK 5", this);
-    auto *logic_btn_6  = new Boton("QEK 6", this);
-    auto *logic_btn_7  = new Boton("QEK 7", this);
-    auto *logic_btn_8  = new Boton("QEK 8", this);
+    auto *logic_btn_1  = new Boton(this, "QEK 1");
+    auto *logic_btn_2  = new Boton(this, "QEK 2");
+    auto *logic_btn_3  = new Boton(this, "QEK 3");
+    auto *logic_btn_4  = new Boton(this, "QEK 4");
+    auto *logic_btn_5  = new Boton(this, "QEK 5");
+    auto *logic_btn_6  = new Boton(this, "QEK 6");
+    auto *logic_btn_7  = new Boton(this, "QEK 7");
+    auto *logic_btn_8  = new Boton(this, "QEK 8");
 
-    auto *logic_btn_9  = new Boton("QEK 9", this);
-    auto *logic_btn_10 = new Boton("QEK 10", this);
-    auto *logic_btn_11 = new Boton("QEK 11", this);
-    auto *logic_btn_12 = new Boton("QEK 12", this);
-    auto *logic_btn_13 = new Boton("QEK 13", this);
-    auto *logic_btn_14 = new Boton("QEK 14", this);
-    auto *logic_btn_15 = new Boton("QEK 15", this);
-    auto *logic_btn_16 = new Boton("QEK 16", this);
+    auto *logic_btn_9  = new Boton(this, "QEK 9");
+    auto *logic_btn_10 = new Boton(this, "QEK 10");
+    auto *logic_btn_11 = new Boton(this, "QEK 11");
+    auto *logic_btn_12 = new Boton(this, "QEK 12");
+    auto *logic_btn_13 = new Boton(this, "QEK 13");
+    auto *logic_btn_14 = new Boton(this, "QEK 14");
+    auto *logic_btn_15 = new Boton(this, "QEK 15");
+    auto *logic_btn_16 = new Boton(this, "QEK 16");
 
-    auto *logic_btn_17 = new Boton("QEK 17", this);
-    auto *logic_btn_18 = new Boton("QEK 18", this);
-    auto *logic_btn_19 = new Boton("QEK 19", this);
-    auto *logic_btn_20 = new Boton("QEK 20", this);
-    auto *logic_btn_21 = new Boton("QEK 21", this);
-    auto *logic_btn_22 = new Boton("QEK 22", this);
-    auto *logic_btn_23 = new Boton("QEK 23", this);
-    auto *logic_btn_24 = new Boton("QEK 24", this);
+    auto *logic_btn_17 = new Boton(this, "QEK 17");
+    auto *logic_btn_18 = new Boton(this, "QEK 18");
+    auto *logic_btn_19 = new Boton(this, "QEK 19");
+    auto *logic_btn_20 = new Boton(this, "QEK 20");
+    auto *logic_btn_21 = new Boton(this, "QEK 21");
+    auto *logic_btn_22 = new Boton(this, "QEK 22");
+    auto *logic_btn_23 = new Boton(this, "QEK 23");
+    auto *logic_btn_24 = new Boton(this, "QEK 24");
 
-    auto *logic_btn_25 = new Boton("QEK 25", this);
-    auto *logic_btn_26 = new Boton("QEK 26", this);
-    auto *logic_btn_27 = new Boton("QEK 27", this);
-    auto *logic_btn_28 = new Boton("QEK 28", this);
-    auto *logic_btn_29 = new Boton("QEK 29", this);
-    auto *logic_btn_30 = new Boton("QEK 30", this);
-    auto *logic_btn_31 = new Boton("QEK 31", this);
-    auto *logic_btn_32 = new Boton("QEK 32", this);
+    auto *logic_btn_25 = new Boton(this, "QEK 25");
+    auto *logic_btn_26 = new Boton(this, "QEK 26");
+    auto *logic_btn_27 = new Boton(this, "QEK 27");
+    auto *logic_btn_28 = new Boton(this, "QEK 28");
+    auto *logic_btn_29 = new Boton(this, "QEK 29");
+    auto *logic_btn_30 = new Boton(this, "QEK 30");
+    auto *logic_btn_31 = new Boton(this, "QEK 31");
+    auto *logic_btn_32 = new Boton(this, "QEK 32");
 
     QObject::connect(btn_1, &QPushButton::clicked, logic_btn_1, &Boton::pressed);
     QObject::connect(btn_2, &QPushButton::clicked, logic_btn_2, &Boton::pressed);
@@ -245,7 +249,12 @@ qek::qek(QWidget *parent) :
                         "QPushButton {image: url(':/qek/img/QEK/qek.png')}"
                         "QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}"
                         "QPushButton:hover {background-color: rgba(0,0,0,0); }"
-                        "QPushButton:pressed {background-color: rgba(0,0,0,0);");
+                        "QPushButton:pressed {background-color: rgba(0,0,0,0);}");
 
+}
+
+void qek::sendCode(QString code)
+{
+    miBotonera->sendCodeToEstado(this, &code);
 }
 

@@ -1,13 +1,19 @@
 #ifndef QEK_H
 #define QEK_H
 
+#include "Zone.h"
 #include <QWidget>
 
-class qek : public QWidget
+class botonera;
+class qek : public Zone
 {
-    Q_OBJECT
+
 public:
-    explicit qek(QWidget *parent = nullptr);
+    explicit qek(botonera *b);
+    void sendCode(QString code) override;
+
+private:
+    botonera *miBotonera;
 };
 
 #endif // QEK_H

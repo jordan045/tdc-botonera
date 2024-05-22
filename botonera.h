@@ -1,6 +1,7 @@
 #ifndef BOTONERA_H
 #define BOTONERA_H
 
+#include "estado.h"
 #include <QWidget>
 #include <range.h>
 #include <icm.h>
@@ -17,12 +18,20 @@ class botonera : public QWidget
 public:
    explicit botonera(QWidget *parent = nullptr);
     void setmodo(int i);
+    void sendCodeToEstado(center *z, QString *boton);
+    void sendCodeToEstado(display_mode *z, QString *boton);
+    void sendCodeToEstado(Display_selection *z, QString *boton);
+    void sendCodeToEstado(icm *z, QString *boton);
+    void sendCodeToEstado(label *z, QString *boton);
+    void sendCodeToEstado(qek *z, QString *boton);
+    void sendCodeToEstado(range *z, QString *boton);
+    void sendCodeToEstado(threat *z, QString *boton);
 
 public slots:
    void iniciar();
 
    private:
-   range *range_widget;
+   Zone *range_widget;
    label *label_selection_widget;
    qek *qek_widget;
    threat *threat_assesment_widget;
@@ -30,6 +39,8 @@ public slots:
    display_mode *display_mode_widget;
    Display_selection *display_selection_widget;
    icm *icm_widget;
+
+   Estado *miEstado;
    int modo;
 };
 

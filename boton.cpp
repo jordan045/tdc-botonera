@@ -1,8 +1,9 @@
 #include "boton.h"
 
-Boton::Boton(QString codigo, QObject *parent): QObject(parent) {
+Boton::Boton(Zone *z, QString codigo, QObject *parent): QObject(parent) {
     this->codigo = codigo;
-    //connect(miBoton,&QRadioButton::clicked, this, &Boton::pressed);
+    this->zona = z;
+
 }
 
 QString Boton::getCodigo(){
@@ -15,4 +16,5 @@ void Boton::setCodigo(QString n){
 
 void Boton::pressed(){
     qDebug() << "Mi codigo es: " << this->codigo;
+    this->zona->sendCode(this->codigo);
 }

@@ -1,13 +1,18 @@
 #ifndef ICM_H
 #define ICM_H
 
+#include "Zone.h"
 #include <QWidget>
 
-class icm : public QWidget
+class botonera;
+class icm : public Zone
 {
-    Q_OBJECT
 public:
-    explicit icm(QWidget *parent = nullptr);
+    explicit icm(botonera *b);
+    void sendCode(QString code) override;
+
+private:
+    botonera *miBotonera;
 };
 
 #endif // ICM_H

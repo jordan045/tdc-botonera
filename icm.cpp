@@ -1,12 +1,17 @@
 #include "icm.h"
+#include "botonera.h"
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QButtonGroup>
 #include <boton.h>
 
-icm::icm(QWidget *parent) :
-    QWidget(parent)
+icm::icm(botonera *b)
 {
+
+    qDebug() << "ICM ready";
+
+    miBotonera = b;
+
     auto *btn_1 = new QPushButton("",this);
     auto *btn_2 = new QPushButton("",this);
     auto *btn_3 = new QPushButton("",this);
@@ -23,7 +28,7 @@ icm::icm(QWidget *parent) :
     btn_6->setCheckable(true);
     btn_7->setCheckable(true);
 
-    QButtonGroup *icm_group = new QButtonGroup(this);
+    QButtonGroup *icm_group = new QButtonGroup();
     icm_group->setExclusive(false);
 
     icm_group->addButton(btn_1,1);
@@ -46,13 +51,13 @@ icm::icm(QWidget *parent) :
     this->setLayout(layout);
 
     //graphic buttons
-    auto *logic_btn_1 = new Boton("ICM 1",this);
-    auto *logic_btn_2 = new Boton("ICM 2",this);
-    auto *logic_btn_3 = new Boton("ICM 3",this);
-    auto *logic_btn_4 = new Boton("ICM 4",this);
-    auto *logic_btn_5 = new Boton("ICM 5",this);
-    auto *logic_btn_6 = new Boton("ICM 6",this);
-    auto *logic_btn_7 = new Boton("ICM 7",this);
+    auto *logic_btn_1 = new Boton(this, "ICM 1");
+    auto *logic_btn_2 = new Boton(this, "ICM 2");
+    auto *logic_btn_3 = new Boton(this, "ICM 3");
+    auto *logic_btn_4 = new Boton(this, "ICM 4");
+    auto *logic_btn_5 = new Boton(this, "ICM 5");
+    auto *logic_btn_6 = new Boton(this, "ICM 6");
+    auto *logic_btn_7 = new Boton(this, "ICM 7");
 
     QObject::connect(btn_1,&QPushButton::clicked,logic_btn_1,&Boton::pressed);
     QObject::connect(btn_2,&QPushButton::clicked,logic_btn_2,&Boton::pressed);
@@ -64,7 +69,7 @@ icm::icm(QWidget *parent) :
 
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
                         "QPushButton:hover {background-color: rgba(0,0,0,0); }"
-                        "QPushButton:pressed {background-color: rgba(0,0,0,0);");
+                        "QPushButton:pressed {background-color: rgba(0,0,0,0);}");
 
     btn_1->setStyleSheet("QPushButton {image: url(':/icm/img/ICM/1.png')}"
                       "QPushButton:checked {image: url(':/icm/img/ICM/1_pressed.png')}");
@@ -88,4 +93,9 @@ icm::icm(QWidget *parent) :
                          "QPushButton:checked {image: url(':/icm/img/ICM/7_pressed.png')}");
 
 
+}
+
+void icm::sendCode(QString code)
+{
+    miBotonera->sendCodeToEstado(this, &code);
 }

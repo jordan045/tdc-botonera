@@ -1,13 +1,19 @@
 #ifndef DISPLAY_SELECTION_H
 #define DISPLAY_SELECTION_H
 
+#include "Zone.h"
 #include <QWidget>
 
-class Display_selection : public QWidget
+class botonera;
+class Display_selection : public Zone
 {
-    Q_OBJECT
+
 public:
-    explicit Display_selection(QWidget *parent = nullptr);
+    explicit Display_selection(botonera *b);
+    void sendCode(QString code) override;
+
+private:
+    botonera *miBotonera;
 };
 
 #endif // DISPLAY_SELECTION_H

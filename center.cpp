@@ -1,12 +1,16 @@
 #include "center.h"
+#include "botonera.h"
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QButtonGroup>
 #include <boton.h>
 
-center::center(QWidget *parent) :
-    QWidget(parent)
+center::center(botonera *b)
 {
+    qDebug() << "Center ready";
+
+    miBotonera = b;
+
     auto *cu_or_off_cent = new QPushButton("",this);
     auto *cu_or_cent = new QPushButton("",this);
     auto *off_cent = new QPushButton("",this);
@@ -26,12 +30,12 @@ center::center(QWidget *parent) :
     this->setLayout(layout);
 
     //graphic buttons
-    auto *logic_cu_or_off_cent   = new Boton("CU OR OFF CENT",this);
-    auto *logic_cu_or_cent   = new Boton("CU OR CENT",this);
-    auto *logic_off_cent   = new Boton("OFF CENT",this);
-    auto *logic_cent  = new Boton("CENT",this);
-    auto *logic_reset_obm  = new Boton("RESET OBM",this);
-    auto *logic_data_req  = new Boton("DATA REQ",this);
+    auto *logic_cu_or_off_cent   = new Boton(this, "CU OR OFF CENT");
+    auto *logic_cu_or_cent   = new Boton(this, "CU OR CENT");
+    auto *logic_off_cent   = new Boton(this, "OFF CENT");
+    auto *logic_cent  = new Boton(this, "CENT");
+    auto *logic_reset_obm  = new Boton(this, "RESET OBM");
+    auto *logic_data_req  = new Boton(this, "DATA REQ");
 
 
     QObject::connect(cu_or_off_cent,&QPushButton::clicked,logic_cu_or_off_cent,&Boton::pressed);
@@ -43,7 +47,7 @@ center::center(QWidget *parent) :
 
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
                         "QPushButton:hover {background-color: rgba(0,0,0,0); }"
-                        "QPushButton:pressed {background-color: rgba(0,0,0,0);");
+                        "QPushButton:pressed {background-color: rgba(0,0,0,0);}");
 
     cu_or_off_cent->setStyleSheet("QPushButton {image: url(':/center/img/Center/cooc.png')}"
                                 "QPushButton:pressed {image: url(':/center/img/Center/cooc_pressed.png')}");
@@ -59,5 +63,10 @@ center::center(QWidget *parent) :
 
     reset_obm->setStyleSheet("QPushButton {image: url(':/center/img/Center/reset_obm.png')}"
                                   "QPushButton:pressed {image: url(':/center/img/Center/reset_obm_pressed.png')}");
+}
+
+void center::sendCode(QString code)
+{
+    miBotonera->sendCodeToEstado(this, &code);
 }
 

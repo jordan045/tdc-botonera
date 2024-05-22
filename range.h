@@ -1,17 +1,23 @@
 #ifndef RANGE_H
 #define RANGE_H
 
+#include "Zone.h"
 #include "boton.h"
+
 #include "qbuttongroup.h"
 #include <QWidget>
 
-class range : public QWidget
+class botonera;
+class range : public Zone
 {
-    Q_OBJECT
+
 public:
-    explicit range(QWidget *parent = nullptr);
+    explicit range(botonera *b);
+    void sendCode(QString code) override;
 
 private:
+
+    botonera *miBotonera;
 
     QAbstractButton *btn_2;
     QAbstractButton *btn_4;

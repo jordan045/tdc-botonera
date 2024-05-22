@@ -1,8 +1,8 @@
 #ifndef ESTADO_H
-#define ESTADO_H4
+#define ESTADO_H
 
-#include "botonera.h"
-
+#include "qwidget.h"
+#include <QString>
 /**
  * @brief The Estado class
  *
@@ -10,10 +10,11 @@
  * En esta clase ejerce el astado actual de los botones que estan presionados
  */
 
-class Estado
+class botonera;
+class Estado : public QWidget
 {
 public:
-    Estado();
+    Estado(botonera *b);
     void setEstado();
 
     void setRange(QString *r);
@@ -33,6 +34,8 @@ public:
     QString* getICM();
 
 private:
+    botonera *miBotonera;
+
     QString getInstance();
     //int getEstado();
     QString *range;

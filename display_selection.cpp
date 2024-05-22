@@ -1,12 +1,16 @@
 #include "display_selection.h"
 #include "boton.h"
+#include "botonera.h"
 #include "qboxlayout.h"
 #include "qbuttongroup.h"
 #include "qpushbutton.h"
 
-Display_selection::Display_selection(QWidget *parent) :
-    QWidget(parent)
+Display_selection::Display_selection(botonera *b)
 {
+    qDebug() << "Display Selection ready";
+
+    miBotonera = b;
+
     auto *air = new QPushButton("",this);
     auto *surf = new QPushButton("",this);
     auto *sub_surf = new QPushButton("",this);
@@ -41,7 +45,7 @@ Display_selection::Display_selection(QWidget *parent) :
     fig->setFlat(true);
 
     // Create a new QButtonGroup
-    QButtonGroup *display_selection = new QButtonGroup(this);
+    QButtonGroup *display_selection = new QButtonGroup();
 
     // Set exclusive property to false
     display_selection->setExclusive(false);
@@ -68,14 +72,14 @@ Display_selection::Display_selection(QWidget *parent) :
 
     this->setLayout(layout);
 
-    auto *logic_air = new Boton("AIR", this);
-    auto *logic_surf = new Boton("SURF", this);
-    auto *logic_sub_surf = new Boton("SUB SURF", this);
-    auto *logic_ref_pos = new Boton("REF POS", this);
-    auto *logic_bear_sel = new Boton("BEAR SEL", this);
-    auto *logic_link_sel = new Boton("LINK SEL", this);
-    auto *logic_warf_sel = new Boton("WARF SEL", this);
-    auto *logic_fig = new Boton("FIG", this);
+    auto *logic_air = new Boton(this, "AIR");
+    auto *logic_surf = new Boton(this, "SURF");
+    auto *logic_sub_surf = new Boton(this, "SUB SURF");
+    auto *logic_ref_pos = new Boton(this, "REF POS");
+    auto *logic_bear_sel = new Boton(this, "BEAR SEL");
+    auto *logic_link_sel = new Boton(this, "LINK SEL");
+    auto *logic_warf_sel = new Boton(this, "WARF SEL");
+    auto *logic_fig = new Boton(this, "FIG");
 
     QObject::connect(air, &QPushButton::clicked, logic_air, &Boton::pressed);
     QObject::connect(surf, &QPushButton::clicked, logic_surf, &Boton::pressed);
@@ -88,7 +92,7 @@ Display_selection::Display_selection(QWidget *parent) :
 
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
                         "QPushButton:hover {background-color: rgba(0,0,0,0); }"
-                        "QPushButton:pressed {background-color: rgba(0,0,0,0);");
+                        "QPushButton:pressed {background-color: rgba(0,0,0,0);}");
 
     air->setStyleSheet("QPushButton {image: url(':/display_selection/img/Display Selection/air.png')}"
                        "QPushButton:checked {image: url(':/display_selection/img/Display Selection/air_pressed.png')}");
@@ -114,4 +118,9 @@ Display_selection::Display_selection(QWidget *parent) :
     fig->setStyleSheet("QPushButton {image: url(':/display_selection/img/Display Selection/fig.png')}"
                        "QPushButton:checked {image: url(':/display_selection/img/Display Selection/fig_pressed.png')}");
 
+}
+
+void Display_selection::sendCode(QString code)
+{
+    miBotonera->sendCodeToEstado(this, &code);
 }

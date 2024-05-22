@@ -1,13 +1,19 @@
 #ifndef DISPLAY_MODE_H
 #define DISPLAY_MODE_H
 
+#include "Zone.h"
 #include <QWidget>
 
-class display_mode:public QWidget
+class botonera;
+class display_mode:public Zone
 {
-    Q_OBJECT
+
 public:
-   explicit display_mode(QWidget *parent = nullptr);
+   explicit display_mode(botonera *b);
+   void sendCode(QString code) override;
+
+private:
+    botonera *miBotonera;
 };
 
 #endif // DISPLAY_MODE_H

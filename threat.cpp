@@ -1,20 +1,22 @@
 #include "threat.h"
+#include "botonera.h"
 #include <QPushButton>
 #include <QRadioButton>
 #include <QHBoxLayout>
 #include <QButtonGroup>
 #include <boton.h>
 
-threat::threat(QWidget *parent) :
-    QWidget(parent)
+threat::threat(botonera *b)
 {
+    qDebug() << "threat ready";
+    miBotonera = b;
     auto *btn_12_sec = new QRadioButton("",this);
     auto *btn_30_sec = new QRadioButton("",this);
     auto *btn_6_min = new QRadioButton("",this);
     auto *btn_15_min = new QRadioButton("",this);
     auto *btn_reset = new QPushButton("",this);
 
-    QButtonGroup *threat_group = new QButtonGroup(this);
+    QButtonGroup *threat_group = new QButtonGroup();
 
     threat_group->addButton(btn_12_sec,1);
     threat_group->addButton(btn_30_sec,2);
@@ -33,11 +35,11 @@ threat::threat(QWidget *parent) :
     this->setLayout(layout);
 
     //graphic buttons
-    auto *logic_btn_12_sec  = new Boton("12 SEC",this);
-    auto *logic_btn_30_sec  = new Boton("30 SEC",this);
-    auto *logic_btn_6_min   = new Boton("6 MIN",this);
-    auto *logic_btn_15_min  = new Boton("15 MIN",this);
-    auto *logic_btn_reset   = new Boton("RESET",this);
+    auto *logic_btn_12_sec  = new Boton(this, "12 SEC");
+    auto *logic_btn_30_sec  = new Boton(this, "30 SEC");
+    auto *logic_btn_6_min   = new Boton(this, "6 MIN");
+    auto *logic_btn_15_min  = new Boton(this, "15 MIN");
+    auto *logic_btn_reset   = new Boton(this, "RESET");
 
 
     QObject::connect(btn_12_sec,&QRadioButton::clicked,logic_btn_12_sec,&Boton::pressed);
@@ -48,7 +50,7 @@ threat::threat(QWidget *parent) :
 
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
                         "QPushButton:hover {background-color: rgba(0,0,0,0); }"
-                        "QPushButton:pressed {background-color: rgba(0,0,0,0);");
+                        "QPushButton:pressed {background-color: rgba(0,0,0,0);}");
 
     btn_12_sec->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
                          "QRadioButton::indicator::unchecked {image: url(':/threat/img/Threat/12_sec.png')}"
@@ -68,5 +70,10 @@ threat::threat(QWidget *parent) :
 
     btn_reset->setStyleSheet("QPushButton {image: url(':/threat/img/Threat/reset.png')}"
                             "QPushButton:pressed {image: url(':/threat/img/Threat/reset_pressed.png')}");
+}
+
+void threat::sendCode(QString code)
+{
+    miBotonera->sendCodeToEstado(this, &code);
 }
 

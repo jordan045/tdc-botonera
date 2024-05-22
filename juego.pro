@@ -25,6 +25,7 @@ SOURCES += \
     threat.cpp
 
 HEADERS += \
+    Zone.h \
     boton.h \
     botonera.h \
     center.h \

@@ -1,12 +1,16 @@
 #include "label.h"
+#include "botonera.h"
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QButtonGroup>
 #include <boton.h>
 
-label::label(QWidget *parent) :
-    QWidget(parent)
+label::label(botonera *b)
 {
+    qDebug() << "Label ready";
+
+    miBotonera = b;
+
     auto *ms = new QPushButton("",this);
     auto *trkm = new QPushButton("",this);
     auto *ampl_info = new QPushButton("",this);
@@ -25,7 +29,7 @@ label::label(QWidget *parent) :
     link_stat->setFlat(true);
     tn->setFlat(true);
 
-    QButtonGroup *label_group = new QButtonGroup(this);
+    QButtonGroup *label_group = new QButtonGroup();
     label_group->setExclusive(false);
 
     label_group->addButton(ms,1);
@@ -44,11 +48,11 @@ label::label(QWidget *parent) :
     this->setLayout(layout);
 
     //graphic buttons
-    auto *logic_ms   = new Boton("MS",this);
-    auto *logic_trkm   = new Boton("TRKM",this);
-    auto *logic_ampl_info   = new Boton("AMPL INFO",this);
-    auto *logic_link_stat  = new Boton("LINK STAT",this);
-    auto *logic_tn  = new Boton("TN",this);
+    auto *logic_ms   = new Boton(this, "MS");
+    auto *logic_trkm   = new Boton(this, "TRKM");
+    auto *logic_ampl_info   = new Boton(this, "AMPL INFO");
+    auto *logic_link_stat  = new Boton(this, "LINK STAT");
+    auto *logic_tn  = new Boton(this, "TN");
 
 
     QObject::connect(ms,&QPushButton::clicked,logic_ms,&Boton::pressed);
@@ -59,21 +63,32 @@ label::label(QWidget *parent) :
 
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
                         "QPushButton:hover {background-color: rgba(0,0,0,0); }"
-                        "QPushButton:pressed {background-color: rgba(0,0,0,0);");
+                        "QPushButton:pressed {background-color: rgba(0,0,0,0);}");
+
+
 
     ms->setStyleSheet("QPushButton {image: url(':/label_selection/img/Label Selection/ms.png')}"
                       "QPushButton:checked {image: url(':/label_selection/img/Label Selection/ms_pressed.png')}");
 
+
     trkm->setStyleSheet("QPushButton {image: url(':/label_selection/img/Label Selection/trkm.png')}"
                       "QPushButton:checked {image: url(':/label_selection/img/Label Selection/trkm_pressed.png')}");
+
+
 
     ampl_info->setStyleSheet("QPushButton {image: url(':/label_selection/img/Label Selection/ampl_info.png')}"
                       "QPushButton:checked {image: url(':/label_selection/img/Label Selection/ampl_info_pressed.png')}");
 
+
     link_stat->setStyleSheet("QPushButton {image: url(':/label_selection/img/Label Selection/link_stat.png')}"
                       "QPushButton:checked {image: url(':/label_selection/img/Label Selection/link_stat_pressed.png')}");
+
 
     tn->setStyleSheet("QPushButton {image: url(':/label_selection/img/Label Selection/tn.png')}"
                       "QPushButton:checked {image: url(':/label_selection/img/Label Selection/tn_pressed.png')}");
 }
 
+void label::sendCode(QString code)
+{
+    miBotonera->sendCodeToEstado(this, &code);
+}

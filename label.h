@@ -1,13 +1,19 @@
 #ifndef LABEL_H
 #define LABEL_H
 
+#include "Zone.h"
 #include <QWidget>
 
-class label :public QWidget
+class botonera;
+class label :public Zone
 {
-    Q_OBJECT
+
 public:
-    explicit label(QWidget *parent = nullptr);
+    explicit label(botonera *b);
+    void sendCode(QString code) override;
+
+private:
+    botonera *miBotonera;
 };
 
 #endif // LABEL_H

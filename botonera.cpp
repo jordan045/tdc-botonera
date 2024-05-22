@@ -6,33 +6,77 @@
 botonera::botonera(QWidget *parent) :
     QWidget(parent)
 {
-    range_widget = new range();
-    label_selection_widget = new label();
-    qek_widget = new qek();
-    threat_assesment_widget = new threat();
-    center_widget = new center();
-    display_mode_widget = new display_mode();
-    icm_widget = new icm();
-    display_selection_widget = new Display_selection();
+    qDebug() << "botonera ready";
+    miEstado = new Estado(this);
+    range_widget = new range(this);
+    label_selection_widget = new label(this);
+    qek_widget = new qek(this);
+    threat_assesment_widget = new threat(this);
+    center_widget = new center(this);
+    display_mode_widget = new display_mode(this);
+    icm_widget = new icm(this);
+    display_selection_widget = new Display_selection(this);
 }
 
 void botonera::setmodo(int i)
 {
+    qDebug() << "botonera modo: "<< i;
     modo = i;
+}
+
+void botonera::sendCodeToEstado(center *z, QString *boton)
+{
+    miEstado->setCenter(boton);
+    z->isVisible();
+}
+
+void botonera::sendCodeToEstado(display_mode *z, QString *boton)
+{
+    miEstado->setDisplay(boton);
+    z->isVisible();
+}
+
+void botonera::sendCodeToEstado(Display_selection *z, QString *boton)
+{
+    miEstado->setDisplay(boton);
+    z->isVisible();
+}
+
+void botonera::sendCodeToEstado(icm *z, QString *boton)
+{
+    miEstado->setICM(boton);
+    z->isVisible();
+}
+
+void botonera::sendCodeToEstado(label *z, QString *boton)
+{
+    miEstado->setLabel(boton);
+    z->isVisible();
+}
+
+void botonera::sendCodeToEstado(qek *z, QString *boton)
+{
+    miEstado->setQEK(boton);
+    z->isVisible();
+}
+
+void botonera::sendCodeToEstado(range *z, QString *boton)
+{
+    miEstado->setRange(boton);
+    z->isVisible();
+}
+
+void botonera::sendCodeToEstado(threat *z, QString *boton)
+{
+    miEstado->setThreat(boton);
+    z->isVisible();
 }
 
 void botonera::iniciar()
 {
+     qDebug() << "INICIO BOTONERA";
     QHBoxLayout *layout = new QHBoxLayout();
-/*
-    layout->addWidget(r,0,1);
-    layout->addWidget(q,1,1);
-    layout->addWidget(t,2,1);
-    layout->addWidget(i,0,0);
-    layout->addWidget(d,3,1);
-    layout->addWidget(l,4,1);
-    layout->addWidget(c,0,2);
-*/
+
     QVBoxLayout *midLay = new QVBoxLayout();
     midLay->addWidget(range_widget);
     midLay->addWidget(qek_widget);
@@ -50,28 +94,7 @@ void botonera::iniciar()
 
     //layout->addWidget(label,0,3);
     this->setLayout(layout);
+    qDebug() << "SHOW BOTONERA";
     this->show();
 }
-/*
- botonera::lanzar()
-{
-    modo = 1;
-    QGridLayout *layout = new QGridLayout;
-
-    layout->addWidget(r,0,1);
-    layout->addWidget(q,1,1);
-    layout->addWidget(t,2,1);
-    layout->addWidget(i,0,0);
-    layout->addWidget(d,3,1);
-    layout->addWidget(l,4,1);
-    layout->addWidget(c,0,2);
-
-    QLabel *label = new QLabel("1");
-
-    layout->addWidget(label,0,3);
-    this->setLayout(layout);
-    this->show();
-
-}
-*/
 

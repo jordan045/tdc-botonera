@@ -1,14 +1,19 @@
 #include "estado.h"
+#include "qdebug.h"
 
-Estado::Estado() {
+Estado::Estado(botonera *b) {
 
-    *range = "hola";
-    *label = "hola";
-    *qek  = "hola";
-    *threat = "hola";
-    *center = "hola";
-    *display = "hola";
-    *icm = "hola";
+    qDebug() << "Estado ready";
+
+    miBotonera = b;
+
+    range = new QString();
+    label = new QString();
+    qek  = new QString();
+    threat = new QString();
+    center = new QString();
+    display = new QString();
+    icm = new QString();
 }
 
 void Estado::setRange(QString *r){
@@ -47,33 +52,20 @@ void Estado::setICM(QString *i){
 }
 
 QString* Estado::getRange(){return range;}
-
 QString* Estado::getLabel(){return label;}
-
 QString* Estado::getQEK(){return qek;}
-
 QString* Estado::getThreat(){return threat;}
-
 QString* Estado::getCenter(){return center;}
-
 QString* Estado::getDisplay(){return display;}
-
 QString* Estado::getICM(){return icm;}
 
 void Estado::refresh()
 {
-    qDebug()    <<"\nRange Scale: "
-                <<range
-                <<"\nLabel Selection: "
-                <<label
-                <<"\nQEK: "
-                <<qek
-                <<"\nThreat Assesment"
-                <<threat
-                <<"\nCenter: "
-                <<center
-                <<"\nDisplay: "
-                <<display
-                <<"\nICM: "
-                <<icm;
+    qDebug()    << "\nRange Scale: " << *range
+                << "\nLabel Selection: " << *label
+                << "\nQEK: " << *qek
+                << "\nThreat Assesment" << *threat
+                << "\nCenter: " << *center
+                << "\nDisplay: " << *display
+                << "\nICM: " << *icm;
 }
