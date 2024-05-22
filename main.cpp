@@ -12,6 +12,8 @@
 #include <botonera.h>
 #include <initmenu.h>
 #include <QSharedMemory>
+#include <iostream>
+#include <QBitArray>
 
 int main(int argc, char *argv[])
 {
