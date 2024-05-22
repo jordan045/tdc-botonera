@@ -15,6 +15,7 @@ SOURCES += \
     estado.cpp \
     display_mode.cpp \
     display_selection.cpp \
+    formatconcetrator.cpp \
     icm.cpp \
     initmenu.cpp \
     label.cpp \
@@ -31,6 +32,7 @@ HEADERS += \
     estado.h \
     display_mode.h \
     display_selection.h \
+    formatconcetrator.h \
     icm.h \
     initmenu.h \
     label.h \
