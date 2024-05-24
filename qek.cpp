@@ -8,7 +8,6 @@
 
 qek::qek(botonera *b)
 {
-    qDebug() << "QEK ready";
 
     miBotonera = b;
 

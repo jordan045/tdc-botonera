@@ -10,7 +10,6 @@ class Zone : public QWidget{
 
 public:
     virtual void sendCode(QString code){
-        qDebug() << "\nMAL"<<code;
     }
 };
 

@@ -7,7 +7,6 @@
 
 Display_selection::Display_selection(botonera *b)
 {
-    qDebug() << "Display Selection ready";
 
     miBotonera = b;
 

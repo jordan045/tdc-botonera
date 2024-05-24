@@ -7,7 +7,6 @@
 
 display_mode::display_mode(botonera *b)
 {
-    qDebug() << "Display Mode ready";
 
     miBotonera = b;
 

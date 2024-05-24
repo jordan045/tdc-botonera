@@ -7,7 +7,6 @@
 
 label::label(botonera *b)
 {
-    qDebug() << "Label ready";
 
     miBotonera = b;
 

@@ -1,54 +1,60 @@
 #include "estado.h"
+#include "qdatetime.h"
 #include "qdebug.h"
 
 Estado::Estado(botonera *b) {
 
-    qDebug() << "Estado ready";
-
     miBotonera = b;
 
-    range = new QString();
-    label = new QString();
-    qek  = new QString();
-    threat = new QString();
-    center = new QString();
-    display = new QString();
-    icm = new QString();
-    display_mode = new QString();
+    this->range = new QString("");
+    this->label = new QString("");
+    this->qek  = new QString("");
+    this->threat = new QString("");
+    this->center = new QString("");
+    this->display = new QString("");
+    this->icm = new QString("");
+    this->display_mode = new QString("");
 }
 
 void Estado::setRange(QString *r){
-    range = r;
+    qDebug() << "Setting Range";
+    *this->range = *r;
     refresh();
 }
 
 void Estado::setLabel(QString *l){
-    label = l;
+    qDebug() << "Setting Label";
+    *this->label = *l;
     refresh();
 }
 
 void Estado::setQEK(QString *q){
-    qek = q;
+    qDebug() << "Setting QEK";
+    *this->qek = *q;
     refresh();
 }
 
 void Estado::setThreat(QString *t){
-    threat = t;
+    qDebug() << "Setting Threat";
+    *this->threat = *t;
     refresh();
 }
 
 void Estado::setCenter(QString *c){
-    center = c;
+    qDebug() << "Setting Center";
+    *this->center = *c;
     refresh();
 }
 
 void Estado::setDisplay(QString *d){
-    display = d;
+    qDebug() << "Setting Display";
+    *this->display = *d;
     refresh();
 }
 
-void Estado::setICM(QString *i){
-    icm = i;
+void Estado::setICM(QString * i){
+    qDebug() << "Setting ICM";
+    *this->icm = *i;
     refresh();
 }
 
@@ -65,11 +71,16 @@ QString Estado::getQekDer(){return *qek;}
 
 void Estado::refresh()
 {
-    qDebug()    << "\nRange Scale: " << *range
-                << "\nLabel Selection: " << *label
-                << "\nQEK: " << *qek
-                << "\nThreat Assesment" << *threat
-                << "\nCenter: " << *center
-                << "\nDisplay: " << *display
-                << "\nICM: " << *icm;
+    QDateTime date = QDateTime::currentDateTime();
+    QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
+    QByteArray formattedTimeMsg = formattedTime.toLocal8Bit();
+
+    qDebug() << "---------------------- " << formattedTime << " -----------------------";
+    qDebug() << "\nRange Scale:\t " << *range
+             << "\nLabel Selection:\t " << *label
+             << "\nQEK:\t\t " << *qek
+             << "\nThreat Assesment:\t " << *threat
+             << "\nCenter:\t\t " << *center
+             << "\nDisplay:\t\t " << *display
+             << "\nICM:\t\t " << *icm;
 }

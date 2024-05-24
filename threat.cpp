@@ -8,7 +8,6 @@
 
 threat::threat(botonera *b)
 {
-    qDebug() << "threat ready";
     miBotonera = b;
     auto *btn_12_sec = new QRadioButton("",this);
     auto *btn_30_sec = new QRadioButton("",this);

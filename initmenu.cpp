@@ -6,7 +6,6 @@
 initMenu::initMenu(QWidget *parent) :
     QWidget(parent)
 {
-    qDebug() << "init Ready.";
     miBotonera = new botonera();
 
     auto *btn_1 = new QPushButton("1",this);

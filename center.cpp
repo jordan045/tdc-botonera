@@ -7,8 +7,6 @@
 
 center::center(botonera *b)
 {
-    qDebug() << "Center ready";
-
     miBotonera = b;
 
     auto *cu_or_off_cent = new QPushButton("",this);

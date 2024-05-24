@@ -8,8 +8,6 @@
 icm::icm(botonera *b)
 {
 
-    qDebug() << "ICM ready";
-
     miBotonera = b;
 
     auto *btn_1 = new QPushButton("",this);

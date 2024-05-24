@@ -8,7 +8,6 @@
 range::range(botonera *b)
 
 {
-    qDebug() << "range ready";
     miBotonera = b;
     createGraphicsButtons();
     createLogicButtons();

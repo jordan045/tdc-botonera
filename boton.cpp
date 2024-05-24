@@ -3,7 +3,6 @@
 Boton::Boton(Zone *z, QString codigo, QObject *parent): QObject(parent) {
     this->codigo = codigo;
     this->zona = z;
-
 }
 
 QString Boton::getCodigo(){
@@ -15,6 +14,6 @@ void Boton::setCodigo(QString n){
 }
 
 void Boton::pressed(){
-    qDebug() << "Mi codigo es: " << this->codigo;
-    this->zona->sendCode(this->codigo);
+    QString mensaje = *new QString(this->codigo);
+    this->zona->sendCode(mensaje);
 }

@@ -25,7 +25,6 @@ int main(int argc, char *argv[])
         exit(0);
     }
 
-    qDebug() << "Application started successfully.";
     initMenu d;
     d.show();
 
