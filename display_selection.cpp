@@ -59,7 +59,7 @@ Display_selection::Display_selection(botonera *b)
     display_selection->addButton(warf_sel);
     display_selection->addButton(fig);
 
-    auto layout = new QHBoxLayout;
+    auto layout = new QVBoxLayout;
     layout->addWidget(air);
     layout->addWidget(surf);
     layout->addWidget(sub_surf);

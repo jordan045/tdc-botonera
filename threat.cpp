@@ -9,11 +9,17 @@
 threat::threat(botonera *b)
 {
     miBotonera = b;
-    auto *btn_12_sec = new QRadioButton("",this);
-    auto *btn_30_sec = new QRadioButton("",this);
-    auto *btn_6_min = new QRadioButton("",this);
-    auto *btn_15_min = new QRadioButton("",this);
+    auto *btn_12_sec = new QPushButton("",this);
+    auto *btn_30_sec = new QPushButton("",this);
+    auto *btn_6_min = new QPushButton("",this);
+    auto *btn_15_min = new QPushButton("",this);
     auto *btn_reset = new QPushButton("",this);
+
+    btn_12_sec->setCheckable(true);
+    btn_30_sec->setCheckable(true);
+    btn_6_min->setCheckable(true);
+    btn_15_min->setCheckable(true);
+    btn_reset->setCheckable(true);
 
     QButtonGroup *threat_group = new QButtonGroup();
 
@@ -41,31 +47,27 @@ threat::threat(botonera *b)
     auto *logic_btn_reset   = new Boton(this, "RESET");
 
 
-    QObject::connect(btn_12_sec,&QRadioButton::clicked,logic_btn_12_sec,&Boton::pressed);
-    QObject::connect(btn_30_sec,&QRadioButton::clicked,logic_btn_30_sec,&Boton::pressed);
-    QObject::connect(btn_6_min,&QRadioButton::clicked,logic_btn_6_min,&Boton::pressed);
-    QObject::connect(btn_15_min,&QRadioButton::clicked,logic_btn_15_min,&Boton::pressed);
+    QObject::connect(btn_12_sec,&QPushButton::clicked,logic_btn_12_sec,&Boton::pressed);
+    QObject::connect(btn_30_sec,&QPushButton::clicked,logic_btn_30_sec,&Boton::pressed);
+    QObject::connect(btn_6_min,&QPushButton::clicked,logic_btn_6_min,&Boton::pressed);
+    QObject::connect(btn_15_min,&QPushButton::clicked,logic_btn_15_min,&Boton::pressed);
     QObject::connect(btn_reset,&QPushButton::clicked,logic_btn_reset,&Boton::pressed);
 
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
                         "QPushButton:hover {background-color: rgba(0,0,0,0); }"
                         "QPushButton:pressed {background-color: rgba(0,0,0,0);}");
 
-    btn_12_sec->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                         "QRadioButton::indicator::unchecked {image: url(':/threat/img/Threat/12_sec.png')}"
-                         "QRadioButton::indicator::checked {image: url(':/threat/img/Threat/12_sec_pressed.png')}");
+    btn_12_sec->setStyleSheet("QPushButton {image: url(':/threat/img/Threat/12_sec.png')}"
+                         "QPushButton:checked {image: url(':/threat/img/Threat/12_sec_pressed.png')}");
 
-    btn_30_sec->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                              "QRadioButton::indicator::unchecked {image: url(':/threat/img/Threat/30_sec.png')}"
-                              "QRadioButton::indicator::checked {image: url(':/threat/img/Threat/30_sec_pressed.png')}");
+    btn_30_sec->setStyleSheet("QPushButton {image: url(':/threat/img/Threat/30_sec.png')}"
+                              "QPushButton:checked {image: url(':/threat/img/Threat/30_sec_pressed.png')}");
 
-    btn_6_min->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                              "QRadioButton::indicator::unchecked {image: url(':/threat/img/Threat/6_min.png')}"
-                              "QRadioButton::indicator::checked {image: url(':/threat/img/Threat/6_min_pressed.png')}");
+    btn_6_min->setStyleSheet("QPushButton {image: url(':/threat/img/Threat/6_min.png')}"
+                              "QPushButton:checked {image: url(':/threat/img/Threat/6_min_pressed.png')}");
 
-    btn_15_min->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                              "QRadioButton::indicator::unchecked {image: url(':/threat/img/Threat/15_min.png')}"
-                              "QRadioButton::indicator::checked {image: url(':/threat/img/Threat/15_min_pressed.png')}");
+    btn_15_min->setStyleSheet("QPushButton {image: url(':/threat/img/Threat/15_min.png')}"
+                              "QPushButton:checked {image: url(':/threat/img/Threat/15_min_pressed.png')}");
 
     btn_reset->setStyleSheet("QPushButton {image: url(':/threat/img/Threat/reset.png')}"
                             "QPushButton:pressed {image: url(':/threat/img/Threat/reset_pressed.png')}");

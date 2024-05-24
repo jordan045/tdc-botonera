@@ -16,7 +16,7 @@ center::center(botonera *b)
     auto *reset_obm = new QPushButton("",this);
     auto *data_req = new QPushButton("",this);
 
-    auto layout = new QVBoxLayout;
+    auto layout = new QHBoxLayout;
     layout->addWidget(cu_or_off_cent);
     layout->addWidget(cu_or_cent);
     layout->addWidget(off_cent);
@@ -36,12 +36,19 @@ center::center(botonera *b)
     auto *logic_data_req  = new Boton(this, "DATA REQ");
 
 
-    QObject::connect(cu_or_off_cent,&QPushButton::clicked,logic_cu_or_off_cent,&Boton::pressed);
-    QObject::connect(cu_or_cent,&QPushButton::clicked,logic_cu_or_cent,&Boton::pressed);
-    QObject::connect(off_cent,&QPushButton::clicked,logic_off_cent,&Boton::pressed);
-    QObject::connect(cent,&QPushButton::clicked,logic_cent,&Boton::pressed);
-    QObject::connect(reset_obm,&QPushButton::clicked,logic_reset_obm,&Boton::pressed);
-    QObject::connect(data_req,&QPushButton::clicked,logic_data_req,&Boton::pressed);
+    QObject::connect(cu_or_off_cent,&QPushButton::pressed,logic_cu_or_off_cent,&Boton::pressed);
+    QObject::connect(cu_or_cent,&QPushButton::pressed,logic_cu_or_cent,&Boton::pressed);
+    QObject::connect(off_cent,&QPushButton::pressed,logic_off_cent,&Boton::pressed);
+    QObject::connect(cent,&QPushButton::pressed,logic_cent,&Boton::pressed);
+    QObject::connect(reset_obm,&QPushButton::pressed,logic_reset_obm,&Boton::pressed);
+    QObject::connect(data_req,&QPushButton::pressed,logic_data_req,&Boton::pressed);
+
+    QObject::connect(cu_or_off_cent,&QPushButton::released,logic_cu_or_off_cent,&Boton::unpressed);
+    QObject::connect(cu_or_cent,&QPushButton::released,logic_cu_or_cent,&Boton::unpressed);
+    QObject::connect(off_cent,&QPushButton::released,logic_off_cent,&Boton::unpressed);
+    QObject::connect(cent,&QPushButton::released,logic_cent,&Boton::unpressed);
+    QObject::connect(reset_obm,&QPushButton::released,logic_reset_obm,&Boton::unpressed);
+    QObject::connect(data_req,&QPushButton::released,logic_data_req,&Boton::unpressed);
 
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
                         "QPushButton:hover {background-color: rgba(0,0,0,0); }"

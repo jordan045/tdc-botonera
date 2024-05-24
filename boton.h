@@ -16,6 +16,7 @@ public:
     int getChar();
 public slots:
     void pressed();
+    void unpressed();
 
 private:
     QString codigo;

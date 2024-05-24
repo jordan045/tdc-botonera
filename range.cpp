@@ -1,6 +1,6 @@
 #include "range.h"
 #include "botonera.h"
-#include <QRadioButton>
+#include <QPushButton>
 #include <QHBoxLayout>
 #include <QButtonGroup>
 #include <boton.h>
@@ -24,18 +24,28 @@ void range::sendCode(QString code)
 
 void range::createGraphicsButtons()
 {
-    btn_2   = new QRadioButton(this);
-    btn_4   = new QRadioButton(this);
-    btn_8   = new QRadioButton(this);
-    btn_16  = new QRadioButton(this);
-    btn_32  = new QRadioButton(this);
-    btn_64  = new QRadioButton(this);
-    btn_128 = new QRadioButton(this);
-    btn_256 = new QRadioButton(this);
+    btn_2   = new QPushButton(this);
+    btn_4   = new QPushButton(this);
+    btn_8   = new QPushButton(this);
+    btn_16  = new QPushButton(this);
+    btn_32  = new QPushButton(this);
+    btn_64  = new QPushButton(this);
+    btn_128 = new QPushButton(this);
+    btn_256 = new QPushButton(this);
+
+    btn_2->setCheckable(true);
+    btn_4->setCheckable(true);
+    btn_8->setCheckable(true);
+    btn_16->setCheckable(true);
+    btn_32->setCheckable(true);
+    btn_64->setCheckable(true);
+    btn_128->setCheckable(true);
+    btn_256->setCheckable(true);
 }
 
 void range::createLogicButtons()
 {
+    QVector<Boton*> logic_buttons = *new QVector<Boton*>();
     logic_btn_2   = new Boton(this,"RANGE 2");
     logic_btn_4   = new Boton(this,"RANGE 4");
     logic_btn_8   = new Boton(this,"RANGE 8");
@@ -44,6 +54,8 @@ void range::createLogicButtons()
     logic_btn_64  = new Boton(this,"RANGE 64");
     logic_btn_128 = new Boton(this,"RANGE 128");
     logic_btn_256 = new Boton(this,"RANGE 256");
+
+    logic_buttons.append(logic_btn_2);
 }
 
 void range::createButtonGroup()
@@ -62,19 +74,19 @@ void range::createButtonGroup()
 
 void range::connection()
 {
-    QObject::connect(btn_2,&QRadioButton::clicked,logic_btn_2,&Boton::pressed);
-    QObject::connect(btn_4,&QRadioButton::clicked,logic_btn_4,&Boton::pressed);
-    QObject::connect(btn_8,&QRadioButton::clicked,logic_btn_8,&Boton::pressed);
-    QObject::connect(btn_16,&QRadioButton::clicked,logic_btn_16,&Boton::pressed);
-    QObject::connect(btn_32,&QRadioButton::clicked,logic_btn_32,&Boton::pressed);
-    QObject::connect(btn_64,&QRadioButton::clicked,logic_btn_64,&Boton::pressed);
-    QObject::connect(btn_128,&QRadioButton::clicked,logic_btn_128,&Boton::pressed);
-    QObject::connect(btn_256,&QRadioButton::clicked,logic_btn_256,&Boton::pressed);
+    QObject::connect(btn_2,&QPushButton::clicked,logic_btn_2,&Boton::pressed);
+    QObject::connect(btn_4,&QPushButton::clicked,logic_btn_4,&Boton::pressed);
+    QObject::connect(btn_8,&QPushButton::clicked,logic_btn_8,&Boton::pressed);
+    QObject::connect(btn_16,&QPushButton::clicked,logic_btn_16,&Boton::pressed);
+    QObject::connect(btn_32,&QPushButton::clicked,logic_btn_32,&Boton::pressed);
+    QObject::connect(btn_64,&QPushButton::clicked,logic_btn_64,&Boton::pressed);
+    QObject::connect(btn_128,&QPushButton::clicked,logic_btn_128,&Boton::pressed);
+    QObject::connect(btn_256,&QPushButton::clicked,logic_btn_256,&Boton::pressed);
 }
 
 void range::createLayout()
 {
-    auto layout = new QHBoxLayout;
+    auto layout = new QVBoxLayout;
     layout->addWidget(btn_2);
     layout->addWidget(btn_4);
     layout->addWidget(btn_8);
@@ -89,37 +101,30 @@ void range::createLayout()
 
 void range::style()
 {
+    this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}");
 
-    btn_2->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                         "QRadioButton::indicator::unchecked {image: url(':/range/img/Range/2.png')}"
-                         "QRadioButton::indicator::checked {image: url(':/range/img/Range/2_pressed.png')}");
+    btn_2->setStyleSheet("QPushButton {image: url(':/range/img/Range/2.png')}"
+                         "QPushButton:checked {image: url(':/range/img/Range/2_pressed.png')}");
 
-    btn_4->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                         "QRadioButton::indicator::unchecked {image: url(':/range/img/Range/4.png')}"
-                         "QRadioButton::indicator::checked {image: url(':/range/img/Range/4_pressed.png')}");
+    btn_4->setStyleSheet("QPushButton {image: url(':/range/img/Range/4.png')}"
+                         "QPushButton:checked {image: url(':/range/img/Range/4_pressed.png')}");
 
-    btn_8->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                         "QRadioButton::indicator::unchecked {image: url(':/range/img/Range/8.png')}"
-                         "QRadioButton::indicator::checked {image: url(':/range/img/Range/8_pressed.png')}");
+    btn_8->setStyleSheet("QPushButton {image: url(':/range/img/Range/8.png')}"
+                         "QPushButton:checked {image: url(':/range/img/Range/8_pressed.png')}");
 
-    btn_16->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                          "QRadioButton::indicator::unchecked {image: url(':/range/img/Range/16.png')}"
-                          "QRadioButton::indicator::checked {image: url(':/range/img/Range/16_pressed.png')}");
+    btn_16->setStyleSheet( "QPushButton {image: url(':/range/img/Range/16.png')}"
+                          "QPushButton:checked {image: url(':/range/img/Range/16_pressed.png')}");
 
-    btn_32->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                          "QRadioButton::indicator::unchecked {image: url(':/range/img/Range/32.png')}"
-                          "QRadioButton::indicator::checked {image: url(':/range/img/Range/32_pressed.png')}");
+    btn_32->setStyleSheet( "QPushButton {image: url(':/range/img/Range/32.png')}"
+                          "QPushButton:checked {image: url(':/range/img/Range/32_pressed.png')}");
 
-    btn_64->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                          "QRadioButton::indicator::unchecked {image: url(':/range/img/Range/64.png')}"
-                          "QRadioButton::indicator::checked {image: url(':/range/img/Range/64_pressed.png')}");
+    btn_64->setStyleSheet( "QPushButton {image: url(':/range/img/Range/64.png')}"
+                          "QPushButton:checked {image: url(':/range/img/Range/64_pressed.png')}");
 
-    btn_128->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                           "QRadioButton::indicator::unchecked {image: url(':/range/img/Range/128.png')}"
-                           "QRadioButton::indicator::checked {image: url(':/range/img/Range/128_pressed.png')}");
+    btn_128->setStyleSheet(  "QPushButton {image: url(':/range/img/Range/128.png')}"
+                           "QPushButton:checked {image: url(':/range/img/Range/128_pressed.png')}");
 
-    btn_256->setStyleSheet("QRadioButton::indicator {width: 80px; height: 80px;}"
-                           "QRadioButton::indicator::unchecked {image: url(':/range/img/Range/256.png')}"
-                           "QRadioButton::indicator::checked {image: url(':/range/img/Range/256_pressed.png')}");
+    btn_256->setStyleSheet(  "QPushButton {image: url(':/range/img/Range/256.png')}"
+                           "QPushButton:checked {image: url(':/range/img/Range/256_pressed.png')}");
 }
 
