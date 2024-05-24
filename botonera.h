@@ -12,13 +12,13 @@
 #include <display_mode.h>
 #include <display_selection.h>
 
-class botonera : public QWidget
+class Botonera : public QWidget
 {
     Q_OBJECT
 public:
-   explicit botonera(QWidget *parent = nullptr);
+   explicit Botonera(QWidget *parent = nullptr);
     void setmodo(int i);
-    void sendCodeToEstado(center *z, QString *boton);
+    void sendCodeToEstado(Center *z, QString *boton);
     void sendCodeToEstado(display_mode *z, QString *boton);
     void sendCodeToEstado(Display_selection *z, QString *boton);
     void sendCodeToEstado(icm *z, QString *boton);
@@ -28,7 +28,7 @@ public:
     void sendCodeToEstado(threat *z, QString *boton);
 
 public slots:
-   void iniciar();
+   void start();
 
    private:
    Zone *range_widget;

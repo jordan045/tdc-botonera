@@ -5,7 +5,7 @@
 #include <QButtonGroup>
 #include <boton.h>
 
-label::label(botonera *b)
+label::label(Botonera *b)
 {
 
     miBotonera = b;

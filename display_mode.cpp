@@ -4,8 +4,7 @@
 #include <QHBoxLayout>
 #include <QButtonGroup>
 #include <boton.h>
-
-display_mode::display_mode(botonera *b)
+display_mode::display_mode(Botonera *b)
 {
 
     miBotonera = b;

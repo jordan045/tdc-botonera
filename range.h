@@ -7,17 +7,17 @@
 #include "qbuttongroup.h"
 #include <QWidget>
 
-class botonera;
-class range : public Zone
+class Botonera;
+class Range : public Zone
 {
 
 public:
-    explicit range(botonera *b);
+    explicit Range(Botonera *b);
     void sendCode(QString code) override;
 
 private:
 
-    botonera *miBotonera;
+    Botonera *miBotonera;
 
     QAbstractButton *btn_2;
     QAbstractButton *btn_4;

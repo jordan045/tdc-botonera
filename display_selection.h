@@ -4,16 +4,16 @@
 #include "Zone.h"
 #include <QWidget>
 
-class botonera;
+class Botonera;
 class Display_selection : public Zone
 {
 
 public:
-    explicit Display_selection(botonera *b);
+    explicit Display_selection(Botonera *b);
     void sendCode(QString code) override;
 
 private:
-    botonera *miBotonera;
+    Botonera *miBotonera;
 };
 
 #endif // DISPLAY_SELECTION_H

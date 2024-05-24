@@ -5,7 +5,7 @@
 #include "qbuttongroup.h"
 #include "qpushbutton.h"
 
-Display_selection::Display_selection(botonera *b)
+Display_selection::Display_selection(Botonera *b)
 {
 
     miBotonera = b;

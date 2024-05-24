@@ -6,7 +6,7 @@
 #include <QButtonGroup>
 #include <boton.h>
 
-threat::threat(botonera *b)
+threat::threat(Botonera *b)
 {
     miBotonera = b;
     auto *btn_12_sec = new QRadioButton("",this);

@@ -6,7 +6,7 @@
 initMenu::initMenu(QWidget *parent) :
     QWidget(parent)
 {
-    miBotonera = new botonera();
+    miBotonera = new Botonera();
 
     auto *btn_1 = new QPushButton("1",this);
     auto *btn_2 = new QPushButton("2",this);
@@ -35,18 +35,18 @@ initMenu::initMenu(QWidget *parent) :
 void initMenu::iniciarModo1()
 {
     miBotonera->setmodo(1);
-    miBotonera->iniciar();
+    miBotonera->start();
     this->close();
 }
 void initMenu::iniciarModo2()
 {
     miBotonera->setmodo(2);
-    miBotonera->iniciar();
+    miBotonera->start();
     this->close();
 }
 void initMenu::iniciarModo3()
 {
     miBotonera->setmodo(3);
-    miBotonera->iniciar();
+    miBotonera->start();
     this->close();
 }

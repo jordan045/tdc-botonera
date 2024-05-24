@@ -3,83 +3,66 @@
 #include <QVBoxLayout>
 #include <QLabel>
 
-botonera::botonera(QWidget *parent) :
+Botonera::Botonera(QWidget *parent) :
     QWidget(parent)
 {
     miEstado = new Estado(this);
-    range_widget = new range(this);
-    label_selection_widget = new label(this);
-    qek_widget = new qek(this);
-    threat_assesment_widget = new threat(this);
-    center_widget = new center(this);
-    display_mode_widget = new display_mode(this);
-    icm_widget = new icm(this);
-    display_selection_widget = new Display_selection(this);
+    range_widget = new Range(this);
+    label_selection_widget = new Label(this);
+    qek_widget = new Qek(this);
+    threat_assesment_widget = new Threat(this);
+    center_widget = new Center(this);
+    display_mode_widget = new DisplayMode(this);
+    icm_widget = new Icm(this);
+    display_selection_widget = new DisplaySelection(this);
 }
 
-void botonera::setmodo(int i)
+void Botonera::setmodo(int i)
 {
     modo = i;
 }
 
-void botonera::sendCodeToEstado(center *z, QString *boton)
+void Botonera::sendCodeToEstado(center *z, QString *boton)
 {
-    QString * mensaje = new QString("center");
-    qDebug() << "Center actualizado";
     miEstado->setCenter(boton);
 }
 
-void botonera::sendCodeToEstado(display_mode *z, QString *boton)
+void Botonera::sendCodeToEstado(display_mode *z, QString *boton)
 {
-     QString * mensaje = new QString("center");
-    qDebug() << "Display mode actualizado";
     miEstado->setDisplay(boton);
 }
 
-void botonera::sendCodeToEstado(Display_selection *z, QString *boton)
+void Botonera::sendCodeToEstado(Display_selection *z, QString *boton)
 {
-     QString * mensaje = new QString("center");
-    qDebug() << "Display selection actualizado";
     miEstado->setDisplay(boton);
 }
 
-void botonera::sendCodeToEstado(icm *z, QString *boton)
+void Botonera::sendCodeToEstado(icm *z, QString *boton)
 {
-     QString * mensaje = new QString("icm");
-    qDebug() << "ICM actualizado";
     miEstado->setICM(boton);
-
 }
 
-void botonera::sendCodeToEstado(label *z, QString *boton)
+void Botonera::sendCodeToEstado(label *z, QString *boton)
 {
-     QString * mensaje = new QString("label");
-    qDebug() << "Label selection actualizado";
     miEstado->setLabel(boton);
 }
 
-void botonera::sendCodeToEstado(qek *z, QString *boton)
+void Botonera::sendCodeToEstado(qek *z, QString *boton)
 {
-     QString * mensaje = new QString("qek");
-    qDebug() << "QEK actualizado";
     miEstado->setQEK(boton);
 }
 
-void botonera::sendCodeToEstado(range *z, QString *boton)
+void Botonera::sendCodeToEstado(range *z, QString *boton)
 {
-     QString * mensaje = new QString("range");
-    qDebug() << "Range actualizado";
     miEstado->setRange(boton);
 }
 
-void botonera::sendCodeToEstado(threat *z, QString *boton)
+void Botonera::sendCodeToEstado(threat *z, QString *boton)
 {
-     QString * mensaje = new QString("threat");
-    qDebug() << "Threat actualizado";
     miEstado->setThreat(boton);
 }
 
-void botonera::iniciar()
+void Botonera::start()
 {
     QHBoxLayout *layout = new QHBoxLayout();
 

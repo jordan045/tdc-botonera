@@ -4,16 +4,16 @@
 #include "Zone.h"
 #include <QWidget>
 
-class botonera;
-class label :public Zone
+class Botonera;
+class Label :public Zone
 {
 
 public:
-    explicit label(botonera *b);
+    explicit Label(Botonera *b);
     void sendCode(QString code) override;
 
 private:
-    botonera *miBotonera;
+    Botonera *miBotonera;
 };
 
 #endif // LABEL_H

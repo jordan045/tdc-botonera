@@ -3,18 +3,18 @@
 
 #include <QWidget>
 #include "botonera.h"
-class initMenu : public QWidget
+class InitMenu : public QWidget
 {
     Q_OBJECT
 public:
-    explicit initMenu(QWidget *parent = nullptr);
+    explicit InitMenu(QWidget *parent = nullptr);
 
 private slots:
     void iniciarModo1();
     void iniciarModo2();
     void iniciarModo3();
 private:
-    botonera *miBotonera;
+    Botonera *miBotonera;
 };
 
 #endif // INITMENU_H

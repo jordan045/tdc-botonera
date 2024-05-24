@@ -4,16 +4,16 @@
 #include "Zone.h"
 #include <QWidget>
 
-class botonera;
-class center : public Zone
+class Botonera;
+class Center : public Zone
 {
 
 public:
-    explicit center(botonera *b);
+    explicit Center(Botonera *b);
     void sendCode(QString code) override;
 
 private:
-    botonera *miBotonera;
+    Botonera *miBotonera;
 };
 
 #endif // CENTER_H

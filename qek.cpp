@@ -6,7 +6,7 @@
 #include <QVBoxLayout>
 #include <boton.h>
 
-qek::qek(botonera *b)
+qek::qek(Botonera *b)
 {
 
     miBotonera = b;

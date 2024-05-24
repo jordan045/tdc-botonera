@@ -10,11 +10,11 @@
  * En esta clase ejerce el astado actual de los botones que estan presionados
  */
 
-class botonera;
+class Botonera;
 class Estado : public QWidget
 {
 public:
-    Estado(botonera *b);
+    Estado(Botonera *b);
     void setEstado();
 
     void setRange(QString *r);
@@ -37,7 +37,7 @@ public:
     QString getModos();
 
 private:
-    botonera *miBotonera;
+    Botonera *miBotonera;
 
     QString getInstance();
     //int getEstado();

@@ -4,15 +4,15 @@
 #include "Zone.h"
 #include <QWidget>
 
-class botonera;
-class icm : public Zone
+class Botonera;
+class Icm : public Zone
 {
 public:
-    explicit icm(botonera *b);
+    explicit Icm(botonera *b);
     void sendCode(QString code) override;
 
 private:
-    botonera *miBotonera;
+    Botonera *miBotonera;
 };
 
 #endif // ICM_H

@@ -4,16 +4,16 @@
 #include "Zone.h"
 #include <QWidget>
 
-class botonera;
-class threat : public Zone
+class Botonera;
+class Threat : public Zone
 {
 
 public:
-    explicit threat(botonera *b);
+    explicit Threat(Botonera *b);
     void sendCode(QString code) override;
 
 private:
-    botonera *miBotonera;
+    Botonera *miBotonera;
 };
 
 #endif // THREAT_H

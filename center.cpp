@@ -5,7 +5,7 @@
 #include <QButtonGroup>
 #include <boton.h>
 
-center::center(botonera *b)
+center::center(Botonera *b)
 {
     miBotonera = b;
 
