@@ -51,13 +51,13 @@ void Estado::setICM(QString *i){
     refresh();
 }
 
-QString* Estado::getRange(){return range;}
-QString* Estado::getLabel(){return label;}
-QString* Estado::getQEK(){return qek;}
-QString* Estado::getThreat(){return threat;}
-QString* Estado::getCenter(){return center;}
-QString* Estado::getDisplay(){return display;}
-QString* Estado::getICM(){return icm;}
+QString Estado::getRange(){return range;}
+QString Estado::getLabel(){return label;}
+QString Estado::getQEK(){return qek;}
+QString Estado::getThreat(){return threat;}
+QString Estado::getCenter(){return center;}
+QString Estado::getDisplay(){return display;}
+QString Estado::getICM(){return icm;}
 
 void Estado::refresh()
 {

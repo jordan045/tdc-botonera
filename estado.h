@@ -25,13 +25,13 @@ public:
     void setDisplay(QString *d);
     void setICM(QString *i);
 
-    QString* getRange();
-    QString* getLabel();
-    QString* getQEK();
-    QString* getThreat();
-    QString* getCenter();
-    QString* getDisplay();
-    QString* getICM();
+    QString getRange();
+    QString getLabel();
+    QString getQEK();
+    QString getThreat();
+    QString getCenter();
+    QString getDisplay();
+    QString getICM();
 
 private:
     botonera *miBotonera;

@@ -1,6 +1,6 @@
 #include "formatconcetrator.h"
+#include <QFile>
 
-int pos = 0;
 formatConcetrator::formatConcetrator()
 {
     message = new QBitArray(216);
@@ -16,9 +16,9 @@ formatConcetrator::formatConcetrator()
 
 }
 
-QBitArray* formatConcetrator::getMessage(estado *elEstado)
+QBitArray* formatConcetrator::getMessage(Estado *estado)
 {
-    miestado = elestado;
+    miEstado = estado;
     leerJson();
     setMessage();
     return message;
@@ -36,14 +36,17 @@ void formatConcetrator::setMessage()
     setWord8();
     setWord9();
 
+
 }
 
 void formatConcetrator::setWord1()
 {
     std::vector<std::string> codigos;
-    codigos.push_back(json.value(miEstado->getScale().toString)); //revisar como lo va a hacer uri
-    codigos.push_back(json.value(miEstado->getDisplay().toString));
-    codigos.push_back(json.value(miEstado->getEvaluacionAmenza().toString)).toString();
+    QString rangoValor = archivo.value(miEstado.getRange());
+    codigos.push_back(); //revisar como lo va a hacer uri
+    codigos.push_back(archivo.value(miEstado->getDisplay());
+    codigos.push_back(archivo.value(miEstado->getThreat());
+    int pos = 0;
     for (const auto& codigo : codigos) {
         for (char bit : codigo) {
             word1->setBit(pos++, bit == '1');
@@ -51,32 +54,35 @@ void formatConcetrator::setWord1()
     }
 }
 
-void formatConcetrator::setWord2()
+void formatConcentrator::setWord2()
 {
     std::vector<std::string> codigos;
-    codigos.push_back(json.value(miEstado->getScale().toString)); //revisar como lo va a hacer uri
-    codigos.push_back(json.value(miEstado->getDisplay().toString));
-    codigos.push_back(json.value(miEstado->getEvaluacionAmenza().toString)).toString();
-    for (const auto& codigo : codigos) {
-        for (char bit : codigo) {
-            word1->setBit(pos++, bit == '1');
-        }
-    }
+    for (const auto& modo:miEstado.getModos)
+        word2->setBit(archivo["center"].toObject[modo].toObject["pos"].toInt,1); //TA WANACOOO
 }
 
 void formatConcetrator::setWord3()
 {
 
+
 }
 
 void formatConcetrator::setWord4()
 {
-
+    String qekizq = miestado.getQekIzq();
+    String qekder = miestado.getQekDer();
+    for (char bit : archivo["qek"].toObject[qekizq].toObject["value"].toString) {
+        word1->setBit(pos++, bit == '1');
+    }
+    for (char bit : archivo["qek"].toObject[qekder].toObject["value"].toString) {
+        word1->setBit(pos++, bit == '1');
+    }
 }
 
 void formatConcetrator::setWord5()
 {
-
+    word5->setBit(21,0);
+    word5->setBit(13,0);
 }
 
 void formatConcetrator::setWord6()
@@ -121,6 +127,6 @@ void formatConcetrator::leerJson()
              qDebug()<<"No Any Error in Json Data";
          }
         if(Document.isObject())
-         json = Document.object();
+         archivo = Document.object();
     }
 }
