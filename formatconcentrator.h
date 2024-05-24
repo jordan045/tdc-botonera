@@ -1,6 +1,5 @@
-#ifndef FORMATCONCETRATOR_H
-#define FORMATCONCETRATOR_H
-
+#ifndef FORMATCONCENTRATOR_H
+#define FORMATCONCENTRATOR_H
 #include "estado.h"
 #include <QBitArray>
 #include <QJsonObject>
@@ -9,15 +8,14 @@
  * Esta clase lee el contenido de la clase Estado y genera las 9 palabras de 24 bits
  * con el formato del Concentrator (ver Contenido de MensajesTMIO v0.3)
  */
-class formatConcetrator
+class formatConcentrator
 {
 
 public:
-    formatConcetrator();
+    formatConcentrator();
     QBitArray* getMessage(Estado *estadoActual);
 
 private:
-    Estado    miEstado;
     QBitArray *message;
     QBitArray *word1;
     QBitArray *word2;
@@ -29,16 +27,16 @@ private:
     QBitArray *word8;
     QBitArray *word9;
 
-    void setMessage();
-    void setWord1();
-    void setWord2();
-    void setWord3();
-    void setWord4();
-    void setWord5();
-    void setWord6();
-    void setWord7();
-    void setWord8();
-    void setWord9();
+    void setMessage(Estado *estado);
+    void setWord1(Estado *estado);
+    void setWord2(Estado *estado);
+    void setWord3(Estado *estado);
+    void setWord4(Estado *estado);
+    void setWord5(Estado *estado);
+    void setWord6(Estado *estado);
+    void setWord7(Estado *estado);
+    void setWord8(Estado *estado);
+    void setWord9(Estado *estado);
 
     void leerJson();
 
@@ -46,4 +44,4 @@ private:
 };
 
 
-#endif // FORMATCONCETRATOR_H
+#endif // FORMATCONCENTRATOR_H

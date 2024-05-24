@@ -32,6 +32,9 @@ public:
     QString getCenter();
     QString getDisplay();
     QString getICM();
+    QString getQekIzq();
+    QString getQekDer();
+    QString getModos();
 
 private:
     botonera *miBotonera;
@@ -45,6 +48,7 @@ private:
     QString *center;
     QString *display;
     QString *icm;
+    QString *display_mode;
 
     void refresh();
 

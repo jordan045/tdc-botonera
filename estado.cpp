@@ -14,6 +14,7 @@ Estado::Estado(botonera *b) {
     center = new QString();
     display = new QString();
     icm = new QString();
+    display_mode = new QString();
 }
 
 void Estado::setRange(QString *r){
@@ -51,13 +52,16 @@ void Estado::setICM(QString *i){
     refresh();
 }
 
-QString Estado::getRange(){return range;}
-QString Estado::getLabel(){return label;}
-QString Estado::getQEK(){return qek;}
-QString Estado::getThreat(){return threat;}
-QString Estado::getCenter(){return center;}
-QString Estado::getDisplay(){return display;}
-QString Estado::getICM(){return icm;}
+QString Estado::getRange(){return *range;}
+QString Estado::getLabel(){return *label;}
+QString Estado::getQEK(){return *qek;}
+QString Estado::getThreat(){return *threat;}
+QString Estado::getCenter(){return *center;}
+QString Estado::getDisplay(){return *display;}
+QString Estado::getICM(){return *icm;}
+QString Estado::getModos(){return *display_mode;}
+QString Estado::getQekIzq(){return *qek;}
+QString Estado::getQekDer(){return *qek;}
 
 void Estado::refresh()
 {
