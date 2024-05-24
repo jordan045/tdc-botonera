@@ -17,3 +17,8 @@ void Boton::pressed(){
     QString mensaje = *new QString(this->codigo);
     this->zona->sendCode(mensaje);
 }
+
+void Boton::unpressed(){
+    QString mensaje = *new QString("");
+    this->zona->sendCode(mensaje);
+}

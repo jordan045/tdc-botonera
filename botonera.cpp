@@ -72,17 +72,21 @@ void Botonera::start()
     midLay->addWidget(threat_assesment_widget);
     midLay->addWidget(display_mode_widget);
     midLay->addWidget(label_selection_widget);
-    midLay->addWidget(display_selection_widget);
+    midLay->addWidget(center_widget);
 
+    layout->addWidget(range_widget);
     layout->addWidget(icm_widget);
     layout->addLayout(midLay);
-    layout->addWidget(center_widget);
+
+    layout->addWidget(display_selection_widget);
 
     //QString texto = QString::number(modo);
     //QLabel *label = new QLabel(texto);
 
     //layout->addWidget(label,0,3);
     this->setLayout(layout);
+    this->setFixedWidth(900);
+    this->setFixedHeight(600);
     this->show();
 }
 
