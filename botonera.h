@@ -19,26 +19,26 @@ public:
    explicit Botonera(QWidget *parent = nullptr);
     void setmodo(int i);
     void sendCodeToEstado(Center *z, QString *boton);
-    void sendCodeToEstado(display_mode *z, QString *boton);
-    void sendCodeToEstado(Display_selection *z, QString *boton);
-    void sendCodeToEstado(icm *z, QString *boton);
-    void sendCodeToEstado(label *z, QString *boton);
-    void sendCodeToEstado(qek *z, QString *boton);
-    void sendCodeToEstado(range *z, QString *boton);
-    void sendCodeToEstado(threat *z, QString *boton);
+    void sendCodeToEstado(DisplayMode *z, QString *boton);
+    void sendCodeToEstado(DisplaySelection *z, QString *boton);
+    void sendCodeToEstado(Icm *z, QString *boton);
+    void sendCodeToEstado(Label *z, QString *boton);
+    void sendCodeToEstado(Qek *z, QString *boton);
+    void sendCodeToEstado(Range *z, QString *boton);
+    void sendCodeToEstado(Threat *z, QString *boton);
 
 public slots:
    void start();
 
    private:
    Zone *range_widget;
-   label *label_selection_widget;
-   qek *qek_widget;
-   threat *threat_assesment_widget;
-   center *center_widget;
-   display_mode *display_mode_widget;
-   Display_selection *display_selection_widget;
-   icm *icm_widget;
+   Label *label_selection_widget;
+   Qek *qek_widget;
+   Threat *threat_assesment_widget;
+   Center *center_widget;
+   DisplayMode *display_mode_widget;
+   DisplaySelection *display_selection_widget;
+   Icm *icm_widget;
 
    Estado *miEstado;
    int modo;

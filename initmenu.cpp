@@ -3,7 +3,7 @@
 #include <QPushButton>
 #include<QHBoxLayout>
 #include<QButtonGroup>
-initMenu::initMenu(QWidget *parent) :
+InitMenu::InitMenu(QWidget *parent) :
     QWidget(parent)
 {
     miBotonera = new Botonera();
@@ -23,28 +23,28 @@ initMenu::initMenu(QWidget *parent) :
     layout->addWidget(btn_3);
 
 
-    QObject::connect(btn_1,&QPushButton::clicked,this,&initMenu::iniciarModo1);
-    QObject::connect(btn_2,&QPushButton::clicked,this,&initMenu::iniciarModo2);
-    QObject::connect(btn_3,&QPushButton::clicked,this,&initMenu::iniciarModo3);
+    QObject::connect(btn_1,&QPushButton::clicked,this,&InitMenu::iniciarModo1);
+    QObject::connect(btn_2,&QPushButton::clicked,this,&InitMenu::iniciarModo2);
+    QObject::connect(btn_3,&QPushButton::clicked,this,&InitMenu::iniciarModo3);
 
 
 
     this->setLayout(layout);
 }
 
-void initMenu::iniciarModo1()
+void InitMenu::iniciarModo1()
 {
     miBotonera->setmodo(1);
     miBotonera->start();
     this->close();
 }
-void initMenu::iniciarModo2()
+void InitMenu::iniciarModo2()
 {
     miBotonera->setmodo(2);
     miBotonera->start();
     this->close();
 }
-void initMenu::iniciarModo3()
+void InitMenu::iniciarModo3()
 {
     miBotonera->setmodo(3);
     miBotonera->start();

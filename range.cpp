@@ -5,7 +5,7 @@
 #include <QButtonGroup>
 #include <boton.h>
 
-range::range(botonera *b)
+Range::Range(Botonera *b)
 
 {
     miBotonera = b;
@@ -17,12 +17,12 @@ range::range(botonera *b)
     style();
 }
 
-void range::sendCode(QString code)
+void Range::sendCode(QString code)
 {
     miBotonera->sendCodeToEstado(this, &code);
 }
 
-void range::createGraphicsButtons()
+void Range::createGraphicsButtons()
 {
     btn_2   = new QPushButton(this);
     btn_4   = new QPushButton(this);
@@ -43,7 +43,7 @@ void range::createGraphicsButtons()
     btn_256->setCheckable(true);
 }
 
-void range::createLogicButtons()
+void Range::createLogicButtons()
 {
     QVector<Boton*> logic_buttons = *new QVector<Boton*>();
     logic_btn_2   = new Boton(this,"RANGE 2");
@@ -58,7 +58,7 @@ void range::createLogicButtons()
     logic_buttons.append(logic_btn_2);
 }
 
-void range::createButtonGroup()
+void Range::createButtonGroup()
 {
     range_group = new QButtonGroup();
     range_group->addButton(btn_2,2);
@@ -72,7 +72,7 @@ void range::createButtonGroup()
     btn_8->setChecked(true);
 }
 
-void range::connection()
+void Range::connection()
 {
     QObject::connect(btn_2,&QPushButton::clicked,logic_btn_2,&Boton::pressed);
     QObject::connect(btn_4,&QPushButton::clicked,logic_btn_4,&Boton::pressed);
@@ -84,7 +84,7 @@ void range::connection()
     QObject::connect(btn_256,&QPushButton::clicked,logic_btn_256,&Boton::pressed);
 }
 
-void range::createLayout()
+void Range::createLayout()
 {
     auto layout = new QVBoxLayout;
     layout->addWidget(btn_2);
@@ -99,7 +99,7 @@ void range::createLayout()
     this->setLayout(layout);
 }
 
-void range::style()
+void Range::style()
 {
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}");
 

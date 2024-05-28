@@ -6,7 +6,7 @@
 #include <QVBoxLayout>
 #include <boton.h>
 
-qek::qek(Botonera *b)
+Qek::Qek(Botonera *b)
 {
 
     miBotonera = b;
@@ -252,7 +252,7 @@ qek::qek(Botonera *b)
 
 }
 
-void qek::sendCode(QString code)
+void Qek::sendCode(QString code)
 {
     miBotonera->sendCodeToEstado(this, &code);
 }

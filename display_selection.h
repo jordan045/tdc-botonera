@@ -5,11 +5,11 @@
 #include <QWidget>
 
 class Botonera;
-class Display_selection : public Zone
+class DisplaySelection : public Zone
 {
 
 public:
-    explicit Display_selection(Botonera *b);
+    explicit DisplaySelection(Botonera *b);
     void sendCode(QString code) override;
 
 private:

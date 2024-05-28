@@ -3,7 +3,7 @@
 #include "qjsondocument.h"
 #include <QFile>
 
-formatConcentrator::formatConcentrator()
+FormatConcentrator::FormatConcentrator()
 {
     message = new QBitArray(216);
     word1 = new QBitArray(24);
@@ -18,14 +18,14 @@ formatConcentrator::formatConcentrator()
 
 }
 
-QBitArray* formatConcentrator::getMessage(Estado *estado)
+QBitArray* FormatConcentrator::getMessage(Estado *estado)
 {
     leerJson();
     setMessage(estado);
     return message;
 }
 
-void formatConcentrator::setMessage(Estado *estado)
+void FormatConcentrator::setMessage(Estado *estado)
 {
     setWord1(estado);
     setWord2(estado);
@@ -40,7 +40,7 @@ void formatConcentrator::setMessage(Estado *estado)
 
 }
 
-void formatConcentrator::setWord1(Estado *estado)
+void FormatConcentrator::setWord1(Estado *estado)
 {
     QVector<QString> codigos;
     QString rangoValor = archivo.value(estado->getRange()).toString();
@@ -58,20 +58,20 @@ void formatConcentrator::setWord1(Estado *estado)
     }
 }
 
-void formatConcentrator::setWord2(Estado *estado)
+void FormatConcentrator::setWord2(Estado *estado)
 {
     std::vector<std::string> codigos;
     for (const auto& modo:estado->getModos())
         word2->setBit(archivo["center"].toObject()[modo].toObject()["pos"].toInt(),1); //TA WANACOOO
 }
 
-void formatConcentrator::setWord3(Estado *estado)
+void FormatConcentrator::setWord3(Estado *estado)
 {
 
 
 }
 
-void formatConcentrator::setWord4(Estado *estado)
+void FormatConcentrator::setWord4(Estado *estado)
 {
     int pos = 0;
     QString qekizq = estado->getQekIzq();
@@ -84,33 +84,33 @@ void formatConcentrator::setWord4(Estado *estado)
     }
 }
 
-void formatConcentrator::setWord5(Estado *estado)
+void FormatConcentrator::setWord5(Estado *estado)
 {
     word5->setBit(21,0);
     word5->setBit(13,0);
 }
 
-void formatConcentrator::setWord6(Estado *estado)
+void FormatConcentrator::setWord6(Estado *estado)
 {
 
 }
 
-void formatConcentrator::setWord7(Estado *estado)
+void FormatConcentrator::setWord7(Estado *estado)
 {
 
 }
 
-void formatConcentrator::setWord8(Estado *estado)
+void FormatConcentrator::setWord8(Estado *estado)
 {
 
 }
 
-void formatConcentrator::setWord9(Estado *estado)
+void FormatConcentrator::setWord9(Estado *estado)
 {
 
 }
 
-void formatConcentrator::leerJson()
+void FormatConcentrator::leerJson()
 {
     QString JsonFilePath = "QtJson.json";
 

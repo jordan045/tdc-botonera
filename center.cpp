@@ -5,21 +5,21 @@
 #include <QButtonGroup>
 #include <boton.h>
 
-center::center(Botonera *b)
+Center::Center(Botonera *b)
 {
     miBotonera = b;
 
-    auto *cu_or_off_cent = new QPushButton("",this);
-    auto *cu_or_cent = new QPushButton("",this);
-    auto *off_cent = new QPushButton("",this);
+    auto *curOrOffCent = new QPushButton("",this);
+    auto *curOrCent = new QPushButton("",this);
+    auto *offCent = new QPushButton("",this);
     auto *cent = new QPushButton("",this);
     auto *reset_obm = new QPushButton("",this);
     auto *data_req = new QPushButton("",this);
 
     auto layout = new QHBoxLayout;
-    layout->addWidget(cu_or_off_cent);
-    layout->addWidget(cu_or_cent);
-    layout->addWidget(off_cent);
+    layout->addWidget(curOrOffCent);
+    layout->addWidget(curOrCent);
+    layout->addWidget(offCent);
     layout->addWidget(cent);
     layout->addWidget(reset_obm);
     layout->addWidget(data_req);
@@ -28,39 +28,39 @@ center::center(Botonera *b)
     this->setLayout(layout);
 
     //graphic buttons
-    auto *logic_cu_or_off_cent   = new Boton(this, "CU OR OFF CENT");
-    auto *logic_cu_or_cent   = new Boton(this, "CU OR CENT");
-    auto *logic_off_cent   = new Boton(this, "OFF CENT");
-    auto *logic_cent  = new Boton(this, "CENT");
-    auto *logic_reset_obm  = new Boton(this, "RESET OBM");
-    auto *logic_data_req  = new Boton(this, "DATA REQ");
+    auto *logicCurOrOffCent   = new Boton(this, "CU OR OFF CENT");
+    auto *logicCurOrCent   = new Boton(this, "CU OR CENT");
+    auto *logicOffCent   = new Boton(this, "OFF CENT");
+    auto *logicCent  = new Boton(this, "CENT");
+    auto *logicResetObm  = new Boton(this, "RESET OBM");
+    auto *logicDataReq  = new Boton(this, "DATA REQ");
 
 
-    QObject::connect(cu_or_off_cent,&QPushButton::pressed,logic_cu_or_off_cent,&Boton::pressed);
-    QObject::connect(cu_or_cent,&QPushButton::pressed,logic_cu_or_cent,&Boton::pressed);
-    QObject::connect(off_cent,&QPushButton::pressed,logic_off_cent,&Boton::pressed);
-    QObject::connect(cent,&QPushButton::pressed,logic_cent,&Boton::pressed);
-    QObject::connect(reset_obm,&QPushButton::pressed,logic_reset_obm,&Boton::pressed);
-    QObject::connect(data_req,&QPushButton::pressed,logic_data_req,&Boton::pressed);
+    QObject::connect(curOrOffCent,&QPushButton::pressed,logicCurOrOffCent,&Boton::pressed);
+    QObject::connect(curOrCent,&QPushButton::pressed,logicCurOrCent,&Boton::pressed);
+    QObject::connect(offCent,&QPushButton::pressed,logicOffCent,&Boton::pressed);
+    QObject::connect(cent,&QPushButton::pressed,logicCent,&Boton::pressed);
+    QObject::connect(reset_obm,&QPushButton::pressed,logicResetObm,&Boton::pressed);
+    QObject::connect(data_req,&QPushButton::pressed,logicDataReq,&Boton::pressed);
 
-    QObject::connect(cu_or_off_cent,&QPushButton::released,logic_cu_or_off_cent,&Boton::unpressed);
-    QObject::connect(cu_or_cent,&QPushButton::released,logic_cu_or_cent,&Boton::unpressed);
-    QObject::connect(off_cent,&QPushButton::released,logic_off_cent,&Boton::unpressed);
-    QObject::connect(cent,&QPushButton::released,logic_cent,&Boton::unpressed);
-    QObject::connect(reset_obm,&QPushButton::released,logic_reset_obm,&Boton::unpressed);
-    QObject::connect(data_req,&QPushButton::released,logic_data_req,&Boton::unpressed);
+    QObject::connect(curOrOffCent,&QPushButton::released,logicCurOrOffCent,&Boton::unpressed);
+    QObject::connect(curOrCent,&QPushButton::released,logicCurOrCent,&Boton::unpressed);
+    QObject::connect(offCent,&QPushButton::released,logicOffCent,&Boton::unpressed);
+    QObject::connect(cent,&QPushButton::released,logicCent,&Boton::unpressed);
+    QObject::connect(reset_obm,&QPushButton::released,logicResetObm,&Boton::unpressed);
+    QObject::connect(data_req,&QPushButton::released,logicDataReq,&Boton::unpressed);
 
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
                         "QPushButton:hover {background-color: rgba(0,0,0,0); }"
                         "QPushButton:pressed {background-color: rgba(0,0,0,0);}");
 
-    cu_or_off_cent->setStyleSheet("QPushButton {image: url(':/center/img/Center/cooc.png')}"
+    curOrOffCent->setStyleSheet("QPushButton {image: url(':/center/img/Center/cooc.png')}"
                                 "QPushButton:pressed {image: url(':/center/img/Center/cooc_pressed.png')}");
 
-    cu_or_cent->setStyleSheet("QPushButton {image: url(':/center/img/Center/coc.png')}"
+    curOrCent->setStyleSheet("QPushButton {image: url(':/center/img/Center/coc.png')}"
                                   "QPushButton:pressed {image: url(':/center/img/Center/coc_pressed.png')}");
 
-    off_cent->setStyleSheet("QPushButton {image: url(':/center/img/Center/oc.png')}"
+    offCent->setStyleSheet("QPushButton {image: url(':/center/img/Center/oc.png')}"
                                   "QPushButton:pressed {image: url(':/center/img/Center/oc_pressed.png')}");
 
     cent->setStyleSheet("QPushButton {image: url(':/center/img/Center/cent.png')}"
@@ -70,7 +70,7 @@ center::center(Botonera *b)
                                   "QPushButton:pressed {image: url(':/center/img/Center/reset_obm_pressed.png')}");
 }
 
-void center::sendCode(QString code)
+void Center::sendCode(QString code)
 {
     miBotonera->sendCodeToEstado(this, &code);
 }

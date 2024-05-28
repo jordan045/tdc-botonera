@@ -5,7 +5,7 @@
 #include <QButtonGroup>
 #include <boton.h>
 
-label::label(Botonera *b)
+Label::Label(Botonera *b)
 {
 
     miBotonera = b;
@@ -87,7 +87,7 @@ label::label(Botonera *b)
                       "QPushButton:checked {image: url(':/label_selection/img/Label Selection/tn_pressed.png')}");
 }
 
-void label::sendCode(QString code)
+void Label::sendCode(QString code)
 {
     miBotonera->sendCodeToEstado(this, &code);
 }

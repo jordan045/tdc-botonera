@@ -8,11 +8,11 @@
  * Esta clase lee el contenido de la clase Estado y genera las 9 palabras de 24 bits
  * con el formato del Concentrator (ver Contenido de MensajesTMIO v0.3)
  */
-class formatConcentrator
+class FormatConcentrator
 {
 
 public:
-    formatConcentrator();
+    FormatConcentrator();
     QBitArray* getMessage(Estado *estadoActual);
 
 private:

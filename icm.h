@@ -8,7 +8,7 @@ class Botonera;
 class Icm : public Zone
 {
 public:
-    explicit Icm(botonera *b);
+    explicit Icm(Botonera *b);
     void sendCode(QString code) override;
 
 private:

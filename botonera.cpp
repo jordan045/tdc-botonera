@@ -22,42 +22,42 @@ void Botonera::setmodo(int i)
     modo = i;
 }
 
-void Botonera::sendCodeToEstado(center *z, QString *boton)
+void Botonera::sendCodeToEstado(Center *z, QString *boton)
 {
     miEstado->setCenter(boton);
 }
 
-void Botonera::sendCodeToEstado(display_mode *z, QString *boton)
+void Botonera::sendCodeToEstado(DisplayMode *z, QString *boton)
 {
     miEstado->setDisplay(boton);
 }
 
-void Botonera::sendCodeToEstado(Display_selection *z, QString *boton)
+void Botonera::sendCodeToEstado(DisplaySelection *z, QString *boton)
 {
     miEstado->setDisplay(boton);
 }
 
-void Botonera::sendCodeToEstado(icm *z, QString *boton)
+void Botonera::sendCodeToEstado(Icm *z, QString *boton)
 {
     miEstado->setICM(boton);
 }
 
-void Botonera::sendCodeToEstado(label *z, QString *boton)
+void Botonera::sendCodeToEstado(Label *z, QString *boton)
 {
     miEstado->setLabel(boton);
 }
 
-void Botonera::sendCodeToEstado(qek *z, QString *boton)
+void Botonera::sendCodeToEstado(Qek *z, QString *boton)
 {
     miEstado->setQEK(boton);
 }
 
-void Botonera::sendCodeToEstado(range *z, QString *boton)
+void Botonera::sendCodeToEstado(Range *z, QString *boton)
 {
     miEstado->setRange(boton);
 }
 
-void Botonera::sendCodeToEstado(threat *z, QString *boton)
+void Botonera::sendCodeToEstado(Threat *z, QString *boton)
 {
     miEstado->setThreat(boton);
 }

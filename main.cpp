@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
         exit(0);
     }
 
-    initMenu d;
+    InitMenu d;
     d.show();
 
     return a.exec();

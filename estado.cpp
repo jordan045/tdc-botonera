@@ -2,7 +2,7 @@
 #include "qdatetime.h"
 #include "qdebug.h"
 
-Estado::Estado(botonera *b) {
+Estado::Estado(Botonera *b) {
 
     miBotonera = b;
 
