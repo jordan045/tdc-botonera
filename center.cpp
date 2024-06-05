@@ -70,6 +70,10 @@ Center::Center(Botonera *b)
                                   "QPushButton:pressed {image: url(':/center/img/Center/reset_obm_pressed.png')}");
 }
 
+void Center::sendMessage(){
+    return;
+}
+
 void Center::sendCode(QString code)
 {
     miBotonera->sendCodeToEstado(this, &code);

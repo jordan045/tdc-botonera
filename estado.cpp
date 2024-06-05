@@ -2,6 +2,8 @@
 #include "qdatetime.h"
 #include "qdebug.h"
 
+
+
 Estado::Estado(Botonera *b) {
 
     miBotonera = b;
@@ -13,8 +15,60 @@ Estado::Estado(Botonera *b) {
     this->center = new QString("");
     this->display = new QString("");
     this->icm = new QString("");
-    this->display_mode = new QString("");
+    this->displayMode = new QString("");
+    this->displaySelection = new QString("");
 }
+
+void Estado::setEstado(Range *rango,QString *codigo)
+{
+    qDebug() << "Setting Range";
+    *this->range = *codigo;
+    refresh();
+}
+
+void Estado::setEstado(Center *z, QString *codigo)
+{
+    qDebug() << "Setting Center";
+    *this->center = *codigo;
+    refresh();
+}
+void Estado::setEstado(DisplayMode *z, QString *codigo)
+{
+    qDebug() << "Setting Display";
+    *this->displayMode= *codigo;
+    refresh();
+}
+void Estado::setEstado(DisplaySelection *z, QString *codigo)
+{
+    qDebug() << "Setting DisplaySelection";
+    *this->displaySelection = *codigo;
+    refresh();
+}
+void Estado::setEstado(Icm *z, QString *codigo)
+{
+    qDebug() << "Setting ICM";
+    *this->icm = *codigo;
+    refresh();
+}
+void Estado::setEstado(Label *z, QString *codigo)
+{
+    qDebug() << "Setting Label";
+    *this->label = *codigo;
+    refresh();
+}
+void Estado::setEstado(Qek *z, QString *codigo)
+{
+    qDebug() << "Setting QEK";
+    *this->qek = *codigo;
+    refresh();
+}
+void Estado::setEstado(Threat *z, QString *codigo){
+    qDebug() << "Setting Threat";
+    *this->threat = *codigo;
+    refresh();
+}
+
+
 
 void Estado::setRange(QString *r){
     qDebug() << "Setting Range";
@@ -46,12 +100,16 @@ void Estado::setCenter(QString *c){
     refresh();
 }
 
-void Estado::setDisplay(QString *d){
+void Estado::setDisplayMode(QString *d){
     qDebug() << "Setting Display";
-    *this->display = *d;
+    *this->displayMode= *d;
     refresh();
 }
-
+void Estado::setDisplaySelection(QString *d){
+    qDebug() << "Setting DisplaySelection";
+    *this->displaySelection = *d;
+    refresh();
+}
 void Estado::setICM(QString * i){
     qDebug() << "Setting ICM";
     *this->icm = *i;
@@ -63,9 +121,9 @@ QString Estado::getLabel(){return *label;}
 QString Estado::getQEK(){return *qek;}
 QString Estado::getThreat(){return *threat;}
 QString Estado::getCenter(){return *center;}
-QString Estado::getDisplay(){return *display;}
+QString Estado::getDisplayMode(){return *displayMode;}
 QString Estado::getICM(){return *icm;}
-QString Estado::getModos(){return *display_mode;}
+QString Estado::getModos(){return *displayMode;}
 QString Estado::getQekIzq(){return *qek;}
 QString Estado::getQekDer(){return *qek;}
 

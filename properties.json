@@ -1,0 +1,428 @@
+{
+  "rango": "sii",
+  "range_scale": {
+    "2": {
+      "type": "switch",
+      "label": "2",
+      "value": "000"
+    },
+    "4": {
+      "type": "switch",
+      "label": "4",
+      "value": "001"
+    },
+    "8": {
+      "type": "switch",
+      "label": "8",
+      "value": "010"
+    },
+    "16": {
+      "type": "switch",
+      "label": "16",
+      "value": "011"
+    },
+    "32": {
+      "type": "switch",
+      "label": "32",
+      "value": "100"
+    },
+    "64": {
+      "type": "switch",
+      "label": "64",
+      "value": "101"
+    },
+    "128": {
+      "type": "switch",
+      "label": "128",
+      "value": "110"
+    },
+    "256": {
+      "type": "switch",
+      "label": "256",
+      "value": "111"
+    }
+  },
+  "display_selection": {
+    "air": {
+      "type": "switch",
+      "label": "AIR",
+      "value": "10000000"
+    },
+    "surf": {
+      "type": "switch",
+      "label": "SURF",
+      "value": "01000000"
+    },
+    "sub_surf": {
+      "type": "switch",
+      "label": "SUB SURF",
+      "value": "00100000"
+    },
+    "ref_pos": {
+      "type": "switch",
+      "label": "REF POS",
+      "value": "00010000"
+    },
+    "bear_sel": {
+      "type": "switch",
+      "label": "BEAR SEL",
+      "value": "00001000"
+    },
+    "link_sel": {
+      "type": "switch",
+      "label": "LINK SEL",
+      "value": "00000100"
+    },
+    "warf_sel": {
+      "type": "switch",
+      "label": "WARF SEL",
+      "value": "00000010"
+    },
+    "fig": {
+      "type": "switch",
+      "label": "FIG",
+      "value": "00000001"
+    }
+  },
+  "threat_assesment": {
+    "12_sec": {
+      "type": "switch",
+      "label": "12 SEC",
+      "value": "10000"
+    },
+    "30_sec": {
+      "type": "switch",
+      "label": "30 SEC",
+      "value": "01000"
+    },
+    "6_min": {
+      "type": "switch",
+      "label": "6 MIN",
+      "value": "00100"
+    },
+    "15_min": {
+      "type": "switch",
+      "label": "15 MIN",
+      "value": "00010"
+    },
+    "reset": {
+      "type": "push",
+      "label": "RESET",
+      "value": "00001"
+    }
+  },
+  "label_selection": {
+    "ms": {
+      "type": "switch",
+      "label": "MS",
+      "value": ""
+    },
+    "trkm": {
+      "type": "switch",
+      "label": "TRKM",
+      "value": ""
+    },
+    "ampl_info": {
+      "type": "switch",
+      "label": "AMPL INFO",
+      "value": ""
+    },
+    "link_stat": {
+      "type": "switch",
+      "label": "LINK STAT",
+      "value": ""
+    },
+    "tn": {
+      "type": "switch",
+      "label": "TN",
+      "value": ""
+    }
+  },
+  "icm": {
+    "1": {
+      "type": "switch",
+      "label": "1",
+      "value": "000"
+    },
+    "2": {
+      "type": "switch",
+      "label": "2",
+      "value": "001"
+    },
+    "3": {
+      "type": "switch",
+      "label": "3",
+      "value": "010"
+    },
+    "4": {
+      "type": "switch",
+      "label": "4",
+      "value": "011"
+    },
+    "5": {
+      "type": "switch",
+      "label": "5",
+      "value": "100"
+    },
+    "6": {
+      "type": "switch",
+      "label": "6",
+      "value": "101"
+    },
+    "7": {
+      "type": "switch",
+      "label": "7",
+      "value": "110"
+    }
+  },
+  "center": {
+    "cu_or_off_cent": {
+      "type": "push",
+      "label": "CU OR OFF CENT",
+      "value": "1"
+    },
+    "cu_or_cent": {
+      "type": "push",
+      "label": "CU OR CENT",
+      "value": "1"
+    },
+    "off_cent": {
+      "type": "push",
+      "label": "OFF CENT",
+      "value": "1"
+    },
+    "cent": {
+      "type": "push",
+      "label": "CENT",
+      "value": "1"
+    },
+    "reset_obm": {
+      "type": "push",
+      "label": "RESET OBM",
+      "value": "1"
+    }
+  },
+  "data_req": {
+    "label": "???????",
+    "type": "push",
+    "value": "1"
+  },
+  "display_mode": {
+    "hm": {
+      "type": "switch",
+      "label": "HM",
+      "value": ""
+    },
+    "rr": {
+      "type": "switch",
+      "label": "RR",
+      "value": ""
+    },
+    "own_curs": {
+      "type": "switch",
+      "label": "OWN CURS",
+      "value": "1"
+    },
+    "symb_large": {
+      "type": "switch",
+      "label": "SYMB LARGE",
+      "value": ""
+    },
+    "tm": {
+      "type": "switch",
+      "label": "TM",
+      "value": "1"
+    },
+    "emerg": {
+      "type": "switch",
+      "label": "EMERG",
+      "value": ""
+    },
+    "syst_alarm": {
+      "type": "push",
+      "label": "SYST ALARM",
+      "value": "1"
+    }
+  },
+  "radar-recorder": {
+    "type": "push",
+    "label": "radar-recorder",
+    "value": 1
+  },
+  "qek ": {
+    "20": {
+      "type": "push",
+      "label": "20",
+      "value": "00010100"
+    },
+    "21": {
+      "type": "push",
+      "label": "21",
+      "value": "00010101"
+    },
+    "22": {
+      "type": "push",
+      "label": "22",
+      "value": "00010110"
+    },
+    "23": {
+      "type": "push",
+      "label": "23",
+      "value": "00010111"
+    },
+    "24": {
+      "type": "push",
+      "label": "24",
+      "value": "00011000"
+    },
+    "25": {
+      "type": "push",
+      "label": "25",
+      "value": "00011001"
+    },
+    "26": {
+      "type": "push",
+      "label": "26",
+      "value": "00011010"
+    },
+    "27": {
+      "type": "push",
+      "label": "27",
+      "value": "00011011"
+    },
+    "30": {
+      "type": "push",
+      "label": "30",
+      "value": "00011110"
+    },
+    "31": {
+      "type": "push",
+      "label": "31",
+      "value": "00011111"
+    },
+    "32": {
+      "type": "push",
+      "label": "32",
+      "value": "00100000"
+    },
+    "33": {
+      "type": "push",
+      "label": "33",
+      "value": "00100001"
+    },
+    "34": {
+      "type": "push",
+      "label": "34",
+      "value": "00100010"
+    },
+    "35": {
+      "type": "push",
+      "label": "35",
+      "value": "00100011"
+    },
+    "36": {
+      "type": "push",
+      "label": "36",
+      "value": "00100100"
+    },
+    "37": {
+      "type": "push",
+      "label": "37",
+      "value": "00100101"
+    },
+    "40": {
+      "type": "push",
+      "label": "40",
+      "value": "00101000"
+    },
+    "41": {
+      "type": "push",
+      "label": "41",
+      "value": "00101001"
+    },
+    "42": {
+      "type": "push",
+      "label": "42",
+      "value": "00101010"
+    },
+    "43": {
+      "type": "push",
+      "label": "43",
+      "value": "00101011"
+    },
+    "44": {
+      "type": "push",
+      "label": "44",
+      "value": "00101100"
+    },
+    "45": {
+      "type": "push",
+      "label": "45",
+      "value": "00101101"
+    },
+    "46": {
+      "type": "push",
+      "label": "46",
+      "value": "00101110"
+    },
+    "47": {
+      "type": "push",
+      "label": "47",
+      "value": "00101111"
+    },
+    "50": {
+      "type": "push",
+      "label": "50",
+      "value": "00110010"
+    },
+    "51": {
+      "type": "push",
+      "label": "51",
+      "value": "00110011"
+    },
+    "52": {
+      "type": "push",
+      "label": "52",
+      "value": "00110100"
+    },
+    "53": {
+      "type": "push",
+      "label": "53",
+      "value": "00110101"
+    },
+    "54": {
+      "type": "push",
+      "label": "54",
+      "value": "00110110"
+    },
+    "55": {
+      "type": "push",
+      "label": "55",
+      "value": "00110111"
+    },
+    "56": {
+      "type": "push",
+      "label": "56",
+      "value": "00111000"
+    },
+    "57": {
+      "type": "push",
+      "label": "57",
+      "value": "00111001"
+    }
+  },
+  "overlays": {
+    "asw-corbeta": { "codigo": "0001", "tipo": "asw" },
+    "ops-corbeta": { "codigo": "0010", "tipo": "ops" },
+    "aaw-corbeta": { "codigo": "0011", "tipo": "aaw" },
+    "linco-corbeta": { "codigo": "0100", "tipo": "linco" },
+    "spc-destructor": { "codigo": "0001", "tipo": "spc" },
+    "linco-destructor": { "codigo": "0010", "tipo": "linco" },
+    "heco-destructor": { "codigo": "0101", "tipo": "heco" },
+    "apc-destructor": { "codigo": "0110", "tipo": "apc" },
+    "asw-destructor": { "codigo": "0011", "tipo": "asw" },
+    "ops-destructor": { "codigo": "0100", "tipo": "ops" },
+    "aaw-destructor": { "codigo": "0111", "tipo": "aaw" },
+    "ew-destructor": { "codigo": "1000", "tipo": "ew" }
+  }
+}

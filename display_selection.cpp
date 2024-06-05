@@ -123,3 +123,6 @@ void DisplaySelection::sendCode(QString code)
 {
     miBotonera->sendCodeToEstado(this, &code);
 }
+void DisplaySelection::sendMessage(){
+    return;
+}

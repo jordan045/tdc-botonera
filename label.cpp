@@ -91,3 +91,7 @@ void Label::sendCode(QString code)
 {
     miBotonera->sendCodeToEstado(this, &code);
 }
+
+void Label::sendMessage(){
+    return;
+}

@@ -11,6 +11,7 @@ class Threat : public Zone
 public:
     explicit Threat(Botonera *b);
     void sendCode(QString code) override;
+    void sendMessage();
 
 private:
     Botonera *miBotonera;

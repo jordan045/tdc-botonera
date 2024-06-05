@@ -12,7 +12,10 @@ QString Boton::getCodigo(){
 void Boton::setCodigo(QString n){
     codigo = n;
 }
-
+void Boton::sendMessage(){
+    qDebug()<<"me active en boton";
+    this->zona->sendMessage();
+}
 void Boton::pressed(){
     QString mensaje = *new QString(this->codigo);
     this->zona->sendCode(mensaje);

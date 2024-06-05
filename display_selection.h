@@ -11,6 +11,7 @@ class DisplaySelection : public Zone
 public:
     explicit DisplaySelection(Botonera *b);
     void sendCode(QString code) override;
+    void sendMessage();
 
 private:
     Botonera *miBotonera;

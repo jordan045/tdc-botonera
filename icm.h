@@ -10,6 +10,7 @@ class Icm : public Zone
 public:
     explicit Icm(Botonera *b);
     void sendCode(QString code) override;
+    void sendMessage();
 
 private:
     Botonera *miBotonera;

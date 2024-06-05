@@ -11,6 +11,7 @@ class Zone : public QWidget{
 public:
     virtual void sendCode(QString code){
     }
+    virtual void sendMessage(){}
 };
 
 #endif // ZONE_H

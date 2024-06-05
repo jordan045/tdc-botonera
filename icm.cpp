@@ -86,6 +86,9 @@ Icm::Icm(Botonera *b)
 
 }
 
+void Icm::sendMessage(){
+    return;
+}
 void Icm::sendCode(QString code)
 {
     miBotonera->sendCodeToEstado(this, &code);

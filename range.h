@@ -14,6 +14,7 @@ class Range : public Zone
 public:
     explicit Range(Botonera *b);
     void sendCode(QString code) override;
+    void sendMessage() override;
 
 private:
 
@@ -27,6 +28,8 @@ private:
     QAbstractButton *btn_64;
     QAbstractButton *btn_128;
     QAbstractButton *btn_256;
+    QAbstractButton *btnMessage;
+
 
     Boton *logic_btn_2;
     Boton *logic_btn_4;
@@ -36,6 +39,7 @@ private:
     Boton *logic_btn_64;
     Boton *logic_btn_128;
     Boton *logic_btn_256;
+    Boton *logicBotonMessage;
 
     QButtonGroup *range_group;
     void createGraphicsButtons();

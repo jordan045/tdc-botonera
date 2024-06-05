@@ -4,6 +4,7 @@
 #include <QHBoxLayout>
 #include <QButtonGroup>
 #include <boton.h>
+#
 
 Range::Range(Botonera *b)
 
@@ -19,8 +20,15 @@ Range::Range(Botonera *b)
 
 void Range::sendCode(QString code)
 {
+    qDebug()<<"Me hicieron sendCode";
     miBotonera->sendCodeToEstado(this, &code);
 }
+
+void Range::sendMessage(){
+    qDebug()<<"Me tocaron en rango";
+    miBotonera->sendMessage();
+}
+
 
 void Range::createGraphicsButtons()
 {
@@ -32,6 +40,7 @@ void Range::createGraphicsButtons()
     btn_64  = new QPushButton(this);
     btn_128 = new QPushButton(this);
     btn_256 = new QPushButton(this);
+    btnMessage = new QPushButton(this);
 
     btn_2->setCheckable(true);
     btn_4->setCheckable(true);
@@ -54,6 +63,7 @@ void Range::createLogicButtons()
     logic_btn_64  = new Boton(this,"RANGE 64");
     logic_btn_128 = new Boton(this,"RANGE 128");
     logic_btn_256 = new Boton(this,"RANGE 256");
+    logicBotonMessage = new Boton(this,"mensage");
 
     logic_buttons.append(logic_btn_2);
 }
@@ -69,6 +79,7 @@ void Range::createButtonGroup()
     range_group->addButton(btn_64,64);
     range_group->addButton(btn_128,128);
     range_group->addButton(btn_256,256);
+    range_group->addButton(btnMessage,512);
     btn_8->setChecked(true);
 }
 
@@ -82,6 +93,7 @@ void Range::connection()
     QObject::connect(btn_64,&QPushButton::clicked,logic_btn_64,&Boton::pressed);
     QObject::connect(btn_128,&QPushButton::clicked,logic_btn_128,&Boton::pressed);
     QObject::connect(btn_256,&QPushButton::clicked,logic_btn_256,&Boton::pressed);
+    QObject::connect(btnMessage,&QPushButton::clicked,logicBotonMessage,&Boton::sendMessage);
 }
 
 void Range::createLayout()
@@ -95,6 +107,7 @@ void Range::createLayout()
     layout->addWidget(btn_64);
     layout->addWidget(btn_128);
     layout->addWidget(btn_256);
+    layout->addWidget(btnMessage);
 
     this->setLayout(layout);
 }
@@ -126,5 +139,9 @@ void Range::style()
 
     btn_256->setStyleSheet(  "QPushButton {image: url(':/range/img/Range/256.png')}"
                            "QPushButton:checked {image: url(':/range/img/Range/256_pressed.png')}");
+
+    btnMessage->setStyleSheet(  "QPushButton {image: url(':/range/img/Range/256.png')}"
+                              "QPushButton:checked {image: url(':/range/img/Range/256_pressed.png')}");
+
 }
 

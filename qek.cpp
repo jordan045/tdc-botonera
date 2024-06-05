@@ -257,3 +257,6 @@ void Qek::sendCode(QString code)
     miBotonera->sendCodeToEstado(this, &code);
 }
 
+void Qek::sendMessage(){
+    return;
+}

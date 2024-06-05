@@ -3,14 +3,16 @@
 
 #include "estado.h"
 #include <QWidget>
-#include <range.h>
-#include <icm.h>
-#include <label.h>
-#include <qek.h>
-#include <threat.h>
-#include <center.h>
-#include <display_mode.h>
-#include <display_selection.h>
+#include "range.h"
+#include "icm.h"
+#include "label.h"
+#include "Zone.h"
+#include "qek.h"
+#include "threat.h"
+#include "center.h"
+#include "display_mode.h"
+#include "display_selection.h"
+#include "formatconcentrator.h"
 
 class Botonera : public QWidget
 {
@@ -26,12 +28,12 @@ public:
     void sendCodeToEstado(Qek *z, QString *boton);
     void sendCodeToEstado(Range *z, QString *boton);
     void sendCodeToEstado(Threat *z, QString *boton);
-
+    void sendMessage();
 public slots:
    void start();
 
    private:
-   Zone *range_widget;
+   Range *range_widget;
    Label *label_selection_widget;
    Qek *qek_widget;
    Threat *threat_assesment_widget;
@@ -39,6 +41,7 @@ public slots:
    DisplayMode *display_mode_widget;
    DisplaySelection *display_selection_widget;
    Icm *icm_widget;
+   FormatConcentrator *concentrator;
 
    Estado *miEstado;
    int modo;

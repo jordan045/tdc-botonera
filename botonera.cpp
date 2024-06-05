@@ -2,6 +2,7 @@
 #include "display_selection.h"
 #include <QVBoxLayout>
 #include <QLabel>
+#include <QDebug>
 
 Botonera::Botonera(QWidget *parent) :
     QWidget(parent)
@@ -15,6 +16,7 @@ Botonera::Botonera(QWidget *parent) :
     display_mode_widget = new DisplayMode(this);
     icm_widget = new Icm(this);
     display_selection_widget = new DisplaySelection(this);
+    concentrator = new FormatConcentrator();
 }
 
 void Botonera::setmodo(int i)
@@ -22,46 +24,39 @@ void Botonera::setmodo(int i)
     modo = i;
 }
 
-void Botonera::sendCodeToEstado(Center *z, QString *boton)
-{
-    miEstado->setCenter(boton);
-}
-
-void Botonera::sendCodeToEstado(DisplayMode *z, QString *boton)
-{
-    miEstado->setDisplay(boton);
-}
-
-void Botonera::sendCodeToEstado(DisplaySelection *z, QString *boton)
-{
-    miEstado->setDisplay(boton);
-}
-
-void Botonera::sendCodeToEstado(Icm *z, QString *boton)
-{
-    miEstado->setICM(boton);
-}
-
-void Botonera::sendCodeToEstado(Label *z, QString *boton)
-{
-    miEstado->setLabel(boton);
-}
-
 void Botonera::sendCodeToEstado(Qek *z, QString *boton)
 {
-    miEstado->setQEK(boton);
+    miEstado->setEstado(z,boton);
+}void Botonera::sendCodeToEstado(Icm *z, QString *boton)
+{
+    miEstado->setEstado(z,boton);
+}void Botonera::sendCodeToEstado(Center *z, QString *boton)
+{
+    miEstado->setEstado(z,boton);
+}void Botonera::sendCodeToEstado(DisplayMode *z, QString *boton)
+{
+    miEstado->setEstado(z,boton);
+}void Botonera::sendCodeToEstado(DisplaySelection *z, QString *boton)
+{
+    miEstado->setEstado(z,boton);
+}void Botonera::sendCodeToEstado(Label *z, QString *boton)
+{
+    miEstado->setEstado(z,boton);
 }
-
 void Botonera::sendCodeToEstado(Range *z, QString *boton)
 {
-    miEstado->setRange(boton);
+    miEstado->setEstado(z,boton);
 }
-
 void Botonera::sendCodeToEstado(Threat *z, QString *boton)
 {
-    miEstado->setThreat(boton);
+    miEstado->setEstado(z,boton);
 }
 
+void Botonera::sendMessage()
+{
+    qDebug()<<"Me tocaron en botonera";
+    concentrator->getMessage(miEstado);
+}
 void Botonera::start()
 {
     QHBoxLayout *layout = new QHBoxLayout();

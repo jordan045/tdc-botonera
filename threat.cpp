@@ -73,6 +73,9 @@ Threat::Threat(Botonera *b)
                             "QPushButton:pressed {image: url(':/threat/img/Threat/reset_pressed.png')}");
 }
 
+void Threat::sendMessage(){
+    return;
+}
 void Threat::sendCode(QString code)
 {
     miBotonera->sendCodeToEstado(this, &code);

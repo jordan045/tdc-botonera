@@ -17,6 +17,8 @@ public:
 public slots:
     void pressed();
     void unpressed();
+    //Borrar es solo para probar si se genera el mensaje
+    void sendMessage();
 
 private:
     QString codigo;

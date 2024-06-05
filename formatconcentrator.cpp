@@ -2,6 +2,7 @@
 #include "estado.h"
 #include "qjsondocument.h"
 #include <QFile>
+#include<QDebug>
 
 FormatConcentrator::FormatConcentrator()
 {
@@ -20,14 +21,16 @@ FormatConcentrator::FormatConcentrator()
 
 QBitArray* FormatConcentrator::getMessage(Estado *estado)
 {
+    qDebug()<<"Me llamaron en concentrator";
     leerJson();
     setMessage(estado);
-    return message;
+    setWord1(estado);
 }
 
 void FormatConcentrator::setMessage(Estado *estado)
 {
     setWord1(estado);
+    /*
     setWord2(estado);
     setWord3(estado);
     setWord4(estado);
@@ -36,12 +39,12 @@ void FormatConcentrator::setMessage(Estado *estado)
     setWord7(estado);
     setWord8(estado);
     setWord9(estado);
-
-
+    */
 }
 
 void FormatConcentrator::setWord1(Estado *estado)
 {
+    /*
     QVector<QString> codigos;
     QString rangoValor = archivo.value(estado->getRange()).toString();
     QString displayValor = archivo.value(estado->getDisplay()).toString();
@@ -56,6 +59,11 @@ void FormatConcentrator::setWord1(Estado *estado)
             word1->setBit(pos++, bit == '1');
         }
     }
+    */
+
+    qDebug()<<"palabra 1";
+    qDebug()<<archivo.value("rango").toString();
+    //QString rangoValor = archivo.value(estado->getRange()).toString();
 }
 
 void FormatConcentrator::setWord2(Estado *estado)
@@ -112,14 +120,14 @@ void FormatConcentrator::setWord9(Estado *estado)
 
 void FormatConcentrator::leerJson()
 {
-    QString JsonFilePath = "QtJson.json";
-
+    QString JsonFilePath = "properties";
+    qDebug()<<"Se llamo a leer json";
     QFile File(JsonFilePath);
     if(File.open(QIODevice::ReadOnly))
     {
          QByteArray Bytes = File.readAll();
         File.close();
-
+         qDebug()<<"Se abró el json";
          QJsonParseError JsonError;
         QJsonDocument Document = QJsonDocument::fromJson(Bytes,&JsonError);
          if(JsonError.error != QJsonParseError::NoError)
@@ -133,5 +141,9 @@ void FormatConcentrator::leerJson()
          }
         if(Document.isObject())
          archivo = Document.object();
+    }
+    else
+    {
+        qDebug()<<"Hubo un error, no se abrio el archivo";
     }
 }

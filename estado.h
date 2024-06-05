@@ -3,6 +3,15 @@
 
 #include "qwidget.h"
 #include <QString>
+#include "Zone.h"
+#include "range.h"
+#include "center.h"
+#include "display_mode.h"
+#include "display_selection.h"
+#include "threat.h"
+#include "qek.h"
+#include "label.h"
+#include "icm.h"
 /**
  * @brief The Estado class
  *
@@ -15,22 +24,24 @@ class Estado : public QWidget
 {
 public:
     Estado(Botonera *b);
-    void setEstado();
+    void setEstado(Zone *z, QString *Boton);
+    void setEstado(Center *z, QString *boton);
+    void setEstado(DisplayMode *z, QString *boton);
+    void setEstado(DisplaySelection *z, QString *boton);
+    void setEstado(Icm *z, QString *boton);
+    void setEstado(Label *z, QString *boton);
+    void setEstado(Qek *z, QString *boton);
+    void setEstado(Range *z, QString *boton);
+    void setEstado(Threat *z, QString *boton);
 
-    void setRange(QString *r);
-    void setLabel(QString *l);
-    void setQEK(QString *q);
-    void setThreat(QString *t);
-    void setCenter(QString *c);
-    void setDisplay(QString *d);
-    void setICM(QString *i);
 
     QString getRange();
     QString getLabel();
     QString getQEK();
     QString getThreat();
     QString getCenter();
-    QString getDisplay();
+    QString getDisplayMode();
+    QString getDisplaySelection();
     QString getICM();
     QString getQekIzq();
     QString getQekDer();
@@ -48,7 +59,17 @@ private:
     QString *center;
     QString *display;
     QString *icm;
-    QString *display_mode;
+    QString *displayMode;
+    QString *displaySelection;
+
+    void setRange(QString *r);
+    void setLabel(QString *l);
+    void setQEK(QString *q);
+    void setThreat(QString *t);
+    void setCenter(QString *c);
+    void setDisplayMode(QString *d);
+    void setDisplaySelection(QString *d);
+    void setICM(QString *i);
 
     void refresh();
 

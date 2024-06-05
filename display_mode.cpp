@@ -109,3 +109,6 @@ void DisplayMode::sendCode(QString code)
 {
     miBotonera->sendCodeToEstado(this, &code);
 }
+void DisplayMode::sendMessage(){
+    return;
+}

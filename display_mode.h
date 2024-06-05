@@ -11,6 +11,7 @@ class DisplayMode:public Zone
 public:
    explicit DisplayMode(Botonera *b);
    void sendCode(QString code) override;
+   void sendMessage();
 
 private:
     Botonera *miBotonera;
