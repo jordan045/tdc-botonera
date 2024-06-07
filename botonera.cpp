@@ -58,6 +58,12 @@ void Botonera::removeCodeFromEstado(Qek *z, QString *boton){
 void Botonera::removeCodeFromEstado(Range *z, QString *boton){
     miEstado->removeEstado(z,boton);
 }
+void Botonera::removeCodeFromEstado(Center *z, QString *boton){
+    miEstado->removeEstado(z,boton);
+}
+void Botonera::removeCodeFromEstado(DisplayMode *z, QString *boton){
+    miEstado->removeEstado(z,boton);
+}
 
 void Botonera::sendMessage()
 {

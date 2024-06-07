@@ -11,6 +11,7 @@ class Center : public Zone
 public:
     explicit Center(Botonera *b);
     void sendCode(QString code) override;
+    void removeCode(QString code) override;
     void sendMessage();
 
 private:

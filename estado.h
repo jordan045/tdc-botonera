@@ -66,7 +66,6 @@ private:
     QString qek;
     QString threat;
     QString center;
-    QString display;
     QString icm;
     QString displayMode;
     QString displaySelection;

@@ -13,7 +13,6 @@ Estado::Estado(Botonera *b) {
     this->qek               = *new QString("");
     this->threat            = *new QString("");
     this->center            = *new QString("");
-    this->display           = *new QString("");
     this->icm               = *new QString("");
     this->displayMode       = *new QString("");
     this->displaySelection  = *new QString("");
@@ -34,7 +33,7 @@ void Estado::setEstado(Center *z, QString *codigo)
 }
 void Estado::setEstado(DisplayMode *z, QString *codigo)
 {
-    qDebug() << "Setting Display";
+    qDebug() << "Seteamos" << *codigo;
     codigo->append(" ");
     this->displayMode.append(*codigo);
     refresh();
@@ -89,6 +88,7 @@ void Estado::removeEstado(Threat *z, QString *codigo){
     refresh();
 }
 void Estado::removeEstado(DisplayMode *z, QString *codigo){
+    qDebug() << "Borramos" << *codigo;
     codigo->append(" ");
     this->displayMode.remove(*codigo);
     refresh();
@@ -138,6 +138,7 @@ void Estado::refresh()
              << "\nQEK:\t\t " << qek
              << "\nThreat Assesment:\t " << threat
              << "\nCenter:\t\t " << center
-             << "\nDisplay:\t\t " << display
+             << "\nDisplay Mode:\t " << displayMode
+             << "\nDisplay Selection:\t " << displaySelection
              << "\nICM:\t\t " << icm;
 }
