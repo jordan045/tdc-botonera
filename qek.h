@@ -11,6 +11,7 @@ class Qek : public Zone
 public:
     explicit Qek(Botonera *b);
     void sendCode(QString code) override;
+    void removeCode(QString code) override;
     void sendMessage();
 
 private:

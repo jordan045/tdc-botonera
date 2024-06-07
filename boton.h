@@ -15,12 +15,12 @@ public:
     QString getCodigo();
     int getChar();
 public slots:
-    void pressed();
-    void unpressed();
+    void interact();
     //Borrar es solo para probar si se genera el mensaje
     void sendMessage();
 
 private:
+    bool state;
     QString codigo;
     Zone *zona;
 };

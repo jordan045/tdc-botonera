@@ -80,14 +80,14 @@ DisplaySelection::DisplaySelection(Botonera *b)
     auto *logicWarfSel = new Boton(this, "WARF SEL");
     auto *logicFig = new Boton(this, "FIG");
 
-    QObject::connect(air, &QPushButton::clicked, logicAir, &Boton::pressed);
-    QObject::connect(surf, &QPushButton::clicked, logicSurf, &Boton::pressed);
-    QObject::connect(subSurf, &QPushButton::clicked, logicSubSurf, &Boton::pressed);
-    QObject::connect(refPos, &QPushButton::clicked, logicRefPos, &Boton::pressed);
-    QObject::connect(bearSel, &QPushButton::clicked, logicBearSel, &Boton::pressed);
-    QObject::connect(linkSel, &QPushButton::clicked, logicLinkSel, &Boton::pressed);
-    QObject::connect(warfSel, &QPushButton::clicked, logicWarfSel, &Boton::pressed);
-    QObject::connect(fig, &QPushButton::clicked, logicFig, &Boton::pressed);
+    QObject::connect(air, &QPushButton::toggled, logicAir, &Boton::interact);
+    QObject::connect(surf, &QPushButton::toggled, logicSurf, &Boton::interact);
+    QObject::connect(subSurf, &QPushButton::toggled, logicSubSurf, &Boton::interact);
+    QObject::connect(refPos, &QPushButton::toggled, logicRefPos, &Boton::interact);
+    QObject::connect(bearSel, &QPushButton::toggled, logicBearSel, &Boton::interact);
+    QObject::connect(linkSel, &QPushButton::toggled, logicLinkSel, &Boton::interact);
+    QObject::connect(warfSel, &QPushButton::toggled, logicWarfSel, &Boton::interact);
+    QObject::connect(fig, &QPushButton::toggled, logicFig, &Boton::interact);
 
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
                         "QPushButton:hover {background-color: rgba(0,0,0,0); }"

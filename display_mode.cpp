@@ -69,13 +69,13 @@ DisplayMode::DisplayMode(Botonera *b)
     auto *logicEmerg  = new Boton(this, "EMERG");
     auto *logicSystAlarm = new Boton(this, "SYST ALARM");
 
-    QObject::connect(hm,&QPushButton::clicked,logicHm,&Boton::pressed);
-    QObject::connect(rr,&QPushButton::clicked,logicRr,&Boton::pressed);
-    QObject::connect(ownCurs,&QPushButton::clicked,logicOwnCurs,&Boton::pressed);
-    QObject::connect(symbLarge,&QPushButton::clicked,logicSymbLarge,&Boton::pressed);
-    QObject::connect(tm,&QPushButton::clicked,logicTm,&Boton::pressed);
-    QObject::connect(emerg,&QPushButton::clicked,logicEmerg,&Boton::pressed);
-    QObject::connect(systAlarm,&QPushButton::clicked,logicSystAlarm,&Boton::pressed);
+    QObject::connect(hm,&QPushButton::toggled,logicHm,&Boton::interact);
+    QObject::connect(rr,&QPushButton::toggled,logicRr,&Boton::interact);
+    QObject::connect(ownCurs,&QPushButton::toggled,logicOwnCurs,&Boton::interact);
+    QObject::connect(symbLarge,&QPushButton::toggled,logicSymbLarge,&Boton::interact);
+    QObject::connect(tm,&QPushButton::toggled,logicTm,&Boton::interact);
+    QObject::connect(emerg,&QPushButton::toggled,logicEmerg,&Boton::interact);
+    QObject::connect(systAlarm,&QPushButton::toggled,logicSystAlarm,&Boton::interact);
 
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
                         "QPushButton:hover {background-color: rgba(0,0,0,0); }"

@@ -9,8 +9,8 @@
 class Zone : public QWidget{
 
 public:
-    virtual void sendCode(QString code){
-    }
+    virtual void sendCode(QString code){}
+    virtual void removeCode(QString code){}
     virtual void sendMessage(){}
 };
 

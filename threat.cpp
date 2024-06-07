@@ -58,11 +58,11 @@ void Threat::createButtonGroup()
 
 void Threat::connection()
 {
-    QObject::connect(btn12Sec,&QPushButton::clicked,logicBtn12Sec,&Boton::pressed);
-    QObject::connect(btn30Sec,&QPushButton::clicked,logicBtn30Sec,&Boton::pressed);
-    QObject::connect(btn6Min,&QPushButton::clicked,logicBtn6Min,&Boton::pressed);
-    QObject::connect(btn15Min,&QPushButton::clicked,logicBtn15Min,&Boton::pressed);
-    QObject::connect(btnReset,&QPushButton::clicked,logicBtnReset,&Boton::pressed);
+    QObject::connect(btn12Sec,&QPushButton::toggled,logicBtn12Sec,&Boton::interact);
+    QObject::connect(btn30Sec,&QPushButton::toggled,logicBtn30Sec,&Boton::interact);
+    QObject::connect(btn6Min,&QPushButton::toggled,logicBtn6Min,&Boton::interact);
+    QObject::connect(btn15Min,&QPushButton::toggled,logicBtn15Min,&Boton::interact);
+    QObject::connect(btnReset,&QPushButton::toggled,logicBtnReset,&Boton::interact);
 }
 
 void Threat::createLayout()

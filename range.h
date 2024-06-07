@@ -14,6 +14,7 @@ class Range : public Zone
 public:
     explicit Range(Botonera *b);
     void sendCode(QString code) override;
+    void removeCode(QString code) override;
     void sendMessage() override;
 
 private:

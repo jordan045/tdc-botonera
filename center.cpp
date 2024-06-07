@@ -36,19 +36,12 @@ Center::Center(Botonera *b)
     auto *logicDataReq  = new Boton(this, "DATA REQ");
 
 
-    QObject::connect(curOrOffCent,&QPushButton::pressed,logicCurOrOffCent,&Boton::pressed);
-    QObject::connect(curOrCent,&QPushButton::pressed,logicCurOrCent,&Boton::pressed);
-    QObject::connect(offCent,&QPushButton::pressed,logicOffCent,&Boton::pressed);
-    QObject::connect(cent,&QPushButton::pressed,logicCent,&Boton::pressed);
-    QObject::connect(reset_obm,&QPushButton::pressed,logicResetObm,&Boton::pressed);
-    QObject::connect(data_req,&QPushButton::pressed,logicDataReq,&Boton::pressed);
-
-    QObject::connect(curOrOffCent,&QPushButton::released,logicCurOrOffCent,&Boton::unpressed);
-    QObject::connect(curOrCent,&QPushButton::released,logicCurOrCent,&Boton::unpressed);
-    QObject::connect(offCent,&QPushButton::released,logicOffCent,&Boton::unpressed);
-    QObject::connect(cent,&QPushButton::released,logicCent,&Boton::unpressed);
-    QObject::connect(reset_obm,&QPushButton::released,logicResetObm,&Boton::unpressed);
-    QObject::connect(data_req,&QPushButton::released,logicDataReq,&Boton::unpressed);
+    QObject::connect(curOrOffCent,&QPushButton::toggled,logicCurOrOffCent,&Boton::interact);
+    QObject::connect(curOrCent,&QPushButton::toggled,logicCurOrCent,&Boton::interact);
+    QObject::connect(offCent,&QPushButton::toggled,logicOffCent,&Boton::interact);
+    QObject::connect(cent,&QPushButton::toggled,logicCent,&Boton::interact);
+    QObject::connect(reset_obm,&QPushButton::toggled,logicResetObm,&Boton::interact);
+    QObject::connect(data_req,&QPushButton::toggled,logicDataReq,&Boton::interact);
 
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
                         "QPushButton:hover {background-color: rgba(0,0,0,0); }"
