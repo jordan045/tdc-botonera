@@ -28,6 +28,13 @@ public:
     void sendCodeToEstado(Qek *z, QString *boton);
     void sendCodeToEstado(Range *z, QString *boton);
     void sendCodeToEstado(Threat *z, QString *boton);
+
+    void removeCodeFromEstado(Icm *z, QString *boton);
+    void removeCodeFromEstado(Qek *z, QString *boton);
+    void removeCodeFromEstado(Range *z, QString *boton);
+    void removeCodeFromEstado(Center *z, QString *boton);
+    void removeCodeFromEstado(DisplayMode *z, QString *boton);
+
     void sendMessage();
 public slots:
    void start();

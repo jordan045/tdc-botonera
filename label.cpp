@@ -54,11 +54,11 @@ Label::Label(Botonera *b)
     auto *logic_tn  = new Boton(this, "TN");
 
 
-    QObject::connect(ms,&QPushButton::clicked,logic_ms,&Boton::pressed);
-    QObject::connect(trkm,&QPushButton::clicked,logic_trkm,&Boton::pressed);
-    QObject::connect(ampl_info,&QPushButton::clicked,logic_ampl_info,&Boton::pressed);
-    QObject::connect(link_stat,&QPushButton::clicked,logic_link_stat,&Boton::pressed);
-    QObject::connect(tn,&QPushButton::clicked,logic_tn,&Boton::pressed);
+    QObject::connect(ms,&QPushButton::toggled,logic_ms,&Boton::interact);
+    QObject::connect(trkm,&QPushButton::toggled,logic_trkm,&Boton::interact);
+    QObject::connect(ampl_info,&QPushButton::toggled,logic_ampl_info,&Boton::interact);
+    QObject::connect(link_stat,&QPushButton::toggled,logic_link_stat,&Boton::interact);
+    QObject::connect(tn,&QPushButton::toggled,logic_tn,&Boton::interact);
 
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
                         "QPushButton:hover {background-color: rgba(0,0,0,0); }"

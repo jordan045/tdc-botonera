@@ -34,6 +34,15 @@ public:
     void setEstado(Range *z, QString *boton);
     void setEstado(Threat *z, QString *boton);
 
+    void removeEstado(Icm *z, QString *boton);
+    void removeEstado(Center *z, QString *boton);
+    void removeEstado(DisplayMode *z, QString *boton);
+    void removeEstado(DisplaySelection *z, QString *boton);
+    void removeEstado(Label *z, QString *boton);
+    void removeEstado(Qek *z, QString *boton);
+    void removeEstado(Range *z, QString *boton);
+    void removeEstado(Threat *z, QString *boton);
+
 
     QString getRange();
     QString getLabel();
@@ -52,15 +61,14 @@ private:
 
     QString getInstance();
     //int getEstado();
-    QString *range;
-    QString *label;
-    QString *qek;
-    QString *threat;
-    QString *center;
-    QString *display;
-    QString *icm;
-    QString *displayMode;
-    QString *displaySelection;
+    QString range;
+    QString label;
+    QString qek;
+    QString threat;
+    QString center;
+    QString icm;
+    QString displayMode;
+    QString displaySelection;
 
     void setRange(QString *r);
     void setLabel(QString *l);

@@ -31,8 +31,10 @@ void FormatConcentrator::setMessage(Estado *estado)
 {
     setWord1(estado);
     qDebug()<< word1[0];
-    /*
+
     setWord2(estado);
+    qDebug()<< word2[0];
+    /*
     setWord3(estado);
     setWord4(estado);
     setWord5(estado);
@@ -45,70 +47,156 @@ void FormatConcentrator::setMessage(Estado *estado)
 
 void FormatConcentrator::setWord1(Estado *estado)
 {
+    // RANGO
 
-    qDebug()<<"palabra 1";
-    QJsonObject rango = archivo["range_scale"].toObject();
-    QJsonObject rangoActual = rango[estado->getRange()].toObject();
-    QString palabraRango = rangoActual["value"].toString();
+    QStringList wordListRange = estado->getRange().split(" ", Qt::SkipEmptyParts);
 
-    //Formo los primeros 3 bits
-    int i = 23;
-    for(QChar caracter : palabraRango)
-    {
-        if(caracter == '1')
-        {
-            word1->setBit(i,true);
+    // Itera sobre cada palabra en la lista de palabras
+    foreach(const QString &word, wordListRange) {
+        qDebug() << "Procesando palabra:" << word;
+
+        // Obtiene el objeto JSON "range_scale" del archivo
+        QJsonObject rango = archivo["range_scale"].toObject();
+
+        // Depuración: Muestra el rango actual
+        qDebug() << "Rango obtenido del estado:" << estado->getRange();
+
+        // Obtiene el objeto JSON asociado a la palabra actual
+        QJsonObject rangoActual = rango[word].toObject();
+
+        // Obtiene el valor asociado a la palabra actual en forma de cadena
+        QString palabraRango = rangoActual["value"].toString();
+
+        // Depuración: Muestra el valor de rango obtenido
+        qDebug() << "Valor de rango:" << palabraRango;
+
+        // Inicializa un índice para establecer los bits
+        int i = 23;
+
+        // Itera sobre cada carácter en la cadena de valor de rango
+        for(QChar caracter : palabraRango) {
+            // Si el carácter es '1', establece el bit correspondiente a verdadero
+            if(caracter == '1') {
+                word1->setBit(i, true);
+            } else {
+                // Si el carácter no es '1', establece el bit correspondiente a falso
+                word1->setBit(i, false);
+            }
+            // Decrementa el índice
+            i--;
+
         }
-        else
-        {
-            word1->setBit(i,false);
-        }
-        i--;
     }
+    //DISPLAY SELECTION
 
+    QStringList wordListDSelection = estado->getDisplaySelection().split(" ", Qt::SkipEmptyParts);
     // BUSCO LA POSICION COMO UN STRING Y LO TRANSFORMO EN INT.
     //DISPLAY SELECTION
-    QJsonObject display = archivo["display_selection"].toObject();
-    QJsonObject displayActual = display[estado->getDisplaySelection()].toObject();
-    QString posicion = displayActual["pos"].toString();
+    foreach(const QString &word,wordListDSelection)
+    {
+        qDebug() << "Procesando palabra displaySelection:" << word;
+        QJsonObject display = archivo["display_selection"].toObject();
+        QJsonObject displayActual = display[word].toObject();
+        QString posicion = displayActual["pos"].toString();
 
-    //THREAT ASSESMENT
-    QJsonObject threat = archivo["threat_assesment"].toObject();
-    QJsonObject threatActual = display[estado->getThreat()].toObject();
+        word1->setBit(posicion.toInt(),true);
+    }
 
-    word1->setBit(posicion.toInt(),true);
+    //THREAT FAT ASS
+    QStringList wordListThreatAss = estado->getThreat().split(" ", Qt::SkipEmptyParts);
+    // BUSCO LA POSICION COMO UN STRING Y LO TRANSFORMO EN INT.
+    //DISPLAY SELECTION
+    foreach(const QString &word,wordListThreatAss)
+    {
+        qDebug() << "Procesando palabra ThreatAssesment:" << word;
+        QJsonObject threat = archivo["threat_assesment"].toObject();
+        QJsonObject threatActual = threat[word].toObject();
+        QString posicion = threatActual["pos"].toString();
+
+        word1->setBit(posicion.toInt(),true);
+    }
 }
 
 void FormatConcentrator::setWord2(Estado *estado)
 {
-    std::vector<std::string> codigos;
-    for (const auto& modo:estado->getModos())
-        word2->setBit(archivo["center"].toObject()[modo].toObject()["pos"].toInt(),1); //TA WANACOOO
+    //CENTER
+    QStringList wordListCenter = estado->getCenter().split(" ", Qt::SkipEmptyParts);
+    foreach(const QString &word,wordListCenter)
+    {
+        qDebug() << "Procesando palabra Center:" << word;
+        QJsonObject center = archivo["center"].toObject();
+        QJsonObject centerActual = center[word].toObject();
+        QString posicion = centerActual["pos"].toString();
+
+        word2->setBit(posicion.toInt(),true);
+    }
+
+    //DISPLAY SELECTION
+    QStringList wordListDisplayMode = estado->getDisplayMode().split(" ",Qt::SkipEmptyParts);
+    foreach(const QString &word, wordListDisplayMode)
+    {
+
+        qDebug() << "Procesando palabra DisplayMode:" << word;
+        QJsonObject center = archivo["display_mode"].toObject();
+        QJsonObject centerActual = center[word].toObject();
+        QString posicion = centerActual["pos"].toString();
+
+        word2->setBit(posicion.toInt(),true);
+    }
 }
 
 void FormatConcentrator::setWord3(Estado *estado)
 {
 
-
 }
 
 void FormatConcentrator::setWord4(Estado *estado)
 {
-    int pos = 0;
-    QString qekizq = estado->getQekIzq();
-    QString qekder = estado->getQekDer();
-    for (QChar bit : archivo["qek"].toObject()[qekizq].toObject()["value"].toString()) {
-        word1->setBit(pos++, bit == '1');
-    }
-    for (QChar bit : archivo["qek"].toObject()[qekder].toObject()["value"].toString()) {
-        word1->setBit(pos++, bit == '1');
+
+    QStringList wordListQek = estado->getCenter().split(" ", Qt::SkipEmptyParts);
+    foreach(const QString &word,wordListQek)
+    {
+        qDebug() << "Procesando palabra qek:" << word;
+        QJsonObject qek = archivo["qek"].toObject();
+        QJsonObject qekActual = center[word].toObject();
+        QString posicion = centerActual["value"].toString();
+
+        int i = 23;
+        for(QChar caracter:posicion)
+        {
+            if(caracter == '1')
+                word4->setBit(i,true);
+            else
+                word4->set(i,false);
+            i--;
+        }
     }
 }
 
 void FormatConcentrator::setWord5(Estado *estado)
 {
-    word5->setBit(21,0);
-    word5->setBit(13,0);
+    QStringList wordListICM = estado->getICM().split(" ",Qt::SkipEmptyParts);
+    foreach(const QString &word, wordListICM)
+    {
+
+        qDebug() << "Procesando palabra ICM:" << word;
+        QJsonObject center = archivo["icm"].toObject();
+        QJsonObject centerActual = center[word].toObject();
+        QString valor = centerActual["value"].toString();
+
+        int i = 23;
+        for(QChar caracter:valor)
+        {
+            if(caracter == '1')
+                word4->setBit(i,true);
+            else
+                word4->set(i,false);
+            i--;
+        }
+    }
+    word4->setBit(20,false);
+
+    //OVERLAY
 }
 
 void FormatConcentrator::setWord6(Estado *estado)

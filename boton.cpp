@@ -3,6 +3,7 @@
 Boton::Boton(Zone *z, QString codigo, QObject *parent): QObject(parent) {
     this->codigo = codigo;
     this->zona = z;
+    this->state = false;
 }
 
 QString Boton::getCodigo(){
@@ -12,16 +13,20 @@ QString Boton::getCodigo(){
 void Boton::setCodigo(QString n){
     codigo = n;
 }
+
 void Boton::sendMessage(){
     qDebug()<<"me active en boton";
     this->zona->sendMessage();
 }
-void Boton::pressed(){
-    QString mensaje = *new QString(this->codigo);
-    this->zona->sendCode(mensaje);
-}
 
-void Boton::unpressed(){
-    QString mensaje = *new QString("");
-    this->zona->sendCode(mensaje);
+void Boton::interact(){
+    if(!state){
+        QString mensaje = *new QString(this->codigo);
+        this->zona->sendCode(mensaje);
+    }
+    else{
+        QString mensaje = *new QString(this->codigo);
+        this->zona->removeCode(mensaje);
+    }
+    state = !state;
 }

@@ -1,41 +1,41 @@
 {
   "range_scale": {
-    "RANGE 2": {
+    "RANGE2": {
       "type": "switch",
       "label": "2",
       "value": "000"
     },
-    "RANGE 4": {
+    "RANGE4": {
       "type": "switch",
       "label": "4",
       "value": "001"
     },
-    "RANGE 8": {
+    "RANGE8": {
       "type": "switch",
       "label": "8",
       "value": "010"
     },
-    "RANGE 16": {
+    "RANGE16": {
       "type": "switch",
       "label": "16",
       "value": "011"
     },
-    "RANGE 32": {
+    "RANGE32": {
       "type": "switch",
       "label": "32",
       "value": "100"
     },
-    "RANGE 64": {
+    "RANGE64": {
       "type": "switch",
       "label": "64",
       "value": "101"
     },
-    "RANGE 128": {
+    "RANGE128": {
       "type": "switch",
       "label": "128",
       "value": "110"
     },
-    "RANGE 256": {
+    "RANGE256": {
       "type": "switch",
       "label": "256",
       "value": "111"
@@ -52,27 +52,27 @@
       "label": "SURF",
       "pos": "20"
     },
-    "SUB SURF": {
+    "SUBSURF": {
       "type": "switch",
       "label": "SUB SURF",
       "pos": "19"
     },
-    "REF POS": {
+    "REFPOS": {
       "type": "switch",
       "label": "REF POS",
       "pos": "18"
     },
-    "BEAR SEL": {
+    "BEARSEL": {
       "type": "switch",
       "label": "BEAR SEL",
       "pos": "17"
     },
-    "LINK SEL": {
+    "LINKSEL": {
       "type": "switch",
       "label": "LINK SEL",
       "pos": "16"
     },
-    "WARF SEL": {
+    "WARFSEL": {
       "type": "switch",
       "label": "WARF SEL",
       "pos": "15"
@@ -84,27 +84,27 @@
     }
   },
   "threat_assesment": {
-    "12_sec": {
+    "12SEC": {
       "type": "switch",
       "label": "12 SEC",
       "pos": "13"
     },
-    "30_sec": {
+    "30SEC": {
       "type": "switch",
       "label": "30 SEC",
       "pos": "12"
     },
-    "6_min": {
+    "6MIN": {
       "type": "switch",
       "label": "6 MIN",
       "pos": "11"
     },
-    "15_min": {
+    "15MIN": {
       "type": "switch",
       "label": "15 MIN",
       "pos": "10"
     },
-    "reset": {
+    "RESET": {
       "type": "push",
       "label": "RESET",
       "pos": "9"
@@ -175,99 +175,69 @@
     }
   },
   "center": {
-    "cu_or_off_cent_izq": {
+    "CU_OR_OFF_CENT": {
       "type": "push",
       "label": "CU OR OFF CENT",
       "pos": "24"
     },
-    "cu_or_cent_izq": {
+    "CU_OR_CENT": {
       "type": "push",
       "label": "CU OR CENT",
       "pos": "23"
     },
-    "off_cent_izq": {
+    "OFF_CENT": {
       "type": "push",
       "label": "OFF CENT",
       "pos": "22"
     },
-    "cent_izq": {
+    "CENT": {
       "type": "push",
       "label": "CENT",
       "pos": "21"
     },
-    "reset_obm_izq": {
+    "RESET_OBM": {
       "type": "push",
       "label": "RESET OBM",
       "pos": "20"
     },
-    "data_req_izq": {
+    "DATA_REQ": {
       "label": "???????",
       "type": "push",
       "pos": "19"
-    },
-    "cu_or_off_cent_der": {
-      "type": "push",
-      "label": "CU OR OFF CENT",
-      "pos": "16"
-    },
-    "cu_or_cent_der": {
-      "type": "push",
-      "label": "CU OR CENT",
-      "pos": "15"
-    },
-    "off_cent_der": {
-      "type": "push",
-      "label": "OFF CENT",
-      "pos": "14"
-    },
-    "cent_der": {
-      "type": "push",
-      "label": "CENT",
-      "pos": "13"
-    },
-    "reset_obm_der": {
-      "type": "push",
-      "label": "RESET OBM",
-      "pos": "12"
-    },
-    "data_req_der": {
-      "label": "???????",
-      "type": "push",
-      "pos": "11"
     }
   },
   "display_mode": {
-    "hm": {
+    "HM": {
       "type": "switch",
       "label": "HM",
       "value": ""
     },
-    "rr": {
+    "RR": {
       "type": "switch",
       "label": "RR",
-      "value": ""
+      "pos": "9"
     },
-    "own_curs": {
+    "OWN_CURS": {
       "type": "switch",
       "label": "OWN CURS",
       "pos": "17"
     },
-    "symb_large": {
+    "SYMB_LARGE": {
       "type": "switch",
       "label": "SYMB LARGE",
       "value": ""
     },
-    "tm": {
+    "TM": {
       "type": "switch",
       "label": "TM",
       "pos": "18"
     },
-    "emerg": {
+    "EMERG": {
       "type": "switch",
       "label": "EMERG",
       "value": ""
     },
-    "syst_alarm": {
+    "SYST_ALARM": {
       "type": "push",
       "label": "SYST ALARM",
       "pos": "10"
@@ -276,7 +246,7 @@
   "radar-recorder": {
     "type": "push",
     "label": "radar-recorder",
-    "pos": 9
+    "pos": "9"
   },
   "qek ": {
     "20": {

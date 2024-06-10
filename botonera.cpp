@@ -24,32 +24,45 @@ void Botonera::setmodo(int i)
     modo = i;
 }
 
-void Botonera::sendCodeToEstado(Qek *z, QString *boton)
-{
-    miEstado->setEstado(z,boton);
-}void Botonera::sendCodeToEstado(Icm *z, QString *boton)
-{
-    miEstado->setEstado(z,boton);
-}void Botonera::sendCodeToEstado(Center *z, QString *boton)
-{
-    miEstado->setEstado(z,boton);
-}void Botonera::sendCodeToEstado(DisplayMode *z, QString *boton)
-{
-    miEstado->setEstado(z,boton);
-}void Botonera::sendCodeToEstado(DisplaySelection *z, QString *boton)
-{
-    miEstado->setEstado(z,boton);
-}void Botonera::sendCodeToEstado(Label *z, QString *boton)
-{
+void Botonera::sendCodeToEstado(Qek *z, QString *boton){
     miEstado->setEstado(z,boton);
 }
-void Botonera::sendCodeToEstado(Range *z, QString *boton)
-{
+void Botonera::sendCodeToEstado(Icm *z, QString *boton){
     miEstado->setEstado(z,boton);
 }
-void Botonera::sendCodeToEstado(Threat *z, QString *boton)
-{
+void Botonera::sendCodeToEstado(Center *z, QString *boton){
     miEstado->setEstado(z,boton);
+}
+void Botonera::sendCodeToEstado(DisplayMode *z, QString *boton){
+    miEstado->setEstado(z,boton);
+}
+void Botonera::sendCodeToEstado(DisplaySelection *z, QString *boton){
+    miEstado->setEstado(z,boton);
+}
+void Botonera::sendCodeToEstado(Label *z, QString *boton){
+    miEstado->setEstado(z,boton);
+}
+void Botonera::sendCodeToEstado(Range *z, QString *boton){
+    miEstado->setEstado(z,boton);
+}
+void Botonera::sendCodeToEstado(Threat *z, QString *boton){
+    miEstado->setEstado(z,boton);
+}
+
+void Botonera::removeCodeFromEstado(Icm *z, QString *boton){
+    miEstado->removeEstado(z,boton);
+}
+void Botonera::removeCodeFromEstado(Qek *z, QString *boton){
+    miEstado->removeEstado(z,boton);
+}
+void Botonera::removeCodeFromEstado(Range *z, QString *boton){
+    miEstado->removeEstado(z,boton);
+}
+void Botonera::removeCodeFromEstado(Center *z, QString *boton){
+    miEstado->removeEstado(z,boton);
+}
+void Botonera::removeCodeFromEstado(DisplayMode *z, QString *boton){
+    miEstado->removeEstado(z,boton);
 }
 
 void Botonera::sendMessage()
