@@ -126,6 +126,7 @@ QString Estado::getICM(){return *icm;}
 QString Estado::getModos(){return *displayMode;}
 QString Estado::getQekIzq(){return *qek;}
 QString Estado::getQekDer(){return *qek;}
+QString Estado::getDisplaySelection(){return *displaySelection;}
 
 void Estado::refresh()
 {

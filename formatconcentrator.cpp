@@ -30,6 +30,7 @@ QBitArray* FormatConcentrator::getMessage(Estado *estado)
 void FormatConcentrator::setMessage(Estado *estado)
 {
     setWord1(estado);
+    qDebug()<< word1[0];
     /*
     setWord2(estado);
     setWord3(estado);
@@ -44,26 +45,38 @@ void FormatConcentrator::setMessage(Estado *estado)
 
 void FormatConcentrator::setWord1(Estado *estado)
 {
-    /*
-    QVector<QString> codigos;
-    QString rangoValor = archivo.value(estado->getRange()).toString();
-    QString displayValor = archivo.value(estado->getDisplay()).toString();
-    QString threatValor = archivo.value(estado->getThreat()).toString();
-
-    codigos.push_back(rangoValor); //revisar como lo va a hacer uri
-    codigos.push_back(displayValor);
-    codigos.push_back(threatValor);
-    int pos = 0;
-    for (const auto& codigo : codigos) {
-        for (QChar bit : codigo) {
-            word1->setBit(pos++, bit == '1');
-        }
-    }
-    */
 
     qDebug()<<"palabra 1";
-    qDebug()<<archivo.value("rango").toString();
-    //QString rangoValor = archivo.value(estado->getRange()).toString();
+    QJsonObject rango = archivo["range_scale"].toObject();
+    QJsonObject rangoActual = rango[estado->getRange()].toObject();
+    QString palabraRango = rangoActual["value"].toString();
+
+    //Formo los primeros 3 bits
+    int i = 23;
+    for(QChar caracter : palabraRango)
+    {
+        if(caracter == '1')
+        {
+            word1->setBit(i,true);
+        }
+        else
+        {
+            word1->setBit(i,false);
+        }
+        i--;
+    }
+
+    // BUSCO LA POSICION COMO UN STRING Y LO TRANSFORMO EN INT.
+    //DISPLAY SELECTION
+    QJsonObject display = archivo["display_selection"].toObject();
+    QJsonObject displayActual = display[estado->getDisplaySelection()].toObject();
+    QString posicion = displayActual["pos"].toString();
+
+    //THREAT ASSESMENT
+    QJsonObject threat = archivo["threat_assesment"].toObject();
+    QJsonObject threatActual = display[estado->getThreat()].toObject();
+
+    word1->setBit(posicion.toInt(),true);
 }
 
 void FormatConcentrator::setWord2(Estado *estado)
@@ -120,14 +133,14 @@ void FormatConcentrator::setWord9(Estado *estado)
 
 void FormatConcentrator::leerJson()
 {
-    QString JsonFilePath = "properties";
+    QString JsonFilePath = "C:/Users/winra/OneDrive/Escritorio/SIAG/qtJuego/qt-juego/properties.json";
     qDebug()<<"Se llamo a leer json";
     QFile File(JsonFilePath);
     if(File.open(QIODevice::ReadOnly))
     {
          QByteArray Bytes = File.readAll();
         File.close();
-         qDebug()<<"Se abró el json";
+         qDebug()<<"Json has open correctly";
          QJsonParseError JsonError;
         QJsonDocument Document = QJsonDocument::fromJson(Bytes,&JsonError);
          if(JsonError.error != QJsonParseError::NoError)

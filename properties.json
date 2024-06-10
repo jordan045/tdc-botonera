@@ -1,114 +1,113 @@
 {
-  "rango": "sii",
   "range_scale": {
-    "2": {
+    "RANGE 2": {
       "type": "switch",
       "label": "2",
       "value": "000"
     },
-    "4": {
+    "RANGE 4": {
       "type": "switch",
       "label": "4",
       "value": "001"
     },
-    "8": {
+    "RANGE 8": {
       "type": "switch",
       "label": "8",
       "value": "010"
     },
-    "16": {
+    "RANGE 16": {
       "type": "switch",
       "label": "16",
       "value": "011"
     },
-    "32": {
+    "RANGE 32": {
       "type": "switch",
       "label": "32",
       "value": "100"
     },
-    "64": {
+    "RANGE 64": {
       "type": "switch",
       "label": "64",
       "value": "101"
     },
-    "128": {
+    "RANGE 128": {
       "type": "switch",
       "label": "128",
       "value": "110"
     },
-    "256": {
+    "RANGE 256": {
       "type": "switch",
       "label": "256",
       "value": "111"
     }
   },
   "display_selection": {
-    "air": {
+    "AIR": {
       "type": "switch",
       "label": "AIR",
-      "value": "10000000"
+      "pos": "21"
     },
-    "surf": {
+    "SURF": {
       "type": "switch",
       "label": "SURF",
-      "value": "01000000"
+      "pos": "20"
     },
-    "sub_surf": {
+    "SUB SURF": {
       "type": "switch",
       "label": "SUB SURF",
-      "value": "00100000"
+      "pos": "19"
     },
-    "ref_pos": {
+    "REF POS": {
       "type": "switch",
       "label": "REF POS",
-      "value": "00010000"
+      "pos": "18"
     },
-    "bear_sel": {
+    "BEAR SEL": {
       "type": "switch",
       "label": "BEAR SEL",
-      "value": "00001000"
+      "pos": "17"
     },
-    "link_sel": {
+    "LINK SEL": {
       "type": "switch",
       "label": "LINK SEL",
-      "value": "00000100"
+      "pos": "16"
     },
-    "warf_sel": {
+    "WARF SEL": {
       "type": "switch",
       "label": "WARF SEL",
-      "value": "00000010"
+      "pos": "15"
     },
-    "fig": {
+    "FIG": {
       "type": "switch",
       "label": "FIG",
-      "value": "00000001"
+      "pos": "14"
     }
   },
   "threat_assesment": {
     "12_sec": {
       "type": "switch",
       "label": "12 SEC",
-      "value": "10000"
+      "pos": "13"
     },
     "30_sec": {
       "type": "switch",
       "label": "30 SEC",
-      "value": "01000"
+      "pos": "12"
     },
     "6_min": {
       "type": "switch",
       "label": "6 MIN",
-      "value": "00100"
+      "pos": "11"
     },
     "15_min": {
       "type": "switch",
       "label": "15 MIN",
-      "value": "00010"
+      "pos": "10"
     },
     "reset": {
       "type": "push",
       "label": "RESET",
-      "value": "00001"
+      "pos": "9"
     }
   },
   "label_selection": {
@@ -176,36 +175,66 @@
     }
   },
   "center": {
-    "cu_or_off_cent": {
+    "cu_or_off_cent_izq": {
       "type": "push",
       "label": "CU OR OFF CENT",
-      "value": "1"
+      "pos": "24"
     },
-    "cu_or_cent": {
+    "cu_or_cent_izq": {
       "type": "push",
       "label": "CU OR CENT",
-      "value": "1"
+      "pos": "23"
     },
-    "off_cent": {
+    "off_cent_izq": {
       "type": "push",
       "label": "OFF CENT",
-      "value": "1"
+      "pos": "22"
     },
-    "cent": {
+    "cent_izq": {
       "type": "push",
       "label": "CENT",
-      "value": "1"
+      "pos": "21"
     },
-    "reset_obm": {
+    "reset_obm_izq": {
       "type": "push",
       "label": "RESET OBM",
-      "value": "1"
+      "pos": "20"
+    },
+    "data_req_izq": {
+      "label": "???????",
+      "type": "push",
+      "pos": "19"
+    },
+    "cu_or_off_cent_der": {
+      "type": "push",
+      "label": "CU OR OFF CENT",
+      "pos": "16"
+    },
+    "cu_or_cent_der": {
+      "type": "push",
+      "label": "CU OR CENT",
+      "pos": "15"
+    },
+    "off_cent_der": {
+      "type": "push",
+      "label": "OFF CENT",
+      "pos": "14"
+    },
+    "cent_der": {
+      "type": "push",
+      "label": "CENT",
+      "pos": "13"
+    },
+    "reset_obm_der": {
+      "type": "push",
+      "label": "RESET OBM",
+      "pos": "12"
+    },
+    "data_req_der": {
+      "label": "???????",
+      "type": "push",
+      "pos": "11"
     }
-  },
-  "data_req": {
-    "label": "???????",
-    "type": "push",
-    "value": "1"
   },
   "display_mode": {
     "hm": {
@@ -221,7 +250,7 @@
     "own_curs": {
       "type": "switch",
       "label": "OWN CURS",
-      "value": "1"
+      "pos": "17"
     },
     "symb_large": {
       "type": "switch",
@@ -231,7 +260,7 @@
     "tm": {
       "type": "switch",
       "label": "TM",
-      "value": "1"
+      "pos": "18"
     },
     "emerg": {
       "type": "switch",
@@ -241,13 +270,13 @@
     "syst_alarm": {
       "type": "push",
       "label": "SYST ALARM",
-      "value": "1"
+      "pos": "10"
     }
   },
   "radar-recorder": {
     "type": "push",
     "label": "radar-recorder",
-    "value": 1
+    "pos": 9
   },
   "qek ": {
     "20": {
@@ -412,17 +441,53 @@
     }
   },
   "overlays": {
-    "asw-corbeta": { "codigo": "0001", "tipo": "asw" },
-    "ops-corbeta": { "codigo": "0010", "tipo": "ops" },
-    "aaw-corbeta": { "codigo": "0011", "tipo": "aaw" },
-    "linco-corbeta": { "codigo": "0100", "tipo": "linco" },
-    "spc-destructor": { "codigo": "0001", "tipo": "spc" },
-    "linco-destructor": { "codigo": "0010", "tipo": "linco" },
-    "heco-destructor": { "codigo": "0101", "tipo": "heco" },
-    "apc-destructor": { "codigo": "0110", "tipo": "apc" },
-    "asw-destructor": { "codigo": "0011", "tipo": "asw" },
-    "ops-destructor": { "codigo": "0100", "tipo": "ops" },
-    "aaw-destructor": { "codigo": "0111", "tipo": "aaw" },
-    "ew-destructor": { "codigo": "1000", "tipo": "ew" }
+    "asw-corbeta": {
+      "codigo": "0001",
+      "tipo": "asw"
+    },
+    "ops-corbeta": {
+      "codigo": "0010",
+      "tipo": "ops"
+    },
+    "aaw-corbeta": {
+      "codigo": "0011",
+      "tipo": "aaw"
+    },
+    "linco-corbeta": {
+      "codigo": "0100",
+      "tipo": "linco"
+    },
+    "spc-destructor": {
+      "codigo": "0001",
+      "tipo": "spc"
+    },
+    "linco-destructor": {
+      "codigo": "0010",
+      "tipo": "linco"
+    },
+    "heco-destructor": {
+      "codigo": "0101",
+      "tipo": "heco"
+    },
+    "apc-destructor": {
+      "codigo": "0110",
+      "tipo": "apc"
+    },
+    "asw-destructor": {
+      "codigo": "0011",
+      "tipo": "asw"
+    },
+    "ops-destructor": {
+      "codigo": "0100",
+      "tipo": "ops"
+    },
+    "aaw-destructor": {
+      "codigo": "0111",
+      "tipo": "aaw"
+    },
+    "ew-destructor": {
+      "codigo": "1000",
+      "tipo": "ew"
+    }
   }
 }
