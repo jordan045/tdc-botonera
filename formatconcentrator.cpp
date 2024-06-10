@@ -34,10 +34,13 @@ void FormatConcentrator::setMessage(Estado *estado)
 
     setWord2(estado);
     qDebug()<< word2[0];
-    /*
-    setWord3(estado);
+
+    //setWord3(estado);
     setWord4(estado);
+    qDebug()<<word4[0];
     setWord5(estado);
+    qDebug()<<word5[0];
+    /*
     setWord6(estado);
     setWord7(estado);
     setWord8(estado);
@@ -158,8 +161,8 @@ void FormatConcentrator::setWord4(Estado *estado)
     {
         qDebug() << "Procesando palabra qek:" << word;
         QJsonObject qek = archivo["qek"].toObject();
-        QJsonObject qekActual = center[word].toObject();
-        QString posicion = centerActual["value"].toString();
+        QJsonObject qekActual = qek[word].toObject();
+        QString posicion = qekActual["value"].toString();
 
         int i = 23;
         for(QChar caracter:posicion)
@@ -167,7 +170,7 @@ void FormatConcentrator::setWord4(Estado *estado)
             if(caracter == '1')
                 word4->setBit(i,true);
             else
-                word4->set(i,false);
+                word4->setBit(i,false);
             i--;
         }
     }
@@ -190,7 +193,7 @@ void FormatConcentrator::setWord5(Estado *estado)
             if(caracter == '1')
                 word4->setBit(i,true);
             else
-                word4->set(i,false);
+                word4->setBit(i,false);
             i--;
         }
     }
