@@ -97,8 +97,8 @@ void Botonera::start()
 
     //layout->addWidget(label,0,3);
     this->setLayout(layout);
-    this->setFixedWidth(900);
-    this->setFixedHeight(600);
+    //this->setFixedWidth(900);
+    //this->setFixedHeight(600);
     this->show();
 }
 
