@@ -1,52 +1,77 @@
 #include "initmenu.h"
-
 #include <QPushButton>
-#include<QHBoxLayout>
-#include<QButtonGroup>
+#include <QVBoxLayout>
+#include <QFile>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QDebug>
+
 InitMenu::InitMenu(QWidget *parent) :
     QWidget(parent)
 {
+    // Inicializa la botonera (suponiendo que tienes esta clase)
     miBotonera = new Botonera();
 
-    auto *btn_1 = new QPushButton("1",this);
-    auto *btn_2 = new QPushButton("2",this);
-    auto *btn_3 = new QPushButton("3",this);
+    // Lee el archivo JSON
+    QFile file("C:/Users/winra/OneDrive/Escritorio/SIAG/qtJuego/qt-juego/overlay.json");
+    if (!file.open(QIODevice::ReadOnly)) {
+        qWarning("No se pudo abrir el archivo.");
+        return;
+    } else {
+        qDebug() << "Se abrió bien";
+    }
 
-    QButtonGroup *modo_group = new QButtonGroup(this);
-    modo_group->addButton(btn_1,1);
-    modo_group->addButton(btn_2,2);
-    modo_group->addButton(btn_3,3);
+    QByteArray archivo = file.readAll();
+    file.close();
 
-    auto layout = new QHBoxLayout;
-    layout->addWidget(btn_1);
-    layout->addWidget(btn_2);
-    layout->addWidget(btn_3);
+    QJsonDocument document = QJsonDocument::fromJson(archivo);
 
+    // Verificar si el documento es un objeto
+    if (!document.isObject()) {
+        qWarning("El documento JSON no es un objeto.");
+        return;
+    }
 
-    QObject::connect(btn_1,&QPushButton::clicked,this,&InitMenu::iniciarModo1);
-    QObject::connect(btn_2,&QPushButton::clicked,this,&InitMenu::iniciarModo2);
-    QObject::connect(btn_3,&QPushButton::clicked,this,&InitMenu::iniciarModo3);
+    QJsonObject mainObj = document.object();
 
+    // Verificar si el objeto contiene un array llamado "overlay"
+    if (!mainObj.contains("overlay") || !mainObj["overlay"].isArray()) {
+        qWarning("El objeto JSON no contiene un array 'overlay'.");
+        return;
+    }
 
+    QJsonArray jsonArray = mainObj["overlay"].toArray();
+
+    // Depuración: Imprimir el contenido del JSON
+    qDebug() << "Contenido del JSON:" << jsonArray;
+
+    // Crear layout principal
+    QVBoxLayout *layout = new QVBoxLayout(this);
+
+    // Crear botones a partir del JSON
+    for (const QJsonValue &value : jsonArray) {
+        QJsonObject obj = value.toObject();
+        qDebug() << "Objeto JSON:" << obj;
+
+        for (const QString &key : obj.keys()) {
+            QString buttonName = key;
+            QString buttonCode = obj[key].toString();
+            qDebug() << "Creando botón con nombre:" << buttonName;
+
+            QPushButton *button = new QPushButton(buttonName);
+            layout->addWidget(button);
+
+            QObject::connect(button, &QPushButton::clicked, [this, buttonCode]() {
+                miBotonera->start();
+                this->close();
+                qDebug() << "Botón presionado con código:" << buttonCode;
+                // Aquí puedes llamar a un método de Botonera y pasar el código del botón
+                miBotonera->setOverlay(buttonCode);
+            });
+        }
+    }
 
     this->setLayout(layout);
 }
 
-void InitMenu::iniciarModo1()
-{
-    miBotonera->setmodo(1);
-    miBotonera->start();
-    this->close();
-}
-void InitMenu::iniciarModo2()
-{
-    miBotonera->setmodo(2);
-    miBotonera->start();
-    this->close();
-}
-void InitMenu::iniciarModo3()
-{
-    miBotonera->setmodo(3);
-    miBotonera->start();
-    this->close();
-}

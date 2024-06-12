@@ -34,6 +34,8 @@ public:
     void setEstado(Range *z, QString *boton);
     void setEstado(Threat *z, QString *boton);
 
+    void setOverlay(QString codigo);
+
     void removeEstado(Icm *z, QString *boton);
     void removeEstado(Center *z, QString *boton);
     void removeEstado(DisplayMode *z, QString *boton);
@@ -55,6 +57,7 @@ public:
     QString getQekIzq();
     QString getQekDer();
     QString getModos();
+    QString getOverlay();
 
 private:
     Botonera *miBotonera;
@@ -69,6 +72,7 @@ private:
     QString icm;
     QString displayMode;
     QString displaySelection;
+    QString overlay;
 
     void setRange(QString *r);
     void setLabel(QString *l);
@@ -78,6 +82,7 @@ private:
     void setDisplayMode(QString *d);
     void setDisplaySelection(QString *d);
     void setICM(QString *i);
+
 
     void refresh();
 

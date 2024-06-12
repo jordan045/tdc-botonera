@@ -9,10 +9,6 @@ class InitMenu : public QWidget
 public:
     explicit InitMenu(QWidget *parent = nullptr);
 
-private slots:
-    void iniciarModo1();
-    void iniciarModo2();
-    void iniciarModo3();
 private:
     Botonera *miBotonera;
 };

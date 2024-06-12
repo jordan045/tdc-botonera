@@ -18,7 +18,11 @@ Botonera::Botonera(QWidget *parent) :
     display_selection_widget = new DisplaySelection(this);
     concentrator = new FormatConcentrator();
 }
-
+void Botonera::setOverlay(QString codigo)
+{
+    miEstado->setOverlay(codigo);
+    qDebug()<<"SetOverlay en Botonera"<<codigo;
+}
 void Botonera::setmodo(int i)
 {
     modo = i;

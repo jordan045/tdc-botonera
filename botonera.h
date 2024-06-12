@@ -29,6 +29,8 @@ public:
     void sendCodeToEstado(Range *z, QString *boton);
     void sendCodeToEstado(Threat *z, QString *boton);
 
+    void setOverlay(QString codigo);
+
     void removeCodeFromEstado(Icm *z, QString *boton);
     void removeCodeFromEstado(Qek *z, QString *boton);
     void removeCodeFromEstado(Range *z, QString *boton);

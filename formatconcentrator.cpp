@@ -39,6 +39,7 @@ void FormatConcentrator::setMessage(Estado *estado)
     setWord4(estado);
     qDebug()<<word4[0];
     setWord5(estado);
+    qDebug()<<"palabra5:";
     qDebug()<<word5[0];
     /*
     setWord6(estado);
@@ -191,15 +192,25 @@ void FormatConcentrator::setWord5(Estado *estado)
         for(QChar caracter:valor)
         {
             if(caracter == '1')
-                word4->setBit(i,true);
+                word5->setBit(i,true);
             else
-                word4->setBit(i,false);
+                word5->setBit(i,false);
             i--;
         }
     }
-    word4->setBit(20,false);
+    word5->setBit(20,false);
 
     //OVERLAY
+    QString overlay = estado->getOverlay();
+    int i = 19;
+    for(QChar caracter:overlay)
+    {
+        if (caracter == '1')
+            word5->setBit(i,true);
+        else
+            word5->setBit(i,false);
+        i--;
+    }
 }
 
 void FormatConcentrator::setWord6(Estado *estado)

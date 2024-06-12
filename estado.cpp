@@ -72,6 +72,12 @@ void Estado::setEstado(Threat *z, QString *codigo){
     refresh();
 }
 
+void Estado::setOverlay(QString codigo)
+{
+    overlay = codigo;
+    qDebug()<<"Set overlay en estado"<<overlay;
+}
+
 void Estado::removeEstado(Icm *z, QString *codigo){
     codigo->append(" ");
     this->icm.remove(*codigo);
@@ -122,6 +128,7 @@ QString Estado::getCenter(){return center;}
 QString Estado::getDisplayMode(){return displayMode;}
 QString Estado::getICM(){return icm;}
 QString Estado::getModos(){return displayMode;}
+QString Estado::getOverlay(){return overlay;}
 QString Estado::getQekIzq(){return qek;}
 QString Estado::getQekDer(){return qek;}
 QString Estado::getDisplaySelection(){return displaySelection;}
