@@ -36,6 +36,7 @@ public:
     void removeCodeFromEstado(Range *z, QString *boton);
     void removeCodeFromEstado(Center *z, QString *boton);
     void removeCodeFromEstado(DisplayMode *z, QString *boton);
+    void removeCodeFromEstado(Threat *z, QString *boton);
 
     void sendMessage();
 public slots:

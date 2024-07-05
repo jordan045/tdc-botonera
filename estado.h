@@ -46,6 +46,7 @@ public:
     void removeEstado(Threat *z, QString *boton);
 
 
+
     QString getRange();
     QString getLabel();
     QString getQEK();

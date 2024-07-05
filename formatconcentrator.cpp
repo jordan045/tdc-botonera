@@ -30,17 +30,16 @@ QBitArray* FormatConcentrator::getMessage(Estado *estado)
 void FormatConcentrator::setMessage(Estado *estado)
 {
     setWord1(estado);
-    qDebug()<< word1[0];
+    qDebug()<< "palabra 1 " << word1[0];
 
     setWord2(estado);
-    qDebug()<< word2[0];
+    qDebug()<< "palabra 2 " <<word2[0];
 
     //setWord3(estado);
     setWord4(estado);
-    qDebug()<<word4[0];
+    qDebug()<<"palabra 4" <<word4[0];
     setWord5(estado);
-    qDebug()<<"palabra5:";
-    qDebug()<<word5[0];
+    qDebug()<<"palabra 5:"<<word5[0];
     /*
     setWord6(estado);
     setWord7(estado);

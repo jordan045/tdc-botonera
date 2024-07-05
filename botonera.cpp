@@ -69,6 +69,12 @@ void Botonera::removeCodeFromEstado(DisplayMode *z, QString *boton){
     miEstado->removeEstado(z,boton);
 }
 
+void Botonera::removeCodeFromEstado(Threat *z, QString *boton)
+{
+    miEstado->removeEstado(z,boton);
+}
+
+
 void Botonera::sendMessage()
 {
     qDebug()<<"Me tocaron en botonera";
@@ -97,8 +103,8 @@ void Botonera::start()
 
     //layout->addWidget(label,0,3);
     this->setLayout(layout);
-    this->setFixedWidth(900);
-    this->setFixedHeight(600);
-    this->show();
+    //this->setFixedWidth(900);
+    //this->setFixedHeight(600);
+    this->showMaximized();
 }
 
