@@ -52,7 +52,6 @@ void Botonera::sendCodeToEstado(Range *z, QString *boton){
 void Botonera::sendCodeToEstado(Threat *z, QString *boton){
     miEstado->setEstado(z,boton);
 }
-
 void Botonera::removeCodeFromEstado(Icm *z, QString *boton){
     miEstado->removeEstado(z,boton);
 }

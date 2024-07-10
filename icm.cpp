@@ -24,7 +24,7 @@ Icm::Icm(Botonera *b)
         auto *logic_button = new Boton(this,code);
 
         gui_button->setCheckable(true);
-        gui_button->setFlat(true);  //No se si va acá
+        gui_button->setFlat(true);
         icm_group->addButton(gui_button,i);
 
         layout->addWidget(gui_button);
