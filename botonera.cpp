@@ -104,6 +104,10 @@ void Botonera::start()
     this->setLayout(layout);
     //this->setFixedWidth(900);
     //this->setFixedHeight(600);
+<<<<<<< HEAD
     this->showMaximized();
+=======
+    this->show();
+>>>>>>> 3119486f65d9137ee17dde32a7660e833865c556
 }
 
