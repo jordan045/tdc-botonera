@@ -57,12 +57,12 @@ DisplaySelection::DisplaySelection(Botonera *b)
                             "QPushButton:checked {image: url(':/display_selection/img/Display Selection/%1_pressed.png')}").arg(labels[i-1]);
 
         gui_button->setStyleSheet(style);
-
+        gui_button->setMinimumSize(80,80); // TAMAÑO A LA FUERZA
     }
     this->setLayout(layout);
 
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
-                        "QPushButton:hover {background-color: rgba(0,0,0,0); }"
+                        "QPushButton:hover {background-color: rgba(0,0,0,0);}"
                         "QPushButton:pressed {background-color: rgba(0,0,0,0);}");
 
 

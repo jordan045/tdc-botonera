@@ -84,9 +84,9 @@ void Botonera::start()
     QHBoxLayout *layout = new QHBoxLayout();
 
     QVBoxLayout *midLay = new QVBoxLayout();
-    midLay->addWidget(range_widget);
+    //midLay->addWidget(range_widget);
     midLay->addWidget(qek_widget);
-    midLay->addWidget(threat_assesment_widget);
+    //midLay->addWidget();
     midLay->addWidget(display_mode_widget);
     midLay->addWidget(label_selection_widget);
     midLay->addWidget(center_widget);
@@ -96,6 +96,7 @@ void Botonera::start()
     layout->addLayout(midLay);
 
     layout->addWidget(display_selection_widget);
+    layout->addWidget(threat_assesment_widget);
 
     //QString texto = QString::number(modo);
     //QLabel *label = new QLabel(texto);
@@ -104,10 +105,7 @@ void Botonera::start()
     this->setLayout(layout);
     //this->setFixedWidth(900);
     //this->setFixedHeight(600);
-<<<<<<< HEAD
     this->showMaximized();
-=======
     this->show();
->>>>>>> 3119486f65d9137ee17dde32a7660e833865c556
 }
 

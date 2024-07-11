@@ -9,7 +9,6 @@
 Threat::Threat(Botonera *b)
 {
     miBotonera = b;
-<<<<<<< HEAD
    //createGraphicsButtons();
    //createLogicButtons();
    //createButtonGroup();
@@ -19,7 +18,7 @@ Threat::Threat(Botonera *b)
     QList<QPushButton*>  gui_buttons = *new QList<QPushButton*>;
     QList<Boton*> logic_buttons = *new QList<Boton*>;
     QButtonGroup *threat_group = new QButtonGroup();
-    auto layout = new QHBoxLayout;
+    auto layout = new QVBoxLayout;
 
     QList<QString> labels = {"12_sec",
                              "30_sec",
@@ -31,57 +30,7 @@ Threat::Threat(Botonera *b)
         auto *logic_button = new Boton(this,labels[i-1]);
 
         gui_button->setCheckable(true);
-=======
-    createGraphicsButtons();
-    createLogicButtons();
-    createButtonGroup();
-    connection();
-    createLayout();
-    style();
 
-    /*
-    auto layout = new QHBoxLayout;
-
-    QList<QPushButton*> gui_buttons = *new QList<QPushButton*>;
-    QList<Boton*> logic_buttons = *new QList<Boton*>;
-    QButtonGroup *threat_group = new QButtonGroup();
-    threat_group->setExclusive(true);
-
-    QList<QString> labels = {"12SEC","30SEC","6MIN","15MIN","RESET"};
-
-    for(int i=1; i<=5; i++){
-        auto *gui_button = new QPushButton("", this);
-        auto *logic_button = new Boton(this,labels[i-1]);
-
-        gui_button->setCheckable(true);
-        gui_button->setFlat(true);
->>>>>>> 3119486f65d9137ee17dde32a7660e833865c556
-        threat_group->addButton(gui_button,i);
-
-        layout->addWidget(gui_button);
-
-<<<<<<< HEAD
-        qDebug()<<"Creando boton"<< labels[i-1];
-        gui_buttons.append(gui_button);
-        logic_buttons.append(logic_button);
-
-        QObject::connect(gui_button, &QPushButton::pressed, logic_button, &Boton::interact);
-        QObject::connect(gui_button, &QPushButton::released, logic_button, &Boton::interact);
-
-        QString style = QString("QPushButton {image: url(':/threat/img/Threat/%1.png')}"
-                                "QPushButton:pressed {image: url(':/thrat/img/Threat/%1_pressed.png')}").arg(labels[i-1]);
-
-        gui_button->setStyleSheet(style);
-
-    }
-
-    this->setLayout(layout);
-
-    this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
-                        "QPushButton:hover {background-color: rgba(0,0,0,0); }"
-                        "QPushButton:pressed {background-color: rgba(0,0,0,0);}");
-
-=======
         gui_buttons.append(gui_button);
         logic_buttons.append(logic_button);
 
@@ -96,8 +45,6 @@ Threat::Threat(Botonera *b)
     this->setLayout(layout);
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}");
     qDebug() << "TERMINO THREAT";
-    */
->>>>>>> 3119486f65d9137ee17dde32a7660e833865c556
 }
 
 void Threat::sendMessage(){
