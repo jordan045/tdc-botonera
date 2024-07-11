@@ -29,6 +29,11 @@ Threat::Threat(Botonera *b)
         auto *gui_button = new QPushButton("",this);
         auto *logic_button = new Boton(this,labels[i-1]);
 
+        gui_button->setFlat(true);
+        threat_group->addButton(gui_button,i);
+
+        layout->addWidget(gui_button);
+
         gui_button->setCheckable(true);
 
         gui_buttons.append(gui_button);
@@ -40,6 +45,8 @@ Threat::Threat(Botonera *b)
                                 "QPushButton:checked {image: url(':/threat/img/Threat/%1_pressed.png')}").arg(labels[i-1]);
 
         gui_button->setStyleSheet(style);
+
+        qDebug()<<"LISTO: " << labels[i-1] << i;
     }
 
     this->setLayout(layout);
@@ -59,7 +66,7 @@ void Threat::createGraphicsButtons()
     btn15Min = new QPushButton("",this);
     btnReset = new QPushButton("",this);
 }
-/*
+
 void Threat::createLogicButtons()
 {
     logicBtn12Sec  = new Boton(this, "12SEC");
@@ -68,7 +75,7 @@ void Threat::createLogicButtons()
     logicBtn15Min  = new Boton(this, "15MIN");
     logicBtnReset   = new Boton(this, "RESET");
 }
-/*
+
 void Threat::createButtonGroup()
 {
     threatGroup = new QButtonGroup();
@@ -85,7 +92,7 @@ void Threat::createButtonGroup()
     btn15Min->setCheckable(true);
     btnReset->setCheckable(true);
 }
-/*
+
 void Threat::connection()
 {
     QObject::connect(btn12Sec,&QPushButton::toggled,logicBtn12Sec,&Boton::interact);
@@ -105,7 +112,7 @@ void Threat::createLayout()
     layout->addWidget(btnReset);
     this->setLayout(layout);
 }
-/*
+
 void Threat::style()
 {
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
@@ -127,7 +134,8 @@ void Threat::style()
     btnReset->setStyleSheet("QPushButton {image: url(':/threat/img/Threat/reset.png')}"
                             "QPushButton:pressed {image: url(':/threat/img/Threat/reset_pressed.png')}");
 
-}*/
+*/
+
 void Threat::sendCode(QString code)
 {
     miBotonera->sendCodeToEstado(this, &code);

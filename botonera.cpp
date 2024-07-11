@@ -103,9 +103,10 @@ void Botonera::start()
 
     //layout->addWidget(label,0,3);
     this->setLayout(layout);
-    //this->setFixedWidth(900);
-    //this->setFixedHeight(600);
-    this->showMaximized();
+    this->setFixedWidth(1200);
+    this->setFixedHeight(900);
+    //this->showMaximized();
+    qDebug()<<"show() de botonera";
     this->show();
 }
 
