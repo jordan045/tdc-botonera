@@ -14,7 +14,7 @@ InitMenu::InitMenu(QWidget *parent) :
     miBotonera = new Botonera();
 
     // Lee el archivo JSON
-    QFile file("C:/Users/winra/OneDrive/Escritorio/SIAG/qtJuego/qt-juego/overlay.json");
+    QFile file(":/json/overlay.json");
     if (!file.open(QIODevice::ReadOnly)) {
         qWarning("No se pudo abrir el archivo.");
         return;

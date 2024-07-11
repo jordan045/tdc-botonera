@@ -109,4 +109,8 @@
         <file>img/QEK/qek.png</file>
         <file>img/QEK/qek_pressed.png</file>
     </qresource>
+    <qresource prefix="/json">
+        <file>overlay.json</file>
+        <file>properties.json</file>
+    </qresource>
 </RCC>
