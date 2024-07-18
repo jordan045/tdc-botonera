@@ -2,8 +2,6 @@
 #include "qdatetime.h"
 #include "qdebug.h"
 
-
-
 Estado::Estado(Botonera *b) {
 
     miBotonera = b;
@@ -18,103 +16,112 @@ Estado::Estado(Botonera *b) {
     this->displaySelection  = *new QString("");
 }
 
-void Estado::setEstado(Range *rango,QString *codigo){
+void Estado::setEstado(Range *z,QString *codigo){
+    Q_UNUSED(z);
     qDebug() << "Setting Range";
   //  codigo->append(" ");
     this->range.append(*codigo);
     refresh();
 }
-void Estado::setEstado(Center *z, QString *codigo)
-{
+void Estado::setEstado(Center *z, QString *codigo){
+    Q_UNUSED(z);
     qDebug() << "Setting Center";
     codigo->append(" ");
     this->center.append(*codigo);
     refresh();
 }
-void Estado::setEstado(DisplayMode *z, QString *codigo)
-{
+void Estado::setEstado(DisplayMode *z, QString *codigo){
+    Q_UNUSED(z);
     qDebug() << "Seteamos" << *codigo;
     codigo->append(" ");
     this->displayMode.append(*codigo);
     refresh();
 }
-void Estado::setEstado(DisplaySelection *z, QString *codigo)
-{
+void Estado::setEstado(DisplaySelection *z, QString *codigo){
+    Q_UNUSED(z);
     qDebug() << "Setting DisplaySelection";
     codigo->append(" ");
     this->displaySelection.append(*codigo);
     refresh();
 }
-void Estado::setEstado(Icm *z, QString *codigo)
-{
+void Estado::setEstado(Icm *z, QString *codigo){
+    Q_UNUSED(z);
     qDebug() << "Setting ICM";
     codigo->append(" ");
     this->icm.append(*codigo);
     refresh();
 }
-void Estado::setEstado(Label *z, QString *codigo)
-{
+void Estado::setEstado(Label *z, QString *codigo){
+    Q_UNUSED(z);
     qDebug() << "Setting Label";
     codigo->append(" ");
     this->label.append(*codigo);
     refresh();
 }
-void Estado::setEstado(Qek *z, QString *codigo)
-{
+void Estado::setEstado(Qek *z, QString *codigo){
+    Q_UNUSED(z);
     codigo->append(" ");
     this->qek.append(*codigo);
     refresh();
 }
 void Estado::setEstado(Threat *z, QString *codigo){
+    Q_UNUSED(z);
     qDebug() << "Setting Threat";
     codigo->append(" ");
     this->threat.append(*codigo);
     refresh();
 }
 
-void Estado::setOverlay(QString codigo)
-{
+void Estado::setOverlay(QString codigo){
     overlay = codigo;
     qDebug()<<"Set overlay en estado"<<overlay;
 }
 
 void Estado::removeEstado(Icm *z, QString *codigo){
+    Q_UNUSED(z);
     codigo->append(" ");
     this->icm.remove(*codigo);
     refresh();
 }
 void Estado::removeEstado(Center *z, QString *codigo){
+    Q_UNUSED(z);
     codigo->append(" ");
     this->center.remove(*codigo);
     refresh();
 }
 void Estado::removeEstado(Threat *z, QString *codigo){
+    Q_UNUSED(z);
     codigo->append(" ");
     this->threat.remove(*codigo);
     refresh();
 }
 void Estado::removeEstado(DisplayMode *z, QString *codigo){
+    Q_UNUSED(z);
     qDebug() << "Borramos" << *codigo;
     codigo->append(" ");
     this->displayMode.remove(*codigo);
     refresh();
 }
 void Estado::removeEstado(DisplaySelection *z, QString *codigo){
+    Q_UNUSED(z);
     codigo->append(" ");
     this->displaySelection.remove(*codigo);
     refresh();
 }
 void Estado::removeEstado(Label *z, QString *codigo){
+    Q_UNUSED(z);
     codigo->append(" ");
     this->label.remove(*codigo);
     refresh();
 }
 void Estado::removeEstado(Qek *z, QString *codigo){
+    Q_UNUSED(z);
     codigo->append(" ");
     this->qek.remove(*codigo);
     refresh();
 }
 void Estado::removeEstado(Range *z, QString *codigo){
+    Q_UNUSED(z);
     codigo->append(" ");
     this->range.remove(*codigo);
     refresh();
