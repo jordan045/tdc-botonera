@@ -44,7 +44,9 @@ HEADERS += \
     threat.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    overlay_0001.ui \
+    overlay_0010.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
