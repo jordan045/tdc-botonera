@@ -79,6 +79,11 @@ void Botonera::sendMessage()
     qDebug()<<"Me tocaron en botonera";
     concentrator->getMessage(miEstado);
 }
+
+QString Botonera::getOverlay(){
+    return miEstado->getOverlay();
+}
+
 void Botonera::start()
 {
     QHBoxLayout *layout = new QHBoxLayout();
@@ -109,4 +114,5 @@ void Botonera::start()
     qDebug()<<"show() de botonera";
     this->show();
 }
+
 

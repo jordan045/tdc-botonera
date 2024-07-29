@@ -40,6 +40,11 @@ Center::Center(Botonera *b)
                                 "QPushButton:pressed {image: url(':/center/img/Center/%1_pressed.png')}").arg(labels[i-1]);
 
         gui_button->setStyleSheet(style);
+
+        center_group->button(6)->setShortcut(QKeySequence());
+        center_group->button(4)->setShortcut(QKeySequence());
+        center_group->button(3)->setShortcut(QKeySequence());
+
     }
 
     this->setLayout(layout);
