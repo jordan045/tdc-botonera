@@ -8,16 +8,15 @@
 
 Qek::Qek(Botonera *b)
 {
-
     miBotonera = b;
-    QButtonGroup *qek_group = new QButtonGroup();
+    qek_group = new QButtonGroup();
     auto layoutgral = new QVBoxLayout;
     auto layout1 = new QHBoxLayout;
     auto layout2 = new QHBoxLayout;
     auto layout3 = new QHBoxLayout;
     auto layout4 = new QHBoxLayout;
 
-    QString overlay = b->getOverlay();
+    qDebug()<< "~~~~~~~~~~~~~~~~~~~~"<< overlay << "~~~~~~~~~~~~~~~~~~~~";
 
     QList<QPushButton*> gui_buttons = *new QList<QPushButton*>;
     QList<Boton*> logic_buttons = *new QList<Boton*>;
@@ -53,15 +52,6 @@ Qek::Qek(Botonera *b)
     layoutgral->addLayout(layout3);
     layoutgral->addLayout(layout4);
 
-    if(overlay == "0001" || overlay == "0101" || overlay == "0010" || overlay == "0110" || overlay == "0011" || overlay == "1000"){
-        qek_group->button(32)->setShortcut(QKeySequence());
-        qek_group->button(16)->setShortcut(QKeySequence());
-        qek_group->button(15)->setShortcut(QKeySequence());
-        qek_group->button(14)->setShortcut(QKeySequence());
-    }
-
-
-
     this->setLayout(layoutgral);
 
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
@@ -81,4 +71,14 @@ void Qek::removeCode(QString code){
 
 void Qek::sendMessage(){
     return;
+}
+
+void Qek::setOverlay(QString o){
+    overlay = o;
+    if(overlay == "0001" || overlay == "0101" || overlay == "0010" || overlay == "0110" || overlay == "0011" || overlay == "1000"){
+        qek_group->button(32)->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_R));
+        qek_group->button(16)->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_E));
+        qek_group->button(15)->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_W));
+        qek_group->button(14)->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Q));
+    }
 }

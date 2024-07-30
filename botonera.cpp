@@ -21,6 +21,7 @@ Botonera::Botonera(QWidget *parent) :
 void Botonera::setOverlay(QString codigo)
 {
     miEstado->setOverlay(codigo);
+    qek_widget->setOverlay(codigo);
     qDebug()<<"SetOverlay en Botonera"<<codigo;
 }
 void Botonera::setmodo(int i)

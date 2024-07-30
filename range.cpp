@@ -17,6 +17,7 @@ Range::Range(Botonera *b)
     auto layout = new QVBoxLayout;
 
     QList<QString> labels = {"2","4","8","16","32","64","128","256"};
+    QList<const char*> shortcuts = {"f2","f3","f4","f5","f6","f7","f8","f9"};
 
     for(int i=1;i<=8;i++){
         QString code = *new QString("RANGE");
@@ -40,6 +41,9 @@ Range::Range(Botonera *b)
                                 "QPushButton:checked {image: url(':/range/img/Range/%1_pressed.png')}").arg(labels[i-1]);
 
         gui_button->setStyleSheet(style);
+
+        gui_button->setShortcut(QKeySequence(tr(shortcuts[i-1])));
+
     }
     this->setLayout(layout);
     this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}");

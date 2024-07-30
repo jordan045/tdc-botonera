@@ -2,6 +2,7 @@
 #define QEK_H
 
 #include "Zone.h"
+#include "qbuttongroup.h"
 #include <QWidget>
 
 class Botonera;
@@ -13,9 +14,12 @@ public:
     void sendCode(QString code) override;
     void removeCode(QString code) override;
     void sendMessage();
+    void setOverlay(QString o);
 
 private:
     Botonera *miBotonera;
+    QString overlay;
+    QButtonGroup *qek_group;
 };
 
 #endif // QEK_H

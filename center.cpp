@@ -7,6 +7,7 @@
 
 Center::Center(Botonera *b)
 {
+    qDebug() << "COMIENZO CENTER";
     miBotonera = b;
     QList<QPushButton*> gui_buttons = *new QList<QPushButton*>;
     QList<Boton*> logic_buttons = *new QList<Boton*>;
@@ -41,11 +42,14 @@ Center::Center(Botonera *b)
 
         gui_button->setStyleSheet(style);
 
-        center_group->button(6)->setShortcut(QKeySequence());
-        center_group->button(4)->setShortcut(QKeySequence());
-        center_group->button(3)->setShortcut(QKeySequence());
+
+
+        qDebug() << "TERMINO CENTER";
 
     }
+    center_group->button(6)->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_D));
+    center_group->button(4)->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_S));
+    center_group->button(3)->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_A));
 
     this->setLayout(layout);
 
