@@ -21,6 +21,7 @@ Botonera::Botonera(QWidget *parent) :
 void Botonera::setOverlay(QString codigo)
 {
     miEstado->setOverlay(codigo);
+    qek_widget->setOverlay(codigo);
     qDebug()<<"SetOverlay en Botonera"<<codigo;
 }
 void Botonera::setmodo(int i)
@@ -81,6 +82,11 @@ void Botonera::sendMessage()
     qDebug()<<"Me tocaron en botonera";
     concentrator->getMessage(miEstado);
 }
+
+QString Botonera::getOverlay(){
+    return miEstado->getOverlay();
+}
+
 void Botonera::start()
 {
     QHBoxLayout *layout = new QHBoxLayout();
@@ -111,4 +117,5 @@ void Botonera::start()
     qDebug()<<"show() de botonera";
     this->show();
 }
+
 
