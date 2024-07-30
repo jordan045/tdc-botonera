@@ -75,5 +75,10 @@ void Range::sendMessage(){
     miBotonera->sendMessage();
 }
 
+QString Range::getName()
+{
+    return "Range";
+}
+
 
 

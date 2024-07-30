@@ -61,3 +61,8 @@ void DisplayMode::removeCode(QString code){
 void DisplayMode::sendMessage(){
     return;
 }
+
+QString DisplayMode::getName()
+{
+    return "DisplayMode";
+}

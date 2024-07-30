@@ -12,6 +12,7 @@ public:
     void sendCode(QString code) override;
     void removeCode(QString code) override;
     void sendMessage();
+    QString getName() override;
 
 private:
     Botonera *miBotonera;

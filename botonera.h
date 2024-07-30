@@ -20,24 +20,19 @@ class Botonera : public QWidget
 public:
    explicit Botonera(QWidget *parent = nullptr);
     void setmodo(int i);
-    void sendCodeToEstado(Center *z, QString *boton);
-    void sendCodeToEstado(DisplayMode *z, QString *boton);
-    void sendCodeToEstado(DisplaySelection *z, QString *boton);
-    void sendCodeToEstado(Icm *z, QString *boton);
-    void sendCodeToEstado(Label *z, QString *boton);
-    void sendCodeToEstado(Qek *z, QString *boton);
-    void sendCodeToEstado(Range *z, QString *boton);
-    void sendCodeToEstado(Threat *z, QString *boton);
+    void sendCodeToEstado(Zone *z, QString *boton);
 
     void setOverlay(QString codigo);
 
+    void removeCodeFromEstado(Zone *z,QString *Boton);
+    /*
     void removeCodeFromEstado(Icm *z, QString *boton);
     void removeCodeFromEstado(Qek *z, QString *boton);
     void removeCodeFromEstado(Range *z, QString *boton);
     void removeCodeFromEstado(Center *z, QString *boton);
     void removeCodeFromEstado(DisplayMode *z, QString *boton);
     void removeCodeFromEstado(Threat *z, QString *boton);
-
+    */
     void sendMessage();
 public slots:
    void start();

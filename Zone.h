@@ -12,6 +12,7 @@ public:
     virtual void sendCode(QString code){}
     virtual void removeCode(QString code){}
     virtual void sendMessage(){}
+    virtual QString getName(){}
 };
 
 #endif // ZONE_H

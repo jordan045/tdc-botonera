@@ -51,6 +51,11 @@ void Icm::sendMessage(){
     return;
 }
 
+QString Icm::getName()
+{
+    return "ICM";
+}
+
 void Icm::sendCode(QString code)
 {
     miBotonera->sendCodeToEstado(this, &code);

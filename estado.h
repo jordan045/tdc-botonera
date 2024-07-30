@@ -25,6 +25,7 @@ class Estado : public QWidget
 public:
     Estado(Botonera *b);
     void setEstado(Zone *z, QString *Boton);
+    /*
     void setEstado(Center *z, QString *boton);
     void setEstado(DisplayMode *z, QString *boton);
     void setEstado(DisplaySelection *z, QString *boton);
@@ -33,8 +34,10 @@ public:
     void setEstado(Qek *z, QString *boton);
     void setEstado(Range *z, QString *boton);
     void setEstado(Threat *z, QString *boton);
-
+*/
     void setOverlay(QString codigo);
+
+    void removeEstado(Zone *z, QString *boton);
 
     void removeEstado(Icm *z, QString *boton);
     void removeEstado(Center *z, QString *boton);

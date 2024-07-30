@@ -53,6 +53,11 @@ void Center::sendMessage(){
     return;
 }
 
+QString Center::getName()
+{
+    return "Center";
+}
+
 void Center::sendCode(QString code){
     miBotonera->sendCodeToEstado(this, &code);
 }

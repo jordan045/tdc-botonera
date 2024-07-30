@@ -71,3 +71,8 @@ void Qek::removeCode(QString code){
 void Qek::sendMessage(){
     return;
 }
+
+QString Qek::getName()
+{
+    return "QEK";
+}

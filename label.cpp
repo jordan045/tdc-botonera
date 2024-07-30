@@ -95,3 +95,8 @@ void Label::sendCode(QString code)
 void Label::sendMessage(){
     return;
 }
+
+QString Label::getName()
+{
+    return "Label";
+}

@@ -185,3 +185,8 @@ void DisplaySelection::sendCode(QString code)
 void DisplaySelection::sendMessage(){
     return;
 }
+
+QString DisplaySelection::getName()
+{
+    return "Display Selection";
+}

@@ -144,3 +144,8 @@ void Threat::removeCode(QString code){
     miBotonera->removeCodeFromEstado(this, &code);
 }
 
+QString Threat::getName()
+{
+    return "Threat";
+}
+

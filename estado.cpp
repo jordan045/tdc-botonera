@@ -16,67 +16,78 @@ Estado::Estado(Botonera *b) {
     this->displaySelection  = *new QString("");
 }
 
-void Estado::setEstado(Range *z,QString *codigo){
-    Q_UNUSED(z);
-    qDebug() << "Setting Range";
-  //  codigo->append(" ");
-    this->range.append(*codigo);
-    refresh();
-}
-void Estado::setEstado(Center *z, QString *codigo){
-    Q_UNUSED(z);
-    qDebug() << "Setting Center";
+void Estado::setEstado(Zone *z,QString *codigo){
+    QString nombreZona = z->getName();
     codigo->append(" ");
-    this->center.append(*codigo);
+    if (nombreZona == "Threat") {
+        qDebug() << "Setting Threat";
+        qDebug()<<"se llamo a setEstado";
+        this->threat.append(*codigo);
+    }  if (nombreZona == "Center") {
+        qDebug() << "Setting Center";
+        codigo->append(" ");
+        this->center.append(*codigo);
+    }  if (nombreZona == "DisplayMode") {
+        qDebug() << "Setting DisplayMode" << *codigo;
+        this->displayMode.append(*codigo);
+    }  if (nombreZona == "DisplaySelection") {
+        qDebug() << "Setting DisplaySelection";
+        this->displaySelection.append(*codigo);
+    }   if (nombreZona == "ICM") {
+        qDebug() << "Setting ICM";
+        this->icm.append(*codigo);
+    }  if (nombreZona == "Label") {
+        qDebug() << "Setting Label";
+        this->label.append(*codigo);
+    }  if (nombreZona == "QEK") {
+        qDebug() << "Setting QEK";
+        this->qek.append(*codigo);
+    }  if (nombreZona == "Range") {
+        qDebug() << "Setting Range";
+        this->range.append(*codigo);
+    }
     refresh();
 }
-void Estado::setEstado(DisplayMode *z, QString *codigo){
-    Q_UNUSED(z);
-    qDebug() << "Seteamos" << *codigo;
-    codigo->append(" ");
-    this->displayMode.append(*codigo);
-    refresh();
-}
-void Estado::setEstado(DisplaySelection *z, QString *codigo){
-    Q_UNUSED(z);
-    qDebug() << "Setting DisplaySelection";
-    codigo->append(" ");
-    this->displaySelection.append(*codigo);
-    refresh();
-}
-void Estado::setEstado(Icm *z, QString *codigo){
-    Q_UNUSED(z);
-    qDebug() << "Setting ICM";
-    codigo->append(" ");
-    this->icm.append(*codigo);
-    refresh();
-}
-void Estado::setEstado(Label *z, QString *codigo){
-    Q_UNUSED(z);
-    qDebug() << "Setting Label";
-    codigo->append(" ");
-    this->label.append(*codigo);
-    refresh();
-}
-void Estado::setEstado(Qek *z, QString *codigo){
-    Q_UNUSED(z);
-    codigo->append(" ");
-    this->qek.append(*codigo);
-    refresh();
-}
-void Estado::setEstado(Threat *z, QString *codigo){
-    Q_UNUSED(z);
-    qDebug() << "Setting Threat";
-    codigo->append(" ");
-    this->threat.append(*codigo);
-    refresh();
-}
+
 
 void Estado::setOverlay(QString codigo){
     overlay = codigo;
     qDebug()<<"Set overlay en estado"<<overlay;
 }
 
+void Estado::removeEstado(Zone *z, QString *codigo){
+    QString nombreZona = z->getName();
+    codigo->append(" ");
+    if (nombreZona == "Threat") {
+        qDebug() << "Removing Threat";
+        this->threat.remove(*codigo);
+    }  if (nombreZona == "Center") {
+        qDebug() << "Removing Center";
+        codigo->append(" ");
+        this->center.remove(*codigo);
+    }  if (nombreZona == "DisplayMode") {
+        qDebug() << "Removing DisplayMode" << *codigo;
+        this->displayMode.remove(*codigo);
+    }  if (nombreZona == "DisplaySelection") {
+        qDebug() << "Removing DisplaySelection";
+        this->displaySelection.remove(*codigo);
+    }   if (nombreZona == "ICM") {
+        qDebug() << "Removing ICM";
+        this->icm.remove(*codigo);
+    }  if (nombreZona == "Label") {
+        qDebug() << "Removing Label";
+        this->label.remove(*codigo);
+    }  if (nombreZona == "QEK") {
+        qDebug() << "Removing QEK";
+        this->qek.remove(*codigo);
+    }  if (nombreZona == "Range") {
+        qDebug() << "Removing Range";
+        this->range.remove(*codigo);
+    }
+    refresh();
+}
+
+/*
 void Estado::removeEstado(Icm *z, QString *codigo){
     Q_UNUSED(z);
     codigo->append(" ");
@@ -127,7 +138,7 @@ void Estado::removeEstado(Range *z, QString *codigo){
     refresh();
 }
 
-
+*/
 QString Estado::getLabel(){return label;}
 QString Estado::getQEK(){return qek;}
 QString Estado::getThreat(){return threat;}
