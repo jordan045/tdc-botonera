@@ -8,14 +8,14 @@ FormatConcentrator::FormatConcentrator()
 {
     message = new QBitArray(216);
     word1 = new QBitArray(24);
-    word2 = new QBitArray(24);
-    word3 = new QBitArray(24);
-    word4 = new QBitArray(24);
-    word5 = new QBitArray(24);
-    word6 = new QBitArray(24);
-    word7 = new QBitArray(24);
-    word8 = new QBitArray(24);
-    word9 = new QBitArray(24);
+    word2 = new QBitArray(48);
+    word3 = new QBitArray(72);
+    word4 = new QBitArray(96);
+    word5 = new QBitArray(120);
+    word6 = new QBitArray(144);
+    word7 = new QBitArray(168);
+    word8 = new QBitArray(192);
+    word9 = new QBitArray(216);
 
 }
 
@@ -105,7 +105,7 @@ void FormatConcentrator::setWord1(Estado *estado)
         word1->setBit(posicion.toInt(),true);
     }
 
-    //THREAT FAT ASS
+    //THREATASSESMENT
     QStringList wordListThreatAss = estado->getThreat().split(" ", Qt::SkipEmptyParts);
     // BUSCO LA POSICION COMO UN STRING Y LO TRANSFORMO EN INT.
     //DISPLAY SELECTION
@@ -122,6 +122,7 @@ void FormatConcentrator::setWord1(Estado *estado)
 
 void FormatConcentrator::setWord2(Estado *estado)
 {
+    int offset = 24;
     //CENTER
     QStringList wordListCenter = estado->getCenter().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListCenter)
@@ -131,7 +132,7 @@ void FormatConcentrator::setWord2(Estado *estado)
         QJsonObject centerActual = center[word].toObject();
         QString posicion = centerActual["pos"].toString();
 
-        word2->setBit(posicion.toInt(),true);
+        word2->setBit(offset + posicion.toInt(),true);
     }
 
     //DISPLAY SELECTION
@@ -155,7 +156,7 @@ void FormatConcentrator::setWord3(Estado *estado)
 
 void FormatConcentrator::setWord4(Estado *estado)
 {
-
+    int offset = 72;
     QStringList wordListQek = estado->getCenter().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListQek)
     {
@@ -164,7 +165,7 @@ void FormatConcentrator::setWord4(Estado *estado)
         QJsonObject qekActual = qek[word].toObject();
         QString posicion = qekActual["value"].toString();
 
-        int i = 23;
+        int i = offset-1;
         for(QChar caracter:posicion)
         {
             if(caracter == '1')
@@ -178,6 +179,7 @@ void FormatConcentrator::setWord4(Estado *estado)
 
 void FormatConcentrator::setWord5(Estado *estado)
 {
+    int offset = 119;
     QStringList wordListICM = estado->getICM().split(" ",Qt::SkipEmptyParts);
     foreach(const QString &word, wordListICM)
     {
@@ -187,28 +189,27 @@ void FormatConcentrator::setWord5(Estado *estado)
         QJsonObject centerActual = center[word].toObject();
         QString valor = centerActual["value"].toString();
 
-        int i = 23;
         for(QChar caracter:valor)
         {
             if(caracter == '1')
-                word5->setBit(i,true);
+                word5->setBit(offset,true);
             else
-                word5->setBit(i,false);
-            i--;
+                word5->setBit(offset,false);
+            offset--;
         }
     }
-    word5->setBit(20,false);
+    word5->setBit(offset,false);
+    offset--;
 
     //OVERLAY
     QString overlay = estado->getOverlay();
-    int i = 19;
     for(QChar caracter:overlay)
     {
         if (caracter == '1')
-            word5->setBit(i,true);
+            word5->setBit(offset,true);
         else
-            word5->setBit(i,false);
-        i--;
+            word5->setBit(offset,false);
+        offset--;
     }
 }
 

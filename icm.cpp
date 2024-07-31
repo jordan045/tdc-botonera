@@ -10,7 +10,7 @@ Icm::Icm(Botonera *b)
 
     miBotonera = b;
     QButtonGroup *icm_group = new QButtonGroup();
-    icm_group->setExclusive(false);
+
 
     auto layout = new QVBoxLayout;
 
