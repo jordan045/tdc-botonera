@@ -7,6 +7,7 @@
 
 Center::Center(Botonera *b)
 {
+    qDebug() << "COMIENZO CENTER";
     miBotonera = b;
     QList<QPushButton*> gui_buttons = *new QList<QPushButton*>;
     QList<Boton*> logic_buttons = *new QList<Boton*>;
@@ -40,7 +41,15 @@ Center::Center(Botonera *b)
                                 "QPushButton:pressed {image: url(':/center/img/Center/%1_pressed.png')}").arg(labels[i-1]);
 
         gui_button->setStyleSheet(style);
+
+
+
+        qDebug() << "TERMINO CENTER";
+
     }
+    center_group->button(6)->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_D));
+    center_group->button(4)->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_S));
+    center_group->button(3)->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_A));
 
     this->setLayout(layout);
 
@@ -53,10 +62,15 @@ void Center::sendMessage(){
     return;
 }
 
+QString Center::getName()
+{
+    return "Center";
+}
+
 void Center::sendCode(QString code){
-    miBotonera->sendCodeToEstado(this, &code);
+    miBotonera->sendCodeToCenter(&code);
 }
 void Center::removeCode(QString code){
-    miBotonera->removeCodeFromEstado(this, &code);
+    miBotonera->removeCodeFromCenter(&code);
 }
 

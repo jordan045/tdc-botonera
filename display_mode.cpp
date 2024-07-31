@@ -53,11 +53,16 @@ DisplayMode::DisplayMode(Botonera *b)
 }
 
 void DisplayMode::sendCode(QString code){
-    miBotonera->sendCodeToEstado(this, &code);
+    miBotonera->sendCodeToDisplayMode(&code);
 }
 void DisplayMode::removeCode(QString code){
-    miBotonera->removeCodeFromEstado(this, &code);
+    miBotonera->removeCodeFromDisplayMode(&code);
 }
 void DisplayMode::sendMessage(){
     return;
+}
+
+QString DisplayMode::getName()
+{
+    return "DisplayMode";
 }

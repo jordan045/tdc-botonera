@@ -31,6 +31,8 @@ Qek::Qek(Botonera *b)
     auto layout3 = new QHBoxLayout;
     auto layout4 = new QHBoxLayout;
 
+    qDebug()<< "~~~~~~~~~~~~~~~~~~~~"<< overlay << "~~~~~~~~~~~~~~~~~~~~";
+
     QList<QPushButton*> gui_buttons = *new QList<QPushButton*>;
     QList<Boton*> logic_buttons = *new QList<Boton*>;
     for(int i=1;i<=32;i++){
@@ -42,7 +44,7 @@ Qek::Qek(Botonera *b)
 
         gui_button->setCheckable(true);
         gui_button->setFlat(true);
-        icm_group->addButton(gui_button,i);
+        qek_group->addButton(gui_button,i);
 
         if(1 <= i && i <= 8)
             layout1->addWidget(gui_button);
@@ -76,12 +78,27 @@ Qek::Qek(Botonera *b)
 }
 
 void Qek::sendCode(QString code){
-    miBotonera->sendCodeToEstado(this, &code);
+    miBotonera->sendCodeToQek(&code);
 }
 void Qek::removeCode(QString code){
-    miBotonera->removeCodeFromEstado(this,&code);
+    miBotonera->removeCodeFromQek(&code);
 }
 
 void Qek::sendMessage(){
     return;
 }
+
+QString Qek::getName()
+{
+    return "QEK";
+}
+void Qek::setOverlay(QString o){
+    overlay = o;
+    if(overlay == "0001" || overlay == "0101" || overlay == "0010" || overlay == "0110" || overlay == "0011" || overlay == "1000"){
+        qek_group->button(32)->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_R));
+        qek_group->button(16)->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_E));
+        qek_group->button(15)->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_W));
+        qek_group->button(14)->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_Q));
+    }
+}
+

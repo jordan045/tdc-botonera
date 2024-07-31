@@ -10,7 +10,7 @@ Icm::Icm(Botonera *b)
 
     miBotonera = b;
     QButtonGroup *icm_group = new QButtonGroup();
-    icm_group->setExclusive(false);
+
 
     auto layout = new QVBoxLayout;
 
@@ -51,10 +51,15 @@ void Icm::sendMessage(){
     return;
 }
 
+QString Icm::getName()
+{
+    return "ICM";
+}
+
 void Icm::sendCode(QString code)
 {
-    miBotonera->sendCodeToEstado(this, &code);
+    miBotonera->sendCodeToIcm(&code);
 }
 void Icm::removeCode(QString code){
-    miBotonera->removeCodeFromEstado(this, &code);
+    miBotonera->removeCodeFromIcm(&code);
 }

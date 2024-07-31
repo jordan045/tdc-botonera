@@ -38,6 +38,8 @@ private:
     void setWord8(Estado *estado);
     void setWord9(Estado *estado);
 
+    void getMessage();
+
     void leerJson();
 
     QJsonObject archivo;

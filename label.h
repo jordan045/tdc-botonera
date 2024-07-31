@@ -12,6 +12,7 @@ public:
     explicit Label(Botonera *b);
     void sendCode(QString code) override;
     void sendMessage();
+    QString getName() override;
 
 private:
     Botonera *miBotonera;

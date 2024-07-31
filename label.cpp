@@ -10,6 +10,49 @@ Label::Label(Botonera *b)
 
     miBotonera = b;
 
+    QList<QPushButton*> gui_buttons = *new QList<QPushButton*>;
+    QList<Boton*> logic_buttons = *new QList<Boton*>;
+    QButtonGroup *label_group = new QButtonGroup();
+
+    auto layout = new QHBoxLayout;
+
+    QList<QString> labels = {"ms",
+                             "trkm",
+                             "ampl_info",
+                              "link_stat",
+                             "tn"};
+
+
+    for(int i = 1;i<=5;i++){
+        auto *gui_button = new QPushButton("",this);
+        auto *logic_button = new Boton(this,labels[i-1]);
+
+        gui_button->setCheckable(true);
+        gui_button->setFlat(true);
+        label_group->addButton(gui_button,i);
+
+        layout->addWidget(gui_button);
+
+        gui_buttons.append(gui_button);
+        logic_buttons.append(logic_button);
+
+        QObject::connect(gui_button, &QPushButton::pressed, logic_button, &Boton::interact);
+        QObject::connect(gui_button, &QPushButton::released, logic_button, &Boton::interact);
+
+        QString style = QString("QPushButton {image: url(':/label_selection/img/Label Selection/%1.png')}"
+                                "QPushButton:pressed {image: url(':/label_selection/img/Label Selection/%1_pressed.png')}").arg(labels[i-1]);
+
+        gui_button->setStyleSheet(style);
+
+    }
+    this->setLayout(layout);
+
+    this->setStyleSheet("QPushButton {width: 80px; height: 80px; background-color: rgba(0,0,0,0)}"
+                        "QPushButton:hover {background-color: rgba(0,0,0,0); }"
+                        "QPushButton:pressed {background-color: rgba(0,0,0,0);}");
+}
+
+/*
     auto *ms = new QPushButton("",this);
     auto *trkm = new QPushButton("",this);
     auto *ampl_info = new QPushButton("",this);
@@ -85,13 +128,19 @@ Label::Label(Botonera *b)
 
     tn->setStyleSheet("QPushButton {image: url(':/label_selection/img/Label Selection/tn.png')}"
                       "QPushButton:checked {image: url(':/label_selection/img/Label Selection/tn_pressed.png')}");
-}
+*/
+
 
 void Label::sendCode(QString code)
 {
-    miBotonera->sendCodeToEstado(this, &code);
+    miBotonera->sendCodeToLabelSelection(&code);
 }
 
 void Label::sendMessage(){
     return;
+}
+
+QString Label::getName()
+{
+    return "Label";
 }
