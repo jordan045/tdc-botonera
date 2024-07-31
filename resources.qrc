@@ -113,4 +113,10 @@
         <file>overlay.json</file>
         <file>properties.json</file>
     </qresource>
+    <qresource prefix="/forms">
+        <file>overlay_140_0001.ui</file>
+        <file>overlay_140_0010.ui</file>
+        <file>overlay_140_0011.ui</file>
+        <file>overlay_140_0100.ui</file>
+    </qresource>
 </RCC>

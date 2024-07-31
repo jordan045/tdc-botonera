@@ -4,6 +4,7 @@
 #include "Zone.h"
 #include "qbuttongroup.h"
 #include <QWidget>
+#include <QtUiTools/QUiLoader>
 
 class Botonera;
 class Qek : public Zone

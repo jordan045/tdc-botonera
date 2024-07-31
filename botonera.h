@@ -43,8 +43,9 @@ public:
 
     void sendMessage();
 
+    Estado *getEstado();
     QString getOverlay();
-
+    
 public slots:
    void start();
 

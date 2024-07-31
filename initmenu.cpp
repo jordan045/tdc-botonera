@@ -63,11 +63,12 @@ InitMenu::InitMenu(QWidget *parent) :
             layout->addWidget(button);
 
             QObject::connect(button, &QPushButton::clicked, [this, buttonCode]() {
+                miBotonera->setOverlay(buttonCode);
                 miBotonera->start();
                 this->close();
                 qDebug() << "Botón presionado con código:" << buttonCode;
                 // Aquí puedes llamar a un método de Botonera y pasar el código del botón
-                miBotonera->setOverlay(buttonCode);
+
             });
         }
     }

@@ -9,7 +9,22 @@
 Qek::Qek(Botonera *b)
 {
     miBotonera = b;
-    qek_group = new QButtonGroup();
+
+    QString overlay = miBotonera->getEstado()->getOverlay();
+
+    QUiLoader loader;
+    QString url = QString(":/forms/overlay_140_%1.ui").arg(overlay);
+    QFile file(url);
+
+    QWidget *myWidget = loader.load(&file, this);
+    file.close();
+
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->addWidget(myWidget);
+    setLayout(layout);
+
+    /*
+    QButtonGroup *icm_group = new QButtonGroup();
     auto layoutgral = new QVBoxLayout;
     auto layout1 = new QHBoxLayout;
     auto layout2 = new QHBoxLayout;
@@ -59,7 +74,7 @@ Qek::Qek(Botonera *b)
                         "QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}"
                         "QPushButton:hover {background-color: rgba(0,0,0,0); }"
                         "QPushButton:pressed {background-color: rgba(0,0,0,0);}");
-
+*/
 }
 
 void Qek::sendCode(QString code){
