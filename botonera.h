@@ -39,6 +39,8 @@ public:
     void removeCodeFromEstado(Threat *z, QString *boton);
 
     void sendMessage();
+
+    Estado *getEstado();
 public slots:
    void start();
 

@@ -10,7 +10,6 @@ Botonera::Botonera(QWidget *parent) :
     miEstado = new Estado(this);
     range_widget = new Range(this);
     label_selection_widget = new Label(this);
-    qek_widget = new Qek(this);
     threat_assesment_widget = new Threat(this);
     center_widget = new Center(this);
     display_mode_widget = new DisplayMode(this);
@@ -81,12 +80,11 @@ void Botonera::sendMessage()
 }
 void Botonera::start()
 {
+    qek_widget = new Qek(this);
     QHBoxLayout *layout = new QHBoxLayout();
 
     QVBoxLayout *midLay = new QVBoxLayout();
-    //midLay->addWidget(range_widget);
     midLay->addWidget(qek_widget);
-    //midLay->addWidget();
     midLay->addWidget(display_mode_widget);
     midLay->addWidget(label_selection_widget);
     midLay->addWidget(center_widget);
@@ -98,15 +96,13 @@ void Botonera::start()
     layout->addWidget(display_selection_widget);
     layout->addWidget(threat_assesment_widget);
 
-    //QString texto = QString::number(modo);
-    //QLabel *label = new QLabel(texto);
-
-    //layout->addWidget(label,0,3);
+    // this->setLayout(midLay);
     this->setLayout(layout);
-    this->setFixedWidth(1200);
-    this->setFixedHeight(900);
-    //this->showMaximized();
-    qDebug()<<"show() de botonera";
+
     this->show();
+}
+
+Estado* Botonera::getEstado(){
+    return miEstado;
 }
 

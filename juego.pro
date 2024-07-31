@@ -3,6 +3,8 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+QT += uitools
+
 CONFIG += c++17
 
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -45,8 +47,10 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui \
-    overlay_0001.ui \
-    overlay_0010.ui
+    overlay_140_0001.ui \
+    overlay_140_0010.ui \
+    overlay_140_0011.ui \
+    overlay_140_0100.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
