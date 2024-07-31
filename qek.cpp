@@ -63,10 +63,10 @@ Qek::Qek(Botonera *b)
 }
 
 void Qek::sendCode(QString code){
-    miBotonera->sendCodeToEstado(this, &code);
+    miBotonera->sendCodeToQek(&code);
 }
 void Qek::removeCode(QString code){
-    miBotonera->removeCodeFromEstado(this,&code);
+    miBotonera->removeCodeFromQek(&code);
 }
 
 void Qek::sendMessage(){

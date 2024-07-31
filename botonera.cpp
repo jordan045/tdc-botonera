@@ -29,54 +29,75 @@ void Botonera::setmodo(int i)
     modo = i;
 }
 
-void Botonera::sendCodeToEstado(Zone *z, QString *boton){
-    miEstado->setEstado(z,boton);
+void Botonera::removeCodeFromRange(QString *boton){
+    miEstado->removeRange(boton);
 }
-/*
- void Botonera::sendCodeToEstado(Icm *z, QString *boton){
-    miEstado->setEstado(z,boton);
+void Botonera::removeCodeFromLabelSelection(QString *boton){
+    miEstado->removeLabel(boton);
 }
-void Botonera::sendCodeToEstado(Center *z, QString *boton){
-    miEstado->setEstado(z,boton);
+void Botonera::removeCodeFromQek(QString *boton){
+    miEstado->removeQek(boton);
 }
-void Botonera::sendCodeToEstado(DisplayMode *z, QString *boton){
-    miEstado->setEstado(z,boton);
+void Botonera::removeCodeFromThreat(QString *boton){
+    miEstado->removeThreat(boton);
 }
-void Botonera::sendCodeToEstado(DisplaySelection *z, QString *boton){
-    miEstado->setEstado(z,boton);
+void Botonera::removeCodeFromCenter(QString *boton){
+    miEstado->removeCenter(boton);
 }
-void Botonera::sendCodeToEstado(Label *z, QString *boton){
-    miEstado->setEstado(z,boton);
+void Botonera::removeCodeFromDisplayMode(QString *boton){
+    miEstado->removeDisplayMode(boton);
 }
-void Botonera::sendCodeToEstado(Range *z, QString *boton){
-    miEstado->setEstado(z,boton);
+void Botonera::removeCodeFromDisplaySelection(QString *boton){
+    miEstado->removeDisplaySelection(boton);
 }
-void Botonera::sendCodeToEstado(Threat *z, QString *boton){
-    miEstado->setEstado(z,boton);
-}*/
-void Botonera::removeCodeFromEstado(Zone *z, QString *boton){
-    miEstado->removeEstado(z,boton);
-}
-/*
-void Botonera::removeCodeFromEstado(Qek *z, QString *boton){
-    miEstado->removeEstado(z,boton);
-}
-void Botonera::removeCodeFromEstado(Range *z, QString *boton){
-    miEstado->removeEstado(z,boton);
-}
-void Botonera::removeCodeFromEstado(Center *z, QString *boton){
-    miEstado->removeEstado(z,boton);
-}
-void Botonera::removeCodeFromEstado(DisplayMode *z, QString *boton){
-    miEstado->removeEstado(z,boton);
+void Botonera::removeCodeFromIcm(QString *boton){
+    miEstado->removeIcm(boton);
 }
 
-void Botonera::removeCodeFromEstado(Threat *z, QString *boton)
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+void Botonera::sendCodeToRange(QString *boton)
 {
-    miEstado->removeEstado(z,boton);
+    miEstado->setRange(boton);
 }
 
-*/
+void Botonera::sendCodeToLabelSelection(QString *boton)
+{
+    miEstado->setLabel(boton);
+}
+
+void Botonera::sendCodeToQek(QString *boton)
+{
+    miEstado->setQEK(boton);
+}
+
+void Botonera::sendCodeToThreat(QString *boton)
+{
+    miEstado->setThreat(boton);
+}
+
+void Botonera::sendCodeToCenter(QString *boton)
+{
+    miEstado->setCenter(boton);
+}
+
+void Botonera::sendCodeToDisplayMode(QString *boton)
+{
+    miEstado->setDisplayMode(boton);
+}
+
+void Botonera::sendCodeToDisplaySelection(QString *boton)
+{
+    miEstado->setDisplaySelection(boton);
+}
+
+void Botonera::sendCodeToIcm(QString *boton)
+{
+    miEstado->setICM(boton);
+}
+
 void Botonera::sendMessage()
 {
     qDebug()<<"Me tocaron en botonera";

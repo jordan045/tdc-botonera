@@ -20,19 +20,27 @@ class Botonera : public QWidget
 public:
    explicit Botonera(QWidget *parent = nullptr);
     void setmodo(int i);
-    void sendCodeToEstado(Zone *z, QString *boton);
 
     void setOverlay(QString codigo);
 
-    void removeCodeFromEstado(Zone *z,QString *Boton);
-    /*
-    void removeCodeFromEstado(Icm *z, QString *boton);
-    void removeCodeFromEstado(Qek *z, QString *boton);
-    void removeCodeFromEstado(Range *z, QString *boton);
-    void removeCodeFromEstado(Center *z, QString *boton);
-    void removeCodeFromEstado(DisplayMode *z, QString *boton);
-    void removeCodeFromEstado(Threat *z, QString *boton);
-    */
+    void removeCodeFromRange(QString *boton);
+    void removeCodeFromLabelSelection(QString *boton);
+    void removeCodeFromQek(QString *boton);
+    void removeCodeFromThreat(QString *boton);
+    void removeCodeFromCenter(QString *boton);
+    void removeCodeFromDisplayMode(QString *boton);
+    void removeCodeFromDisplaySelection(QString *boton);
+    void removeCodeFromIcm(QString *boton);
+
+    void sendCodeToRange(QString *boton);
+    void sendCodeToLabelSelection(QString *boton);
+    void sendCodeToQek(QString *boton);
+    void sendCodeToThreat(QString *boton);
+    void sendCodeToCenter(QString *boton);
+    void sendCodeToDisplayMode(QString *boton);
+    void sendCodeToDisplaySelection(QString *boton);
+    void sendCodeToIcm(QString *boton);
+
     void sendMessage();
 
     QString getOverlay();

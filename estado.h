@@ -19,36 +19,22 @@
  * En esta clase ejerce el astado actual de los botones que estan presionados
  */
 
+
 class Botonera;
 class Estado : public QWidget
 {
 public:
     Estado(Botonera *b);
-    void setEstado(Zone *z, QString *Boton);
-    /*
-    void setEstado(Center *z, QString *boton);
-    void setEstado(DisplayMode *z, QString *boton);
-    void setEstado(DisplaySelection *z, QString *boton);
-    void setEstado(Icm *z, QString *boton);
-    void setEstado(Label *z, QString *boton);
-    void setEstado(Qek *z, QString *boton);
-    void setEstado(Range *z, QString *boton);
-    void setEstado(Threat *z, QString *boton);
-*/
     void setOverlay(QString codigo);
 
-    void removeEstado(Zone *z, QString *boton);
-
-    void removeEstado(Icm *z, QString *boton);
-    void removeEstado(Center *z, QString *boton);
-    void removeEstado(DisplayMode *z, QString *boton);
-    void removeEstado(DisplaySelection *z, QString *boton);
-    void removeEstado(Label *z, QString *boton);
-    void removeEstado(Qek *z, QString *boton);
-    void removeEstado(Range *z, QString *boton);
-    void removeEstado(Threat *z, QString *boton);
-
-
+    void removeIcm(QString *boton);
+    void removeCenter(QString *boton);
+    void removeDisplayMode(QString *boton);
+    void removeDisplaySelection(QString *boton);
+    void removeLabel(QString *boton);
+    void removeQek(QString *boton);
+    void removeRange(QString *boton);
+    void removeThreat(QString *boton);
 
     QString getRange();
     QString getLabel();
@@ -62,6 +48,15 @@ public:
     QString getQekDer();
     QString getModos();
     QString getOverlay();
+
+    void setRange(QString *r);
+    void setLabel(QString *l);
+    void setQEK(QString *q);
+    void setThreat(QString *t);
+    void setCenter(QString *c);
+    void setDisplayMode(QString *d);
+    void setDisplaySelection(QString *d);
+    void setICM(QString *i);
 
 private:
     Botonera *miBotonera;
@@ -77,17 +72,6 @@ private:
     QString displayMode;
     QString displaySelection;
     QString overlay;
-
-    void setRange(QString *r);
-    void setLabel(QString *l);
-    void setQEK(QString *q);
-    void setThreat(QString *t);
-    void setCenter(QString *c);
-    void setDisplayMode(QString *d);
-    void setDisplaySelection(QString *d);
-    void setICM(QString *i);
-
-
 
     void refresh();
 
