@@ -27,7 +27,10 @@ private:
     QBitArray *word8;
     QBitArray *word9;
 
+
     void setMessage(Estado *estado);
+
+    /*
     void setWord1(Estado *estado);
     void setWord2(Estado *estado);
     void setWord3(Estado *estado);
@@ -37,6 +40,21 @@ private:
     void setWord7(Estado *estado);
     void setWord8(Estado *estado);
     void setWord9(Estado *estado);
+
+    void juntar();
+
+    */
+
+    void setRange(Estado *estado);
+    void setCenter(Estado *estado);
+    void setICM(Estado *estado);
+    void setLabel(Estado *estado);
+    void setQEK(Estado *estado);
+    void setThreat(Estado *estado);
+    void setDisplayMode(Estado *estado);
+    void setDisplaySelection(Estado *estado);
+    void setOverlay(Estado *estado);
+
 
     void getMessage();
 
