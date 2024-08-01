@@ -8,11 +8,11 @@
 
 class Zone : public QWidget{
 
-public:
-    virtual void sendCode(QString code){}
-    virtual void removeCode(QString code){}
-    virtual void sendMessage(){}
-    virtual QString getName(){}
+    public:
+        virtual void sendCode(QString){}
+        virtual void removeCode(QString){}
+        virtual void sendMessage(){}
+        virtual QString getName(){return "";}
 };
 
 #endif // ZONE_H

@@ -1,5 +1,11 @@
 #include "qek.h"
 #include "botonera.h"
+
+#include "ui_overlay_140_0001.h"
+#include "ui_overlay_140_0010.h"
+#include "ui_overlay_140_0011.h"
+#include "ui_overlay_140_0100.h"
+
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QButtonGroup>
@@ -22,6 +28,8 @@ Qek::Qek(Botonera *b)
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(myWidget);
     setLayout(layout);
+
+
 
     /*
     QButtonGroup *icm_group = new QButtonGroup();
