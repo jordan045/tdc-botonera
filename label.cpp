@@ -133,7 +133,7 @@ Label::Label(Botonera *b)
 
 void Label::sendCode(QString code)
 {
-    miBotonera->sendCodeToEstado(this, &code);
+    miBotonera->sendCodeToLabelSelection(&code);
 }
 
 void Label::sendMessage(){

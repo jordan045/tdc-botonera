@@ -68,10 +68,10 @@ Range::Range(Botonera *b)
 void Range::sendCode(QString code)
 {
     qDebug()<<"Me hicieron sendCode";
-    miBotonera->sendCodeToEstado(this, &code);
+    miBotonera->sendCodeToRange(&code);
 }
 void Range::removeCode(QString code){
-    miBotonera->removeCodeFromEstado(this, &code);
+    miBotonera->removeCodeFromRange(&code);
 }
 
 void Range::sendMessage(){

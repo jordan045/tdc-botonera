@@ -58,8 +58,8 @@ QString Icm::getName()
 
 void Icm::sendCode(QString code)
 {
-    miBotonera->sendCodeToEstado(this, &code);
+    miBotonera->sendCodeToIcm(&code);
 }
 void Icm::removeCode(QString code){
-    miBotonera->removeCodeFromEstado(this, &code);
+    miBotonera->removeCodeFromIcm(&code);
 }

@@ -68,9 +68,9 @@ QString Center::getName()
 }
 
 void Center::sendCode(QString code){
-    miBotonera->sendCodeToEstado(this, &code);
+    miBotonera->sendCodeToCenter(&code);
 }
 void Center::removeCode(QString code){
-    miBotonera->removeCodeFromEstado(this, &code);
+    miBotonera->removeCodeFromCenter(&code);
 }
 
