@@ -5,9 +5,11 @@
 #include "overlay_140_0011.h"
 #include "overlay_140_0100.h"
 #include "zone_range.h"
+#include "qmessagebox.h"
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QDebug>
+#include <QShortcut>
 
 Botonera::Botonera(QWidget *parent) :
     QWidget(parent)
@@ -148,8 +150,45 @@ void Botonera::start()
     layout->addWidget(threat_assesment_widget);
 
     this->setLayout(layout);
-
     this->show();
+    //infoMessage();
+    shortcut = new QShortcut(QKeySequence(Qt::Key_0), this);
+    qDebug()<<shortcut->key();
+    QObject::connect(shortcut, SIGNAL(activated()), this, SLOT(infoMessage()));
+}
+
+void Botonera::infoMessage(){
+    //qDebug()<< "infoMessage()<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
+    //QMessageBox::about(this,"SHORTCUTS","Aca va el texto");
+    QMessageBox msg;
+
+    msg.setWindowTitle("ATAJOS DE TECLADO");
+    QString text = "<table style='border-collapse: collapse;'>"
+                   "<tr><td style='text-align: left; padding: 8px;'>WIPE</td><td style='text-align: right; padding: 8px;'>Ctrl+R</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>CLOSE/CONTROL</td><td style='text-align: right; padding: 8px;'>Ctrl+E</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>CORRECT</td><td style='text-align: right; padding: 8px;'>Ctrl+W</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>NEXT TRACK</td><td style='text-align: right; padding: 8px;'>Ctrl+Q</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>Data_Req</td><td style='text-align: right; padding: 8px;'>Ctrl+D</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>Center</td><td style='text-align: right; padding: 8px;'>Ctrl+S</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>Off_Cent</td><td style='text-align: right; padding: 8px;'>Ctrl+A</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>RANGE 2</td><td style='text-align: right; padding: 8px;'>F2</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>RANGE 4</td><td style='text-align: right; padding: 8px;'>F3</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>RANGE 8</td><td style='text-align: right; padding: 8px;'>F4</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>RANGE 16</td><td style='text-align: right; padding: 8px;'>F5</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>RANGE 32</td><td style='text-align: right; padding: 8px;'>F6</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>RANGE 64</td><td style='text-align: right; padding: 8px;'>F7</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>RANGE 128</td><td style='text-align: right; padding: 8px;'>F8</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>RANGE 256</td><td style='text-align: right; padding: 8px;'>F9</td></tr>"
+
+                   "</table>";
+    msg.setText(text);
+
+
+
+    //msg.setFixedHeight(400);
+    //msg.setFixedWidth(600);
+    //msg.setStyleSheet("QLabel{min-width: 400px;}");
+    msg.exec();
 }
 
 Estado* Botonera::getEstado(){

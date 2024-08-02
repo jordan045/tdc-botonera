@@ -3,6 +3,7 @@
 
 #include "estado.h"
 #include <QWidget>
+#include "qshortcut.h"
 #include "range.h"
 #include "icm.h"
 #include "label.h"
@@ -49,10 +50,16 @@ public:
     QString getOverlay();
     
 public slots:
-   void start();
+    void start();
+    void infoMessage();
 
+<<<<<<< Updated upstream
    private:
    zone_range *range_widget;
+=======
+private:
+   Range *range_widget;
+>>>>>>> Stashed changes
    Label *label_selection_widget;
    Qek *qek_widget;
    Threat *threat_assesment_widget;
@@ -62,8 +69,12 @@ public slots:
    zone_icm *icm_widget;
    FormatConcentrator *concentrator;
 
+   QShortcut *shortcut;
+
    Estado *miEstado;
    int modo;
+
+
 };
 
 #endif // BOTONERA_H
