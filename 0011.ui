@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>OVERLAY_140_0011</class>
- <widget class="QWidget" name="OVERLAY_140_0011">
+ <class>OV_140_0011</class>
+ <widget class="QWidget" name="OV_140_0011">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -629,7 +629,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QPushButton" name="GUI_20">
+       <widget class="QPushButton" name="pushButton_83">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -682,7 +682,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_21">
+       <widget class="QPushButton" name="pushButton_5">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -735,7 +735,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_22">
+       <widget class="QPushButton" name="pushButton_4">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -788,7 +788,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_23">
+       <widget class="QPushButton" name="pushButton_3">
         <property name="enabled">
          <bool>true</bool>
         </property>
@@ -838,7 +838,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_24">
+       <widget class="QPushButton" name="pushButton_2">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -891,7 +891,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_25">
+       <widget class="QPushButton" name="pushButton_82">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -944,7 +944,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_26">
+       <widget class="QPushButton" name="pushButton_81">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -997,7 +997,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_27">
+       <widget class="QPushButton" name="pushButton">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -1776,7 +1776,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        <number>0</number>
       </property>
       <item>
-       <widget class="QPushButton" name="GUI_30">
+       <widget class="QPushButton" name="pushButton_90">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -1823,7 +1823,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_31">
+       <widget class="QPushButton" name="pushButton_89">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -1870,7 +1870,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_32">
+       <widget class="QPushButton" name="pushButton_88">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -1917,7 +1917,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_33">
+       <widget class="QPushButton" name="pushButton_87">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -1964,7 +1964,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_34">
+       <widget class="QPushButton" name="pushButton_86">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -2011,7 +2011,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_35">
+       <widget class="QPushButton" name="pushButton_85">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -2058,7 +2058,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_36">
+       <widget class="QPushButton" name="pushButton_91">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -2105,7 +2105,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_37">
+       <widget class="QPushButton" name="pushButton_84">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -2764,7 +2764,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        <number>0</number>
       </property>
       <item>
-       <widget class="QPushButton" name="GUI_40">
+       <widget class="QPushButton" name="pushButton_101">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -2811,7 +2811,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_41">
+       <widget class="QPushButton" name="pushButton_100">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -2858,7 +2858,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_42">
+       <widget class="QPushButton" name="pushButton_99">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -2905,7 +2905,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_43">
+       <widget class="QPushButton" name="pushButton_95">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -2952,7 +2952,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_44">
+       <widget class="QPushButton" name="pushButton_94">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -2999,7 +2999,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_45">
+       <widget class="QPushButton" name="pushButton_93">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -3046,7 +3046,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_46">
+       <widget class="QPushButton" name="pushButton_92">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -3093,7 +3093,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_47">
+       <widget class="QPushButton" name="pushButton_102">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -3881,7 +3881,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        <number>0</number>
       </property>
       <item>
-       <widget class="QPushButton" name="GUI_50">
+       <widget class="QPushButton" name="pushButton_109">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -3928,7 +3928,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_51">
+       <widget class="QPushButton" name="pushButton_108">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -3975,7 +3975,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_52">
+       <widget class="QPushButton" name="pushButton_107">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -4022,7 +4022,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_53">
+       <widget class="QPushButton" name="pushButton_106">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -4069,7 +4069,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_54">
+       <widget class="QPushButton" name="pushButton_105">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -4122,7 +4122,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_55">
+       <widget class="QPushButton" name="pushButton_104">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -4169,7 +4169,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_56">
+       <widget class="QPushButton" name="pushButton_110">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -4216,7 +4216,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_57">
+       <widget class="QPushButton" name="pushButton_103">
         <property name="minimumSize">
          <size>
           <width>50</width>

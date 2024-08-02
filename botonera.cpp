@@ -1,5 +1,10 @@
 #include "botonera.h"
 #include "display_selection.h"
+#include "overlay_140_0001.h"
+#include "overlay_140_0010.h"
+#include "overlay_140_0011.h"
+#include "overlay_140_0100.h"
+#include "zone_range.h"
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QDebug>
@@ -8,12 +13,12 @@ Botonera::Botonera(QWidget *parent) :
     QWidget(parent)
 {
     miEstado = new Estado(this);
-    range_widget = new Range(this);
+    range_widget = new zone_range(this);
     label_selection_widget = new Label(this);
     threat_assesment_widget = new Threat(this);
     center_widget = new Center(this);
     display_mode_widget = new DisplayMode(this);
-    icm_widget = new Icm(this);
+    icm_widget = new zone_icm(this);
     display_selection_widget = new DisplaySelection(this);
     concentrator = new FormatConcentrator();
 }
@@ -21,7 +26,6 @@ Botonera::Botonera(QWidget *parent) :
 void Botonera::setOverlay(QString codigo)
 {
     miEstado->setOverlay(codigo);
-    qek_widget->setOverlay(codigo);
     qDebug()<<"SetOverlay en Botonera"<<codigo;
 }
 void Botonera::setmodo(int i)
@@ -110,7 +114,24 @@ QString Botonera::getOverlay(){
 
 void Botonera::start()
 {
-    qek_widget = new Qek(this);
+    int overlay = getOverlay().toInt();
+    qDebug() << overlay;
+
+    switch (overlay) {
+    case 1:
+        qek_widget = new OVERLAY_140_0001(this);
+        break;
+    case 10:
+        qek_widget = new OVERLAY_140_0010(this);
+        break;
+    case 11:
+        qek_widget = new OVERLAY_140_0011(this);
+        break;
+    case 100:
+        qek_widget = new OVERLAY_140_0100(this);
+        break;
+    }
+
     QHBoxLayout *layout = new QHBoxLayout();
 
     QVBoxLayout *midLay = new QVBoxLayout();
@@ -126,7 +147,6 @@ void Botonera::start()
     layout->addWidget(display_selection_widget);
     layout->addWidget(threat_assesment_widget);
 
-    // this->setLayout(midLay);
     this->setLayout(layout);
 
     this->show();

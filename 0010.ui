@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>OVERLAY_140_0011</class>
- <widget class="QWidget" name="OVERLAY_140_0011">
+ <class>OV_140_0010</class>
+ <widget class="QWidget" name="OV_140_0010">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,8 +10,17 @@
     <height>600</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>500</width>
+    <height>600</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
@@ -19,7 +28,7 @@
      <x>0</x>
      <y>0</y>
      <width>491</width>
-     <height>602</height>
+     <height>591</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -44,7 +53,7 @@
        <number>0</number>
       </property>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="1,7,1,7,3,3,1">
+       <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="1,10,1,10,1">
         <property name="spacing">
          <number>0</number>
         </property>
@@ -110,36 +119,10 @@
           </property>
          </spacer>
         </item>
-        <item>
-         <spacer name="horizontalSpacer_14">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_16">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="1,2,1,2,2,2,0,1,1,1,3">
+       <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="1,5,1,5,2,3,1,3,1">
         <property name="spacing">
          <number>0</number>
         </property>
@@ -173,7 +156,7 @@
           </property>
           <property name="minimumSize">
            <size>
-            <width>38</width>
+            <width>60</width>
             <height>0</height>
            </size>
           </property>
@@ -184,7 +167,7 @@
            </font>
           </property>
           <property name="text">
-           <string>AIR</string>
+           <string>SURFACE</string>
           </property>
           <property name="scaledContents">
            <bool>false</bool>
@@ -214,42 +197,7 @@
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>73</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_12">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>ESM</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_21">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>6</width>
+            <width>60</width>
             <height>20</height>
            </size>
           </property>
@@ -277,7 +225,7 @@
            </font>
           </property>
           <property name="text">
-           <string>LINK Y</string>
+           <string>ESM</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -298,7 +246,7 @@
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>35</width>
+            <width>13</width>
             <height>14</height>
            </size>
           </property>
@@ -444,7 +392,7 @@
            </font>
           </property>
           <property name="text">
-           <string>RP</string>
+           <string>VISUAL</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -479,7 +427,7 @@
            </font>
           </property>
           <property name="text">
-           <string>FIX</string>
+           <string>RP</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -514,7 +462,7 @@
            </font>
           </property>
           <property name="text">
-           <string>CORR</string>
+           <string>AUTO</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -549,7 +497,7 @@
            </font>
           </property>
           <property name="text">
-           <string>DECORR</string>
+           <string>RAM</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -584,7 +532,7 @@
            </font>
           </property>
           <property name="text">
-           <string>IFF</string>
+           <string>DR</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -629,7 +577,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QPushButton" name="GUI_20">
+       <widget class="QPushButton" name="pushButton_83">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -682,7 +630,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_21">
+       <widget class="QPushButton" name="pushButton_5">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -735,7 +683,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_22">
+       <widget class="QPushButton" name="pushButton_4">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -788,7 +736,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_23">
+       <widget class="QPushButton" name="pushButton_3">
         <property name="enabled">
          <bool>true</bool>
         </property>
@@ -838,7 +786,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_24">
+       <widget class="QPushButton" name="pushButton_2">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -891,7 +839,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_25">
+       <widget class="QPushButton" name="pushButton_82">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -944,7 +892,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_26">
+       <widget class="QPushButton" name="pushButton_81">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -997,7 +945,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_27">
+       <widget class="QPushButton" name="pushButton">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -1060,12 +1008,12 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        <number>0</number>
       </property>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_11">
+       <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="0,0,0,0,0,0,0,0">
         <property name="spacing">
          <number>0</number>
         </property>
         <item>
-         <spacer name="horizontalSpacer_34">
+         <spacer name="horizontalSpacer_17">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -1078,7 +1026,33 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="label_23">
+         <spacer name="horizontalSpacer_18">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_19">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_66">
           <property name="minimumSize">
            <size>
             <width>50</width>
@@ -1092,7 +1066,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string/>
+           <string>BEARING</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -1100,7 +1074,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer_35">
+         <spacer name="horizontalSpacer_23">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -1113,29 +1087,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="label_24">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_36">
+         <spacer name="horizontalSpacer_81">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -1148,29 +1100,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="label_25">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_37">
+         <spacer name="horizontalSpacer_82">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -1183,169 +1113,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="label_26">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_38">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_27">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_39">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_28">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_40">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_29">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_41">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_35">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>ACT DEC</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_42">
+         <spacer name="horizontalSpacer_83">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -1776,7 +1544,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        <number>0</number>
       </property>
       <item>
-       <widget class="QPushButton" name="GUI_30">
+       <widget class="QPushButton" name="pushButton_90">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -1823,7 +1591,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_31">
+       <widget class="QPushButton" name="pushButton_89">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -1870,7 +1638,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_32">
+       <widget class="QPushButton" name="pushButton_88">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -1917,7 +1685,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_33">
+       <widget class="QPushButton" name="pushButton_87">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -1964,7 +1732,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_34">
+       <widget class="QPushButton" name="pushButton_86">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -2011,7 +1779,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_35">
+       <widget class="QPushButton" name="pushButton_85">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -2058,7 +1826,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_36">
+       <widget class="QPushButton" name="pushButton_91">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -2105,7 +1873,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_37">
+       <widget class="QPushButton" name="pushButton_84">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -2306,7 +2074,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_21" stretch="1,2,1,2,1,3,2,3,5">
+       <layout class="QHBoxLayout" name="horizontalLayout_21" stretch="1,3,5">
         <property name="spacing">
          <number>0</number>
         </property>
@@ -2322,13 +2090,6 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </size>
           </property>
          </spacer>
-        </item>
-        <item>
-         <widget class="Line" name="line_14">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
         </item>
         <item>
          <widget class="QLabel" name="label_33">
@@ -2351,7 +2112,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>FC1</string>
+           <string/>
           </property>
           <property name="scaledContents">
            <bool>false</bool>
@@ -2361,79 +2122,11 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
           </property>
           <property name="margin">
            <number>0</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line_13">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
         <item>
          <spacer name="horizontalSpacer_92">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="Line" name="line_11">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_36">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>60</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>FC2</string>
-          </property>
-          <property name="scaledContents">
-           <bool>false</bool>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <property name="margin">
-           <number>0</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line_12">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_104">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -2480,7 +2173,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>DESIG</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -2515,7 +2208,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>BREAK</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -2550,7 +2243,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>HOLD</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -2585,7 +2278,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>DESIG</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -2620,7 +2313,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>SLAVE</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -2655,7 +2348,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>BREAK</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -2690,7 +2383,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>HOLD</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -2725,7 +2418,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>THREAT</string>
+           <string>FF</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -2764,7 +2457,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        <number>0</number>
       </property>
       <item>
-       <widget class="QPushButton" name="GUI_40">
+       <widget class="QPushButton" name="pushButton_101">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -2811,7 +2504,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_41">
+       <widget class="QPushButton" name="pushButton_100">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -2858,7 +2551,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_42">
+       <widget class="QPushButton" name="pushButton_99">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -2905,7 +2598,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_43">
+       <widget class="QPushButton" name="pushButton_95">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -2952,7 +2645,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_44">
+       <widget class="QPushButton" name="pushButton_94">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -2999,7 +2692,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_45">
+       <widget class="QPushButton" name="pushButton_93">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -3046,7 +2739,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_46">
+       <widget class="QPushButton" name="pushButton_92">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -3093,7 +2786,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_47">
+       <widget class="QPushButton" name="pushButton_102">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -3147,12 +2840,12 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        <number>0</number>
       </property>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_26" stretch="1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1">
+       <layout class="QHBoxLayout" name="horizontalLayout_23" stretch="1,1,1,1,1,1,1,1">
         <property name="spacing">
          <number>0</number>
         </property>
         <item>
-         <spacer name="horizontalSpacer_113">
+         <spacer name="horizontalSpacer_86">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -3165,7 +2858,59 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="label_88">
+         <spacer name="horizontalSpacer_87">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_93">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_115">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_88">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_81">
           <property name="minimumSize">
            <size>
             <width>50</width>
@@ -3187,7 +2932,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer_117">
+         <spacer name="horizontalSpacer_103">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -3200,7 +2945,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
          </spacer>
         </item>
         <item>
-         <widget class="QLabel" name="label_89">
+         <widget class="QLabel" name="label_82">
           <property name="minimumSize">
            <size>
             <width>50</width>
@@ -3214,247 +2959,27 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>TRACK</string>
+           <string>ACT DEC</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_118">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_93">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>FIRE</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_119">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_94">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_120">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_95">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_121">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_96">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>TRACK</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_122">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_97">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>FIRE</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_123">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_98">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>ASSES</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_124">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
         </item>
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_33" stretch="1,2,2,2,1,1,1,1,9">
+       <layout class="QHBoxLayout" name="horizontalLayout_24" stretch="1,2,3,2,5">
         <property name="spacing">
          <number>0</number>
         </property>
         <item>
-         <spacer name="horizontalSpacer_173">
+         <spacer name="horizontalSpacer_104">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -3465,17 +2990,23 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
          </spacer>
         </item>
         <item>
-         <widget class="Line" name="line_7">
+         <widget class="Line" name="line_33">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_140">
+         <widget class="QLabel" name="label_40">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
-            <width>50</width>
+            <width>60</width>
             <height>0</height>
            </size>
           </property>
@@ -3486,71 +3017,28 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>ECM</string>
+           <string>LINK Y</string>
+          </property>
+          <property name="scaledContents">
+           <bool>false</bool>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
+          <property name="margin">
+           <number>0</number>
+          </property>
          </widget>
         </item>
         <item>
-         <widget class="Line" name="line_8">
+         <widget class="Line" name="line_34">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer_176">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="Line" name="line_15">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_143">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bahnschrift</family>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>CHAFF</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line_16">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_178">
+         <spacer name="horizontalSpacer_105">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -3597,7 +3085,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>DESIG</string>
+           <string>ASSIGN</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -3632,7 +3120,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>BREAK</string>
+           <string>DEASS</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -3667,7 +3155,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>JAM</string>
+           <string>CORR</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -3702,7 +3190,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>ASSIGN</string>
+           <string>DECORR</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -3737,7 +3225,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>DEASS</string>
+           <string>GRID</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -3772,7 +3260,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>BLIND</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -3807,7 +3295,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>NEXT</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -3881,7 +3369,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        <number>0</number>
       </property>
       <item>
-       <widget class="QPushButton" name="GUI_50">
+       <widget class="QPushButton" name="pushButton_109">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -3928,7 +3416,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_51">
+       <widget class="QPushButton" name="pushButton_108">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -3975,7 +3463,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_52">
+       <widget class="QPushButton" name="pushButton_107">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -4022,7 +3510,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_53">
+       <widget class="QPushButton" name="pushButton_106">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -4069,7 +3557,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_54">
+       <widget class="QPushButton" name="pushButton_105">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -4122,7 +3610,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_55">
+       <widget class="QPushButton" name="pushButton_104">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -4169,7 +3657,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_56">
+       <widget class="QPushButton" name="pushButton_110">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -4216,7 +3704,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="GUI_57">
+       <widget class="QPushButton" name="pushButton_103">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -4337,7 +3825,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>TRACK</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -4372,7 +3860,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>+ -</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -4442,7 +3930,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string/>
+           <string>LOCK</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -4477,7 +3965,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>ARCS</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -4512,7 +4000,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
            </font>
           </property>
           <property name="text">
-           <string>ARCS</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>

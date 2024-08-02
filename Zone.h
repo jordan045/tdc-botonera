@@ -6,6 +6,7 @@
 #include <QString>
 #include <QtCore>
 
+class Botonera;
 class Zone : public QWidget{
 
     public:
@@ -13,6 +14,9 @@ class Zone : public QWidget{
         virtual void removeCode(QString){}
         virtual void sendMessage(){}
         virtual QString getName(){return "";}
+
+    protected:
+        Botonera *miBotonera;
 };
 
 #endif // ZONE_H

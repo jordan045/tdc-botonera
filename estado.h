@@ -9,7 +9,6 @@
 #include "display_mode.h"
 #include "display_selection.h"
 #include "threat.h"
-#include "qek.h"
 #include "label.h"
 #include "icm.h"
 /**
