@@ -53,13 +53,9 @@ public slots:
     void start();
     void infoMessage();
 
-<<<<<<< Updated upstream
-   private:
-   zone_range *range_widget;
-=======
+
 private:
-   Range *range_widget;
->>>>>>> Stashed changes
+   zone_range *range_widget;
    Label *label_selection_widget;
    Qek *qek_widget;
    Threat *threat_assesment_widget;
