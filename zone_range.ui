@@ -87,7 +87,10 @@ QPushButton:pressed {image: url(:/range/img/Range/2_pressed.png)}</string>
        </size>
       </property>
       <property name="checkable">
-       <bool>false</bool>
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
       </property>
       <property name="flat">
        <bool>true</bool>
@@ -143,7 +146,7 @@ QPushButton:pressed {image: url(:/range/img/Range/4_pressed.png)}</string>
        </size>
       </property>
       <property name="checkable">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="flat">
        <bool>true</bool>
@@ -199,7 +202,7 @@ QPushButton:pressed {image: url(:/range/img/Range/8_pressed.png)}</string>
        </size>
       </property>
       <property name="checkable">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="flat">
        <bool>true</bool>
@@ -252,7 +255,7 @@ QPushButton:pressed {image: url(:/range/img/Range/16_pressed.png)}</string>
        <string/>
       </property>
       <property name="checkable">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="flat">
        <bool>true</bool>
@@ -308,7 +311,7 @@ QPushButton:pressed {image: url(:/range/img/Range/32_pressed.png)}</string>
        </size>
       </property>
       <property name="checkable">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="flat">
        <bool>true</bool>
@@ -364,7 +367,7 @@ QPushButton:pressed {image: url(:/range/img/Range/64_pressed.png)}</string>
        </size>
       </property>
       <property name="checkable">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="flat">
        <bool>true</bool>
@@ -420,7 +423,7 @@ QPushButton:pressed {image: url(:/range/img/Range/128_pressed.png)}</string>
        </size>
       </property>
       <property name="checkable">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="flat">
        <bool>true</bool>
@@ -477,7 +480,7 @@ QPushButton:pressed {image: url(:/range/img/Range/256_pressed.png)}
        </size>
       </property>
       <property name="checkable">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="autoDefault">
        <bool>false</bool>

@@ -71,7 +71,7 @@ QPushButton:pressed {image: url(:/icm/img/ICM/1_pressed.png)}
        </size>
       </property>
       <property name="checkable">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="flat">
        <bool>true</bool>
@@ -127,7 +127,7 @@ QPushButton:pressed {image: url(:/icm/img/ICM/2_pressed.png)}</string>
        </size>
       </property>
       <property name="checkable">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="flat">
        <bool>true</bool>
@@ -183,7 +183,7 @@ QPushButton:pressed {image: url(:/icm/img/ICM/3_pressed.png)}</string>
        </size>
       </property>
       <property name="checkable">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="flat">
        <bool>true</bool>
@@ -236,7 +236,7 @@ QPushButton:pressed {image: url(:/icm/img/ICM/4_pressed.png)}</string>
        <string/>
       </property>
       <property name="checkable">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="flat">
        <bool>true</bool>
@@ -292,7 +292,7 @@ QPushButton:pressed {image: url(:/icm/img/ICM/5_pressed.png)}</string>
        </size>
       </property>
       <property name="checkable">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="flat">
        <bool>true</bool>
@@ -348,7 +348,7 @@ QPushButton:pressed {image: url(:/icm/img/ICM/7_pressed.png)}</string>
        </size>
       </property>
       <property name="checkable">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="flat">
        <bool>true</bool>
@@ -404,7 +404,7 @@ QPushButton:pressed {image: url(:/icm/img/ICM/6_pressed.png)}</string>
        </size>
       </property>
       <property name="checkable">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="flat">
        <bool>true</bool>
