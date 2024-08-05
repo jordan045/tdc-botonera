@@ -15,6 +15,7 @@
 #include "formatconcentrator.h"
 #include "zone_icm.h"
 #include "zone_range.h"
+#include "zone_threat.h"
 
 class Qek;
 class Botonera : public QWidget
@@ -58,7 +59,7 @@ private:
    zone_range *range_widget;
    Label *label_selection_widget;
    Qek *qek_widget;
-   Threat *threat_assesment_widget;
+   zone_threat *threat_assesment_widget;
    Center *center_widget;
    DisplayMode *display_mode_widget;
    DisplaySelection *display_selection_widget;

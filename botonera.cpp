@@ -6,6 +6,7 @@
 #include "overlay_140_0100.h"
 #include "zone_range.h"
 #include "qmessagebox.h"
+#include "zone_threat.h"
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QDebug>
@@ -17,7 +18,7 @@ Botonera::Botonera(QWidget *parent) :
     miEstado = new Estado(this);
     range_widget = new zone_range(this);
     label_selection_widget = new Label(this);
-    threat_assesment_widget = new Threat(this);
+    threat_assesment_widget = new zone_threat(this);
     center_widget = new Center(this);
     display_mode_widget = new DisplayMode(this);
     icm_widget = new zone_icm(this);
@@ -153,13 +154,11 @@ void Botonera::start()
     this->show();
     //infoMessage();
     shortcut = new QShortcut(QKeySequence(Qt::Key_0), this);
-    qDebug()<<shortcut->key();
+    //qDebug()<<shortcut->key();
     QObject::connect(shortcut, SIGNAL(activated()), this, SLOT(infoMessage()));
 }
 
 void Botonera::infoMessage(){
-    //qDebug()<< "infoMessage()<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
-    //QMessageBox::about(this,"SHORTCUTS","Aca va el texto");
     QMessageBox msg;
 
     msg.setWindowTitle("ATAJOS DE TECLADO");
@@ -182,12 +181,6 @@ void Botonera::infoMessage(){
 
                    "</table>";
     msg.setText(text);
-
-
-
-    //msg.setFixedHeight(400);
-    //msg.setFixedWidth(600);
-    //msg.setStyleSheet("QLabel{min-width: 400px;}");
     msg.exec();
 }
 

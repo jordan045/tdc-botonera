@@ -28,11 +28,11 @@ SOURCES += \
     overlay_140_0010.cpp \
     overlay_140_0011.cpp \
     overlay_140_0100.cpp \
-    qek.cpp \
     range.cpp \
     threat.cpp \
     zone_icm.cpp \
-    zone_range.cpp
+    zone_range.cpp \
+    zone_threat.cpp
 
 HEADERS += \
     Zone.h \
@@ -55,7 +55,8 @@ HEADERS += \
     range.h \
     threat.h \
     zone_icm.h \
-    zone_range.h
+    zone_range.h \
+    zone_threat.h
 
 FORMS += \
     0001.ui \
@@ -68,7 +69,8 @@ FORMS += \
     overlay_140_0011.ui \
     overlay_140_0100.ui \
     zone_icm.ui \
-    zone_range.ui
+    zone_range.ui \
+    zone_threat.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -1,5 +1,5 @@
 #include "zone_icm.h"
-#include "boton.h"
+//#include "boton.h"
 #include "ui_zone_icm.h"
 #include "botonera.h"
 
@@ -8,9 +8,11 @@ zone_icm::zone_icm(Botonera *b)
 {
     ui->setupUi(this);
     miBotonera = b;
-    QList<QPushButton *> gui_buttons = this->findChildren<QPushButton *>();
+    QList<QPushButton *> gui_buttons = this->findChildren<QPushButton*>();
     QList<Boton*> logic_buttons = *new QList<Boton*>;
+
     for(int i=1;i<=7;i++){
+
         QString code = *new QString("ICM ");
         code.append(QString::number(i));
 
