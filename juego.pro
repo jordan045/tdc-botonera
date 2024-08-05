@@ -30,7 +30,9 @@ SOURCES += \
     overlay_140_0100.cpp \
     range.cpp \
     threat.cpp \
+    zone_center.cpp \
     zone_icm.cpp \
+    zone_label.cpp \
     zone_range.cpp \
     zone_threat.cpp
 
@@ -54,7 +56,9 @@ HEADERS += \
     qek.h \
     range.h \
     threat.h \
+    zone_center.h \
     zone_icm.h \
+    zone_label.h \
     zone_range.h \
     zone_threat.h
 
@@ -68,7 +72,9 @@ FORMS += \
     overlay_140_0010.ui \
     overlay_140_0011.ui \
     overlay_140_0100.ui \
+    zone_center.ui \
     zone_icm.ui \
+    zone_label.ui \
     zone_range.ui \
     zone_threat.ui
 

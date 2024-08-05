@@ -4,6 +4,7 @@
 #include "overlay_140_0010.h"
 #include "overlay_140_0011.h"
 #include "overlay_140_0100.h"
+#include "zone_label.h"
 #include "zone_range.h"
 #include "qmessagebox.h"
 #include "zone_threat.h"
@@ -17,9 +18,9 @@ Botonera::Botonera(QWidget *parent) :
 {
     miEstado = new Estado(this);
     range_widget = new zone_range(this);
-    label_selection_widget = new Label(this);
+    label_selection_widget = new zone_label(this);
     threat_assesment_widget = new zone_threat(this);
-    center_widget = new Center(this);
+    center_widget = new zone_center(this);
     display_mode_widget = new DisplayMode(this);
     icm_widget = new zone_icm(this);
     display_selection_widget = new DisplaySelection(this);
@@ -139,7 +140,7 @@ void Botonera::start()
 
     QVBoxLayout *midLay = new QVBoxLayout();
     midLay->addWidget(qek_widget);
-    midLay->addWidget(display_mode_widget);
+    //midLay->addWidget(display_mode_widget);
     midLay->addWidget(label_selection_widget);
     midLay->addWidget(center_widget);
 
@@ -147,7 +148,7 @@ void Botonera::start()
     layout->addWidget(icm_widget);
     layout->addLayout(midLay);
 
-    layout->addWidget(display_selection_widget);
+    //layout->addWidget(display_selection_widget);
     layout->addWidget(threat_assesment_widget);
 
     this->setLayout(layout);
