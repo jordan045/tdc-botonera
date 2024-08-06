@@ -27,6 +27,7 @@ Botonera::Botonera(QWidget *parent) :
     icm_widget = new zone_icm(this);
     display_selection_widget = new zone_displaySelection(this);
     concentrator = new FormatConcentrator();
+
 }
 
 void Botonera::setOverlay(QString codigo)

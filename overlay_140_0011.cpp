@@ -5,6 +5,7 @@ OVERLAY_140_0011::OVERLAY_140_0011(Botonera *b)
     : ui(new Ui::OVERLAY_140_0011)
 {
     ui->setupUi(this);
+    this->setMinimumSize(500,600);
     miBotonera = b;
     initiate();
 }
