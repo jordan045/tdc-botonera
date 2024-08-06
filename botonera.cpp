@@ -5,12 +5,14 @@
 #include "overlay_140_0011.h"
 #include "overlay_140_0100.h"
 #include "zone_range.h"
+#include "zone_displayselection.h"
 #include "qmessagebox.h"
 #include "zone_threat.h"
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QDebug>
 #include <QShortcut>
+#include "display_mode.h"
 
 Botonera::Botonera(QWidget *parent) :
     QWidget(parent)
@@ -20,9 +22,9 @@ Botonera::Botonera(QWidget *parent) :
     label_selection_widget = new Label(this);
     threat_assesment_widget = new zone_threat(this);
     center_widget = new Center(this);
-    display_mode_widget = new DisplayMode(this);
+    display_mode_widget = new zone_displayMode(this);
     icm_widget = new zone_icm(this);
-    display_selection_widget = new DisplaySelection(this);
+    display_selection_widget = new zone_displaySelection(this);
     concentrator = new FormatConcentrator();
 }
 

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>zone_displayMode</class>
+ <widget class="QWidget" name="zone_displayMode">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>645</width>
+    <height>51</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QPushButton" name="pushButton_6">
+     <property name="styleSheet">
+      <string notr="true">QPushButton {image: url(':/display_mode/img/Display Mode/HM.png')}
+QPushButton:checked {image: url(':/display_mode/img/Display Mode/HM_pressed.png')}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="styleSheet">
+      <string notr="true">QPushButton {image: url(':/display_mode/img/Display Mode/RR.png')}
+QPushButton:checked {image: url(':/display_mode/img/Display Mode/RR_pressed.png')}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="styleSheet">
+      <string notr="true">QPushButton {image: url(':/display_mode/img/Display Mode/OWN_CURS.png')}
+QPushButton:checked {image: url(':/display_mode/img/Display Mode/OWN_CURS_pressed.png')}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton_7">
+     <property name="styleSheet">
+      <string notr="true">QPushButton {image: url(':/display_mode/img/Display Mode/SYMB_LARGE.png')}
+QPushButton:checked {image: url(':/display_mode/img/Display Mode/SYMB_LARGE_pressed.png')}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton">
+     <property name="styleSheet">
+      <string notr="true">QPushButton {image: url(':/display_mode/img/Display Mode/TM.png')}
+QPushButton:checked {image: url(':/display_mode/img/Display Mode/TM_pressed.png')}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="styleSheet">
+      <string notr="true">QPushButton {image: url(':/display_mode/img/Display Mode/EMERG.png')}
+QPushButton:checked {image: url(':/display_mode/img/Display Mode/EMERG_pressed.png')}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="styleSheet">
+      <string notr="true">QPushButton {image: url(':/display_mode/img/Display Mode/SYST_ALARM.png')}
+QPushButton:checked {image: url(':/display_mode/img/Display Mode/SYST_ALARM_pressed.png')}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
