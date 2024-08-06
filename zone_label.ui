@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>zone_threat</class>
- <widget class="QWidget" name="zone_threat">
+ <class>zone_label</class>
+ <widget class="QWidget" name="zone_label">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>72</width>
-    <height>300</height>
+    <width>292</width>
+    <height>68</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
-    <widget class="QPushButton" name="THREAT_RESET">
+    <widget class="QPushButton" name="MS">
      <property name="minimumSize">
       <size>
        <width>50</width>
@@ -25,12 +25,12 @@
      <property name="maximumSize">
       <size>
        <width>50</width>
-       <height>50</height>
+       <height>39</height>
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">QPushButton {image: url(':/threat/img/Threat/reset.png')}
-QPushButton:checked {image: url(':/threat/img/Threat/reset_pressed.png')}</string>
+      <string notr="true">QPushButton {image: url(':/label_selection/img/Label Selection/ms.png')}
+QPushButton:pressed {image: url(':/label_selection/img/Label Selection/ms_pressed.png')}</string>
      </property>
      <property name="text">
       <string/>
@@ -44,7 +44,7 @@ QPushButton:checked {image: url(':/threat/img/Threat/reset_pressed.png')}</strin
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="THREAT_MIN">
+    <widget class="QPushButton" name="TRKM">
      <property name="minimumSize">
       <size>
        <width>50</width>
@@ -54,12 +54,12 @@ QPushButton:checked {image: url(':/threat/img/Threat/reset_pressed.png')}</strin
      <property name="maximumSize">
       <size>
        <width>50</width>
-       <height>50</height>
+       <height>39</height>
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">QPushButton {image: url(':/threat/img/Threat/15_min.png')}
-QPushButton:checked {image: url(':/threat/img/Threat/15_min_pressed.png')}</string>
+      <string notr="true">QPushButton {image: url(':/label_selection/img/Label Selection/trkm.png')}
+QPushButton:pressed {image: url(':/label_selection/img/Label Selection/trkm_pressed.png')}</string>
      </property>
      <property name="text">
       <string/>
@@ -73,7 +73,7 @@ QPushButton:checked {image: url(':/threat/img/Threat/15_min_pressed.png')}</stri
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="THREAT_6MIN">
+    <widget class="QPushButton" name="AMPL_INFO">
      <property name="minimumSize">
       <size>
        <width>50</width>
@@ -83,12 +83,12 @@ QPushButton:checked {image: url(':/threat/img/Threat/15_min_pressed.png')}</stri
      <property name="maximumSize">
       <size>
        <width>50</width>
-       <height>50</height>
+       <height>39</height>
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">QPushButton {image: url(':/threat/img/Threat/6_min.png')}
-QPushButton:checked {image: url(':/threat/img/Threat/6_min_pressed.png')}</string>
+      <string notr="true">QPushButton {image: url(':/label_selection/img/Label Selection/ampl_info.png')}
+QPushButton:pressed {image: url(':/label_selection/img/Label Selection/ampl_info_pressed.png')}</string>
      </property>
      <property name="text">
       <string/>
@@ -102,7 +102,7 @@ QPushButton:checked {image: url(':/threat/img/Threat/6_min_pressed.png')}</strin
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="THREAT_30SEC">
+    <widget class="QPushButton" name="LINK_STAT">
      <property name="minimumSize">
       <size>
        <width>50</width>
@@ -112,12 +112,12 @@ QPushButton:checked {image: url(':/threat/img/Threat/6_min_pressed.png')}</strin
      <property name="maximumSize">
       <size>
        <width>50</width>
-       <height>50</height>
+       <height>39</height>
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">QPushButton {image: url(':/threat/img/Threat/30_sec.png')}
-QPushButton:checked {image: url(':/threat/img/Threat/30_sec_pressed.png')}</string>
+      <string notr="true">QPushButton {image: url(':/label_selection/img/Label Selection/link_stat.png')}
+QPushButton:pressed {image: url(':/label_selection/img/Label Selection/link_stat_pressed.png')}</string>
      </property>
      <property name="text">
       <string/>
@@ -131,10 +131,7 @@ QPushButton:checked {image: url(':/threat/img/Threat/30_sec_pressed.png')}</stri
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="THREAT_12SEC">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
+    <widget class="QPushButton" name="TN">
      <property name="minimumSize">
       <size>
        <width>50</width>
@@ -144,12 +141,12 @@ QPushButton:checked {image: url(':/threat/img/Threat/30_sec_pressed.png')}</stri
      <property name="maximumSize">
       <size>
        <width>50</width>
-       <height>50</height>
+       <height>39</height>
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">QPushButton {image: url(':/threat/img/Threat/12_sec.png')}
-QPushButton:checked {image: url(':/threat/img/Threat/12_sec_pressed.png')}</string>
+      <string notr="true">QPushButton {image: url(':/label_selection/img/Label Selection/tn.png')}
+QPushButton:pressed {image: url(':/label_selection/img/Label Selection/tn_pressed.png')}</string>
      </property>
      <property name="text">
       <string/>

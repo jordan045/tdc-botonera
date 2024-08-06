@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>zone_displayMode</class>
- <widget class="QWidget" name="zone_displayMode">
+ <class>zone_center</class>
+ <widget class="QWidget" name="zone_center">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>645</width>
-    <height>72</height>
+    <width>348</width>
+    <height>68</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,7 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
-    <widget class="QPushButton" name="pushButton_6">
+    <widget class="QPushButton" name="CU_OR_OFF_CENT">
      <property name="minimumSize">
       <size>
        <width>50</width>
@@ -29,8 +29,8 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">QPushButton {image: url(':/display_mode/img/Display Mode/HM.png')}
-QPushButton:checked {image: url(':/display_mode/img/Display Mode/HM_pressed.png')}</string>
+      <string notr="true">QPushButton {image: url(':/center/img/Center/CU_OR_OFF_CENT.png')}
+QPushButton:pressed {image: url(':/center/img/Center/CU_OR_OFF_CENT_pressed.png')}</string>
      </property>
      <property name="text">
       <string/>
@@ -44,7 +44,7 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/HM_pressed.png'
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="CU_OR_CENT">
      <property name="minimumSize">
       <size>
        <width>50</width>
@@ -58,8 +58,8 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/HM_pressed.png'
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">QPushButton {image: url(':/display_mode/img/Display Mode/RR.png')}
-QPushButton:checked {image: url(':/display_mode/img/Display Mode/RR_pressed.png')}</string>
+      <string notr="true">QPushButton {image: url(':/center/img/Center/CU_OR_CENT.png')}
+QPushButton:pressed {image: url(':/center/img/Center/CU_OR_CENT_pressed.png')}</string>
      </property>
      <property name="text">
       <string/>
@@ -73,7 +73,7 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/RR_pressed.png'
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="pushButton_4">
+    <widget class="QPushButton" name="OFF_CENT">
      <property name="minimumSize">
       <size>
        <width>50</width>
@@ -87,8 +87,8 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/RR_pressed.png'
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">QPushButton {image: url(':/display_mode/img/Display Mode/OWN_CURS.png')}
-QPushButton:checked {image: url(':/display_mode/img/Display Mode/OWN_CURS_pressed.png')}</string>
+      <string notr="true">QPushButton {image: url(':/center/img/Center/OFF_CENT.png')}
+QPushButton:pressed {image: url(':/center/img/Center/OFF_CENT_pressed.png')}</string>
      </property>
      <property name="text">
       <string/>
@@ -102,7 +102,7 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/OWN_CURS_presse
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="pushButton_7">
+    <widget class="QPushButton" name="CENT">
      <property name="minimumSize">
       <size>
        <width>50</width>
@@ -116,8 +116,8 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/OWN_CURS_presse
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">QPushButton {image: url(':/display_mode/img/Display Mode/SYMB_LARGE.png')}
-QPushButton:checked {image: url(':/display_mode/img/Display Mode/SYMB_LARGE_pressed.png')}</string>
+      <string notr="true">QPushButton {image: url(':/center/img/Center/CENT.png')}
+QPushButton:pressed {image: url(':/center/img/Center/CENT_pressed.png')}</string>
      </property>
      <property name="text">
       <string/>
@@ -131,7 +131,7 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/SYMB_LARGE_pres
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="RESET_OBM">
      <property name="minimumSize">
       <size>
        <width>50</width>
@@ -145,8 +145,8 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/SYMB_LARGE_pres
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">QPushButton {image: url(':/display_mode/img/Display Mode/TM.png')}
-QPushButton:checked {image: url(':/display_mode/img/Display Mode/TM_pressed.png')}</string>
+      <string notr="true">QPushButton {image: url(':/center/img/Center/RESET_OBM.png')}
+QPushButton:pressed {image: url(':/center/img/Center/RESET_OBM_pressed.png')}</string>
      </property>
      <property name="text">
       <string/>
@@ -160,7 +160,7 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/TM_pressed.png'
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="DATA_REQ">
      <property name="minimumSize">
       <size>
        <width>50</width>
@@ -174,37 +174,8 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/TM_pressed.png'
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">QPushButton {image: url(':/display_mode/img/Display Mode/EMERG.png')}
-QPushButton:checked {image: url(':/display_mode/img/Display Mode/EMERG_pressed.png')}</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="checkable">
-      <bool>true</bool>
-     </property>
-     <property name="flat">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QPushButton" name="pushButton_5">
-     <property name="minimumSize">
-      <size>
-       <width>50</width>
-       <height>50</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>50</width>
-       <height>50</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {image: url(':/display_mode/img/Display Mode/SYST_ALARM.png')}
-QPushButton:checked {image: url(':/display_mode/img/Display Mode/SYST_ALARM_pressed.png')}</string>
+      <string notr="true">QPushButton {image: url(':/center/img/Center/DATA_REQ.png')}
+QPushButton:pressed {image: url(':/center/img/Center/DATA_REQ_pressed.png')}</string>
      </property>
      <property name="text">
       <string/>

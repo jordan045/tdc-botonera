@@ -32,7 +32,9 @@ SOURCES += \
     threat.cpp \
     zone_displaymode.cpp \
     zone_displayselection.cpp \
+    zone_center.cpp \
     zone_icm.cpp \
+    zone_label.cpp \
     zone_range.cpp \
     zone_threat.cpp
 
@@ -58,7 +60,9 @@ HEADERS += \
     threat.h \
     zone_displaymode.h \
     zone_displayselection.h \
+    zone_center.h \
     zone_icm.h \
+    zone_label.h \
     zone_range.h \
     zone_threat.h
 
@@ -74,7 +78,9 @@ FORMS += \
     overlay_140_0100.ui \
     zone_displaymode.ui \
     zone_displayselection.ui \
+    zone_center.ui \
     zone_icm.ui \
+    zone_label.ui \
     zone_range.ui \
     zone_threat.ui
 

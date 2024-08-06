@@ -4,6 +4,7 @@
 #include "overlay_140_0010.h"
 #include "overlay_140_0011.h"
 #include "overlay_140_0100.h"
+#include "zone_label.h"
 #include "zone_range.h"
 #include "zone_displayselection.h"
 #include "qmessagebox.h"
@@ -19,10 +20,10 @@ Botonera::Botonera(QWidget *parent) :
 {
     miEstado = new Estado(this);
     range_widget = new zone_range(this);
-    label_selection_widget = new Label(this);
+    label_selection_widget = new zone_label(this);
     threat_assesment_widget = new zone_threat(this);
-    center_widget = new Center(this);
     display_mode_widget = new zone_displayMode(this);
+    center_widget = new zone_center(this);
     icm_widget = new zone_icm(this);
     display_selection_widget = new zone_displaySelection(this);
     concentrator = new FormatConcentrator();
