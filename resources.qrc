@@ -113,4 +113,7 @@
         <file>overlay.json</file>
         <file>properties.json</file>
     </qresource>
+    <qresource prefix="/ico">
+        <file>armagedon.ico</file>
+    </qresource>
 </RCC>

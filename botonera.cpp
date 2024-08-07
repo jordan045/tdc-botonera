@@ -139,22 +139,26 @@ void Botonera::start()
         break;
     }
 
-    QHBoxLayout *layout = new QHBoxLayout();
 
-    QVBoxLayout *midLay = new QVBoxLayout();
-    midLay->addWidget(qek_widget);
-    midLay->addWidget(display_mode_widget);
-    midLay->addWidget(label_selection_widget);
-    midLay->addWidget(center_widget);
 
-    layout->addWidget(range_widget);
-    layout->addWidget(icm_widget);
-    layout->addLayout(midLay);
+    QVBoxLayout *outer_layout = new QVBoxLayout();
+    outer_layout->addWidget(display_mode_widget);
+    outer_layout->addWidget(range_widget);
+    QHBoxLayout *inner_layout = new QHBoxLayout();
+    inner_layout->addWidget(display_selection_widget);
+    QVBoxLayout *column_layout = new QVBoxLayout();
+    column_layout->addWidget(label_selection_widget);
+    column_layout->addWidget(threat_assesment_widget);
+    inner_layout->addLayout(column_layout);
+    inner_layout->addWidget(qek_widget);
+    inner_layout->addWidget(icm_widget);
+    inner_layout->addWidget(center_widget);
+    outer_layout->addLayout(inner_layout);
 
-    layout->addWidget(display_selection_widget);
-    layout->addWidget(threat_assesment_widget);
+    outer_layout->setAlignment(range_widget,Qt::AlignCenter);
+    outer_layout->setAlignment(display_mode_widget,Qt::AlignCenter);
 
-    this->setLayout(layout);
+    this->setLayout(outer_layout);
     this->show();
     //infoMessage();
     shortcut = new QShortcut(QKeySequence(Qt::Key_0), this);
