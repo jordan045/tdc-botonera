@@ -116,4 +116,32 @@
     <qresource prefix="/ico">
         <file>armagedon.ico</file>
     </qresource>
+    <qresource prefix="/overlays/140">
+        <file>img/Overlays/140/AAW.png</file>
+        <file>img/Overlays/140/AAW_pressed.png</file>
+        <file>img/Overlays/140/ASW.png</file>
+        <file>img/Overlays/140/ASW_pressed.png</file>
+        <file>img/Overlays/140/LINCO.png</file>
+        <file>img/Overlays/140/LINCO_pressed.png</file>
+        <file>img/Overlays/140/OPS.png</file>
+        <file>img/Overlays/140/OPS_pressed.png</file>
+    </qresource>
+    <qresource prefix="/overlays/360">
+        <file>img/Overlays/360/AAW.png</file>
+        <file>img/Overlays/360/AAW_pressed.png</file>
+        <file>img/Overlays/360/APC.png</file>
+        <file>img/Overlays/360/APC_pressed.png</file>
+        <file>img/Overlays/360/ASW.png</file>
+        <file>img/Overlays/360/ASW_pressed.png</file>
+        <file>img/Overlays/360/EW.png</file>
+        <file>img/Overlays/360/EW_pressed.png</file>
+        <file>img/Overlays/360/HECO.png</file>
+        <file>img/Overlays/360/HECO_pressed.png</file>
+        <file>img/Overlays/360/LINCO.png</file>
+        <file>img/Overlays/360/LINCO_pressed.png</file>
+        <file>img/Overlays/360/OPS.png</file>
+        <file>img/Overlays/360/OPS_pressed.png</file>
+        <file>img/Overlays/360/SPC.png</file>
+        <file>img/Overlays/360/SPC_pressed.png</file>
+    </qresource>
 </RCC>

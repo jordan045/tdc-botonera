@@ -67,10 +67,6 @@ HEADERS += \
     zone_threat.h
 
 FORMS += \
-    0001.ui \
-    0010.ui \
-    0011.ui \
-    0100.ui \
     mainwindow.ui \
     overlay_140_0001.ui \
     overlay_140_0010.ui \
