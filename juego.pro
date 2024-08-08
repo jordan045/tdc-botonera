@@ -35,6 +35,7 @@ SOURCES += \
     overlay_360_0101.cpp \
     overlay_360_0110.cpp \
     overlay_360_0111.cpp \
+    overlay_360_1000.cpp \
     range.cpp \
     threat.cpp \
     zone_displaymode.cpp \
@@ -69,6 +70,7 @@ HEADERS += \
     overlay_360_0101.h \
     overlay_360_0110.h \
     overlay_360_0111.h \
+    overlay_360_1000.h \
     qek.h \
     range.h \
     threat.h \
@@ -93,6 +95,7 @@ FORMS += \
     overlay_360_0101.ui \
     overlay_360_0110.ui \
     overlay_360_0111.ui \
+    overlay_360_1000.ui \
     zone_displaymode.ui \
     zone_displayselection.ui \
     zone_center.ui \
