@@ -155,6 +155,7 @@ void FormatConcentrator::setCenter(Estado *estado)
 void FormatConcentrator::setDisplayMode(Estado *estado)
 {
     int offset = 24;
+    int posFinal = 0;   //para probrar
     QStringList wordListDisplayMode = estado->getDisplayMode().split(" ",Qt::SkipEmptyParts);
     foreach(const QString &word, wordListDisplayMode)
     {
@@ -163,8 +164,9 @@ void FormatConcentrator::setDisplayMode(Estado *estado)
         QJsonObject center = archivo["display_mode"].toObject();
         QJsonObject centerActual = center[word].toObject();
         QString posicion = centerActual["pos"].toString();
-
-        word2->setBit(offset + posicion.toInt(),true);
+        qDebug()<<"posicion: " << posicion;
+        posFinal = offset+posicion.toInt();
+        message->setBit(posFinal,true);
     }
 }
 

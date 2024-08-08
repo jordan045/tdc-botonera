@@ -10,13 +10,13 @@ zone_range::zone_range(Botonera *b)
     miBotonera = b;
 
     QList<QString> labels = {"2","4","8","16","32","64","128","256"};
-    QList<const char*> shortcuts = {"f9","f8","f7","f6","f5","f4","f3","f2"};
+    QList<const char*> shortcuts = {"f2","f3","f4","f5","f6","f7","f8","f9"};
 
     QList<QPushButton *> gui_buttons = this->findChildren<QPushButton *>();
 
     QList<Boton*> logic_buttons = *new QList<Boton*>;
     for(int i=1;i<=8;i++){
-        QString code = *new QString("RANGE ");
+        QString code = *new QString("RANGE");
         code.append(labels[i-1]);
         auto *logic_button = new Boton(this,code);
         logic_buttons.append(logic_button);

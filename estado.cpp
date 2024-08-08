@@ -78,15 +78,15 @@ QString Estado::getDisplaySelection(){return displaySelection;}
 QString Estado::getRange(){return range;}
 
 void Estado::setLabel(QString *s){
-    qDebug() << "Setting Label";
+    qDebug() <<"Setting Label";
     s->append(" ");
     this->label.append(*s);
     refresh();
 }
 void Estado::setQEK(QString *s){
     qDebug() << "Setting QEK";
-    s->append(" ");
     this->qek.append(*s);
+    this->qek.append(" ");
     refresh();
 }
 void Estado::setThreat(QString *s){
