@@ -25,7 +25,7 @@ zone_icm::zone_icm(Botonera *b)
 }
 
 void zone_icm::sendMessage(){
-    return;
+     miBotonera->sendMessage();
 }
 
 QString zone_icm::getName()

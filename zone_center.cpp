@@ -43,7 +43,7 @@ void zone_center::removeCode(QString code){
 
 void zone_center::sendMessage()
 {
-
+    miBotonera->sendMessage();
 }
 
 QString zone_center::getName()
