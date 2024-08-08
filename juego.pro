@@ -22,6 +22,14 @@ SOURCES += \
     sources/overlay_140_0010.cpp \
     sources/overlay_140_0011.cpp \
     sources/overlay_140_0100.cpp \
+    sources/overlay_360_0001.cpp \
+    sources/overlay_360_0010.cpp \
+    sources/overlay_360_0011.cpp \
+    sources/overlay_360_0100.cpp \
+    sources/overlay_360_0101.cpp \
+    sources/overlay_360_0110.cpp \
+    sources/overlay_360_0111.cpp \
+    sources/overlay_360_1000.cpp \
     sources/zone_center.cpp \
     sources/zone_displaymode.cpp \
     sources/zone_displayselection.cpp \
@@ -41,6 +49,14 @@ HEADERS += \
     headers/overlay_140_0010.h \
     headers/overlay_140_0011.h \
     headers/overlay_140_0100.h \
+    headers/overlay_360_0001.h \
+    headers/overlay_360_0010.h \
+    headers/overlay_360_0011.h \
+    headers/overlay_360_0100.h \
+    headers/overlay_360_0101.h \
+    headers/overlay_360_0110.h \
+    headers/overlay_360_0111.h \
+    headers/overlay_360_1000.h \
     headers/qek.h \
     headers/zone_center.h \
     headers/zone_displaymode.h \
@@ -55,6 +71,14 @@ FORMS += \
     forms/overlay_140_0010.ui \
     forms/overlay_140_0011.ui \
     forms/overlay_140_0100.ui \
+    forms/overlay_360_0001.ui \
+    forms/overlay_360_0010.ui \
+    forms/overlay_360_0011.ui \
+    forms/overlay_360_0100.ui \
+    forms/overlay_360_0101.ui \
+    forms/overlay_360_0110.ui \
+    forms/overlay_360_0111.ui \
+    forms/overlay_360_1000.ui \
     forms/zone_center.ui \
     forms/zone_displaymode.ui \
     forms/zone_displayselection.ui \
