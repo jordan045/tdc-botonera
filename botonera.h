@@ -13,8 +13,13 @@
 #include "display_mode.h"
 #include "display_selection.h"
 #include "formatconcentrator.h"
+#include "zone_center.h"
 #include "zone_icm.h"
+#include "zone_label.h"
 #include "zone_range.h"
+#include "zone_threat.h"
+#include "zone_displayselection.h"
+#include "zone_displaymode.h"
 
 class Qek;
 class Botonera : public QWidget
@@ -56,12 +61,12 @@ public slots:
 
 private:
    zone_range *range_widget;
-   Label *label_selection_widget;
+   zone_label *label_selection_widget;
    Qek *qek_widget;
-   Threat *threat_assesment_widget;
-   Center *center_widget;
-   DisplayMode *display_mode_widget;
-   DisplaySelection *display_selection_widget;
+   zone_threat *threat_assesment_widget;
+   zone_displayMode *display_mode_widget;
+   zone_displaySelection *display_selection_widget;
+   zone_center *center_widget;
    zone_icm *icm_widget;
    FormatConcentrator *concentrator;
 

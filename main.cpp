@@ -26,6 +26,8 @@ int main(int argc, char *argv[])
         exit(0);
     }
 */
+    QCoreApplication::setApplicationName("Botonera AR-TDC");
+    a.setWindowIcon(QIcon(":/ico/armagedon.ico"));
     InitMenu d;
     d.show();
 

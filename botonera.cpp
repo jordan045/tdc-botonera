@@ -4,25 +4,30 @@
 #include "overlay_140_0010.h"
 #include "overlay_140_0011.h"
 #include "overlay_140_0100.h"
+#include "zone_label.h"
 #include "zone_range.h"
+#include "zone_displayselection.h"
 #include "qmessagebox.h"
+#include "zone_threat.h"
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QDebug>
 #include <QShortcut>
+#include "display_mode.h"
 
 Botonera::Botonera(QWidget *parent) :
     QWidget(parent)
 {
     miEstado = new Estado(this);
     range_widget = new zone_range(this);
-    label_selection_widget = new Label(this);
-    threat_assesment_widget = new Threat(this);
-    center_widget = new Center(this);
-    display_mode_widget = new DisplayMode(this);
+    label_selection_widget = new zone_label(this);
+    threat_assesment_widget = new zone_threat(this);
+    display_mode_widget = new zone_displayMode(this);
+    center_widget = new zone_center(this);
     icm_widget = new zone_icm(this);
-    display_selection_widget = new DisplaySelection(this);
+    display_selection_widget = new zone_displaySelection(this);
     concentrator = new FormatConcentrator();
+
 }
 
 void Botonera::setOverlay(QString codigo)
@@ -134,32 +139,34 @@ void Botonera::start()
         break;
     }
 
-    QHBoxLayout *layout = new QHBoxLayout();
 
-    QVBoxLayout *midLay = new QVBoxLayout();
-    midLay->addWidget(qek_widget);
-    midLay->addWidget(display_mode_widget);
-    midLay->addWidget(label_selection_widget);
-    midLay->addWidget(center_widget);
 
-    layout->addWidget(range_widget);
-    layout->addWidget(icm_widget);
-    layout->addLayout(midLay);
+    QVBoxLayout *outer_layout = new QVBoxLayout();
+    outer_layout->addWidget(display_mode_widget);
+    outer_layout->addWidget(range_widget);
+    QHBoxLayout *inner_layout = new QHBoxLayout();
+    inner_layout->addWidget(display_selection_widget);
+    QVBoxLayout *column_layout = new QVBoxLayout();
+    column_layout->addWidget(label_selection_widget);
+    column_layout->addWidget(threat_assesment_widget);
+    inner_layout->addLayout(column_layout);
+    inner_layout->addWidget(qek_widget);
+    inner_layout->addWidget(icm_widget);
+    inner_layout->addWidget(center_widget);
+    outer_layout->addLayout(inner_layout);
 
-    layout->addWidget(display_selection_widget);
-    layout->addWidget(threat_assesment_widget);
+    outer_layout->setAlignment(range_widget,Qt::AlignCenter);
+    outer_layout->setAlignment(display_mode_widget,Qt::AlignCenter);
 
-    this->setLayout(layout);
+    this->setLayout(outer_layout);
     this->show();
     //infoMessage();
     shortcut = new QShortcut(QKeySequence(Qt::Key_0), this);
-    qDebug()<<shortcut->key();
+    //qDebug()<<shortcut->key();
     QObject::connect(shortcut, SIGNAL(activated()), this, SLOT(infoMessage()));
 }
 
 void Botonera::infoMessage(){
-    //qDebug()<< "infoMessage()<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
-    //QMessageBox::about(this,"SHORTCUTS","Aca va el texto");
     QMessageBox msg;
 
     msg.setWindowTitle("ATAJOS DE TECLADO");
@@ -182,12 +189,6 @@ void Botonera::infoMessage(){
 
                    "</table>";
     msg.setText(text);
-
-
-
-    //msg.setFixedHeight(400);
-    //msg.setFixedWidth(600);
-    //msg.setStyleSheet("QLabel{min-width: 400px;}");
     msg.exec();
 }
 

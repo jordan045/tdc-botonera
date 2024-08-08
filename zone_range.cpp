@@ -16,7 +16,7 @@ zone_range::zone_range(Botonera *b)
 
     QList<Boton*> logic_buttons = *new QList<Boton*>;
     for(int i=1;i<=8;i++){
-        QString code = *new QString("RANGE ");
+        QString code = *new QString("RANGE");
         code.append(labels[i-1]);
         auto *logic_button = new Boton(this,code);
         logic_buttons.append(logic_button);

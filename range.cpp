@@ -17,7 +17,7 @@ Range::Range(Botonera *b)
     auto layout = new QVBoxLayout;
 
     QList<QString> labels = {"2","4","8","16","32","64","128","256"};
-    QList<const char*> shortcuts = {"f2","f3","f4","f5","f6","f7","f8","f9"};
+    QList<const char*> shortcuts = {"f9","f8","f7","f6","f5","f4","f3","f2"};
 
     for(int i=1;i<=8;i++){
         QString code = *new QString("RANGE");
@@ -69,6 +69,7 @@ void Range::sendCode(QString code)
 {
     qDebug()<<"Me hicieron sendCode";
     miBotonera->sendCodeToRange(&code);
+    miBotonera->sendMessage();
 }
 void Range::removeCode(QString code){
     miBotonera->removeCodeFromRange(&code);

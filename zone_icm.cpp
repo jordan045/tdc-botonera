@@ -1,5 +1,5 @@
 #include "zone_icm.h"
-#include "boton.h"
+//#include "boton.h"
 #include "ui_zone_icm.h"
 #include "botonera.h"
 
@@ -8,9 +8,11 @@ zone_icm::zone_icm(Botonera *b)
 {
     ui->setupUi(this);
     miBotonera = b;
-    QList<QPushButton *> gui_buttons = this->findChildren<QPushButton *>();
+    QList<QPushButton *> gui_buttons = this->findChildren<QPushButton*>();
     QList<Boton*> logic_buttons = *new QList<Boton*>;
+
     for(int i=1;i<=7;i++){
+
         QString code = *new QString("ICM ");
         code.append(QString::number(i));
 
@@ -23,7 +25,7 @@ zone_icm::zone_icm(Botonera *b)
 }
 
 void zone_icm::sendMessage(){
-    return;
+     miBotonera->sendMessage();
 }
 
 QString zone_icm::getName()
@@ -43,3 +45,95 @@ zone_icm::~zone_icm()
 {
     delete ui;
 }
+
+void zone_icm::on_ICM_1_toggled(bool checked)
+{
+    if(checked){
+        ui->ICM_2->setChecked(false);
+        ui->ICM_3->setChecked(false);
+        ui->ICM_4->setChecked(false);
+        ui->ICM_5->setChecked(false);
+        ui->ICM_6->setChecked(false);
+        ui->ICM_7->setChecked(false);
+    }
+}
+
+
+
+void zone_icm::on_ICM_2_toggled(bool checked)
+{
+    if(checked){
+        ui->ICM_1->setChecked(false);
+        ui->ICM_3->setChecked(false);
+        ui->ICM_4->setChecked(false);
+        ui->ICM_5->setChecked(false);
+        ui->ICM_6->setChecked(false);
+        ui->ICM_7->setChecked(false);
+    }
+}
+
+
+void zone_icm::on_ICM_3_toggled(bool checked)
+{
+    if(checked){
+        ui->ICM_1->setChecked(false);
+        ui->ICM_2->setChecked(false);
+        ui->ICM_4->setChecked(false);
+        ui->ICM_5->setChecked(false);
+        ui->ICM_6->setChecked(false);
+        ui->ICM_7->setChecked(false);
+    }
+}
+
+
+void zone_icm::on_ICM_4_toggled(bool checked)
+{
+    if(checked){
+        ui->ICM_1->setChecked(false);
+        ui->ICM_2->setChecked(false);
+        ui->ICM_3->setChecked(false);
+        ui->ICM_5->setChecked(false);
+        ui->ICM_6->setChecked(false);
+        ui->ICM_7->setChecked(false);
+    }
+}
+
+
+void zone_icm::on_ICM_5_toggled(bool checked)
+{
+    if(checked){
+        ui->ICM_1->setChecked(false);
+        ui->ICM_2->setChecked(false);
+        ui->ICM_3->setChecked(false);
+        ui->ICM_4->setChecked(false);
+        ui->ICM_6->setChecked(false);
+        ui->ICM_7->setChecked(false);
+    }
+}
+
+
+void zone_icm::on_ICM_6_toggled(bool checked)
+{
+    if(checked){
+        ui->ICM_1->setChecked(false);
+        ui->ICM_2->setChecked(false);
+        ui->ICM_3->setChecked(false);
+        ui->ICM_4->setChecked(false);
+        ui->ICM_5->setChecked(false);
+        ui->ICM_7->setChecked(false);
+    }
+}
+
+
+void zone_icm::on_ICM_7_toggled(bool checked)
+{
+    if(checked){
+        ui->ICM_1->setChecked(false);
+        ui->ICM_2->setChecked(false);
+        ui->ICM_3->setChecked(false);
+        ui->ICM_4->setChecked(false);
+        ui->ICM_5->setChecked(false);
+        ui->ICM_6->setChecked(false);
+    }
+}
+
