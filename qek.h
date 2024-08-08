@@ -34,7 +34,7 @@ public:
         miBotonera->removeCodeFromQek(&code);
     }
     void sendMessage(){
-        return;
+         miBotonera->sendMessage();
     }
     QString getName(){
         return "QEK";

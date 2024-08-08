@@ -38,7 +38,7 @@ void zone_label::removeCode(QString code){
 }
 
 void zone_label::sendMessage(){
-
+     miBotonera->sendMessage();
 }
 
 QString zone_label::getName(){

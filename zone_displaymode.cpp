@@ -45,7 +45,7 @@ void zone_displayMode::removeCode(QString code)
 
 void zone_displayMode::sendMessage()
 {
-
+     miBotonera->sendMessage();
 }
 
 QString zone_displayMode::getName()

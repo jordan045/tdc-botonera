@@ -57,7 +57,7 @@ void zone_threat::removeCode(QString code)
 
 void zone_threat::sendMessage()
 {
-
+     miBotonera->sendMessage();
 }
 
 QString zone_threat::getName()
