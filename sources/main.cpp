@@ -1,19 +1,6 @@
-#include "mainwindow.h"
 
 #include <QApplication>
-#include <range.h>
-#include <icm.h>
-#include <label.h>
-#include <qek.h>
-#include <threat.h>
-#include <center.h>
-#include <display_mode.h>
-#include <QVBoxLayout>
-#include <botonera.h>
 #include <initmenu.h>
-#include <QSharedMemory>
-#include <iostream>
-#include <QBitArray>
 
 int main(int argc, char *argv[])
 {

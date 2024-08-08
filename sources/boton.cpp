@@ -1,4 +1,4 @@
-#include "boton.h"
+#include "headers/boton.h"
 
 Boton::Boton(Zone *z, QString codigo, QObject *parent): QObject(parent) {
     this->codigo = codigo;

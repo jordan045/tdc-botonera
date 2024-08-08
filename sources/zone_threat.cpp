@@ -1,6 +1,7 @@
 #include "zone_threat.h"
 #include "botonera.h"
 #include "ui_zone_threat.h"
+#include "boton.h"
 
 zone_threat::zone_threat(Botonera *b)
     : ui(new Ui::zone_threat)
