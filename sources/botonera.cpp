@@ -1,19 +1,17 @@
-#include "botonera.h"
-#include "display_selection.h"
-#include "overlay_140_0001.h"
-#include "overlay_140_0010.h"
-#include "overlay_140_0011.h"
-#include "overlay_140_0100.h"
-#include "zone_label.h"
-#include "zone_range.h"
-#include "zone_displayselection.h"
+#include "headers/botonera.h"
+#include "headers/overlay_140_0001.h"
+#include "headers/overlay_140_0010.h"
+#include "headers/overlay_140_0011.h"
+#include "headers/overlay_140_0100.h"
+#include "headers/zone_label.h"
+#include "headers/zone_range.h"
+#include "headers/zone_displayselection.h"
 #include "qmessagebox.h"
-#include "zone_threat.h"
+#include "headers/zone_threat.h"
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QDebug>
 #include <QShortcut>
-#include "display_mode.h"
 
 Botonera::Botonera(QWidget *parent) :
     QWidget(parent)

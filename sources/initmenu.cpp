@@ -14,7 +14,7 @@ InitMenu::InitMenu(QWidget *parent) :
     QMessageBox::StandardButton reply;
 
     // Lee el archivo JSON
-    QFile file(":/json/overlay.json");
+    QFile file(":/json/json/overlay.json");
     if (!file.open(QIODevice::ReadOnly)) {
         reply = QMessageBox::warning(this,"ERROR LECTURA DE ARCHIVO","No se pudo abrir el archivo de configuración de overlay.");
        if (reply == QMessageBox::Ok)
@@ -24,7 +24,7 @@ InitMenu::InitMenu(QWidget *parent) :
     }
 
     QMessageBox::StandardButton replys;
-    QString JsonFilePath = ":/json/properties.json";
+    QString JsonFilePath = ":/json/json/properties.json";
     qDebug()<<"Se llamo a leer json";
     QFile File(JsonFilePath);
     if(!File.open(QIODevice::ReadOnly))

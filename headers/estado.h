@@ -4,13 +4,6 @@
 #include "qwidget.h"
 #include <QString>
 #include "Zone.h"
-#include "range.h"
-#include "center.h"
-#include "display_mode.h"
-#include "display_selection.h"
-#include "threat.h"
-#include "label.h"
-#include "icm.h"
 /**
  * @brief The Estado class
  *

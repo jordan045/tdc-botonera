@@ -1,6 +1,7 @@
 #include "zone_displaymode.h"
 #include "ui_zone_displaymode.h"
 #include "botonera.h"
+#include "boton.h"
 
 zone_displayMode::zone_displayMode(Botonera *b):
     ui(new Ui::zone_displayMode)

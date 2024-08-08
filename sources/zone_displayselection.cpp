@@ -1,6 +1,7 @@
 #include "zone_displayselection.h"
 #include "ui_zone_displayselection.h"
 #include "botonera.h"
+#include "boton.h"
 
 zone_displaySelection::zone_displaySelection(Botonera *b)
     : ui (new Ui::zone_displaySelection)
