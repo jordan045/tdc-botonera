@@ -19,8 +19,7 @@ zone_label::zone_label(Botonera *b)
     for(int i = 1;i<=5;i++){
         auto *logic_button = new Boton(this,labels[i-1]);
         logic_buttons.append(logic_button);
-        QObject::connect(gui_buttons[i-1], &QPushButton::pressed, logic_button, &Boton::interact);
-        QObject::connect(gui_buttons[i-1], &QPushButton::released, logic_button, &Boton::interact);
+        QObject::connect(gui_buttons[i-1], &QPushButton::toggled, logic_button, &Boton::interact);
     }
 
 }

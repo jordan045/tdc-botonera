@@ -20,6 +20,15 @@ public:
     QString getName() override;
     ~zone_threat();
 
+private slots:
+    void on_THREAT_MIN_toggled(bool checked);
+
+    void on_THREAT_6MIN_toggled(bool checked);
+
+    void on_THREAT_30SEC_toggled(bool checked);
+
+    void on_THREAT_12SEC_toggled(bool checked);
+
 private:
     Ui::zone_threat *ui;
     Botonera *miBotonera;
