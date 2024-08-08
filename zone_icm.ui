@@ -441,6 +441,10 @@ QPushButton:checked {image: url(:/icm/img/ICM/7_pressed.png)}</string>
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup"/>
+  <buttongroup name="buttonGroup">
+   <property name="exclusive">
+    <bool>false</bool>
+   </property>
+  </buttongroup>
  </buttongroups>
 </ui>
