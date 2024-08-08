@@ -1,4 +1,4 @@
-#include "estado.h"
+ #include "estado.h"
 #include "qdatetime.h"
 #include "qdebug.h"
 
