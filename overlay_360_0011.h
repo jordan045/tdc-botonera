@@ -1,14 +1,14 @@
 #ifndef OVERLAY_360_0011_H
 #define OVERLAY_360_0011_H
 
-#include "qek.h"
 #include <QWidget>
+#include "qek.h"
 
 namespace Ui {
 class OVERLAY_360_0011;
 }
 
-class OVERLAY_360_0011 : public QWidget
+class OVERLAY_360_0011 : public Qek
 {
 public:
     explicit OVERLAY_360_0011(Botonera *b);
