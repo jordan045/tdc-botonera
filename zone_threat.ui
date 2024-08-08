@@ -225,6 +225,10 @@ QPushButton:checked {image: url(':/threat/img/Threat/12_sec_pressed.png')}</stri
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup"/>
+  <buttongroup name="buttonGroup">
+   <property name="exclusive">
+    <bool>false</bool>
+   </property>
+  </buttongroup>
  </buttongroups>
 </ui>

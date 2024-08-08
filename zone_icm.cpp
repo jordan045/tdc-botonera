@@ -45,3 +45,95 @@ zone_icm::~zone_icm()
 {
     delete ui;
 }
+
+void zone_icm::on_ICM_1_toggled(bool checked)
+{
+    if(checked){
+        ui->ICM_2->setChecked(false);
+        ui->ICM_3->setChecked(false);
+        ui->ICM_4->setChecked(false);
+        ui->ICM_5->setChecked(false);
+        ui->ICM_6->setChecked(false);
+        ui->ICM_7->setChecked(false);
+    }
+}
+
+
+
+void zone_icm::on_ICM_2_toggled(bool checked)
+{
+    if(checked){
+        ui->ICM_1->setChecked(false);
+        ui->ICM_3->setChecked(false);
+        ui->ICM_4->setChecked(false);
+        ui->ICM_5->setChecked(false);
+        ui->ICM_6->setChecked(false);
+        ui->ICM_7->setChecked(false);
+    }
+}
+
+
+void zone_icm::on_ICM_3_toggled(bool checked)
+{
+    if(checked){
+        ui->ICM_1->setChecked(false);
+        ui->ICM_2->setChecked(false);
+        ui->ICM_4->setChecked(false);
+        ui->ICM_5->setChecked(false);
+        ui->ICM_6->setChecked(false);
+        ui->ICM_7->setChecked(false);
+    }
+}
+
+
+void zone_icm::on_ICM_4_toggled(bool checked)
+{
+    if(checked){
+        ui->ICM_1->setChecked(false);
+        ui->ICM_2->setChecked(false);
+        ui->ICM_3->setChecked(false);
+        ui->ICM_5->setChecked(false);
+        ui->ICM_6->setChecked(false);
+        ui->ICM_7->setChecked(false);
+    }
+}
+
+
+void zone_icm::on_ICM_5_toggled(bool checked)
+{
+    if(checked){
+        ui->ICM_1->setChecked(false);
+        ui->ICM_2->setChecked(false);
+        ui->ICM_3->setChecked(false);
+        ui->ICM_4->setChecked(false);
+        ui->ICM_6->setChecked(false);
+        ui->ICM_7->setChecked(false);
+    }
+}
+
+
+void zone_icm::on_ICM_6_toggled(bool checked)
+{
+    if(checked){
+        ui->ICM_1->setChecked(false);
+        ui->ICM_2->setChecked(false);
+        ui->ICM_3->setChecked(false);
+        ui->ICM_4->setChecked(false);
+        ui->ICM_5->setChecked(false);
+        ui->ICM_7->setChecked(false);
+    }
+}
+
+
+void zone_icm::on_ICM_7_toggled(bool checked)
+{
+    if(checked){
+        ui->ICM_1->setChecked(false);
+        ui->ICM_2->setChecked(false);
+        ui->ICM_3->setChecked(false);
+        ui->ICM_4->setChecked(false);
+        ui->ICM_5->setChecked(false);
+        ui->ICM_6->setChecked(false);
+    }
+}
+

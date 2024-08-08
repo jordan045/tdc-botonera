@@ -145,8 +145,14 @@ QPushButton:checked {image: url(:/range/img/Range/4_pressed.png)}</string>
       <property name="checkable">
        <bool>true</bool>
       </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
       <property name="autoExclusive">
        <bool>true</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
       </property>
       <property name="flat">
        <bool>true</bool>
@@ -495,7 +501,4 @@ QPushButton:checked {image: url(:/range/img/Range/256_pressed.png)}
  </widget>
  <resources/>
  <connections/>
- <buttongroups>
-  <buttongroup name="buttonGroup"/>
- </buttongroups>
 </ui>

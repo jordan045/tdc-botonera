@@ -69,3 +69,43 @@ zone_threat::~zone_threat()
 {
     delete ui;
 }
+
+void zone_threat::on_THREAT_MIN_toggled(bool checked)
+{
+    if (checked){
+        ui->THREAT_12SEC->setChecked(false);
+        ui->THREAT_30SEC->setChecked(false);
+        ui->THREAT_6MIN->setChecked(false);
+    }
+}
+
+
+void zone_threat::on_THREAT_6MIN_toggled(bool checked)
+{
+    if (checked){
+        ui->THREAT_12SEC->setChecked(false);
+        ui->THREAT_30SEC->setChecked(false);
+        ui->THREAT_MIN->setChecked(false);
+    }
+}
+
+
+void zone_threat::on_THREAT_30SEC_toggled(bool checked)
+{
+    if (checked){
+        ui->THREAT_12SEC->setChecked(false);
+        ui->THREAT_MIN->setChecked(false);
+        ui->THREAT_6MIN->setChecked(false);
+    }
+}
+
+
+void zone_threat::on_THREAT_12SEC_toggled(bool checked)
+{
+    if (checked){
+        ui->THREAT_MIN->setChecked(false);
+        ui->THREAT_30SEC->setChecked(false);
+        ui->THREAT_6MIN->setChecked(false);
+    }
+}
+
