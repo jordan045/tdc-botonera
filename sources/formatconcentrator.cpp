@@ -59,7 +59,25 @@ void FormatConcentrator::setMessage(Estado *estado)
     setOverlay(estado);
 
 
+
     qDebug()<< "palabraCompleta: "<<message[0];
+
+    QString mensajeFilePath = ":/mensajesFC/mensajes.txt";
+    QFile mensajeFile(mensajeFilePath);
+
+    if(!mensajeFile.open(QIODevice::Append | QIODevice::Text))
+    {
+        mensajeFile.close();
+        qDebug()<<"ERRROORR al abrir el mensajee";
+    }
+    else qDebug()<<"se abrio correctamente el archivo de texto";
+    QTextStream out(&mensajeFile);
+
+    out << "se agrega esta linea. \n";
+
+    qDebug() << "Working Directory: " << QDir::currentPath();
+
+    mensajeFile.close();
 
     //setRange(estado);
 }

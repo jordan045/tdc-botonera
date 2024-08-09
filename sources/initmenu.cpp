@@ -25,7 +25,6 @@ InitMenu::InitMenu(QWidget *parent) :
        if (reply == QMessageBox::Ok)
              QCoreApplication::exit(0);
     }
-
     // Lee el archivo JSON con la información de los botones
     QMessageBox::StandardButton reply2;
     QString JsonFilePath = ":/json/json/properties.json";

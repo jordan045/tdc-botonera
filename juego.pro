@@ -73,6 +73,8 @@ RESOURCES += \
     resources.qrc
 
 DISTFILES += \
-    json/overlay.json
+    json/overlay.json \
+    mensajesFC/mensajes.txt
+
 
 INCLUDEPATH += headers/

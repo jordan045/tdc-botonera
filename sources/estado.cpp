@@ -1,5 +1,6 @@
 #include "estado.h"
 
+
 Estado::Estado(Botonera *b) {
 
     miBotonera = b;
