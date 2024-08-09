@@ -430,7 +430,7 @@ void FormatConcentrator::setWord9(Estado *estado)
 */
 void FormatConcentrator::leerJson()
 {
-    QString JsonFilePath = ":/json/properties.json";
+    QString JsonFilePath = ":/json/json/properties.json";
     qDebug()<<"Se llamo a leer json";
     QFile File(JsonFilePath);
     if(File.open(QIODevice::ReadOnly))

@@ -25,7 +25,6 @@ Botonera::Botonera(QWidget *parent) :
     icm_widget = new zone_icm(this);
     display_selection_widget = new zone_displaySelection(this);
     concentrator = new FormatConcentrator();
-
 }
 
 void Botonera::setOverlay(QString codigo)
@@ -136,8 +135,6 @@ void Botonera::start()
         qek_widget = new OVERLAY_140_0100(this);
         break;
     }
-
-
 
     QVBoxLayout *outer_layout = new QVBoxLayout();
     outer_layout->addWidget(display_mode_widget);

@@ -1,6 +1,4 @@
 #include "estado.h"
-#include "qdatetime.h"
-#include "qdebug.h"
 
 
 Estado::Estado(Botonera *b) {
