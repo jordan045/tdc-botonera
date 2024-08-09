@@ -108,8 +108,9 @@ void Botonera::sendCodeToIcm(QString *boton)
 
 void Botonera::sendMessage()
 {
-    qDebug()<<"Me tocaron en botonera";
+    //qDebug()<<"Me tocaron en botonera";
     concentrator->getMessage(miEstado);
+    //qDebug()<<"TODO OK en botonera";
 }
 
 QString Botonera::getOverlay(){

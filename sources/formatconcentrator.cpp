@@ -19,13 +19,19 @@ FormatConcentrator::FormatConcentrator()
     word9 = new QBitArray(216);
     */
     leerJson();
+
+    *dir = dir->currentPath();
+    dir->cdUp();
+    dir->cdUp();
+    dir->cd("mensajesFC");
 }
 
 QBitArray* FormatConcentrator::getMessage(Estado *estado)
 {
-    qDebug()<<"Me llamaron en concentrator";
+    //qDebug()<<"Me llamaron en concentrator";
     setMessage(estado);
-   // setWord1(estado);
+    //qDebug()<<"TODO OK en FC";
+    return message;
 }
 
 void FormatConcentrator::setMessage(Estado *estado)
@@ -62,7 +68,10 @@ void FormatConcentrator::setMessage(Estado *estado)
 
     qDebug()<< "palabraCompleta: "<<message[0];
 
-    QString mensajeFilePath = ":/mensajesFC/mensajes.txt";
+
+    //TdqDebug()<< "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << dir->absolutePath();
+
+    QString mensajeFilePath = dir->absolutePath() + "/mensajes.txt";
     QFile mensajeFile(mensajeFilePath);
 
     if(!mensajeFile.open(QIODevice::Append | QIODevice::Text))
@@ -73,13 +82,14 @@ void FormatConcentrator::setMessage(Estado *estado)
     else qDebug()<<"se abrio correctamente el archivo de texto";
     QTextStream out(&mensajeFile);
 
-    out << "se agrega esta linea. \n";
+    out << "URI CRACK<<<<<<<<<<<<<<<<<<<<<<. \n";
 
-    qDebug() << "Working Directory: " << QDir::currentPath();
+    //qDebug() << "Working Directory: " << QDir::currentPath();
 
     mensajeFile.close();
 
     //setRange(estado);
+    //qDebug()<<"TODO OK FC setMessage";
 }
 // PALABRA 1//
 void FormatConcentrator::setRange(Estado *estado)

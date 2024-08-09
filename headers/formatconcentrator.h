@@ -26,6 +26,7 @@ private:
     QBitArray *word7;
     QBitArray *word8;
     QBitArray *word9;
+    QDir *dir = new QDir();
 
 
     void setMessage(Estado *estado);
