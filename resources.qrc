@@ -144,4 +144,8 @@
         <file>img/Overlays/360/SPC.png</file>
         <file>img/Overlays/360/SPC_pressed.png</file>
     </qresource>
+    <qresource prefix="/ayuda">
+        <file>img/Ayuda/ayuda.png</file>
+        <file>img/Ayuda/ayuda_pressed.png</file>
+    </qresource>
 </RCC>
