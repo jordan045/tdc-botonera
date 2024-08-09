@@ -62,6 +62,7 @@ FORMS += \
     forms/zone_label.ui \
     forms/zone_range.ui \
     forms/zone_threat.ui \
+    initmenu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

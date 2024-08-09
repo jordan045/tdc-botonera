@@ -11,6 +11,7 @@ public:
 
 private:
     Botonera *miBotonera;
+    void start();
 };
 
 #endif // INITMENU_H
