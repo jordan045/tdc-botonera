@@ -1,4 +1,5 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    ../juego.pro \
+    botonera/juego.pro
+
