@@ -50,6 +50,7 @@ public:
     void setDisplaySelection(QString *d);
     void setICM(QString *i);
 
+
 private:
     Botonera *miBotonera;
 

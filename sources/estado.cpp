@@ -42,8 +42,13 @@ void Estado::removeDisplayMode(QString *codigo){
     refresh();
 }
 void Estado::removeDisplaySelection(QString *codigo){
-    codigo->append(" ");
-    this->displaySelection.remove(*codigo);
+    QStringList estado = this->displaySelection.split(" ", Qt::SkipEmptyParts);
+
+    if (estado.contains(*codigo)) {
+        estado.removeAll(*codigo);
+    }
+
+    this->displaySelection = estado.join(" ");
     refresh();
 }
 void Estado::removeLabel(QString *codigo){
@@ -114,7 +119,12 @@ void Estado::setICM(QString *s){
 }
 void Estado::setDisplaySelection(QString *s){
     qDebug() << "Setting DisplaySelection";
-    s->append(" ");
+
+    // Asegúrate de que displaySelection termine con un espacio si no está vacío.
+    if (!this->displaySelection.isEmpty() && !this->displaySelection.endsWith(" ")) {
+        this->displaySelection.append(" ");
+    }
+
     this->displaySelection.append(*s);
     refresh();
 }

@@ -19,6 +19,7 @@ void Boton::sendMessage(){
     this->zona->sendMessage();
 }
 
+
 void Boton::interact(){
     if(!state){
         QString mensaje = *new QString(this->codigo);

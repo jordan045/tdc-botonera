@@ -243,11 +243,6 @@
       "pos": "10"
     }
   },
-  "radar-recorder": {
-    "type": "push",
-    "label": "radar-recorder",
-    "pos": "9"
-  },
   "qek ": {
     "20": {
       "type": "push",
