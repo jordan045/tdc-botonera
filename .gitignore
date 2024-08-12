@@ -36,6 +36,7 @@ Thumbs.db
 /.qmake.stash
 /build
 /tdc-botonera/build
+/build*
 
 # qtcreator generated files
 *.pro.user*
