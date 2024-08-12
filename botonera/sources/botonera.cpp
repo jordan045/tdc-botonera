@@ -12,6 +12,14 @@
 #include <QLabel>
 #include <QDebug>
 #include <QShortcut>
+#include "headers/overlay_360_0001.h"
+#include "headers/overlay_360_0010.h"
+#include "headers/overlay_360_0011.h"
+#include "headers/overlay_360_0100.h"
+#include "headers/overlay_360_0101.h"
+#include "headers/overlay_360_0110.h"
+#include "headers/overlay_360_0111.h"
+#include "headers/overlay_360_1000.h"
 
 Botonera::Botonera(QWidget *parent) :
     QWidget(parent)
@@ -117,25 +125,54 @@ QString Botonera::getOverlay(){
     return miEstado->getOverlay();
 }
 
-void Botonera::start()
+void Botonera::start(int tipo)
 {
     int overlay = getOverlay().toInt();
     qDebug() << overlay;
-
-    switch (overlay) {
-    case 1:
-        qek_widget = new OVERLAY_140_0001(this);
-        break;
-    case 10:
-        qek_widget = new OVERLAY_140_0010(this);
-        break;
-    case 11:
-        qek_widget = new OVERLAY_140_0011(this);
-        break;
-    case 100:
-        qek_widget = new OVERLAY_140_0100(this);
-        break;
+    if (tipo == 140){
+        switch (overlay) {
+        case 1:
+            qek_widget = new OVERLAY_140_0001(this);
+            break;
+        case 10:
+            qek_widget = new OVERLAY_140_0010(this);
+            break;
+        case 11:
+            qek_widget = new OVERLAY_140_0011(this);
+            break;
+        case 100:
+            qek_widget = new OVERLAY_140_0100(this);
+            break;
+        }
     }
+    else if (tipo == 360)
+        {
+        switch (overlay) {
+        case 1:
+            qek_widget = new OVERLAY_360_0001(this);
+            break;
+        case 10:
+            qek_widget = new OVERLAY_360_0010(this);
+            break;
+        case 11:
+            qek_widget = new OVERLAY_360_0011(this);
+            break;
+        case 100:
+            qek_widget = new OVERLAY_360_0100(this);
+            break;
+        case 101:
+            qek_widget = new OVERLAY_360_0101(this);
+            break;
+        case 110:
+            qek_widget = new OVERLAY_360_0110(this);
+            break;
+        case 111:
+            qek_widget = new OVERLAY_360_0111(this);
+            break;
+        case 1000:
+            qek_widget = new OVERLAY_360_1000(this);
+        }
+        }
 
     QPushButton *help_button = new QPushButton("");
     help_button->setStyleSheet("QPushButton {image: url(':/ayuda/img/Ayuda/ayuda.png'); background-color: rgba(0,0,0,0);}"

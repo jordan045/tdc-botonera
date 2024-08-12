@@ -47,7 +47,7 @@ public:
     QString getOverlay();
     
 public slots:
-    void start();
+    void start(int tipo);
     void infoMessage();
 
 

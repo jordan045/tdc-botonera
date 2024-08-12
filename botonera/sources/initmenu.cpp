@@ -14,29 +14,32 @@ InitMenu::InitMenu(QWidget *parent) :
     QWidget(parent)
 {
     QCoreApplication::setApplicationName("Botonera AR-TDC");
+
     // Inicializa la botonera
     miBotonera = new Botonera();
 
     QMessageBox::StandardButton reply;
+
     // Lee el archivo JSON con la información de los overlays
     QFile file(":/json/json/overlay.json");
     if (!file.open(QIODevice::ReadOnly)) {
-        reply = QMessageBox::warning(this,"Error al abrir","No se pudo abrir el archivo de configuración de overlay.");
-       if (reply == QMessageBox::Ok)
-             QCoreApplication::exit(0);
+        reply = QMessageBox::warning(this, "Error al abrir", "No se pudo abrir el archivo de configuración de overlay.");
+        if (reply == QMessageBox::Ok)
+            QCoreApplication::exit(0);
     }
+
     // Lee el archivo JSON con la información de los botones
     QMessageBox::StandardButton reply2;
     QString JsonFilePath = ":/json/json/properties.json";
     QFile File(JsonFilePath);
-    if(!File.open(QIODevice::ReadOnly))
-    {
-        reply2 = QMessageBox::warning(this,"ERROR LECTURA DE ARCHIVO","Hubo un error, no se abrio el archivo de propiedades");
+    if (!File.open(QIODevice::ReadOnly)) {
+        reply2 = QMessageBox::warning(this, "ERROR LECTURA DE ARCHIVO", "Hubo un error, no se abrió el archivo de propiedades");
         if (reply2 == QMessageBox::Ok) {
-            QCoreApplication::exit(0);}
+            QCoreApplication::exit(0);
+        }
     }
 
-    QByteArray archivo = file.readAll(); 
+    QByteArray archivo = file.readAll();
     QJsonDocument document = QJsonDocument::fromJson(archivo);
     file.close();
 
@@ -64,6 +67,7 @@ InitMenu::InitMenu(QWidget *parent) :
 
     QButtonGroup *group = new QButtonGroup();
     group->setExclusive(true);
+
     // Crear botones a partir del JSON
     for (const QJsonValue &value : jsonArray) {
         QJsonObject obj = value.toObject();
@@ -74,9 +78,9 @@ InitMenu::InitMenu(QWidget *parent) :
             QString style = QString("QPushButton {image: url(':/overlays/360/img/Overlays/360/%1.png'); background-color: rgba(0,0,0,0);}"
                                     "QPushButton:checked {image: url(':/overlays/360/img/Overlays/360/%1_pressed.png'); background-color: rgba(0,0,0,0);}"
                                     "QPushButton:hover {background-color: rgba(0,0,0,0);}")
-                                    .arg(key);
+                                .arg(key);
 
-            group->addButton(button,countX);
+            group->addButton(button, countX);
 
             button->setStyleSheet(style);
             button->setMinimumHeight(80);
@@ -86,17 +90,20 @@ InitMenu::InitMenu(QWidget *parent) :
             int posX = countX % 2;
             int posY = countY / 2;
 
-            ui.gridLayout->addWidget(button,posY,posX);
+            ui.gridLayout->addWidget(button, posY, posX);
         }
-        countX++; countY++;
+        countX++;
+        countY++;
     }
 
-    QObject::connect(ui.continue_button, &QPushButton::clicked, [this, group]() {
+    // Convertir "tipo" a int
+    int tipoBuque = mainObj["tipo"].toString().toInt();
+
+    QObject::connect(ui.continue_button, &QPushButton::clicked, [this, group, tipoBuque]() {
         auto overlay = group->checkedButton()->objectName();
         miBotonera->setOverlay(overlay);
-        miBotonera->start();
+        miBotonera->start(tipoBuque);
         this->close();
     });
-
 }
 
