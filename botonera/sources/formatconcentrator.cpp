@@ -23,9 +23,10 @@ FormatConcentrator::FormatConcentrator()
 
 QBitArray* FormatConcentrator::getMessage(Estado *estado)
 {
-    qDebug()<<"Me llamaron en concentrator";
+    //qDebug()<<"Me llamaron en concentrator";
     setMessage(estado);
-   // setWord1(estado);
+    //qDebug()<<"TODO OK en FC";
+    return message;
 }
 
 void FormatConcentrator::setMessage(Estado *estado)
@@ -58,28 +59,24 @@ void FormatConcentrator::setMessage(Estado *estado)
     setICM(estado);
     setOverlay(estado);
 
+    guardarMensaje(estado);
 
+    // qDebug()<< "palabraCompleta: "<<message[0];
 
-    qDebug()<< "palabraCompleta: "<<message[0];
 
     // QString mensajeFilePath = ":/mensajesFC/mensajes.txt";
     // QFile mensajeFile(mensajeFilePath);
 
-    // if(!mensajeFile.open(QIODevice::Append | QIODevice::Text))
-    // {
-    //     mensajeFile.close();
-    //     qDebug()<<"ERRROORR al abrir el mensajee";
-    // }
-    // else qDebug()<<"se abrio correctamente el archivo de texto";
-    // QTextStream out(&mensajeFile);
+    //TdqDebug()<< "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << dir->absolutePath();
 
-    // out << "se agrega esta linea. \n";
 
-    // qDebug() << "Working Directory: " << QDir::currentPath();
+    //qDebug() << "Working Directory: " << QDir::currentPath();
+
 
     // mensajeFile.close();
 
     //setRange(estado);
+    //qDebug()<<"TODO OK FC setMessage";
 }
 // PALABRA 1//
 void FormatConcentrator::setRange(Estado *estado)
@@ -242,6 +239,71 @@ void FormatConcentrator::setOverlay(Estado *estado){
             message->setBit(offset,false);
         offset--;
     }
+}
+
+void FormatConcentrator::guardarMensaje(Estado *estado)
+{
+
+    // Variable estática para almacenar la ruta del archivo
+    static QFile mensajeFile;
+    static QTextStream out;
+    static QDateTime date;
+    static QString formattedTime;
+
+    // Solo calcular la ruta si no ha sido inicializada
+    if (mensajeFile.fileName().isEmpty()) {
+        // Solo inicializar si el archivo no ha sido abierto aún
+        QDir dir(QDir::currentPath());
+        dir.cdUp();
+        dir.cdUp();
+        dir.cd("mensajesFC");
+        QString mensajeFilePath = dir.absolutePath() + "/mensajes.txt";
+
+        mensajeFile.setFileName(mensajeFilePath);
+
+        if (!mensajeFile.open(QIODevice::Append | QIODevice::Text)) {
+            qDebug() << "ERROR al abrir el archivo de mensajes.";
+            return;  // Salir si no se puede abrir el archivo
+        }
+
+        out.setDevice(&mensajeFile);
+        qDebug() << "Archivo abierto correctamente: " << mensajeFilePath;
+    }
+    // out << "se agrega esta linea. \n";
+
+    qDebug() << "Working Directory: " << QDir::currentPath();
+
+    date = QDateTime::currentDateTime();
+    formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
+    QByteArray formattedTimeMsg = formattedTime.toLocal8Bit();
+
+
+    out      << "---------------------- " << formattedTime << " -----------------------";
+    out      << "\nRange Scale:\t " << estado->getRange()
+        << "\nLabel Selection:\t " << estado->getLabel()
+        << "\nQEK:\t\t " << estado->getQEK()
+        << "\nThreat Assesment:\t " << estado->getThreat()
+        << "\nCenter:\t\t " << estado->getCenter()
+        << "\nDisplay Mode:\t " << estado->getDisplayMode()
+        << "\nDisplay Selection:\t " << estado->getDisplaySelection()
+        << "\nICM:\t\t " << estado->getICM()
+        << "\n";
+
+    QString bitString;
+
+    for (int i = 0; i < message->size(); ++i) {
+        bitString.append(message->testBit(i) ? '1' : '0');
+    }
+    int segmentLength = 24; // Longitud de cada segmento
+    int totalSegments = bitString.size() / segmentLength; // Número total de segmentos
+
+    for (int i = 0; i < totalSegments; ++i) {
+        QString segment = bitString.mid(i * segmentLength, segmentLength);
+        out << segment << "\n";
+    }
+    out<<"mensaje Concentrator";
+    out<<"\n";
+
 }
 /*
 void FormatConcentrator::setWord1(Estado *estado)
@@ -463,3 +525,4 @@ void FormatConcentrator::juntar()
     *message = *word1|*word2|*word3|*word4|*word5|*word6|*word7|*word8|*word9;
 }
 */
+

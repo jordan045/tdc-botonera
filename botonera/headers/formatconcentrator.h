@@ -27,7 +27,6 @@ private:
     QBitArray *word8;
     QBitArray *word9;
 
-
     void setMessage(Estado *estado);
 
     /*
@@ -55,6 +54,7 @@ private:
     void setDisplaySelection(Estado *estado);
     void setOverlay(Estado *estado);
 
+    void guardarMensaje(Estado *estado);
 
     void getMessage();
 

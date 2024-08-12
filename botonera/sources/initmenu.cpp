@@ -1,4 +1,5 @@
 #include "initmenu.h"
+#include "qbuttongroup.h"
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QFile>
@@ -7,12 +8,16 @@
 #include <QJsonObject>
 #include <QDebug>
 #include <QMessageBox>
+#include <ui_initmenu.h>
 
 InitMenu::InitMenu(QWidget *parent) :
     QWidget(parent)
 {
-    QMessageBox::StandardButton reply;
+    QCoreApplication::setApplicationName("Botonera AR-TDC");
+    // Inicializa la botonera
+    miBotonera = new Botonera();
 
+    QMessageBox::StandardButton reply;
     // Lee el archivo JSON con la información de los overlays
     QFile file(":/json/json/overlay.json");
     if (!file.open(QIODevice::ReadOnly)) {
@@ -31,14 +36,9 @@ InitMenu::InitMenu(QWidget *parent) :
             QCoreApplication::exit(0);}
     }
 
-
-    // Inicializa la botonera
-    miBotonera = new Botonera();
-
-    QByteArray archivo = file.readAll();
-    file.close();
-
+    QByteArray archivo = file.readAll(); 
     QJsonDocument document = QJsonDocument::fromJson(archivo);
+    file.close();
 
     // Verificar si el documento es un objeto
     if (!document.isObject()) {
@@ -56,39 +56,47 @@ InitMenu::InitMenu(QWidget *parent) :
 
     QJsonArray jsonArray = mainObj["overlay"].toArray();
 
-    QGridLayout *layout = new QGridLayout(this);
-    layout->setSpacing(0);
-    this->setMinimumSize(QSize(500,500));
+    Ui::InitMenu ui;
+    ui.setupUi(this);
 
     int countY = 0;
     int countX = 0;
+
+    QButtonGroup *group = new QButtonGroup();
+    group->setExclusive(true);
     // Crear botones a partir del JSON
     for (const QJsonValue &value : jsonArray) {
         QJsonObject obj = value.toObject();
         for (const QString &key : obj.keys()) {
             QString buttonCode = obj[key].toString();
             QPushButton *button = new QPushButton("");
-            QString style = QString("QPushButton {image: url(':/overlays/360/img/Overlays/360/%1.png')}"
-                                    "QPushButton:pressed {image: url(':/overlays/360/img/Overlays/360/%1_pressed.png')}")
+            button->setObjectName(buttonCode);
+            QString style = QString("QPushButton {image: url(':/overlays/360/img/Overlays/360/%1.png'); background-color: rgba(0,0,0,0);}"
+                                    "QPushButton:checked {image: url(':/overlays/360/img/Overlays/360/%1_pressed.png'); background-color: rgba(0,0,0,0);}"
+                                    "QPushButton:hover {background-color: rgba(0,0,0,0);}")
                                     .arg(key);
 
+            group->addButton(button,countX);
+
             button->setStyleSheet(style);
-            button->setMinimumHeight(100);
+            button->setMinimumHeight(80);
+            button->setCheckable(true);
             button->setFlat(true);
 
             int posX = countX % 2;
             int posY = countY / 2;
-            layout->addWidget(button,posY,posX);
 
-            QObject::connect(button, &QPushButton::clicked, [this, buttonCode]() {
-                miBotonera->setOverlay(buttonCode);
-                miBotonera->start();
-                this->close();
-            });
+            ui.gridLayout->addWidget(button,posY,posX);
         }
         countX++; countY++;
     }
 
-    this->setLayout(layout);
+    QObject::connect(ui.continue_button, &QPushButton::clicked, [this, group]() {
+        auto overlay = group->checkedButton()->objectName();
+        miBotonera->setOverlay(overlay);
+        miBotonera->start();
+        this->close();
+    });
+
 }
 

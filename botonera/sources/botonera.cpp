@@ -108,8 +108,9 @@ void Botonera::sendCodeToIcm(QString *boton)
 
 void Botonera::sendMessage()
 {
-    qDebug()<<"Me tocaron en botonera";
+    //qDebug()<<"Me tocaron en botonera";
     concentrator->getMessage(miEstado);
+    //qDebug()<<"TODO OK en botonera";
 }
 
 QString Botonera::getOverlay(){
@@ -136,9 +137,21 @@ void Botonera::start()
         break;
     }
 
-    QVBoxLayout *outer_layout = new QVBoxLayout();
-    outer_layout->addWidget(display_mode_widget);
-    outer_layout->addWidget(range_widget);
+    QPushButton *help_button = new QPushButton("");
+    help_button->setStyleSheet("QPushButton {image: url(':/ayuda/img/Ayuda/ayuda.png'); background-color: rgba(0,0,0,0);}"
+                               "QPushButton:pressed {image: url(':/ayuda/img/Ayuda/ayuda_pressed.png'); background-color: rgba(0,0,0,0);}"
+                               "QPushButton:hover {background-color: rgba(0,0,0,0);}"
+                               "QPushButton {width: 40px; height: 40px;}");
+
+    QPushButton *buddy_button = new QPushButton();
+    buddy_button->setFlat(true);
+
+    QHBoxLayout *top_layout = new QHBoxLayout();
+
+    QVBoxLayout *outer_layout = new QVBoxLayout();   
+    top_layout->addWidget(buddy_button);
+    top_layout->addWidget(range_widget);
+    top_layout->addWidget(help_button);
     QHBoxLayout *inner_layout = new QHBoxLayout();
     inner_layout->addWidget(display_selection_widget);
     QVBoxLayout *column_layout = new QVBoxLayout();
@@ -148,9 +161,11 @@ void Botonera::start()
     inner_layout->addWidget(qek_widget);
     inner_layout->addWidget(icm_widget);
     inner_layout->addWidget(center_widget);
+    outer_layout->addLayout(top_layout);
+    outer_layout->addWidget(display_mode_widget);
     outer_layout->addLayout(inner_layout);
 
-    outer_layout->setAlignment(range_widget,Qt::AlignCenter);
+    // outer_layout->setAlignment(range_widget,Qt::AlignCenter);
     outer_layout->setAlignment(display_mode_widget,Qt::AlignCenter);
 
     this->setLayout(outer_layout);
@@ -159,6 +174,8 @@ void Botonera::start()
     shortcut = new QShortcut(QKeySequence(Qt::Key_0), this);
     //qDebug()<<shortcut->key();
     QObject::connect(shortcut, SIGNAL(activated()), this, SLOT(infoMessage()));
+
+    connect(help_button, &QPushButton::clicked, this, &Botonera::infoMessage);
 }
 
 void Botonera::infoMessage(){

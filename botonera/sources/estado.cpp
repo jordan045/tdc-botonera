@@ -1,7 +1,8 @@
 #include "estado.h"
 
 
-Estado::Estado(Botonera *b) {
+Estado::Estado(Botonera *b)
+{
 
     miBotonera = b;
 
@@ -135,20 +136,45 @@ void Estado::setRange(QString *s){
     refresh();
 }
 
-
 void Estado::refresh()
 {
-    QDateTime date = QDateTime::currentDateTime();
-    QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
-    QByteArray formattedTimeMsg = formattedTime.toLocal8Bit();
+    // QDateTime date = QDateTime::currentDateTime();
+    // QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
+    // QByteArray formattedTimeMsg = formattedTime.toLocal8Bit();
 
-    qDebug() << "---------------------- " << formattedTime << " -----------------------";
-    qDebug() << "\nRange Scale:\t " << range
-             << "\nLabel Selection:\t " << label
-             << "\nQEK:\t\t " << qek
-             << "\nThreat Assesment:\t " << threat
-             << "\nCenter:\t\t " << center
-             << "\nDisplay Mode:\t " << displayMode
-             << "\nDisplay Selection:\t " << displaySelection
-             << "\nICM:\t\t " << icm;
+    // // Variable estática para almacenar la ruta del archivo
+    // static QString mensajeFilePath;
+
+    // // Solo calcular la ruta si no ha sido inicializada
+    // if (mensajeFilePath.isEmpty()) {
+    //     QDir dir(QDir::currentPath());
+    //     dir.cdUp();
+    //     dir.cdUp();
+    //     dir.cd("mensajesFC");
+    //     mensajeFilePath = dir.absolutePath() + "/mensajes.txt";
+    // }
+
+    // QFile mensajeFile(mensajeFilePath);
+
+    // if(!mensajeFile.open(QIODevice::Append | QIODevice::Text))
+    // {
+    //     mensajeFile.close();
+    //     qDebug()<<"ERRROORR al abrir el mensajee";
+    // }
+    // else qDebug()<<"se abrio correctamente el archivo de texto";
+
+    // QTextStream out(&mensajeFile);
+
+    // out      << "---------------------- " << formattedTime << " -----------------------";
+    // out      << "\nRange Scale:\t " << range
+    //     << "\nLabel Selection:\t " << label
+    //     << "\nQEK:\t\t " << qek
+    //     << "\nThreat Assesment:\t " << threat
+    //     << "\nCenter:\t\t " << center
+    //     << "\nDisplay Mode:\t " << displayMode
+    //     << "\nDisplay Selection:\t " << displaySelection
+    //     << "\nICM:\t\t " << icm
+    //     << "\n";
+    // mensajeFile.close();
 }
+
