@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include <thread>
+#include <map>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -16,7 +17,7 @@ public:
     Cliente(const std::string &direccionIP, int puerto);
     ~Cliente();
     void conectar();
-    void enviar(const std::string &mensaje);
+    void enviar(const std::string &namespace_, const std::string &mensaje);
     std::string recibir();
     void esperar_mensajes();
 
@@ -27,6 +28,8 @@ private:
 
     void crearSocket();
     void configurarDireccion(const std::string &direccionIP, int puerto);
+    std::string formatearMensaje(const std::string &namespace_, const std::string &mensaje);
+    void procesarMensaje(const std::string &mensaje);
 };
 
 Cliente::Cliente(const std::string &direccionIP, int puerto) : sock(0)
@@ -75,10 +78,15 @@ void Cliente::conectar()
     std::cout << "Conectado al servidor" << std::endl;
 }
 
-void Cliente::enviar(const std::string &mensaje)
+std::string Cliente::formatearMensaje(const std::string &namespace_, const std::string &mensaje)
 {
-    send(sock, mensaje.c_str(), mensaje.size(), 0);
-    std::cout << "Mensaje enviado: " << mensaje << std::endl;
+    return namespace_ + ":" + mensaje;
+}
+
+void Cliente::enviar(const std::string &namespace_, const std::string &mensaje)
+{
+    std::string mensaje_formateado = formatearMensaje(namespace_, mensaje);
+    send(sock, mensaje_formateado.c_str(), mensaje_formateado.size(), 0);
 }
 
 std::string Cliente::recibir()
@@ -91,14 +99,21 @@ std::string Cliente::recibir()
     return std::string(buffer);
 }
 
-void Cliente::esperar_mensajes() {
-    std::string buffer;
+void Cliente::procesarMensaje(const std::string &mensaje)
+{
+    std::cout << "Mensaje recibido: " << mensaje << std::endl;
+}
 
-    while (true) {
-        buffer = recibir();
-        if (!buffer.empty()) {
-            std::cout << "Mensaje recibido: " << buffer << std::endl;
-            buffer.clear();
+void Cliente::esperar_mensajes()
+{
+    std::string mensaje;
+
+    while (true)
+    {
+        mensaje = recibir();
+        if (!mensaje.empty())
+        {
+            procesarMensaje(mensaje);
         }
     }
 }
@@ -111,10 +126,8 @@ int main()
     std::thread hilo_recibidos(&Cliente::esperar_mensajes, &cliente);
     hilo_recibidos.detach();
 
-    for (int i = 0; i < 5; i++)
-    {
-        cliente.enviar("Hola, servidor!");
-    }
+    cliente.enviar("namespace1", "Hola, servidor en namespace1!");
+    cliente.enviar("namespace2", "Hola, servidor en namespace2!");
 
     while (true);
 
