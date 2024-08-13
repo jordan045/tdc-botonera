@@ -122,8 +122,8 @@ void Estado::refresh()
     QDateTime date = QDateTime::currentDateTime();
     QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
 
-    qDebug()      << "---------------------- " << formattedTime << " -----------------------";
-    qDebug()      << "\nRange Scale:\t " << range
+    qDebug()        << "---------------------- " << formattedTime << " -----------------------";
+    qDebug()        << "\nRange Scale:\t " << range
                     << "\nLabel Selection:\t " << label
                     << "\nQEK:\t\t " << qek
                     << "\nThreat Assesment:\t " << threat

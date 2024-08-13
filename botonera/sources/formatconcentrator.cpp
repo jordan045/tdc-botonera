@@ -176,8 +176,6 @@ void FormatConcentrator::guardarMensaje(Estado *estado)
 
     date = QDateTime::currentDateTime();
     formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
-    formattedFile = date.toString("dd-MM-yyyy_hh-mm-ss");
-    QByteArray formattedTimeMsg = formattedTime.toLocal8Bit();
 
     // Solo calcular la ruta si no ha sido inicializada
     if (mensajeFile.fileName().isEmpty()) {

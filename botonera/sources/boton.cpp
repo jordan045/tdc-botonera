@@ -6,18 +6,6 @@ Boton::Boton(Zone *z, QString codigo, QObject *parent): QObject(parent) {
     this->state = false;
 }
 
-QString Boton::getCodigo(){
-    return codigo;
-}
-
-void Boton::setCodigo(QString n){
-    codigo = n;
-}
-
-void Boton::sendMessage(){
-    this->zona->sendMessage();
-}
-
 void Boton::setState(bool state){
     this->state = state;
 }

@@ -38,9 +38,6 @@ Botonera::Botonera(QWidget *parent) :
 void Botonera::setOverlay(QString codigo){
     miEstado->setOverlay(codigo);
 }
-void Botonera::setmodo(int i){
-    modo = i;
-}
 void Botonera::removeCodeFromRange(QString *boton){
     miEstado->removeRange(boton);
 }
@@ -151,7 +148,7 @@ void Botonera::start(int tipo)
         case 1000:
             qek_widget = new OVERLAY_360_1000(this);
         }
-        }
+    }
 
     QPushButton *help_button = new QPushButton("");
     help_button->setStyleSheet("QPushButton {image: url(':/ayuda/img/Ayuda/ayuda.png'); background-color: rgba(0,0,0,0);}"
@@ -161,9 +158,11 @@ void Botonera::start(int tipo)
 
     help_button->setToolTip("Ayuda");
 
+    // El buddy button no se muestra, es para espaciar correctamente los elementos en el layout
     QPushButton *buddy_button = new QPushButton();
     buddy_button->setFlat(true);
 
+    // Creación de la interfaz de botonera
     QHBoxLayout *top_layout = new QHBoxLayout();
     QVBoxLayout *outer_layout = new QVBoxLayout();
     QHBoxLayout *inner_layout = new QHBoxLayout();
@@ -192,6 +191,7 @@ void Botonera::start(int tipo)
     outer_layout->addLayout(inner_layout);
 
     this->setLayout(outer_layout);
+
     shortcut = new QShortcut(QKeySequence(Qt::Key_0), this);
 
     connect(shortcut, SIGNAL(activated()), this, SLOT(infoMessage()));
@@ -201,6 +201,7 @@ void Botonera::start(int tipo)
 }
 
 void Botonera::infoMessage(){
+    // Genera el mensaje de ayuda con los atajos de teclado
     QMessageBox msg;
 
     msg.setWindowTitle("ATAJOS DE TECLADO");
@@ -224,10 +225,6 @@ void Botonera::infoMessage(){
                    "</table>";
     msg.setText(text);
     msg.exec();
-}
-
-Estado* Botonera::getEstado(){
-    return miEstado;
 }
 
 

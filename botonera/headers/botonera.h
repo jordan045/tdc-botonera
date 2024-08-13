@@ -18,8 +18,7 @@ class Botonera : public QWidget
 {
     Q_OBJECT
 public:
-   explicit Botonera(QWidget *parent = nullptr);
-    void setmodo(int i);
+    explicit Botonera(QWidget *parent = nullptr);
 
     void setOverlay(QString codigo);
 
@@ -41,7 +40,6 @@ public:
     void sendCodeToDisplaySelection(QString *boton);
     void sendCodeToIcm(QString *boton);
     void sendMessage();
-    Estado *getEstado();
     QString getOverlay();
     
 public slots:
@@ -60,7 +58,6 @@ private:
    FormatConcentrator *concentrator;
    QShortcut *shortcut;
    Estado *miEstado;
-   int modo;
 };
 
 #endif // BOTONERA_H

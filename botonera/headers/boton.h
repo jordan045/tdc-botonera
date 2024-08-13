@@ -11,12 +11,8 @@ class Boton: public QObject
 
     public:
         Boton(Zone *z,QString codigo, QObject *parent = nullptr);
-        void setCodigo(QString);
-        QString getCodigo();
-        int getChar();
     public slots:
         void interact();
-        void sendMessage();
         void setState(bool);
     private:
         bool state;

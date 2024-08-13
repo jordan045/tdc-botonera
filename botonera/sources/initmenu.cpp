@@ -14,10 +14,9 @@ InitMenu::InitMenu(QWidget *parent) :
     QWidget(parent)
 {
     QCoreApplication::setApplicationName("Botonera AR-TDC");
-
-    // Inicializa la botonera
     miBotonera = new Botonera();
 
+    // Modal para mensajes de error
     QMessageBox::StandardButton reply;
 
     // Lee el archivo JSON con la información de los overlays
@@ -92,9 +91,7 @@ InitMenu::InitMenu(QWidget *parent) :
         countY++;
     }
 
-    // Convertir "tipo" a int
     int tipoBuque = mainObj["tipo"].toString().toInt();
-
     QObject::connect(ui.continue_button, &QPushButton::clicked, this, [this, group, tipoBuque]() {
         auto overlay = group->checkedButton()->objectName();
         miBotonera->setOverlay(overlay);
