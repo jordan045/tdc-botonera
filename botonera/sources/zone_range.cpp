@@ -39,12 +39,10 @@ void zone_range::sendMessage(){
     miBotonera->sendMessage();
 }
 
-QString zone_range::getName()
-{
+QString zone_range::getName(){
     return "Range";
 }
 
-zone_range::~zone_range()
-{
+zone_range::~zone_range(){
     delete ui;
 }

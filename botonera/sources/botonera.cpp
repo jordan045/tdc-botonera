@@ -35,15 +35,12 @@ Botonera::Botonera(QWidget *parent) :
     concentrator = new FormatConcentrator();
 }
 
-void Botonera::setOverlay(QString codigo)
-{
+void Botonera::setOverlay(QString codigo){
     miEstado->setOverlay(codigo);
 }
-void Botonera::setmodo(int i)
-{
+void Botonera::setmodo(int i){
     modo = i;
 }
-
 void Botonera::removeCodeFromRange(QString *boton){
     miEstado->removeRange(boton);
 }
@@ -69,52 +66,38 @@ void Botonera::removeCodeFromIcm(QString *boton){
     miEstado->removeIcm(boton);
 }
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-void Botonera::sendCodeToRange(QString *boton)
-{
+void Botonera::sendCodeToRange(QString *boton){
     miEstado->setRange(boton);
 }
-
-void Botonera::sendCodeToLabelSelection(QString *boton)
-{
+void Botonera::sendCodeToLabelSelection(QString *boton){
     miEstado->setLabel(boton);
 }
 
-void Botonera::sendCodeToQek(QString *boton)
-{
+void Botonera::sendCodeToQek(QString *boton){
     miEstado->setQEK(boton);
 }
 
-void Botonera::sendCodeToThreat(QString *boton)
-{
+void Botonera::sendCodeToThreat(QString *boton){
     miEstado->setThreat(boton);
 }
 
-void Botonera::sendCodeToCenter(QString *boton)
-{
+void Botonera::sendCodeToCenter(QString *boton){
     miEstado->setCenter(boton);
 }
 
-void Botonera::sendCodeToDisplayMode(QString *boton)
-{
+void Botonera::sendCodeToDisplayMode(QString *boton){
     miEstado->setDisplayMode(boton);
 }
 
-void Botonera::sendCodeToDisplaySelection(QString *boton)
-{
+void Botonera::sendCodeToDisplaySelection(QString *boton){
     miEstado->setDisplaySelection(boton);
 }
 
-void Botonera::sendCodeToIcm(QString *boton)
-{
+void Botonera::sendCodeToIcm(QString *boton){
     miEstado->setICM(boton);
 }
 
-void Botonera::sendMessage()
-{
+void Botonera::sendMessage(){
     concentrator->getMessage(miEstado);
 }
 
@@ -198,16 +181,13 @@ void Botonera::start(int tipo)
     outer_layout->addWidget(display_mode_widget);
     outer_layout->addLayout(inner_layout);
 
-    // outer_layout->setAlignment(range_widget,Qt::AlignCenter);
     outer_layout->setAlignment(display_mode_widget,Qt::AlignCenter);
 
     this->setLayout(outer_layout);
     this->show();
-    //infoMessage();
     shortcut = new QShortcut(QKeySequence(Qt::Key_0), this);
-    //qDebug()<<shortcut->key();
-    QObject::connect(shortcut, SIGNAL(activated()), this, SLOT(infoMessage()));
 
+    connect(shortcut, SIGNAL(activated()), this, SLOT(infoMessage()));
     connect(help_button, &QPushButton::clicked, this, &Botonera::infoMessage);
 }
 

@@ -11,11 +11,7 @@ zone_threat::zone_threat(Botonera *b)
     QList<Boton*> logic_buttons = *new QList<Boton*>;
     QList<QPushButton*> gui_buttons = this->findChildren<QPushButton*>();
 
-    QList<QString> labels = {"12_sec",
-                             "30_sec",
-                             "6_min",
-                             "15_min",
-                             "reset"};
+    QList<QString> labels = {"12_sec","30_sec","6_min","15_min","reset"};
 
     for(int i=1; i<=5;i++){
         auto *logic_button = new Boton(this,labels[i-1]);
@@ -40,18 +36,15 @@ void zone_threat::sendMessage()
      miBotonera->sendMessage();
 }
 
-QString zone_threat::getName()
-{
+QString zone_threat::getName(){
     return "THREAT";
 }
 
-zone_threat::~zone_threat()
-{
+zone_threat::~zone_threat(){
     delete ui;
 }
 
-void zone_threat::on_THREAT_MIN_toggled(bool checked)
-{
+void zone_threat::on_THREAT_MIN_toggled(bool checked){
     if (checked){
         ui->THREAT_12SEC->setChecked(false);
         ui->THREAT_30SEC->setChecked(false);
@@ -59,9 +52,7 @@ void zone_threat::on_THREAT_MIN_toggled(bool checked)
     }
 }
 
-
-void zone_threat::on_THREAT_6MIN_toggled(bool checked)
-{
+void zone_threat::on_THREAT_6MIN_toggled(bool checked){
     if (checked){
         ui->THREAT_12SEC->setChecked(false);
         ui->THREAT_30SEC->setChecked(false);
@@ -70,8 +61,7 @@ void zone_threat::on_THREAT_6MIN_toggled(bool checked)
 }
 
 
-void zone_threat::on_THREAT_30SEC_toggled(bool checked)
-{
+void zone_threat::on_THREAT_30SEC_toggled(bool checked){
     if (checked){
         ui->THREAT_12SEC->setChecked(false);
         ui->THREAT_MIN->setChecked(false);
@@ -80,8 +70,7 @@ void zone_threat::on_THREAT_30SEC_toggled(bool checked)
 }
 
 
-void zone_threat::on_THREAT_12SEC_toggled(bool checked)
-{
+void zone_threat::on_THREAT_12SEC_toggled(bool checked){
     if (checked){
         ui->THREAT_MIN->setChecked(false);
         ui->THREAT_30SEC->setChecked(false);

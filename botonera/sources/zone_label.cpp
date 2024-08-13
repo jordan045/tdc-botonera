@@ -10,18 +10,13 @@ zone_label::zone_label(Botonera *b)
     miBotonera = b;
     QList<Boton*> logic_buttons = *new QList<Boton*>;
     QList<QPushButton*> gui_buttons = this->findChildren<QPushButton*>();
-    QList<QString> labels = {"ms",
-                             "trkm",
-                             "ampl_info",
-                             "link_stat",
-                             "tn"};
+    QList<QString> labels = {"ms","trkm","ampl_info","link_stat","tn"};
 
     for(int i = 1;i<=5;i++){
         auto *logic_button = new Boton(this,labels[i-1]);
         logic_buttons.append(logic_button);
         QObject::connect(gui_buttons[i-1], &QPushButton::toggled, logic_button, &Boton::interact);
     }
-
 }
 
 zone_label::~zone_label(){

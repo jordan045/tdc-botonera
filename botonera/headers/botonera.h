@@ -40,16 +40,13 @@ public:
     void sendCodeToDisplayMode(QString *boton);
     void sendCodeToDisplaySelection(QString *boton);
     void sendCodeToIcm(QString *boton);
-
     void sendMessage();
-
     Estado *getEstado();
     QString getOverlay();
     
 public slots:
     void start(int tipo);
     void infoMessage();
-
 
 private:
    zone_range *range_widget;
@@ -61,13 +58,9 @@ private:
    zone_center *center_widget;
    zone_icm *icm_widget;
    FormatConcentrator *concentrator;
-
    QShortcut *shortcut;
-
    Estado *miEstado;
    int modo;
-
-
 };
 
 #endif // BOTONERA_H

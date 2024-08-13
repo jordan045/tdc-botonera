@@ -1,4 +1,4 @@
-#include "headers/boton.h"
+#include "boton.h"
 
 Boton::Boton(Zone *z, QString codigo, QObject *parent): QObject(parent) {
     this->codigo = codigo;
@@ -21,7 +21,6 @@ void Boton::sendMessage(){
 void Boton::setState(bool state){
     this->state = state;
 }
-
 
 void Boton::interact(){
     if(!state){

@@ -1,9 +1,7 @@
 #include "estado.h"
 
-
 Estado::Estado(Botonera *b)
 {
-
     miBotonera = b;
 
     this->range             = *new QString("");
@@ -42,11 +40,8 @@ void Estado::removeDisplayMode(QString *codigo){
 }
 void Estado::removeDisplaySelection(QString *codigo){
     QStringList estado = this->displaySelection.split(" ", Qt::SkipEmptyParts);
-
-    if (estado.contains(*codigo)) {
+    if (estado.contains(*codigo))
         estado.removeAll(*codigo);
-    }
-
     this->displaySelection = estado.join(" ");
     refresh();
 }
@@ -66,19 +61,18 @@ void Estado::removeRange(QString *codigo){
     refresh();
 }
 
-
-QString Estado::getLabel(){return label;}
-QString Estado::getQEK(){return qek;}
-QString Estado::getThreat(){return threat;}
-QString Estado::getCenter(){return center;}
-QString Estado::getDisplayMode(){return displayMode;}
-QString Estado::getICM(){return icm;}
-QString Estado::getModos(){return displayMode;}
-QString Estado::getOverlay(){return overlay;}
-QString Estado::getQekIzq(){return qek;}
-QString Estado::getQekDer(){return qek;}
-QString Estado::getDisplaySelection(){return displaySelection;}
-QString Estado::getRange(){return range;}
+QString Estado::getLabel(){             return label;}
+QString Estado::getQEK(){               return qek;}
+QString Estado::getThreat(){            return threat;}
+QString Estado::getCenter(){            return center;}
+QString Estado::getDisplayMode(){       return displayMode;}
+QString Estado::getICM(){               return icm;}
+QString Estado::getModos(){             return displayMode;}
+QString Estado::getOverlay(){           return overlay;}
+QString Estado::getQekIzq(){            return qek;}
+QString Estado::getQekDer(){            return qek;}
+QString Estado::getDisplaySelection(){  return displaySelection;}
+QString Estado::getRange(){             return range;}
 
 void Estado::setLabel(QString *s){
     s->append(" ");
@@ -111,11 +105,9 @@ void Estado::setICM(QString *s){
     refresh();
 }
 void Estado::setDisplaySelection(QString *s){
-    // Asegúrate de que displaySelection termine con un espacio si no está vacío.
     if (!this->displaySelection.isEmpty() && !this->displaySelection.endsWith(" ")) {
         this->displaySelection.append(" ");
     }
-
     this->displaySelection.append(*s);
     refresh();
 }
@@ -129,30 +121,6 @@ void Estado::refresh()
 {
     QDateTime date = QDateTime::currentDateTime();
     QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
-    QByteArray formattedTimeMsg = formattedTime.toLocal8Bit();
-
-    // // Variable estática para almacenar la ruta del archivo
-    // static QString mensajeFilePath;
-
-    // // Solo calcular la ruta si no ha sido inicializada
-    // if (mensajeFilePath.isEmpty()) {
-    //     QDir dir(QDir::currentPath());
-    //     dir.cdUp();
-    //     dir.cdUp();
-    //     dir.cd("mensajesFC");
-    //     mensajeFilePath = dir.absolutePath() + "/mensajes.txt";
-    // }
-
-    // QFile mensajeFile(mensajeFilePath);
-
-    // if(!mensajeFile.open(QIODevice::Append | QIODevice::Text))
-    // {
-    //     mensajeFile.close();
-    //     qDebug()<<"ERRROORR al abrir el mensajee";
-    // }
-    // else qDebug()<<"se abrio correctamente el archivo de texto";
-
-    // QTextStream out(&mensajeFile);
 
     qDebug()      << "---------------------- " << formattedTime << " -----------------------";
     qDebug()      << "\nRange Scale:\t " << range
@@ -164,6 +132,5 @@ void Estado::refresh()
                     << "\nDisplay Selection:\t " << displaySelection
                     << "\nICM:\t\t " << icm
                     << "\n";
-    // mensajeFile.close();
 }
 

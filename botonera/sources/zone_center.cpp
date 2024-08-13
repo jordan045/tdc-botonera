@@ -11,25 +11,17 @@ zone_center::zone_center(Botonera *b)
     QList<QPushButton*> gui_buttons = this->findChildren<QPushButton*>();
     QList<Boton*> logic_buttons = *new QList<Boton*>;
 
-    QList<QString> labels = {"CU_OR_OFF_CENT",
-                             "CU_OR_CENT",
-                             "OFF_CENT",
-                             "CENT",
-                             "RESET_OBM",
-                             "DATA_REQ"};
+    QList<QString> labels = {"CU_OR_OFF_CENT","CU_OR_CENT","OFF_CENT","CENT","RESET_OBM","DATA_REQ"};
 
     for(int i=1;i<=6;i++){
         auto *logic_button = new Boton(this,labels[i-1]);
         logic_buttons.append(logic_button);
         QObject::connect(gui_buttons[i-1], &QPushButton::pressed, logic_button, &Boton::interact);
         QObject::connect(gui_buttons[i-1], &QPushButton::released, logic_button, &Boton::interact);
-
     }
-
 }
 
-zone_center::~zone_center()
-{
+zone_center::~zone_center(){
     delete ui;
 }
 
@@ -41,12 +33,10 @@ void zone_center::removeCode(QString code){
     miBotonera->removeCodeFromCenter(&code);
 }
 
-void zone_center::sendMessage()
-{
+void zone_center::sendMessage(){
     miBotonera->sendMessage();
 }
 
-QString zone_center::getName()
-{
+QString zone_center::getName(){
     return "CENTER";
 }

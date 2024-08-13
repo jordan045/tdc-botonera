@@ -246,9 +246,7 @@ void FormatConcentrator::leerJson()
         archivo = Document.object();
     }
     else
-    {
         qDebug()<<"Hubo un error, no se abrio el archivo";
-    }
 }
 
 

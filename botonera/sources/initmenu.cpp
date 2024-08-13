@@ -23,7 +23,7 @@ InitMenu::InitMenu(QWidget *parent) :
     // Lee el archivo JSON con la información de los overlays
     QFile file(":/json/json/overlay.json");
     if (!file.open(QIODevice::ReadOnly)) {
-        reply = QMessageBox::warning(this, "Error al abrir", "No se pudo abrir el archivo de configuración de overlay.");
+        reply = QMessageBox::warning(this, "Error", "No se pudo abrir el archivo de configuración de overlay.");
         if (reply == QMessageBox::Ok)
             QCoreApplication::exit(0);
     }
@@ -33,7 +33,7 @@ InitMenu::InitMenu(QWidget *parent) :
     QString JsonFilePath = ":/json/json/properties.json";
     QFile File(JsonFilePath);
     if (!File.open(QIODevice::ReadOnly)) {
-        reply2 = QMessageBox::warning(this, "ERROR LECTURA DE ARCHIVO", "Hubo un error, no se abrió el archivo de propiedades");
+        reply2 = QMessageBox::warning(this, "Error", "Hubo un error, no se abrió el archivo de propiedades");
         if (reply2 == QMessageBox::Ok) {
             QCoreApplication::exit(0);
         }
@@ -48,7 +48,6 @@ InitMenu::InitMenu(QWidget *parent) :
         qWarning("El documento JSON no es un objeto.");
         return;
     }
-
     QJsonObject mainObj = document.object();
 
     // Verificar si el objeto contiene un array llamado "overlay"
@@ -56,18 +55,15 @@ InitMenu::InitMenu(QWidget *parent) :
         qWarning("El objeto JSON no contiene un array 'overlay'.");
         return;
     }
-
     QJsonArray jsonArray = mainObj["overlay"].toArray();
 
     Ui::InitMenu ui;
     ui.setupUi(this);
 
-    int countY = 0;
-    int countX = 0;
-
+    //Crear interfaz
+    int countY = 0; int countX = 0;
     QButtonGroup *group = new QButtonGroup();
     group->setExclusive(true);
-
     // Crear botones a partir del JSON
     for (const QJsonValue &value : jsonArray) {
         QJsonObject obj = value.toObject();
@@ -99,7 +95,7 @@ InitMenu::InitMenu(QWidget *parent) :
     // Convertir "tipo" a int
     int tipoBuque = mainObj["tipo"].toString().toInt();
 
-    QObject::connect(ui.continue_button, &QPushButton::clicked, [this, group, tipoBuque]() {
+    QObject::connect(ui.continue_button, &QPushButton::clicked, this, [this, group, tipoBuque]() {
         auto overlay = group->checkedButton()->objectName();
         miBotonera->setOverlay(overlay);
         miBotonera->start(tipoBuque);
