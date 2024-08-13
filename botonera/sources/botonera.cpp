@@ -159,9 +159,10 @@ void Botonera::start(int tipo)
                                "QPushButton:hover {background-color: rgba(0,0,0,0);}"
                                "QPushButton {width: 40px; height: 40px;}");
 
+    help_button->setToolTip("Ayuda");
+
     QPushButton *buddy_button = new QPushButton();
     buddy_button->setFlat(true);
-
 
     QHBoxLayout *top_layout = new QHBoxLayout();
     QVBoxLayout *outer_layout = new QVBoxLayout();
@@ -205,20 +206,20 @@ void Botonera::infoMessage(){
     msg.setWindowTitle("ATAJOS DE TECLADO");
     QString text = "<table style='border-collapse: collapse;'>"
                    "<tr><td style='text-align: left; padding: 8px;'>WIPE</td><td style='text-align: right; padding: 8px;'>Ctrl+R</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>CLOSE/CONTROL</td><td style='text-align: right; padding: 8px;'>Ctrl+E</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>CLOSE CONTROL</td><td style='text-align: right; padding: 8px;'>Ctrl+E</td></tr>"
                    "<tr><td style='text-align: left; padding: 8px;'>CORRECT</td><td style='text-align: right; padding: 8px;'>Ctrl+W</td></tr>"
                    "<tr><td style='text-align: left; padding: 8px;'>NEXT TRACK</td><td style='text-align: right; padding: 8px;'>Ctrl+Q</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>Data_Req</td><td style='text-align: right; padding: 8px;'>Ctrl+D</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>Center</td><td style='text-align: right; padding: 8px;'>Ctrl+S</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>Off_Cent</td><td style='text-align: right; padding: 8px;'>Ctrl+A</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>RANGE 2</td><td style='text-align: right; padding: 8px;'>F2</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>RANGE 4</td><td style='text-align: right; padding: 8px;'>F3</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>RANGE 8</td><td style='text-align: right; padding: 8px;'>F4</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>RANGE 16</td><td style='text-align: right; padding: 8px;'>F5</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>RANGE 32</td><td style='text-align: right; padding: 8px;'>F6</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>RANGE 64</td><td style='text-align: right; padding: 8px;'>F7</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>RANGE 128</td><td style='text-align: right; padding: 8px;'>F8</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>RANGE 256</td><td style='text-align: right; padding: 8px;'>F9</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>DATA REQUEST</td><td style='text-align: right; padding: 8px;'>Ctrl+D</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>CENTER</td><td style='text-align: right; padding: 8px;'>Ctrl+S</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>OFF CENTER</td><td style='text-align: right; padding: 8px;'>Ctrl+A</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>2 DM</td><td style='text-align: right; padding: 8px;'>F2</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>4 DM</td><td style='text-align: right; padding: 8px;'>F3</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>8 DM</td><td style='text-align: right; padding: 8px;'>F4</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>16 DM</td><td style='text-align: right; padding: 8px;'>F5</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>32 DM</td><td style='text-align: right; padding: 8px;'>F6</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>64 DM</td><td style='text-align: right; padding: 8px;'>F7</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>128 DM</td><td style='text-align: right; padding: 8px;'>F8</td></tr>"
+                   "<tr><td style='text-align: left; padding: 8px;'>256 DM</td><td style='text-align: right; padding: 8px;'>F9</td></tr>"
 
                    "</table>";
     msg.setText(text);

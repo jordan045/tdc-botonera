@@ -229,6 +229,9 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/EMERG_pressed.p
         <height>50</height>
        </size>
       </property>
+      <property name="toolTip">
+       <string/>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {image: url(':/display_mode/img/Display Mode/SYST_ALARM.png')}
 QPushButton:checked {image: url(':/display_mode/img/Display Mode/SYST_ALARM_pressed.png')}</string>
