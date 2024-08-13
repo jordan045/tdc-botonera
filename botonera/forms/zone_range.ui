@@ -99,6 +99,9 @@ QPushButton:checked {image: url(:/range/img/Range/2_pressed.png)}</string>
     </item>
     <item>
      <widget class="QPushButton" name="RANGE_004">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>

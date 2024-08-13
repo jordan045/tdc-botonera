@@ -2,54 +2,28 @@
 #include "estado.h"
 #include "qjsondocument.h"
 #include <QFile>
-#include<QDebug>
+#include <QDebug>
+
+//Setear en true para generar los logs
+#define LOG true
+
+#define WORD_SIZE 24
+#define WORD_COUNT 8
 
 FormatConcentrator::FormatConcentrator()
 {
-    message = new QBitArray(216);
-    /*
-    word1 = new QBitArray(24);
-    word2 = new QBitArray(48);
-    word3 = new QBitArray(72);
-    word4 = new QBitArray(96);
-    word5 = new QBitArray(120);
-    word6 = new QBitArray(144);
-    word7 = new QBitArray(168);
-    word8 = new QBitArray(192);
-    word9 = new QBitArray(216);
-    */
+    message = new QBitArray(WORD_COUNT * WORD_SIZE);
     leerJson();
 }
 
 QBitArray* FormatConcentrator::getMessage(Estado *estado)
 {
-    //qDebug()<<"Me llamaron en concentrator";
     setMessage(estado);
-    //qDebug()<<"TODO OK en FC";
     return message;
 }
 
 void FormatConcentrator::setMessage(Estado *estado)
 {
-
-    /*
-    setWord1(estado);
-    qDebug()<< "palabra 1 " << word1[0];
-
-    setWord2(estado);
-    qDebug()<< "palabra 2 " <<word2[0];
-
-    //setWord3(estado);
-    setWord4(estado);
-    qDebug()<<"palabra 4" <<word4[0];
-    setWord5(estado);
-    qDebug()<<"palabra 5:"<<word5[0];
-
-    setWord6(estado);
-    setWord7(estado);
-    setWord8(estado);
-    setWord9(estado);
-    juntar();*/
     setRange(estado);
     setDisplaySelection(estado);
     setThreat(estado);
@@ -59,127 +33,79 @@ void FormatConcentrator::setMessage(Estado *estado)
     setICM(estado);
     setOverlay(estado);
 
-    guardarMensaje(estado);
-
-    // qDebug()<< "palabraCompleta: "<<message[0];
-
-
-    // QString mensajeFilePath = ":/mensajesFC/mensajes.txt";
-    // QFile mensajeFile(mensajeFilePath);
-
-    //TdqDebug()<< "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << dir->absolutePath();
-
-
-    //qDebug() << "Working Directory: " << QDir::currentPath();
-
-
-    // mensajeFile.close();
-
-    //setRange(estado);
-    //qDebug()<<"TODO OK FC setMessage";
+    //Crear el log si la flag esta activa
+    if(LOG)
+        guardarMensaje(estado);
 }
-// PALABRA 1//
+
 void FormatConcentrator::setRange(Estado *estado)
 {
-    // RANGO
     QStringList wordListRange = estado->getRange().split(" ", Qt::SkipEmptyParts);
 
-    // Itera sobre cada palabra en la lista de palabras
     foreach(const QString &word, wordListRange) {
-        qDebug() << "Procesando palabra:" << word;
-
-        // Obtiene el objeto JSON "range_scale" del archivo
         QJsonObject rango = archivo["range_scale"].toObject();
-
-        // Depuración: Muestra el rango actual
-        qDebug() << "Rango obtenido del estado:" << estado->getRange();
-
-        // Obtiene el objeto JSON asociado a la palabra actual
         QJsonObject rangoActual = rango[word].toObject();
-
-        // Obtiene el valor asociado a la palabra actual en forma de cadena
         QString palabraRango = rangoActual["value"].toString();
-
-        // Depuración: Muestra el valor de rango obtenido
-        qDebug() << "Valor de rango:" << palabraRango;
 
         // Inicializa un índice para establecer los bits
         int i = 23;
-
-        // Itera sobre cada carácter en la cadena de valor de rango
         for(QChar caracter : palabraRango) {
-            // Si el carácter es '1', establece el bit correspondiente a verdadero
             if(caracter == '1') {
                 message->setBit(i, true);
             } else {
-                // Si el carácter no es '1', establece el bit correspondiente a falso
                 message->setBit(i, false);
             }
-            // Decrementa el índice
             i--;
-
         }
     }
 }
-    void FormatConcentrator::setDisplaySelection(Estado *estado)
-        {
-        //DISPLAY SELECTION
-        QStringList wordListDSelection = estado->getDisplaySelection().split(" ", Qt::SkipEmptyParts);
-        // BUSCO LA POSICION COMO UN STRING Y LO TRANSFORMO EN INT.
-        //DISPLAY SELECTION
-        foreach(const QString &word,wordListDSelection){
-            qDebug() << "Procesando palabra displaySelection:" << word;
-            QJsonObject display = archivo["display_selection"].toObject();
-            QJsonObject displayActual = display[word].toObject();
-            QString posicion = displayActual["pos"].toString();
 
-            message->setBit(posicion.toInt(),true);
-        }
+void FormatConcentrator::setDisplaySelection(Estado *estado)
+    {
+    QStringList wordListDSelection = estado->getDisplaySelection().split(" ", Qt::SkipEmptyParts);
+    foreach(const QString &word,wordListDSelection){
+        QJsonObject display = archivo["display_selection"].toObject();
+        QJsonObject displayActual = display[word].toObject();
+        QString posicion = displayActual["pos"].toString();
+        message->setBit(posicion.toInt(),true);
     }
+}
 
 void FormatConcentrator::setThreat(Estado *estado)
 {
     QStringList wordListThreat = estado->getThreat().split(" ", Qt::SkipEmptyParts);
-    // BUSCO LA POSICION COMO UN STRING Y LO TRANSFORMO EN INT.
-    //DISPLAY SELECTION
     foreach(const QString &word,wordListThreat)
     {
-        qDebug() << "Procesando palabra ThreatAssesment:" << word;
         QJsonObject threat = archivo["threat_assesment"].toObject();
         QJsonObject threatActual = threat[word].toObject();
         QString posicion = threatActual["pos"].toString();
-
         message->setBit(posicion.toInt(),true);
     }
 }
 
 void FormatConcentrator::setCenter(Estado *estado)
 {
-    int offset = 24;
+    int offset = WORD_SIZE * 1; //Está en la primer palabra
     QStringList wordListCenter = estado->getCenter().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListCenter)
     {
-        qDebug() << "Procesando palabra Center:" << word;
         QJsonObject center = archivo["center"].toObject();
         QJsonObject centerActual = center[word].toObject();
         QString posicion = centerActual["pos"].toString();
-
         message->setBit(offset + posicion.toInt(),true);
     }
 }
+
 void FormatConcentrator::setDisplayMode(Estado *estado)
 {
-    int offset = 24;
-    int posFinal = 0;   //para probrar
+    int offset = WORD_SIZE * 1; //Está en la primer palabra
+    int posFinal = 0;
     QStringList wordListDisplayMode = estado->getDisplayMode().split(" ",Qt::SkipEmptyParts);
     foreach(const QString &word, wordListDisplayMode)
     {
-
-        qDebug() << "Procesando palabra DisplayMode:" << word;
         QJsonObject center = archivo["display_mode"].toObject();
         QJsonObject centerActual = center[word].toObject();
         QString posicion = centerActual["pos"].toString();
-        qDebug()<<"posicion: " << posicion;
         posFinal = offset+posicion.toInt();
         message->setBit(posFinal,true);
     }
@@ -187,11 +113,10 @@ void FormatConcentrator::setDisplayMode(Estado *estado)
 
 void FormatConcentrator::setQEK(Estado *estado)
 {
-    int offset = 96;
+    int offset = WORD_SIZE * 4; //Está en la cuarta palabra;
     QStringList wordListQek = estado->getCenter().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListQek)
     {
-        qDebug() << "Procesando palabra qek:" << word;
         QJsonObject qek = archivo["qek"].toObject();
         QJsonObject qekActual = qek[word].toObject();
         QString posicion = qekActual["value"].toString();
@@ -208,11 +133,11 @@ void FormatConcentrator::setQEK(Estado *estado)
     }
 }
 void FormatConcentrator::setICM(Estado *estado){
-    int offset = 119;
+    int offset = WORD_SIZE * 4; //Está en la cuarta palabra;
+    offset += 23; //Hay que llegar a la pos 119
     QStringList wordListQek = estado->getCenter().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListQek)
     {
-        qDebug() << "Procesando palabra qek:" << word;
         QJsonObject qek = archivo["qek"].toObject();
         QJsonObject qekActual = qek[word].toObject();
         QString posicion = qekActual["value"].toString();
@@ -229,7 +154,7 @@ void FormatConcentrator::setICM(Estado *estado){
 }
 void FormatConcentrator::setOverlay(Estado *estado){
 
-    int offset = 115;
+    int offset = (WORD_SIZE * 4) + 19; //115
     QString overlay = estado->getOverlay();
     for(QChar caracter:overlay)
     {
@@ -243,22 +168,27 @@ void FormatConcentrator::setOverlay(Estado *estado){
 
 void FormatConcentrator::guardarMensaje(Estado *estado)
 {
-
-    // Variable estática para almacenar la ruta del archivo
     static QFile mensajeFile;
     static QTextStream out;
     static QDateTime date;
     static QString formattedTime;
+    static QString formattedFile;
+
+    date = QDateTime::currentDateTime();
+    formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
+    formattedFile = date.toString("dd-MM-yyyy_hh-mm-ss");
+    QByteArray formattedTimeMsg = formattedTime.toLocal8Bit();
 
     // Solo calcular la ruta si no ha sido inicializada
     if (mensajeFile.fileName().isEmpty()) {
-        // Solo inicializar si el archivo no ha sido abierto aún
         QDir dir(QDir::currentPath());
         dir.cdUp();
         dir.cdUp();
         dir.cd("mensajesFC");
-        QString mensajeFilePath = dir.absolutePath() + "/mensajes.txt";
 
+        //Se generan nuevos archivos en cada ejecución con la fecha y hora
+        QString mensajeFilePath = dir.absolutePath() + "/" + formattedFile + ".log";
+        qDebug() << "Format Concentrator: Archivo de log creado en " +mensajeFilePath;
         mensajeFile.setFileName(mensajeFilePath);
 
         if (!mensajeFile.open(QIODevice::Append | QIODevice::Text)) {
@@ -267,262 +197,58 @@ void FormatConcentrator::guardarMensaje(Estado *estado)
         }
 
         out.setDevice(&mensajeFile);
-        qDebug() << "Archivo abierto correctamente: " << mensajeFilePath;
     }
-    // out << "se agrega esta linea. \n";
 
-    qDebug() << "Working Directory: " << QDir::currentPath();
-
-    date = QDateTime::currentDateTime();
-    formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
-    QByteArray formattedTimeMsg = formattedTime.toLocal8Bit();
-
-
-    out      << "---------------------- " << formattedTime << " -----------------------";
-    out      << "\nRange Scale:\t " << estado->getRange()
-        << "\nLabel Selection:\t " << estado->getLabel()
-        << "\nQEK:\t\t " << estado->getQEK()
-        << "\nThreat Assesment:\t " << estado->getThreat()
-        << "\nCenter:\t\t " << estado->getCenter()
-        << "\nDisplay Mode:\t " << estado->getDisplayMode()
-        << "\nDisplay Selection:\t " << estado->getDisplaySelection()
-        << "\nICM:\t\t " << estado->getICM()
-        << "\n";
+    out     << "---------------------- " << formattedTime << " -----------------------";
+    out     << "\nRS:\t " << "-" << estado->getRange()              << "-"
+            << "\nLS:\t " << "-" << estado->getLabel()              << "-"
+            << "\nQE:\t " << "-" << estado->getQEK()                << "-"
+            << "\nTA:\t " << "-" << estado->getThreat()             << "-"
+            << "\nCE:\t " << "-" << estado->getCenter()             << "-"
+            << "\nDM:\t " << "-" << estado->getDisplayMode()        << "-"
+            << "\nDS:\t " << "-" << estado->getDisplaySelection()   << "-"
+            << "\nIC:\t " << "-" << estado->getICM()                << "-"
+            << "\n\n";
 
     QString bitString;
 
     for (int i = 0; i < message->size(); ++i) {
         bitString.append(message->testBit(i) ? '1' : '0');
     }
-    int segmentLength = 24; // Longitud de cada segmento
+
+    int segmentLength = 4; // Longitud de cada segmento
     int totalSegments = bitString.size() / segmentLength; // Número total de segmentos
 
     for (int i = 0; i < totalSegments; ++i) {
         QString segment = bitString.mid(i * segmentLength, segmentLength);
-        out << segment << "\n";
+        out << segment << " ";
+        if(i % 6 == 5)
+            out << "\n";
     }
-    out<<"mensaje Concentrator";
-    out<<"\n";
-
-}
-/*
-void FormatConcentrator::setWord1(Estado *estado)
-{
-    // RANGO
-
-    QStringList wordListRange = estado->getRange().split(" ", Qt::SkipEmptyParts);
-
-    // Itera sobre cada palabra en la lista de palabras
-    foreach(const QString &word, wordListRange) {
-        qDebug() << "Procesando palabra:" << word;
-
-        // Obtiene el objeto JSON "range_scale" del archivo
-        QJsonObject rango = archivo["range_scale"].toObject();
-
-        // Depuración: Muestra el rango actual
-        qDebug() << "Rango obtenido del estado:" << estado->getRange();
-
-        // Obtiene el objeto JSON asociado a la palabra actual
-        QJsonObject rangoActual = rango[word].toObject();
-
-        // Obtiene el valor asociado a la palabra actual en forma de cadena
-        QString palabraRango = rangoActual["value"].toString();
-
-        // Depuración: Muestra el valor de rango obtenido
-        qDebug() << "Valor de rango:" << palabraRango;
-
-        // Inicializa un índice para establecer los bits
-        int i = 23;
-
-        // Itera sobre cada carácter en la cadena de valor de rango
-        for(QChar caracter : palabraRango) {
-            // Si el carácter es '1', establece el bit correspondiente a verdadero
-            if(caracter == '1') {
-                word1->setBit(i, true);
-            } else {
-                // Si el carácter no es '1', establece el bit correspondiente a falso
-                word1->setBit(i, false);
-            }
-            // Decrementa el índice
-            i--;
-
-        }
-    }
-    //DISPLAY SELECTION
-
-    QStringList wordListDSelection = estado->getDisplaySelection().split(" ", Qt::SkipEmptyParts);
-    // BUSCO LA POSICION COMO UN STRING Y LO TRANSFORMO EN INT.
-    //DISPLAY SELECTION
-    foreach(const QString &word,wordListDSelection)
-    {
-        qDebug() << "Procesando palabra displaySelection:" << word;
-        QJsonObject display = archivo["display_selection"].toObject();
-        QJsonObject displayActual = display[word].toObject();
-        QString posicion = displayActual["pos"].toString();
-
-        word1->setBit(posicion.toInt(),true);
-    }
-
-    //THREATASSESMENT
-    QStringList wordListThreatAss = estado->getThreat().split(" ", Qt::SkipEmptyParts);
-    // BUSCO LA POSICION COMO UN STRING Y LO TRANSFORMO EN INT.
-    foreach(const QString &word,wordListThreatAss)
-    {
-        qDebug() << "Procesando palabra ThreatAssesment:" << word;
-        QJsonObject threat = archivo["threat_assesment"].toObject();
-        QJsonObject threatActual = threat[word].toObject();
-        QString posicion = threatActual["pos"].toString();
-
-        word1->setBit(posicion.toInt(),true);
-    }
+    out<<"\n\n";
 }
 
-void FormatConcentrator::setWord2(Estado *estado)
-{
-    int offset = 24;
-    //CENTER
-    QStringList wordListCenter = estado->getCenter().split(" ", Qt::SkipEmptyParts);
-    foreach(const QString &word,wordListCenter)
-    {
-        qDebug() << "Procesando palabra Center:" << word;
-        QJsonObject center = archivo["center"].toObject();
-        QJsonObject centerActual = center[word].toObject();
-        QString posicion = centerActual["pos"].toString();
-
-        word2->setBit(offset + posicion.toInt(),true);
-    }
-
-    //DISPLAY SELECTION
-    QStringList wordListDisplayMode = estado->getDisplayMode().split(" ",Qt::SkipEmptyParts);
-    foreach(const QString &word, wordListDisplayMode)
-    {
-
-        qDebug() << "Procesando palabra DisplayMode:" << word;
-        QJsonObject center = archivo["display_mode"].toObject();
-        QJsonObject centerActual = center[word].toObject();
-        QString posicion = centerActual["pos"].toString();
-
-        word2->setBit(offset + posicion.toInt(),true);
-    }
-}
-
-void FormatConcentrator::setWord3(Estado *estado)
-{
-
-}
-
-void FormatConcentrator::setWord4(Estado *estado)
-{
-    int offset = 72;
-    QStringList wordListQek = estado->getCenter().split(" ", Qt::SkipEmptyParts);
-    foreach(const QString &word,wordListQek)
-    {
-        qDebug() << "Procesando palabra qek:" << word;
-        QJsonObject qek = archivo["qek"].toObject();
-        QJsonObject qekActual = qek[word].toObject();
-        QString posicion = qekActual["value"].toString();
-
-        int i = offset-1;
-        for(QChar caracter:posicion)
-        {
-            if(caracter == '1')
-                word4->setBit(i,true);
-            else
-                word4->setBit(i,false);
-            i--;
-        }
-    }
-}
-
-void FormatConcentrator::setWord5(Estado *estado)
-{
-    int offset = 119;
-    QStringList wordListICM = estado->getICM().split(" ",Qt::SkipEmptyParts);
-    foreach(const QString &word, wordListICM)
-    {
-
-        qDebug() << "Procesando palabra ICM:" << word;
-        QJsonObject center = archivo["icm"].toObject();
-        QJsonObject centerActual = center[word].toObject();
-        QString valor = centerActual["value"].toString();
-
-        for(QChar caracter:valor)
-        {
-            if(caracter == '1')
-                word5->setBit(offset,true);
-            else
-                word5->setBit(offset,false);
-            offset--;
-        }
-    }
-    word5->setBit(offset,false);
-    offset--;
-
-    //OVERLAY
-    QString overlay = estado->getOverlay();
-    for(QChar caracter:overlay)
-    {
-        if (caracter == '1')
-            word5->setBit(offset,true);
-        else
-            word5->setBit(offset,false);
-        offset--;
-    }
-}
-
-void FormatConcentrator::setWord6(Estado *estado)
-{
-
-}
-
-void FormatConcentrator::setWord7(Estado *estado)
-{
-
-}
-
-void FormatConcentrator::setWord8(Estado *estado)
-{
-
-}
-
-void FormatConcentrator::setWord9(Estado *estado)
-{
-
-}
-*/
 void FormatConcentrator::leerJson()
 {
     QString JsonFilePath = ":/json/json/properties.json";
-    qDebug()<<"Se llamo a leer json";
     QFile File(JsonFilePath);
     if(File.open(QIODevice::ReadOnly))
     {
-         QByteArray Bytes = File.readAll();
+        QByteArray Bytes = File.readAll();
         File.close();
-         qDebug()<<"Json has open correctly";
-         QJsonParseError JsonError;
+        QJsonParseError JsonError;
         QJsonDocument Document = QJsonDocument::fromJson(Bytes,&JsonError);
-         if(JsonError.error != QJsonParseError::NoError)
-        {
+        if(JsonError.error != QJsonParseError::NoError){
             qDebug()<<"ERROR in Json Data";
             return;
         }
-        else
-         {
-             qDebug()<<"No Any Error in Json Data";
-         }
         if(Document.isObject())
-         archivo = Document.object();
+        archivo = Document.object();
     }
     else
     {
         qDebug()<<"Hubo un error, no se abrio el archivo";
     }
 }
-/*
-void FormatConcentrator::juntar()
-{
-    *message = *word1|*word2|*word3|*word4|*word5|*word6|*word7|*word8|*word9;
-}
-*/
+
 

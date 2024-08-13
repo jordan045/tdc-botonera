@@ -8,11 +8,8 @@ zone_threat::zone_threat(Botonera *b)
 {
     ui->setupUi(this);
     miBotonera = b;
-    //QList<QPushButton*>  gui_buttons = *new QList<QPushButton*>;
     QList<Boton*> logic_buttons = *new QList<Boton*>;
     QList<QPushButton*> gui_buttons = this->findChildren<QPushButton*>();
-    //QButtonGroup *threat_group = new QButtonGroup();
-    //auto layout = new QVBoxLayout;
 
     QList<QString> labels = {"12_sec",
                              "30_sec",
@@ -21,27 +18,9 @@ zone_threat::zone_threat(Botonera *b)
                              "reset"};
 
     for(int i=1; i<=5;i++){
-        //auto *gui_button = new QPushButton("",this);
         auto *logic_button = new Boton(this,labels[i-1]);
-
-        //gui_button->setFlat(true);
-        //threat_group->addButton(gui_button,i);
-
-        //layout->addWidget(gui_button);
-
-        //gui_button->setCheckable(true);
-
-        //gui_buttons.append(gui_button);
         logic_buttons.append(logic_button);
-
         QObject::connect(gui_buttons[i-1], &QPushButton::toggled, logic_button, &Boton::interact);
-
-        //QString style = QString("QPushButton {image: url(':/threat/img/Threat/%1.png')}"
-        //                        "QPushButton:checked {image: url(':/threat/img/Threat/%1_pressed.png')}").arg(labels[i-1]);
-
-        //gui_button->setStyleSheet(style);
-
-        qDebug()<<"LISTO: " << labels[i-1] << i;
     }
 
 }

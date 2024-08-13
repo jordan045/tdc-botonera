@@ -15,8 +15,11 @@ void Boton::setCodigo(QString n){
 }
 
 void Boton::sendMessage(){
-    qDebug()<<"me active en boton";
     this->zona->sendMessage();
+}
+
+void Boton::setState(bool state){
+    this->state = state;
 }
 
 

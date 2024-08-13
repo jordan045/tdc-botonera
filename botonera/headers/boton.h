@@ -18,6 +18,7 @@ public slots:
     void interact();
     //Borrar es solo para probar si se genera el mensaje
     void sendMessage();
+    void setState(bool);
 
 private:
     bool state;

@@ -18,7 +18,6 @@ Estado::Estado(Botonera *b)
 
 void Estado::setOverlay(QString codigo){
     overlay = codigo;
-    qDebug()<<"Set overlay en estado"<<overlay;
 }
 
 void Estado::removeIcm(QString *codigo){
@@ -37,7 +36,6 @@ void Estado::removeThreat(QString *codigo){
     refresh();
 }
 void Estado::removeDisplayMode(QString *codigo){
-    qDebug() << "Borramos" << *codigo;
     codigo->append(" ");
     this->displayMode.remove(*codigo);
     refresh();
@@ -83,44 +81,36 @@ QString Estado::getDisplaySelection(){return displaySelection;}
 QString Estado::getRange(){return range;}
 
 void Estado::setLabel(QString *s){
-    qDebug() <<"Setting Label";
     s->append(" ");
     this->label.append(*s);
     refresh();
 }
 void Estado::setQEK(QString *s){
-    qDebug() << "Setting QEK";
     this->qek.append(*s);
     this->qek.append(" ");
     refresh();
 }
 void Estado::setThreat(QString *s){
-    qDebug() << "Setting Threat";
     s->append(" ");
     this->threat.append(*s);
     refresh();
 }
 void Estado::setCenter(QString *s){
-    qDebug() << "Setting Center";
     s->append(" ");
     this->center.append(*s);
     refresh();
 }
 void Estado::setDisplayMode(QString *s){
-    qDebug() << "Setting Display Mode";
     s->append(" ");
     this->displayMode.append(*s);
     refresh();
 }
 void Estado::setICM(QString *s){
-    qDebug() << "Setting ICM";
     s->append(" ");
     this->icm.append(*s);
     refresh();
 }
 void Estado::setDisplaySelection(QString *s){
-    qDebug() << "Setting DisplaySelection";
-
     // Asegúrate de que displaySelection termine con un espacio si no está vacío.
     if (!this->displaySelection.isEmpty() && !this->displaySelection.endsWith(" ")) {
         this->displaySelection.append(" ");
@@ -130,7 +120,6 @@ void Estado::setDisplaySelection(QString *s){
     refresh();
 }
 void Estado::setRange(QString *s){
-    qDebug() << "Setting RANGE";
     s->append(" ");
     this->range.append(*s);
     refresh();
@@ -138,9 +127,9 @@ void Estado::setRange(QString *s){
 
 void Estado::refresh()
 {
-    // QDateTime date = QDateTime::currentDateTime();
-    // QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
-    // QByteArray formattedTimeMsg = formattedTime.toLocal8Bit();
+    QDateTime date = QDateTime::currentDateTime();
+    QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
+    QByteArray formattedTimeMsg = formattedTime.toLocal8Bit();
 
     // // Variable estática para almacenar la ruta del archivo
     // static QString mensajeFilePath;
@@ -165,16 +154,16 @@ void Estado::refresh()
 
     // QTextStream out(&mensajeFile);
 
-    // out      << "---------------------- " << formattedTime << " -----------------------";
-    // out      << "\nRange Scale:\t " << range
-    //     << "\nLabel Selection:\t " << label
-    //     << "\nQEK:\t\t " << qek
-    //     << "\nThreat Assesment:\t " << threat
-    //     << "\nCenter:\t\t " << center
-    //     << "\nDisplay Mode:\t " << displayMode
-    //     << "\nDisplay Selection:\t " << displaySelection
-    //     << "\nICM:\t\t " << icm
-    //     << "\n";
+    qDebug()      << "---------------------- " << formattedTime << " -----------------------";
+    qDebug()      << "\nRange Scale:\t " << range
+                    << "\nLabel Selection:\t " << label
+                    << "\nQEK:\t\t " << qek
+                    << "\nThreat Assesment:\t " << threat
+                    << "\nCenter:\t\t " << center
+                    << "\nDisplay Mode:\t " << displayMode
+                    << "\nDisplay Selection:\t " << displaySelection
+                    << "\nICM:\t\t " << icm
+                    << "\n";
     // mensajeFile.close();
 }
 

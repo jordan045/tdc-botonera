@@ -1,25 +1,25 @@
-#include "headers/botonera.h"
-#include "headers/overlay_140_0001.h"
-#include "headers/overlay_140_0010.h"
-#include "headers/overlay_140_0011.h"
-#include "headers/overlay_140_0100.h"
-#include "headers/zone_label.h"
-#include "headers/zone_range.h"
-#include "headers/zone_displayselection.h"
+#include "botonera.h"
+#include "overlay_140_0001.h"
+#include "overlay_140_0010.h"
+#include "overlay_140_0011.h"
+#include "overlay_140_0100.h"
+#include "zone_label.h"
+#include "zone_range.h"
+#include "zone_displayselection.h"
 #include "qmessagebox.h"
-#include "headers/zone_threat.h"
+#include "zone_threat.h"
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QDebug>
 #include <QShortcut>
-#include "headers/overlay_360_0001.h"
-#include "headers/overlay_360_0010.h"
-#include "headers/overlay_360_0011.h"
-#include "headers/overlay_360_0100.h"
-#include "headers/overlay_360_0101.h"
-#include "headers/overlay_360_0110.h"
-#include "headers/overlay_360_0111.h"
-#include "headers/overlay_360_1000.h"
+#include "overlay_360_0001.h"
+#include "overlay_360_0010.h"
+#include "overlay_360_0011.h"
+#include "overlay_360_0100.h"
+#include "overlay_360_0101.h"
+#include "overlay_360_0110.h"
+#include "overlay_360_0111.h"
+#include "overlay_360_1000.h"
 
 Botonera::Botonera(QWidget *parent) :
     QWidget(parent)
@@ -38,7 +38,6 @@ Botonera::Botonera(QWidget *parent) :
 void Botonera::setOverlay(QString codigo)
 {
     miEstado->setOverlay(codigo);
-    qDebug()<<"SetOverlay en Botonera"<<codigo;
 }
 void Botonera::setmodo(int i)
 {
@@ -116,9 +115,7 @@ void Botonera::sendCodeToIcm(QString *boton)
 
 void Botonera::sendMessage()
 {
-    //qDebug()<<"Me tocaron en botonera";
     concentrator->getMessage(miEstado);
-    //qDebug()<<"TODO OK en botonera";
 }
 
 QString Botonera::getOverlay(){
@@ -128,7 +125,6 @@ QString Botonera::getOverlay(){
 void Botonera::start(int tipo)
 {
     int overlay = getOverlay().toInt();
-    qDebug() << overlay;
     if (tipo == 140){
         switch (overlay) {
         case 1:

@@ -22,9 +22,6 @@ zone_displaySelection::zone_displaySelection(Botonera *b)
         logic_buttons.append(logic_button);
 
         QObject::connect(gui_buttons[i-1], &QPushButton::toggled, logic_button, &Boton::interact);
-
-        qDebug()<<"LISTO: " << labels[i-1] << i;
-
     }
 }
 

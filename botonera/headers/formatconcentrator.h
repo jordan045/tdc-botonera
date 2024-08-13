@@ -29,21 +29,6 @@ private:
 
     void setMessage(Estado *estado);
 
-    /*
-    void setWord1(Estado *estado);
-    void setWord2(Estado *estado);
-    void setWord3(Estado *estado);
-    void setWord4(Estado *estado);
-    void setWord5(Estado *estado);
-    void setWord6(Estado *estado);
-    void setWord7(Estado *estado);
-    void setWord8(Estado *estado);
-    void setWord9(Estado *estado);
-
-    void juntar();
-
-    */
-
     void setRange(Estado *estado);
     void setCenter(Estado *estado);
     void setICM(Estado *estado);
