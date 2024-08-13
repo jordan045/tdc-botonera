@@ -162,33 +162,41 @@ void Botonera::start(int tipo)
     QPushButton *buddy_button = new QPushButton();
     buddy_button->setFlat(true);
 
-    QHBoxLayout *top_layout = new QHBoxLayout();
 
-    QVBoxLayout *outer_layout = new QVBoxLayout();   
+    QHBoxLayout *top_layout = new QHBoxLayout();
+    QVBoxLayout *outer_layout = new QVBoxLayout();
+    QHBoxLayout *inner_layout = new QHBoxLayout();
+    QVBoxLayout *column_layout = new QVBoxLayout();
+    QVBoxLayout *qek_layout = new QVBoxLayout();
+
     top_layout->addWidget(buddy_button);
     top_layout->addWidget(range_widget);
     top_layout->addWidget(help_button);
-    QHBoxLayout *inner_layout = new QHBoxLayout();
-    inner_layout->addWidget(display_selection_widget);
-    QVBoxLayout *column_layout = new QVBoxLayout();
+
     column_layout->addWidget(label_selection_widget);
     column_layout->addWidget(threat_assesment_widget);
+
+    qek_layout->addWidget(display_mode_widget);
+    qek_layout->addWidget(qek_widget);
+    qek_layout->setAlignment(display_mode_widget,Qt::AlignCenter);
+    qek_layout->setAlignment(qek_widget,Qt::AlignCenter);
+
+    inner_layout->addWidget(display_selection_widget);
     inner_layout->addLayout(column_layout);
-    inner_layout->addWidget(qek_widget);
+    inner_layout->addLayout(qek_layout);
     inner_layout->addWidget(icm_widget);
     inner_layout->addWidget(center_widget);
+
     outer_layout->addLayout(top_layout);
-    outer_layout->addWidget(display_mode_widget);
     outer_layout->addLayout(inner_layout);
 
-    outer_layout->setAlignment(display_mode_widget,Qt::AlignCenter);
-
     this->setLayout(outer_layout);
-    this->show();
     shortcut = new QShortcut(QKeySequence(Qt::Key_0), this);
 
     connect(shortcut, SIGNAL(activated()), this, SLOT(infoMessage()));
     connect(help_button, &QPushButton::clicked, this, &Botonera::infoMessage);
+
+    this->show();
 }
 
 void Botonera::infoMessage(){

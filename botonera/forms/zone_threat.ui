@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>71</width>
-    <height>282</height>
+    <width>90</width>
+    <height>319</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>71</width>
-    <height>282</height>
+    <width>90</width>
+    <height>319</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>71</width>
-    <height>282</height>
+    <width>90</width>
+    <height>319</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -28,8 +28,8 @@
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
+     <x>10</x>
+     <y>10</y>
      <width>71</width>
      <height>282</height>
     </rect>
@@ -220,6 +220,33 @@ QPushButton:checked {image: url(':/threat/img/Threat/12_sec_pressed.png')}</stri
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>284</y>
+     <width>51</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>THREAT ASSESS</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
   </widget>
  </widget>
  <resources/>

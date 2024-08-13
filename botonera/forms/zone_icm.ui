@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>71</width>
-    <height>408</height>
+    <width>93</width>
+    <height>431</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>71</width>
-    <height>408</height>
+    <width>93</width>
+    <height>431</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>71</width>
-    <height>408</height>
+    <width>93</width>
+    <height>431</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -28,8 +28,8 @@
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
+     <x>11</x>
+     <y>12</y>
      <width>70</width>
      <height>406</height>
     </rect>
@@ -436,6 +436,30 @@ QPushButton:checked {image: url(:/icm/img/ICM/7_pressed.png)}</string>
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>410</y>
+     <width>31</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>ICM</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
  </widget>
  <resources/>
