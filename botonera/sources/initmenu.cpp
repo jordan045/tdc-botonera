@@ -61,7 +61,7 @@ InitMenu::InitMenu(QWidget *parent) :
 
     //Crear interfaz
     int countY = 0; int countX = 0;
-    QButtonGroup *group = new QButtonGroup();
+    group = new QButtonGroup();
     group->setExclusive(true);
     // Crear botones a partir del JSON
     for (const QJsonValue &value : jsonArray) {
@@ -91,12 +91,20 @@ InitMenu::InitMenu(QWidget *parent) :
         countY++;
     }
 
-    int tipoBuque = mainObj["tipo"].toString().toInt();
-    QObject::connect(ui.continue_button, &QPushButton::clicked, this, [this, group, tipoBuque]() {
+    tipoBuque = mainObj["tipo"].toString().toInt();
+
+    QObject::connect(ui.continue_button, &QPushButton::clicked, this, &InitMenu::seleccion);
+}
+
+void InitMenu::seleccion()
+{
+    if(group->checkedButton() == nullptr){
+        QMessageBox::warning(this, "Advertencia", "Seleccione un ambiente de trabajo");
+    }else {
         auto overlay = group->checkedButton()->objectName();
         miBotonera->setOverlay(overlay);
         miBotonera->start(tipoBuque);
         this->close();
-    });
+    }
 }
 
