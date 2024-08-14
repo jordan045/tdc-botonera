@@ -11,13 +11,19 @@
 #define PORT 8080
 #define BUFFER_SIZE 1024
 
+struct MensajeSerializado {
+    char namespace_[20];
+    char mensaje[BUFFER_SIZE];
+    uint32_t longitud;
+};
+
 class Cliente
 {
 public:
     Cliente(const std::string &direccionIP, int puerto);
     ~Cliente();
     void conectar();
-    void enviar(const std::string &namespace_, const std::string &mensaje);
+    int enviar(const char namespace_[20], const char mensaje[BUFFER_SIZE]);
     std::string recibir();
     void esperar_mensajes();
 
@@ -28,7 +34,6 @@ private:
 
     void crearSocket();
     void configurarDireccion(const std::string &direccionIP, int puerto);
-    std::string formatearMensaje(const std::string &namespace_, const std::string &mensaje);
     void procesarMensaje(const std::string &mensaje);
 };
 
@@ -78,15 +83,16 @@ void Cliente::conectar()
     std::cout << "Conectado al servidor" << std::endl;
 }
 
-std::string Cliente::formatearMensaje(const std::string &namespace_, const std::string &mensaje)
+int Cliente::enviar(const char namespace_[20], const char mensaje[BUFFER_SIZE])
 {
-    return namespace_ + ":" + mensaje;
-}
+    MensajeSerializado mensaje_formateado;
+    strcpy(mensaje_formateado.mensaje, mensaje);
+    strcpy(mensaje_formateado.namespace_, namespace_);
+    // Copia cadena sobre la estructura
 
-void Cliente::enviar(const std::string &namespace_, const std::string &mensaje)
-{
-    std::string mensaje_formateado = formatearMensaje(namespace_, mensaje);
-    send(sock, mensaje_formateado.c_str(), mensaje_formateado.size(), 0);
+    size_t bytes_sent = send(sock, &mensaje_formateado, sizeof(mensaje_formateado), 0);
+
+    return bytes_sent;
 }
 
 std::string Cliente::recibir()

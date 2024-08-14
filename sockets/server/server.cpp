@@ -10,14 +10,20 @@
 #define PORT 8080
 #define BUFFER_SIZE 1024
 
+struct MensajeSerializado {
+    char namespace_[20];
+    char mensaje[BUFFER_SIZE];
+    uint32_t longitud;
+};
+
 class Servidor
 {
 public:
     Servidor(int puerto);
     ~Servidor();
     void iniciar();
-    void enviar(const std::string &namespace_, const std::string &mensaje);
-    std::string recibir();
+    int enviar(const char namespace_[20], const char mensaje[BUFFER_SIZE]);
+    int recibir(char mensaje[1024], char namespace_[20]);
     void manejarClientes();
 
 private:
@@ -33,9 +39,6 @@ private:
     void enlazarSocket();
     void escucharConexiones();
     void aceptarConexion();
-    std::string extraerNamespace(const std::string &mensaje);
-    std::string extraerMensaje(const std::string &mensaje);
-    void procesarMensaje(const std::string &mensaje);
 };
 
 Servidor::Servidor(int puerto) : server_fd(0), cliente_fd(0), addrlen(sizeof(address))
@@ -116,64 +119,41 @@ void Servidor::aceptarConexion()
         perror("Fallo en accept");
         close(server_fd);
         exit(EXIT_FAILURE);
+    } else {
+        std::cout << "Conexion aceptada" << std::endl;
     }
 }
 
-std::string Servidor::recibir()
+int Servidor::enviar(const char namespace_[20], const char mensaje[BUFFER_SIZE])
 {
-    int msglen = read(cliente_fd, buffer, BUFFER_SIZE);
-    if (msglen < 0)
-    {
-        return "\0";
-    }
-    return std::string(buffer);
+    MensajeSerializado mensaje_formateado;
+    strcpy(mensaje_formateado.mensaje, mensaje);
+    strcpy(mensaje_formateado.namespace_, namespace_);
+
+    size_t bytes_sent = send(cliente_fd, &mensaje_formateado, sizeof(MensajeSerializado), 0);
+
+    return bytes_sent;
 }
 
-void Servidor::enviar(const std::string &namespace_, const std::string &mensaje)
+int Servidor::recibir(char mensaje[1024], char namespace_[20])
 {
-    std::string mensaje_formateado = namespace_ + ":" + mensaje;
-    send(cliente_fd, mensaje_formateado.c_str(), mensaje_formateado.size(), 0);
-}
+    MensajeSerializado mensajeRecibido;
+    size_t bytes_received = recv(cliente_fd, &mensajeRecibido, sizeof(MensajeSerializado), 0);
 
-std::string Servidor::extraerNamespace(const std::string &mensaje)
-{
-    size_t pos = mensaje.find(':');
-    if (pos != std::string::npos)
-    {
-        return mensaje.substr(0, pos);
-    }
-    return "";
-}
+    strcpy(mensaje, mensajeRecibido.mensaje);
+    strcpy(namespace_, mensajeRecibido.namespace_);
 
-std::string Servidor::extraerMensaje(const std::string &mensaje)
-{
-    size_t pos = mensaje.find(':');
-    if (pos != std::string::npos)
-    {
-        return mensaje.substr(pos + 1);
-    }
-    return mensaje;
-}
-
-void Servidor::procesarMensaje(const std::string &mensaje)
-{
-    std::string namespace_ = extraerNamespace(mensaje);
-    std::string contenido = extraerMensaje(mensaje);
-
-    // Aquí podrías manejar diferentes namespaces de manera diferente
-    enviar(namespace_, "Mensaje recibido en " + namespace_);
+    return mensajeRecibido.longitud;
 }
 
 void Servidor::manejarClientes()
 {
-    std::string mensaje;
+    char mensaje[1024], namespace_[20];
 
     while (true)
     {
-        mensaje = recibir();
-        if (!mensaje.empty())
-        {
-            procesarMensaje(mensaje);
+        if (recibir(mensaje, namespace_)) {
+            std::cout << mensaje << namespace_ << std::endl;
         }
     }
 }
