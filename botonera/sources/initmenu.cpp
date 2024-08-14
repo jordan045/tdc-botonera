@@ -70,15 +70,17 @@ InitMenu::InitMenu(QWidget *parent) :
             QString buttonCode = obj[key].toString();
             QPushButton *button = new QPushButton("");
             button->setObjectName(buttonCode);
-            QString style = QString("QPushButton {image: url(':/overlays/360/img/Overlays/360/%1.png'); background-color: rgba(0,0,0,0);}"
-                                    "QPushButton:checked {image: url(':/overlays/360/img/Overlays/360/%1_pressed.png'); background-color: rgba(0,0,0,0);}"
-                                    "QPushButton:hover {background-color: rgba(0,0,0,0);}")
+            QString style = QString("QPushButton {image: url(':/overlays/360/img/Overlays/360/%1.png');}"
+                                    "QPushButton:checked {image: url(':/overlays/360/img/Overlays/360/%1_pressed.png');}"
+                                    )
                                 .arg(key);
 
             group->addButton(button, countX);
 
             button->setStyleSheet(style);
-            button->setMinimumHeight(80);
+            //button->setMinimumHeight(60);
+            //button->setMinimumSize(120,60);
+            button->setMaximumSize(120,60);
             button->setCheckable(true);
             button->setFlat(true);
 

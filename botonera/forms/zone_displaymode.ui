@@ -252,9 +252,9 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/SYST_ALARM_pres
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>168</x>
+     <x>156</x>
      <y>70</y>
-     <width>91</width>
+     <width>115</width>
      <height>19</height>
     </rect>
    </property>

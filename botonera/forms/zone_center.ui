@@ -65,8 +65,8 @@
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton {image: url(':/center/img/Center/CU_OR_OFF_CENT.png')}
-QPushButton:pressed {image: url(':/center/img/Center/CU_OR_OFF_CENT_pressed.png')}</string>
+       <string notr="true">QPushButton {image: url(':/center/img/Center/CU_OR_OFF_CENT.png');border: none}
+QPushButton:pressed {image: url(':/center/img/Center/CU_OR_OFF_CENT_pressed.png');border: none}</string>
       </property>
       <property name="text">
        <string/>
@@ -94,8 +94,8 @@ QPushButton:pressed {image: url(':/center/img/Center/CU_OR_OFF_CENT_pressed.png'
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton {image: url(':/center/img/Center/CU_OR_CENT.png')}
-QPushButton:pressed {image: url(':/center/img/Center/CU_OR_CENT_pressed.png')}</string>
+       <string notr="true">QPushButton {image: url(':/center/img/Center/CU_OR_CENT.png');border: none}
+QPushButton:pressed {image: url(':/center/img/Center/CU_OR_CENT_pressed.png');border: none}</string>
       </property>
       <property name="text">
        <string/>
@@ -123,8 +123,8 @@ QPushButton:pressed {image: url(':/center/img/Center/CU_OR_CENT_pressed.png')}</
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton {image: url(':/center/img/Center/OFF_CENT.png')}
-QPushButton:pressed {image: url(':/center/img/Center/OFF_CENT_pressed.png')}</string>
+       <string notr="true">QPushButton {image: url(':/center/img/Center/OFF_CENT.png');border: none}
+QPushButton:pressed {image: url(':/center/img/Center/OFF_CENT_pressed.png');border: none}</string>
       </property>
       <property name="text">
        <string/>
@@ -152,8 +152,8 @@ QPushButton:pressed {image: url(':/center/img/Center/OFF_CENT_pressed.png')}</st
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton {image: url(':/center/img/Center/CENT.png')}
-QPushButton:pressed {image: url(':/center/img/Center/CENT_pressed.png')}</string>
+       <string notr="true">QPushButton {image: url(':/center/img/Center/CENT.png');border: none}
+QPushButton:pressed {image: url(':/center/img/Center/CENT_pressed.png');border: none}</string>
       </property>
       <property name="text">
        <string/>
@@ -181,8 +181,8 @@ QPushButton:pressed {image: url(':/center/img/Center/CENT_pressed.png')}</string
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton {image: url(':/center/img/Center/RESET_OBM.png')}
-QPushButton:pressed {image: url(':/center/img/Center/RESET_OBM_pressed.png')}</string>
+       <string notr="true">QPushButton {image: url(':/center/img/Center/RESET_OBM.png');border: none}
+QPushButton:pressed {image: url(':/center/img/Center/RESET_OBM_pressed.png');border: none}</string>
       </property>
       <property name="text">
        <string/>
@@ -209,9 +209,14 @@ QPushButton:pressed {image: url(':/center/img/Center/RESET_OBM_pressed.png')}</s
         <height>50</height>
        </size>
       </property>
+      <property name="focusPolicy">
+       <enum>Qt::StrongFocus</enum>
+      </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton {image: url(':/center/img/Center/DATA_REQ.png')}
-QPushButton:pressed {image: url(':/center/img/Center/DATA_REQ_pressed.png')}</string>
+       <string notr="true">QPushButton {image: url(':/center/img/Center/DATA_REQ.png');
+			border: none}
+QPushButton:pressed {image: url(':/center/img/Center/DATA_REQ_pressed.png');
+			border: none}</string>
       </property>
       <property name="text">
        <string/>
@@ -229,9 +234,9 @@ QPushButton:pressed {image: url(':/center/img/Center/DATA_REQ_pressed.png')}</st
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>15</x>
      <y>350</y>
-     <width>49</width>
+     <width>59</width>
      <height>16</height>
     </rect>
    </property>

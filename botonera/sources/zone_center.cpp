@@ -18,6 +18,12 @@ zone_center::zone_center(Botonera *b)
         logic_buttons.append(logic_button);
         QObject::connect(gui_buttons[i-1], &QPushButton::pressed, logic_button, &Boton::interact);
         QObject::connect(gui_buttons[i-1], &QPushButton::released, logic_button, &Boton::interact);
+        gui_buttons[i-1]->setStyleSheet(gui_buttons[i-1]->styleSheet() + "QPushButton {"
+                                                                             "    border: none;"  // Quita el borde
+                                                                             "}"
+                                                                             "QPushButton:pressed {"
+                                                                             "    border: none;"  // Mantén el borde oculto al presionar
+                                                                             "}");
     }
 }
 
