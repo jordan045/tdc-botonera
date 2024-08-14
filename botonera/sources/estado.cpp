@@ -18,46 +18,46 @@ void Estado::setOverlay(QString codigo){
     overlay = codigo;
 }
 
-void Estado::removeIcm(QString *codigo){
-    codigo->append(" ");
-    this->icm.remove(*codigo);
+void Estado::removeIcm(QString codigo){
+    codigo.append(" ");
+    this->icm.remove(codigo);
     refresh();
 }
-void Estado::removeCenter( QString *codigo){
-    codigo->append(" ");
-    this->center.remove(*codigo);
+void Estado::removeCenter( QString codigo){
+    codigo.append(" ");
+    this->center.remove(codigo);
     refresh();
 }
-void Estado::removeThreat(QString *codigo){
-    codigo->append(" ");
-    this->threat.remove(*codigo);
+void Estado::removeThreat(QString codigo){
+    codigo.append(" ");
+    this->threat.remove(codigo);
     refresh();
 }
-void Estado::removeDisplayMode(QString *codigo){
-    codigo->append(" ");
-    this->displayMode.remove(*codigo);
+void Estado::removeDisplayMode(QString codigo){
+    codigo.append(" ");
+    this->displayMode.remove(codigo);
     refresh();
 }
-void Estado::removeDisplaySelection(QString *codigo){
+void Estado::removeDisplaySelection(QString codigo){
     QStringList estado = this->displaySelection.split(" ", Qt::SkipEmptyParts);
-    if (estado.contains(*codigo))
-        estado.removeAll(*codigo);
+    if (estado.contains(codigo))
+        estado.removeAll(codigo);
     this->displaySelection = estado.join(" ");
     refresh();
 }
-void Estado::removeLabel(QString *codigo){
-    codigo->append(" ");
-    this->label.remove(*codigo);
+void Estado::removeLabel(QString codigo){
+    codigo.append(" ");
+    this->label.remove(codigo);
     refresh();
 }
-void Estado::removeQek(QString *codigo){
-    codigo->append(" ");
-    this->qek.remove(*codigo);
+void Estado::removeQek(QString codigo){
+    codigo.append(" ");
+    this->qek.remove(codigo);
     refresh();
 }
-void Estado::removeRange(QString *codigo){
-    codigo->append(" ");
-    this->range.remove(*codigo);
+void Estado::removeRange(QString codigo){
+    codigo.append(" ");
+    this->range.remove(codigo);
     refresh();
 }
 

@@ -15,17 +15,15 @@ public:
     FormatConcentrator();
     QBitArray* getMessage(Estado *estadoActual);
 
+    void removeCenter(QString estado);
+    void removeThreat(QString estado);
+    void removeDisplayMode(QString estado);
+    void removeDisplaySelection(QString estado);
+    void removeQEK();
+
+
 private:
     QBitArray *message;
-    QBitArray *word1;
-    QBitArray *word2;
-    QBitArray *word3;
-    QBitArray *word4;
-    QBitArray *word5;
-    QBitArray *word6;
-    QBitArray *word7;
-    QBitArray *word8;
-    QBitArray *word9;
 
     void setMessage(Estado *estado);
 

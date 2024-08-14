@@ -32,12 +32,10 @@ void zone_range::sendCode(QString code)
     miBotonera->sendCodeToRange(&code);
 }
 void zone_range::removeCode(QString code){
-    miBotonera->removeCodeFromRange(&code);
+    miBotonera->removeCodeFromRange(code);
 }
 
-void zone_range::sendMessage(){
-    miBotonera->sendMessage();
-}
+
 
 QString zone_range::getName(){
     return "Range";

@@ -28,12 +28,9 @@ void zone_label::sendCode(QString code){
 }
 
 void zone_label::removeCode(QString code){
-    miBotonera->removeCodeFromLabelSelection(&code);
+    miBotonera->removeCodeFromLabelSelection(code);
 }
 
-void zone_label::sendMessage(){
-     miBotonera->sendMessage();
-}
 
 QString zone_label::getName(){
     return "LABEL_SELECTION";

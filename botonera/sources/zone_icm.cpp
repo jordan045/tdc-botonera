@@ -20,9 +20,6 @@ zone_icm::zone_icm(Botonera *b)
     }
 }
 
-void zone_icm::sendMessage(){
-     miBotonera->sendMessage();
-}
 
 QString zone_icm::getName(){
     return "ICM";
@@ -32,7 +29,7 @@ void zone_icm::sendCode(QString code){
     miBotonera->sendCodeToIcm(&code);
 }
 void zone_icm::removeCode(QString code){
-    miBotonera->removeCodeFromIcm(&code);
+    miBotonera->removeCodeFromIcm(code);
 }
 
 zone_icm::~zone_icm(){

@@ -26,12 +26,10 @@ void zone_displayMode::sendCode(QString code){
 }
 
 void zone_displayMode::removeCode(QString code){
-    miBotonera->removeCodeFromDisplayMode(&code);
+    miBotonera->removeCodeFromDisplayMode(code);
 }
 
-void zone_displayMode::sendMessage(){
-     miBotonera->sendMessage();
-}
+
 
 QString zone_displayMode::getName(){
     return "DISPLAYSELECTION";

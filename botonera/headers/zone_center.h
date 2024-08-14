@@ -17,7 +17,6 @@ public:
     ~zone_center();
     void sendCode(QString code) override;
     void removeCode(QString code) override;
-    void sendMessage() override;
     QString getName() override;
 
 private:

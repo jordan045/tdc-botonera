@@ -16,7 +16,6 @@ public:
     explicit zone_displayMode(Botonera *b);
     void sendCode(QString code) override;
     void removeCode(QString code) override;
-    void sendMessage() override;
     QString getName() override;
     ~zone_displayMode();
 

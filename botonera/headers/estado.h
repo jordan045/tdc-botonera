@@ -19,14 +19,14 @@ public:
     Estado(Botonera *b);
     void setOverlay(QString codigo);
 
-    void removeIcm(QString *boton);
-    void removeCenter(QString *boton);
-    void removeDisplayMode(QString *boton);
-    void removeDisplaySelection(QString *boton);
-    void removeLabel(QString *boton);
-    void removeQek(QString *boton);
-    void removeRange(QString *boton);
-    void removeThreat(QString *boton);
+    void removeIcm(QString boton);
+    void removeCenter(QString boton);
+    void removeDisplayMode(QString boton);
+    void removeDisplaySelection(QString boton);
+    void removeLabel(QString boton);
+    void removeQek(QString boton);
+    void removeRange(QString boton);
+    void removeThreat(QString boton);
 
     QString getRange();
     QString getLabel();

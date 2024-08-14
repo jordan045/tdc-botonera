@@ -18,7 +18,8 @@ public:
 
         QList<Boton*> logic_buttons = *new QList<Boton*>;
         for(int i=1;i<=32;i++){
-            QString code = *new QString("QEK ");
+
+            QString code = *new QString("QEK_");
             code.append(QString::number(i));
             auto *logic_button = new Boton(this,code);
             logic_buttons.append(logic_button);
@@ -31,11 +32,9 @@ public:
         miBotonera->sendCodeToQek(&code);
     }
     void removeCode(QString code){
-        miBotonera->removeCodeFromQek(&code);
+        miBotonera->removeCodeFromQek(code);
     }
-    void sendMessage(){
-         miBotonera->sendMessage();
-    }
+
     QString getName(){
         return "QEK";
     }

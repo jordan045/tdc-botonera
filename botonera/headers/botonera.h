@@ -22,14 +22,14 @@ public:
 
     void setOverlay(QString codigo);
 
-    void removeCodeFromRange(QString *boton);
-    void removeCodeFromLabelSelection(QString *boton);
-    void removeCodeFromQek(QString *boton);
-    void removeCodeFromThreat(QString *boton);
-    void removeCodeFromCenter(QString *boton);
-    void removeCodeFromDisplayMode(QString *boton);
-    void removeCodeFromDisplaySelection(QString *boton);
-    void removeCodeFromIcm(QString *boton);
+    void removeCodeFromRange(QString boton);
+    void removeCodeFromLabelSelection(QString boton);
+    void removeCodeFromQek(QString boton);
+    void removeCodeFromThreat(QString boton);
+    void removeCodeFromCenter(QString boton);
+    void removeCodeFromDisplayMode(QString boton);
+    void removeCodeFromDisplaySelection(QString boton);
+    void removeCodeFromIcm(QString boton);
 
     void sendCodeToRange(QString *boton);
     void sendCodeToLabelSelection(QString *boton);

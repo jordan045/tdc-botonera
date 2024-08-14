@@ -34,64 +34,87 @@ Botonera::Botonera(QWidget *parent) :
     display_selection_widget = new zone_displaySelection(this);
     concentrator = new FormatConcentrator();
 }
-
+//---------Removers----------------------------//
 void Botonera::setOverlay(QString codigo){
     miEstado->setOverlay(codigo);
+    sendMessage();
 }
-void Botonera::removeCodeFromRange(QString *boton){
+void Botonera::removeCodeFromRange(QString boton){
     miEstado->removeRange(boton);
+    sendMessage();
 }
-void Botonera::removeCodeFromLabelSelection(QString *boton){
+void Botonera::removeCodeFromLabelSelection(QString boton){
     miEstado->removeLabel(boton);
+    concentrator->removeDisplaySelection(boton);
+    sendMessage();
 }
-void Botonera::removeCodeFromQek(QString *boton){
+void Botonera::removeCodeFromQek(QString boton){
     miEstado->removeQek(boton);
+    concentrator->removeQEK();
+    sendMessage();
 }
-void Botonera::removeCodeFromThreat(QString *boton){
+void Botonera::removeCodeFromThreat(QString boton){
     miEstado->removeThreat(boton);
+    concentrator->removeThreat(boton);
+    sendMessage();
 }
-void Botonera::removeCodeFromCenter(QString *boton){
+void Botonera::removeCodeFromCenter(QString boton){
     miEstado->removeCenter(boton);
+    concentrator->removeCenter(boton);
+    sendMessage();
 }
-void Botonera::removeCodeFromDisplayMode(QString *boton){
+void Botonera::removeCodeFromDisplayMode(QString boton){
     miEstado->removeDisplayMode(boton);
+    concentrator->removeDisplayMode(boton);
+    sendMessage();
 }
-void Botonera::removeCodeFromDisplaySelection(QString *boton){
+void Botonera::removeCodeFromDisplaySelection(QString boton){
     miEstado->removeDisplaySelection(boton);
+    concentrator->removeDisplaySelection(boton);
+    sendMessage();
 }
-void Botonera::removeCodeFromIcm(QString *boton){
+void Botonera::removeCodeFromIcm(QString boton){
     miEstado->removeIcm(boton);
+    sendMessage();
 }
 
+//Setters//
 void Botonera::sendCodeToRange(QString *boton){
     miEstado->setRange(boton);
 }
 void Botonera::sendCodeToLabelSelection(QString *boton){
     miEstado->setLabel(boton);
+    sendMessage();
 }
 
 void Botonera::sendCodeToQek(QString *boton){
     miEstado->setQEK(boton);
+    sendMessage();
 }
 
 void Botonera::sendCodeToThreat(QString *boton){
     miEstado->setThreat(boton);
+    sendMessage();
 }
 
 void Botonera::sendCodeToCenter(QString *boton){
     miEstado->setCenter(boton);
+    sendMessage();
 }
 
 void Botonera::sendCodeToDisplayMode(QString *boton){
     miEstado->setDisplayMode(boton);
+    sendMessage();
 }
 
 void Botonera::sendCodeToDisplaySelection(QString *boton){
     miEstado->setDisplaySelection(boton);
+    sendMessage();
 }
 
 void Botonera::sendCodeToIcm(QString *boton){
     miEstado->setICM(boton);
+    sendMessage();
 }
 
 void Botonera::sendMessage(){

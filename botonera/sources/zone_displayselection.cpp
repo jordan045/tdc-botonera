@@ -26,12 +26,9 @@ void zone_displaySelection::sendCode(QString code){
 }
 
 void zone_displaySelection::removeCode(QString code){
-    miBotonera->removeCodeFromDisplaySelection(&code);
+    miBotonera->removeCodeFromDisplaySelection(code);
 }
 
-void zone_displaySelection::sendMessage(){
-     miBotonera->sendMessage();
-}
 
 QString zone_displaySelection::getName(){
     return "DISPLAYSELECTION";

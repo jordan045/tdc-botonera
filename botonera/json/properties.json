@@ -42,69 +42,69 @@
     }
   },
   "display_selection": {
-    "AIR": {
+    "air": {
       "type": "switch",
       "label": "AIR",
       "pos": "21"
     },
-    "SURF": {
+    "surf": {
       "type": "switch",
       "label": "SURF",
       "pos": "20"
     },
-    "SUBSURF": {
+    "sub_surf": {
       "type": "switch",
       "label": "SUB SURF",
       "pos": "19"
     },
-    "REFPOS": {
+    "ref_pos": {
       "type": "switch",
       "label": "REF POS",
       "pos": "18"
     },
-    "BEARSEL": {
+    "bear_sel": {
       "type": "switch",
       "label": "BEAR SEL",
       "pos": "17"
     },
-    "LINKSEL": {
+    "link_sel": {
       "type": "switch",
       "label": "LINK SEL",
       "pos": "16"
     },
-    "WARFSEL": {
+    "warf_sel": {
       "type": "switch",
       "label": "WARF SEL",
       "pos": "15"
     },
-    "FIG": {
+    "fig": {
       "type": "switch",
       "label": "FIG",
       "pos": "14"
     }
   },
   "threat_assesment": {
-    "12SEC": {
+    "12_sec": {
       "type": "switch",
       "label": "12 SEC",
       "pos": "13"
     },
-    "30SEC": {
+    "30_sec": {
       "type": "switch",
       "label": "30 SEC",
       "pos": "12"
     },
-    "6MIN": {
+    "6_min": {
       "type": "switch",
       "label": "6 MIN",
       "pos": "11"
     },
-    "15MIN": {
+    "15_min": {
       "type": "switch",
       "label": "15 MIN",
       "pos": "10"
     },
-    "RESET": {
+    "reset": {
       "type": "push",
       "label": "RESET",
       "pos": "9"
@@ -243,163 +243,163 @@
       "pos": "10"
     }
   },
-  "qek ": {
-    "20": {
+  "qek": {
+    "QEK_20": {
       "type": "push",
       "label": "20",
       "value": "00010100"
     },
-    "21": {
+    "QEK_21": {
       "type": "push",
       "label": "21",
       "value": "00010101"
     },
-    "22": {
+    "QEK_22": {
       "type": "push",
       "label": "22",
       "value": "00010110"
     },
-    "23": {
+    "QEK_23": {
       "type": "push",
       "label": "23",
       "value": "00010111"
     },
-    "24": {
+    "QEK_24": {
       "type": "push",
       "label": "24",
       "value": "00011000"
     },
-    "25": {
+    "QEK_25": {
       "type": "push",
       "label": "25",
       "value": "00011001"
     },
-    "26": {
+    "QEK_26": {
       "type": "push",
       "label": "26",
       "value": "00011010"
     },
-    "27": {
+    "QEK_27": {
       "type": "push",
       "label": "27",
       "value": "00011011"
     },
-    "30": {
+    "QEK_30": {
       "type": "push",
       "label": "30",
       "value": "00011110"
     },
-    "31": {
+    "QEK_31": {
       "type": "push",
       "label": "31",
       "value": "00011111"
     },
-    "32": {
+    "QEK_32": {
       "type": "push",
       "label": "32",
       "value": "00100000"
     },
-    "33": {
+    "QEK_33": {
       "type": "push",
       "label": "33",
       "value": "00100001"
     },
-    "34": {
+    "QEK_34": {
       "type": "push",
       "label": "34",
       "value": "00100010"
     },
-    "35": {
+    "QEK_35": {
       "type": "push",
       "label": "35",
       "value": "00100011"
     },
-    "36": {
+    "QEK_36": {
       "type": "push",
       "label": "36",
       "value": "00100100"
     },
-    "37": {
+    "QEK_37": {
       "type": "push",
       "label": "37",
       "value": "00100101"
     },
-    "40": {
+    "QEK_40": {
       "type": "push",
       "label": "40",
       "value": "00101000"
     },
-    "41": {
+    "QEK_41": {
       "type": "push",
       "label": "41",
       "value": "00101001"
     },
-    "42": {
+    "QEK_42": {
       "type": "push",
       "label": "42",
       "value": "00101010"
     },
-    "43": {
+    "QEK_43": {
       "type": "push",
       "label": "43",
       "value": "00101011"
     },
-    "44": {
+    "QEK_44": {
       "type": "push",
       "label": "44",
       "value": "00101100"
     },
-    "45": {
+    "QEK_45": {
       "type": "push",
       "label": "45",
       "value": "00101101"
     },
-    "46": {
+    "QEK_46": {
       "type": "push",
       "label": "46",
       "value": "00101110"
     },
-    "47": {
+    "QEK_47": {
       "type": "push",
       "label": "47",
       "value": "00101111"
     },
-    "50": {
+    "QEK_50": {
       "type": "push",
       "label": "50",
       "value": "00110010"
     },
-    "51": {
+    "QEK_51": {
       "type": "push",
       "label": "51",
       "value": "00110011"
     },
-    "52": {
+    "QEK_52": {
       "type": "push",
       "label": "52",
       "value": "00110100"
     },
-    "53": {
+    "QEK_53": {
       "type": "push",
       "label": "53",
       "value": "00110101"
     },
-    "54": {
+    "QEK_54": {
       "type": "push",
       "label": "54",
       "value": "00110110"
     },
-    "55": {
+    "QEK_55": {
       "type": "push",
       "label": "55",
       "value": "00110111"
     },
-    "56": {
+    "QEK_56": {
       "type": "push",
       "label": "56",
       "value": "00111000"
     },
-    "57": {
+    "QEK_57": {
       "type": "push",
       "label": "57",
       "value": "00111001"
