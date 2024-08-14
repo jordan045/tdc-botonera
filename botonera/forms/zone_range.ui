@@ -132,6 +132,9 @@ QPushButton:checked {image: url(:/range/img/Range/2_pressed.png)}</string>
         <height>0</height>
        </size>
       </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {image: url(:/range/img/Range/4.png)}
 QPushButton:checked {image: url(:/range/img/Range/4_pressed.png)}</string>
@@ -504,9 +507,9 @@ QPushButton:checked {image: url(:/range/img/Range/256_pressed.png)}
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>196</x>
+     <x>187</x>
      <y>71</y>
-     <width>91</width>
+     <width>109</width>
      <height>19</height>
     </rect>
    </property>

@@ -95,6 +95,12 @@
         </item>
         <item>
          <widget class="Line" name="line_6">
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="lineWidth">
+           <number>1</number>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -197,6 +203,9 @@
         </item>
         <item>
          <widget class="Line" name="line_8">
+          <property name="frameShadow">
+           <enum>QFrame::Sunken</enum>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>

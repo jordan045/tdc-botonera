@@ -3,6 +3,7 @@
 
 #include "estado.h"
 #include <QWidget>
+#include "qpushbutton.h"
 #include "qshortcut.h"
 #include "formatconcentrator.h"
 #include "zone_center.h"
@@ -58,6 +59,9 @@ private:
    FormatConcentrator *concentrator;
    QShortcut *shortcut;
    Estado *miEstado;
+   QPushButton *help_button = new QPushButton("");
+   void crearBotonHelp();
+   void distribucionLayout();
 };
 
 #endif // BOTONERA_H

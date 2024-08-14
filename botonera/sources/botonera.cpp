@@ -173,52 +173,8 @@ void Botonera::start(int tipo)
         }
     }
 
-    QPushButton *help_button = new QPushButton("");
-    help_button->setStyleSheet("QPushButton {image: url(':/ayuda/img/Ayuda/ayuda.png'); background-color: rgba(0,0,0,0);}"
-                               "QPushButton:pressed {image: url(':/ayuda/img/Ayuda/ayuda_pressed.png'); background-color: rgba(0,0,0,0);}"
-                               "QPushButton:hover {background-color: rgba(0,0,0,0);}"
-                               "QPushButton {width: 40px; height: 40px;}");
-
-    help_button->setToolTip("Ayuda");
-
-    // El buddy button no se muestra, es para espaciar correctamente los elementos en el layout
-    QPushButton *buddy_button = new QPushButton();
-    buddy_button->setFlat(true);
-
-    // Creación de la interfaz de botonera
-    QHBoxLayout *top_layout = new QHBoxLayout();
-    QVBoxLayout *outer_layout = new QVBoxLayout();
-    QHBoxLayout *inner_layout = new QHBoxLayout();
-    QVBoxLayout *column_layout = new QVBoxLayout();
-    QVBoxLayout *qek_layout = new QVBoxLayout();
-
-    top_layout->addWidget(buddy_button);
-    top_layout->addWidget(range_widget);
-    top_layout->addWidget(help_button);
-
-    column_layout->addWidget(label_selection_widget);
-    column_layout->addWidget(threat_assesment_widget);
-
-    qek_layout->addWidget(display_mode_widget);
-    qek_layout->addWidget(qek_widget);
-    qek_layout->setAlignment(display_mode_widget,Qt::AlignCenter);
-    qek_layout->setAlignment(qek_widget,Qt::AlignCenter);
-
-    inner_layout->addWidget(display_selection_widget);
-    inner_layout->addLayout(column_layout);
-    inner_layout->addLayout(qek_layout);
-    inner_layout->addWidget(icm_widget);
-    inner_layout->addWidget(center_widget);
-
-    outer_layout->addLayout(top_layout);
-    outer_layout->addLayout(inner_layout);
-
-    this->setLayout(outer_layout);
-
-    shortcut = new QShortcut(QKeySequence(Qt::Key_0), this);
-
-    connect(shortcut, SIGNAL(activated()), this, SLOT(infoMessage()));
-    connect(help_button, &QPushButton::clicked, this, &Botonera::infoMessage);
+    crearBotonHelp();
+    distribucionLayout();
 
     this->show();
 }
@@ -248,6 +204,59 @@ void Botonera::infoMessage(){
                    "</table>";
     msg.setText(text);
     msg.exec();
+}
+
+void Botonera::crearBotonHelp()
+{
+
+    help_button->setStyleSheet("QPushButton {image: url(':/ayuda/img/Ayuda/ayuda.png');}"
+                               "QPushButton:pressed {image: url(':/ayuda/img/Ayuda/ayuda_pressed.png');}"
+                               "QPushButton {width: 40px; height: 40px;}");
+
+    help_button->setToolTip("Ayuda");
+    help_button->setFlat(true);
+    help_button->setMaximumSize(40,40);
+    shortcut = new QShortcut(QKeySequence(Qt::Key_0), this);
+
+    connect(shortcut, SIGNAL(activated()), this, SLOT(infoMessage()));
+    connect(help_button, &QPushButton::clicked, this, &Botonera::infoMessage);
+
+
+}
+
+void Botonera::distribucionLayout()
+{
+    // Creación de la interfaz de botonera
+    QHBoxLayout *top_layout = new QHBoxLayout();
+    QVBoxLayout *outer_layout = new QVBoxLayout();
+    QHBoxLayout *inner_layout = new QHBoxLayout();
+    QVBoxLayout *column_layout = new QVBoxLayout();
+    QVBoxLayout *qek_layout = new QVBoxLayout();
+
+    //top_layout->addWidget();
+    top_layout->addWidget(range_widget,Qt::AlignCenter);
+    //top_layout->addWidget(help_button);
+
+    column_layout->addWidget(label_selection_widget);
+    column_layout->addWidget(threat_assesment_widget);
+
+    qek_layout->addWidget(display_mode_widget);
+    qek_layout->addWidget(qek_widget);
+    qek_layout->setAlignment(display_mode_widget,Qt::AlignCenter);
+    qek_layout->setAlignment(qek_widget,Qt::AlignCenter);
+
+    inner_layout->addWidget(display_selection_widget);
+    inner_layout->addLayout(column_layout);
+    inner_layout->addLayout(qek_layout);
+    inner_layout->addWidget(icm_widget);
+    inner_layout->addWidget(center_widget);
+
+    outer_layout->addLayout(top_layout);
+    outer_layout->addLayout(inner_layout);
+    outer_layout->addWidget(help_button);
+
+    this->setLayout(outer_layout);
+
 }
 
 

@@ -224,10 +224,10 @@ QPushButton:checked {image: url(':/threat/img/Threat/12_sec_pressed.png')}</stri
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>284</y>
-     <width>51</width>
-     <height>27</height>
+     <x>13</x>
+     <y>281</y>
+     <width>65</width>
+     <height>37</height>
     </rect>
    </property>
    <property name="font">
@@ -242,7 +242,7 @@ QPushButton:checked {image: url(':/threat/img/Threat/12_sec_pressed.png')}</stri
     <string>THREAT ASSESS</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <set>Qt::AlignHCenter|Qt::AlignTop</set>
    </property>
    <property name="wordWrap">
     <bool>true</bool>
