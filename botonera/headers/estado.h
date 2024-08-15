@@ -1,9 +1,8 @@
 #ifndef ESTADO_H
 #define ESTADO_H
 
-#include "qwidget.h"
-#include <QString>
-#include "Zone.h"
+#include "iestado.h"
+
 /**
  * @brief The Estado class
  *
@@ -13,42 +12,42 @@
 
 
 class Botonera;
-class Estado : public QWidget
+class Estado : public IEstado
 {
 public:
     Estado(Botonera *b);
-    void setOverlay(QString codigo);
+    void setOverlay(QString codigo) override;
 
-    void removeIcm(QString boton);
-    void removeCenter(QString boton);
-    void removeDisplayMode(QString boton);
-    void removeDisplaySelection(QString boton);
-    void removeLabel(QString boton);
-    void removeQek(QString boton);
-    void removeRange(QString boton);
-    void removeThreat(QString boton);
+    void removeIcm(QString boton) override;
+    void removeCenter(QString boton) override;
+    void removeDisplayMode(QString boton) override;
+    void removeDisplaySelection(QString boton) override;
+    void removeLabel(QString boton) override;
+    void removeQek(QString boton) override;
+    void removeRange(QString boton) override;
+    void removeThreat(QString boton) override;
 
-    QString getRange();
-    QString getLabel();
-    QString getQEK();
-    QString getThreat();
-    QString getCenter();
-    QString getDisplayMode();
-    QString getDisplaySelection();
-    QString getICM();
-    QString getQekIzq();
-    QString getQekDer();
-    QString getModos();
-    QString getOverlay();
+    QString getRange() override;
+    QString getLabel() override;
+    QString getQEK() override;
+    QString getThreat() override;
+    QString getCenter() override;
+    QString getDisplayMode() override;
+    QString getDisplaySelection() override;
+    QString getICM() override;
+    QString getQekIzq() override;
+    QString getQekDer() override;
+    QString getModos() override;
+    QString getOverlay() override;
 
-    void setRange(QString *r);
-    void setLabel(QString *l);
-    void setQEK(QString *q);
-    void setThreat(QString *t);
-    void setCenter(QString *c);
-    void setDisplayMode(QString *d);
-    void setDisplaySelection(QString *d);
-    void setICM(QString *i);
+    void setRange(QString *r) override;
+    void setLabel(QString *l) override;
+    void setQEK(QString *q) override;
+    void setThreat(QString *t) override;
+    void setCenter(QString *c) override;
+    void setDisplayMode(QString *d) override;
+    void setDisplaySelection(QString *d) override;
+    void setICM(QString *i) override;
 
 
 private:
@@ -67,7 +66,6 @@ private:
     QString overlay;
 
     void refresh();
-
 };
 
 #endif // ESTADO_H

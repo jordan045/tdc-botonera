@@ -1,5 +1,4 @@
 #include "formatconcentrator.h"
-#include "estado.h"
 #include "qjsondocument.h"
 #include <QFile>
 #include <QDebug>
@@ -16,16 +15,14 @@ FormatConcentrator::FormatConcentrator()
     leerJson();
 }
 
-QBitArray* FormatConcentrator::getMessage(Estado *estado)
+QBitArray* FormatConcentrator::getMessage(IEstado *estado)
 {
     setMessage(estado);
     return message;
 }
 
-
-void FormatConcentrator::setMessage(Estado *estado)
+void FormatConcentrator::setMessage(IEstado *estado)
 {
-
     setRange(estado);
     setDisplaySelection(estado);
     setThreat(estado);
@@ -42,7 +39,7 @@ void FormatConcentrator::setMessage(Estado *estado)
 
 //------------------------------Setters------------------------------------------------//
 //FUNCIONA
-void FormatConcentrator::setRange(Estado *estado)
+void FormatConcentrator::setRange(IEstado *estado)
 {
     QStringList wordListRange = estado->getRange().split(" ", Qt::SkipEmptyParts);
 
@@ -65,7 +62,7 @@ void FormatConcentrator::setRange(Estado *estado)
 }
 
 //FUNCIONA
-void FormatConcentrator::setDisplaySelection(Estado *estado)
+void FormatConcentrator::setDisplaySelection(IEstado *estado)
 {
     QStringList wordListDSelection = estado->getDisplaySelection().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListDSelection){
@@ -79,7 +76,7 @@ void FormatConcentrator::setDisplaySelection(Estado *estado)
     }
 }
 
-void FormatConcentrator::setThreat(Estado *estado)
+void FormatConcentrator::setThreat(IEstado *estado)
 {
     QStringList wordListThreat = estado->getThreat().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListThreat)
@@ -91,7 +88,7 @@ void FormatConcentrator::setThreat(Estado *estado)
     }
 }
 
-void FormatConcentrator::setCenter(Estado *estado)
+void FormatConcentrator::setCenter(IEstado *estado)
 {
     int offset = WORD_SIZE * 1; //Está en la primer palabra
     QStringList wordListCenter = estado->getCenter().split(" ", Qt::SkipEmptyParts);
@@ -104,7 +101,7 @@ void FormatConcentrator::setCenter(Estado *estado)
     }
 }
 
-void FormatConcentrator::setDisplayMode(Estado *estado)
+void FormatConcentrator::setDisplayMode(IEstado *estado)
 {
     int offset = WORD_SIZE * 1; //Está en la primer palabra
     int posFinal = 0;
@@ -120,7 +117,7 @@ void FormatConcentrator::setDisplayMode(Estado *estado)
     }
 }
 
-void FormatConcentrator::setQEK(Estado *estado)
+void FormatConcentrator::setQEK(IEstado *estado)
 {
     int offset = WORD_SIZE * 4; //Está en la cuarta palabra;
     QStringList wordListQek = estado->getQEK().split(" ", Qt::SkipEmptyParts);
@@ -150,7 +147,8 @@ void FormatConcentrator::removeQEK()
     for(int i = offset-1;i>WORD_SIZE*3;i--)
         message->setBit(i,false);
 }
-void FormatConcentrator::setICM(Estado *estado){
+
+void FormatConcentrator::setICM(IEstado *estado){
     int offset = WORD_SIZE * 4; //Está en la cuarta palabra;
     offset += 23; //Hay que llegar a la pos 119
     QStringList wordListQek = estado->getCenter().split(" ", Qt::SkipEmptyParts);
@@ -170,7 +168,8 @@ void FormatConcentrator::setICM(Estado *estado){
         }
     }
 }
-void FormatConcentrator::setOverlay(Estado *estado){
+
+void FormatConcentrator::setOverlay(IEstado *estado){
 
     int offset = (WORD_SIZE * 4) + 19; //115
     QString overlay = estado->getOverlay();
@@ -218,6 +217,7 @@ void FormatConcentrator::removeDisplaySelection(QString estado)
         message->setBit(posicion.toInt(),false);
 
 }
+
 void FormatConcentrator::removeCenter(QString estado)
 {
     int offset = WORD_SIZE * 1;
@@ -227,14 +227,11 @@ void FormatConcentrator::removeCenter(QString estado)
     message->setBit(offset + posicion.toInt(),false);
 }
 
-
-
 //--------------------------------------------------------------------------//
 //*************************************************************************//
 //---------------------------Removers--------------------------------------//
 
-
-void FormatConcentrator::guardarMensaje(Estado *estado)
+void FormatConcentrator::guardarMensaje(IEstado *estado)
 {
     static QFile mensajeFile;
     static QTextStream out;
@@ -314,5 +311,3 @@ void FormatConcentrator::leerJson()
     else
         qDebug()<<"Hubo un error, no se abrio el archivo";
 }
-
-
