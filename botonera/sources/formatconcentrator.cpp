@@ -69,9 +69,6 @@ void FormatConcentrator::setDisplaySelection(IEstado *estado)
         QJsonObject display = archivo["display_selection"].toObject();
         QJsonObject displayActual = display[word].toObject();
         QString posicion = displayActual["pos"].toString();
-        //PARA VER SI SE OBTIENE LA POSICION DE DISPLAY SELECTION.
-        qDebug()<<"Display Selection: "
-                <<posicion;
         message->setBit(posicion.toInt(),true);
     }
 }
@@ -126,9 +123,7 @@ void FormatConcentrator::setQEK(IEstado *estado)
         QJsonObject qek = archivo["qek"].toObject();
         QJsonObject qekActual = qek[word].toObject();
 
-        qDebug()<< "el nombre de qek es"<<word;
         QString posicion = qekActual["value"].toString();
-        qDebug()<<"Valor qek"<<posicion;
         int i = offset-1;
         for(QChar caracter:posicion)
         {
@@ -200,7 +195,6 @@ void FormatConcentrator::removeDisplayMode(QString estado)
     QJsonObject center = archivo["display_mode"].toObject();
     QJsonObject centerActual = center[estado].toObject();
     QString posicion = centerActual["pos"].toString();
-    qDebug()<<"El valor:" <<posicion.toInt();
     posFinal = offset+posicion.toInt();
     message->setBit(posFinal,false);
 }
@@ -211,9 +205,6 @@ void FormatConcentrator::removeDisplaySelection(QString estado)
         QJsonObject display = archivo["display_selection"].toObject();
         QJsonObject displayActual = display[estado].toObject();
         QString posicion = displayActual["pos"].toString();
-        //PARA VER SI SE OBTIENE LA POSICION DE DISPLAY SELECTION.
-        qDebug()<<"Display Selection: "
-                 <<posicion;
         message->setBit(posicion.toInt(),false);
 
 }
