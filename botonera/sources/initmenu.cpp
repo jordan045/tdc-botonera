@@ -61,7 +61,7 @@ InitMenu::InitMenu(QWidget *parent) :
 
     //Crear interfaz
     int countY = 0; int countX = 0;
-    QButtonGroup *group = new QButtonGroup();
+    group = new QButtonGroup();
     group->setExclusive(true);
     // Crear botones a partir del JSON
     for (const QJsonValue &value : jsonArray) {
@@ -70,15 +70,15 @@ InitMenu::InitMenu(QWidget *parent) :
             QString buttonCode = obj[key].toString();
             QPushButton *button = new QPushButton("");
             button->setObjectName(buttonCode);
-            QString style = QString("QPushButton {image: url(':/overlays/360/img/Overlays/360/%1.png'); background-color: rgba(0,0,0,0);}"
-                                    "QPushButton:checked {image: url(':/overlays/360/img/Overlays/360/%1_pressed.png'); background-color: rgba(0,0,0,0);}"
-                                    "QPushButton:hover {background-color: rgba(0,0,0,0);}")
+            QString style = QString("QPushButton {image: url(':/overlays/360/img/Overlays/360/%1.png');border: none}"
+                                    "QPushButton:checked {image: url(':/overlays/360/img/Overlays/360/%1_pressed.png');border: none}"
+                                    )
                                 .arg(key);
 
             group->addButton(button, countX);
 
             button->setStyleSheet(style);
-            button->setMinimumHeight(80);
+            button->setMinimumSize(240,120);
             button->setCheckable(true);
             button->setFlat(true);
 
@@ -91,12 +91,20 @@ InitMenu::InitMenu(QWidget *parent) :
         countY++;
     }
 
-    int tipoBuque = mainObj["tipo"].toString().toInt();
-    QObject::connect(ui.continue_button, &QPushButton::clicked, this, [this, group, tipoBuque]() {
+    tipoBuque = mainObj["tipo"].toString().toInt();
+
+    QObject::connect(ui.continue_button, &QPushButton::clicked, this, &InitMenu::seleccion);
+}
+
+void InitMenu::seleccion()
+{
+    if(group->checkedButton() == nullptr){
+        QMessageBox::warning(this, "Advertencia", "Seleccione un ambiente de trabajo");
+    }else {
         auto overlay = group->checkedButton()->objectName();
         miBotonera->setOverlay(overlay);
         miBotonera->start(tipoBuque);
         this->close();
-    });
+    }
 }
 

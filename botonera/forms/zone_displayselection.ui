@@ -326,10 +326,10 @@ QPushButton:checked {image: url(':/display_selection/img/Display Selection/fig_p
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>460</y>
-     <width>58</width>
-     <height>30</height>
+     <x>10</x>
+     <y>459</y>
+     <width>78</width>
+     <height>39</height>
     </rect>
    </property>
    <property name="font">
@@ -344,7 +344,7 @@ QPushButton:checked {image: url(':/display_selection/img/Display Selection/fig_p
     <string>DISPLAY SELECTION</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <set>Qt::AlignHCenter|Qt::AlignTop</set>
    </property>
    <property name="wordWrap">
     <bool>true</bool>

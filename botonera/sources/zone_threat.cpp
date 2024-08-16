@@ -17,6 +17,12 @@ zone_threat::zone_threat(Botonera *b)
         auto *logic_button = new Boton(this,labels[i-1]);
         logic_buttons.append(logic_button);
         QObject::connect(gui_buttons[i-1], &QPushButton::toggled, logic_button, &Boton::interact);
+        gui_buttons[i-1]->setStyleSheet(gui_buttons[i-1]->styleSheet() + "QPushButton {"
+                                                                             "    border: none;"  // Quita el borde
+                                                                             "}"
+                                                                             "QPushButton:pressed {"
+                                                                             "    border: none;"  // Mantén el borde oculto al presionar
+                                                                             "}");
     }
 
 }
@@ -28,12 +34,7 @@ void zone_threat::sendCode(QString code)
 
 void zone_threat::removeCode(QString code)
 {
-    miBotonera->removeCodeFromThreat(&code);
-}
-
-void zone_threat::sendMessage()
-{
-     miBotonera->sendMessage();
+    miBotonera->removeCodeFromThreat(code);
 }
 
 QString zone_threat::getName(){

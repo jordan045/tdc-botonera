@@ -17,12 +17,15 @@ zone_icm::zone_icm(Botonera *b)
         auto *logic_button = new Boton(this,code);
         logic_buttons.append(logic_button);
         QObject::connect(gui_buttons[i-1], &QPushButton::toggled, logic_button, &Boton::interact);
+        gui_buttons[i-1]->setStyleSheet(gui_buttons[i-1]->styleSheet() + "QPushButton {"
+                                                                             "    border: none;"  // Quita el borde
+                                                                             "}"
+                                                                             "QPushButton:pressed {"
+                                                                             "    border: none;"  // Mantén el borde oculto al presionar
+                                                                             "}");
     }
 }
 
-void zone_icm::sendMessage(){
-     miBotonera->sendMessage();
-}
 
 QString zone_icm::getName(){
     return "ICM";
@@ -32,7 +35,7 @@ void zone_icm::sendCode(QString code){
     miBotonera->sendCodeToIcm(&code);
 }
 void zone_icm::removeCode(QString code){
-    miBotonera->removeCodeFromIcm(&code);
+    miBotonera->removeCodeFromIcm(code);
 }
 
 zone_icm::~zone_icm(){

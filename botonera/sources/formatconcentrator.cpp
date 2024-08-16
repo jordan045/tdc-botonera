@@ -1,5 +1,4 @@
 #include "formatconcentrator.h"
-#include "estado.h"
 #include "qjsondocument.h"
 #include <QFile>
 #include <QDebug>
@@ -16,13 +15,13 @@ FormatConcentrator::FormatConcentrator()
     leerJson();
 }
 
-QBitArray* FormatConcentrator::getMessage(Estado *estado)
+QBitArray* FormatConcentrator::getMessage(IEstado *estado)
 {
     setMessage(estado);
     return message;
 }
 
-void FormatConcentrator::setMessage(Estado *estado)
+void FormatConcentrator::setMessage(IEstado *estado)
 {
     setRange(estado);
     setDisplaySelection(estado);
@@ -38,7 +37,9 @@ void FormatConcentrator::setMessage(Estado *estado)
         guardarMensaje(estado);
 }
 
-void FormatConcentrator::setRange(Estado *estado)
+//------------------------------Setters------------------------------------------------//
+//FUNCIONA
+void FormatConcentrator::setRange(IEstado *estado)
 {
     QStringList wordListRange = estado->getRange().split(" ", Qt::SkipEmptyParts);
 
@@ -60,18 +61,22 @@ void FormatConcentrator::setRange(Estado *estado)
     }
 }
 
-void FormatConcentrator::setDisplaySelection(Estado *estado)
-    {
+//FUNCIONA
+void FormatConcentrator::setDisplaySelection(IEstado *estado)
+{
     QStringList wordListDSelection = estado->getDisplaySelection().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListDSelection){
         QJsonObject display = archivo["display_selection"].toObject();
         QJsonObject displayActual = display[word].toObject();
         QString posicion = displayActual["pos"].toString();
+        //PARA VER SI SE OBTIENE LA POSICION DE DISPLAY SELECTION.
+        qDebug()<<"Display Selection: "
+                <<posicion;
         message->setBit(posicion.toInt(),true);
     }
 }
 
-void FormatConcentrator::setThreat(Estado *estado)
+void FormatConcentrator::setThreat(IEstado *estado)
 {
     QStringList wordListThreat = estado->getThreat().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListThreat)
@@ -83,7 +88,7 @@ void FormatConcentrator::setThreat(Estado *estado)
     }
 }
 
-void FormatConcentrator::setCenter(Estado *estado)
+void FormatConcentrator::setCenter(IEstado *estado)
 {
     int offset = WORD_SIZE * 1; //Está en la primer palabra
     QStringList wordListCenter = estado->getCenter().split(" ", Qt::SkipEmptyParts);
@@ -96,31 +101,34 @@ void FormatConcentrator::setCenter(Estado *estado)
     }
 }
 
-void FormatConcentrator::setDisplayMode(Estado *estado)
+void FormatConcentrator::setDisplayMode(IEstado *estado)
 {
     int offset = WORD_SIZE * 1; //Está en la primer palabra
     int posFinal = 0;
     QStringList wordListDisplayMode = estado->getDisplayMode().split(" ",Qt::SkipEmptyParts);
     foreach(const QString &word, wordListDisplayMode)
     {
-        QJsonObject center = archivo["display_mode"].toObject();
-        QJsonObject centerActual = center[word].toObject();
-        QString posicion = centerActual["pos"].toString();
+        QJsonObject displayMode = archivo["display_mode"].toObject();
+        QJsonObject displayModeActual = displayMode[word].toObject();
+        QString posicion = displayModeActual["pos"].toString();
         posFinal = offset+posicion.toInt();
-        message->setBit(posFinal,true);
+        if(posFinal != 0)
+            message->setBit(posFinal,true);
     }
 }
 
-void FormatConcentrator::setQEK(Estado *estado)
+void FormatConcentrator::setQEK(IEstado *estado)
 {
     int offset = WORD_SIZE * 4; //Está en la cuarta palabra;
-    QStringList wordListQek = estado->getCenter().split(" ", Qt::SkipEmptyParts);
+    QStringList wordListQek = estado->getQEK().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListQek)
     {
         QJsonObject qek = archivo["qek"].toObject();
         QJsonObject qekActual = qek[word].toObject();
-        QString posicion = qekActual["value"].toString();
 
+        qDebug()<< "el nombre de qek es"<<word;
+        QString posicion = qekActual["value"].toString();
+        qDebug()<<"Valor qek"<<posicion;
         int i = offset-1;
         for(QChar caracter:posicion)
         {
@@ -132,7 +140,15 @@ void FormatConcentrator::setQEK(Estado *estado)
         }
     }
 }
-void FormatConcentrator::setICM(Estado *estado){
+
+void FormatConcentrator::removeQEK()
+{
+    int offset = WORD_SIZE * 4;
+    for(int i = offset-1;i>WORD_SIZE*3;i--)
+        message->setBit(i,false);
+}
+
+void FormatConcentrator::setICM(IEstado *estado){
     int offset = WORD_SIZE * 4; //Está en la cuarta palabra;
     offset += 23; //Hay que llegar a la pos 119
     QStringList wordListQek = estado->getCenter().split(" ", Qt::SkipEmptyParts);
@@ -152,7 +168,8 @@ void FormatConcentrator::setICM(Estado *estado){
         }
     }
 }
-void FormatConcentrator::setOverlay(Estado *estado){
+
+void FormatConcentrator::setOverlay(IEstado *estado){
 
     int offset = (WORD_SIZE * 4) + 19; //115
     QString overlay = estado->getOverlay();
@@ -166,7 +183,55 @@ void FormatConcentrator::setOverlay(Estado *estado){
     }
 }
 
-void FormatConcentrator::guardarMensaje(Estado *estado)
+void FormatConcentrator::removeThreat(QString estado)
+{
+
+        QJsonObject threat = archivo["threat_assesment"].toObject();
+        QJsonObject threatActual = threat[estado].toObject();
+        QString posicion = threatActual["pos"].toString();
+        message->setBit(posicion.toInt(),false);
+
+}
+
+void FormatConcentrator::removeDisplayMode(QString estado)
+{
+    int offset = WORD_SIZE * 1; //Está en la primer palabra
+    int posFinal = 0;
+    QJsonObject center = archivo["display_mode"].toObject();
+    QJsonObject centerActual = center[estado].toObject();
+    QString posicion = centerActual["pos"].toString();
+    qDebug()<<"El valor:" <<posicion.toInt();
+    posFinal = offset+posicion.toInt();
+    message->setBit(posFinal,false);
+}
+
+void FormatConcentrator::removeDisplaySelection(QString estado)
+{
+
+        QJsonObject display = archivo["display_selection"].toObject();
+        QJsonObject displayActual = display[estado].toObject();
+        QString posicion = displayActual["pos"].toString();
+        //PARA VER SI SE OBTIENE LA POSICION DE DISPLAY SELECTION.
+        qDebug()<<"Display Selection: "
+                 <<posicion;
+        message->setBit(posicion.toInt(),false);
+
+}
+
+void FormatConcentrator::removeCenter(QString estado)
+{
+    int offset = WORD_SIZE * 1;
+    QJsonObject center = archivo["center"].toObject();
+    QJsonObject centerActual = center[estado].toObject();
+    QString posicion = centerActual["pos"].toString();
+    message->setBit(offset + posicion.toInt(),false);
+}
+
+//--------------------------------------------------------------------------//
+//*************************************************************************//
+//---------------------------Removers--------------------------------------//
+
+void FormatConcentrator::guardarMensaje(IEstado *estado)
 {
     static QFile mensajeFile;
     static QTextStream out;
@@ -246,5 +311,3 @@ void FormatConcentrator::leerJson()
     else
         qDebug()<<"Hubo un error, no se abrio el archivo";
 }
-
-

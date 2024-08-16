@@ -24,6 +24,12 @@ zone_range::zone_range(Botonera *b)
         logic_buttons.append(logic_button);
         QObject::connect(gui_buttons[i-1], &QPushButton::toggled, logic_button, &Boton::interact);
         gui_buttons[i-1]->setShortcut(QKeySequence(tr(shortcuts[i-1])));
+        gui_buttons[i-1]->setStyleSheet(gui_buttons[i-1]->styleSheet() + "QPushButton {"
+                                                                             "    border: none;"  // Quita el borde
+                                                                             "}"
+                                                                             "QPushButton:pressed {"
+                                                                             "    border: none;"  // Mantén el borde oculto al presionar
+                                                                             "}");
     }
 }
 
@@ -32,12 +38,10 @@ void zone_range::sendCode(QString code)
     miBotonera->sendCodeToRange(&code);
 }
 void zone_range::removeCode(QString code){
-    miBotonera->removeCodeFromRange(&code);
+    miBotonera->removeCodeFromRange(code);
 }
 
-void zone_range::sendMessage(){
-    miBotonera->sendMessage();
-}
+
 
 QString zone_range::getName(){
     return "Range";

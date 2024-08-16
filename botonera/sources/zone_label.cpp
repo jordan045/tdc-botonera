@@ -16,6 +16,12 @@ zone_label::zone_label(Botonera *b)
         auto *logic_button = new Boton(this,labels[i-1]);
         logic_buttons.append(logic_button);
         QObject::connect(gui_buttons[i-1], &QPushButton::toggled, logic_button, &Boton::interact);
+        gui_buttons[i-1]->setStyleSheet(gui_buttons[i-1]->styleSheet() + "QPushButton {"
+                                                                             "    border: none;"  // Quita el borde
+                                                                             "}"
+                                                                             "QPushButton:pressed {"
+                                                                             "    border: none;"  // Mantén el borde oculto al presionar
+                                                                             "}");
     }
 }
 
@@ -28,12 +34,9 @@ void zone_label::sendCode(QString code){
 }
 
 void zone_label::removeCode(QString code){
-    miBotonera->removeCodeFromLabelSelection(&code);
+    miBotonera->removeCodeFromLabelSelection(code);
 }
 
-void zone_label::sendMessage(){
-     miBotonera->sendMessage();
-}
 
 QString zone_label::getName(){
     return "LABEL_SELECTION";

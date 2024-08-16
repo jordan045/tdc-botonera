@@ -12,6 +12,12 @@ public:
 private:
     Botonera *miBotonera;
     void start();
+    QButtonGroup *group;
+    int tipoBuque;
+
+private slots:
+    void seleccion();
+
 };
 
 #endif // INITMENU_H

@@ -115,6 +115,7 @@
     </qresource>
     <qresource prefix="/ico">
         <file>armagedon.ico</file>
+        <file>bg.png</file>
     </qresource>
     <qresource prefix="/overlays/140">
         <file>img/Overlays/140/AAW.png</file>

@@ -12,7 +12,6 @@ class Zone : public QWidget{
     public:
         virtual void sendCode(QString){}
         virtual void removeCode(QString){}
-        virtual void sendMessage(){}
         virtual QString getName(){return "";}
 
     protected:

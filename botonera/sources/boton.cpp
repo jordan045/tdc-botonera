@@ -14,7 +14,6 @@ void Boton::interact(){
     if(!state){
         QString mensaje = *new QString(this->codigo);
         this->zona->sendCode(mensaje);
-        this->zona->sendMessage();
     }
     else{
         QString mensaje = *new QString(this->codigo);

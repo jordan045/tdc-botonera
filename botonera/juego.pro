@@ -43,6 +43,7 @@ HEADERS += \
     headers/botonera.h \
     headers/estado.h \
     headers/formatconcentrator.h \
+    headers/iestado.h \
     headers/initmenu.h \
     headers/overlay_140_0001.h \
     headers/overlay_140_0010.h \

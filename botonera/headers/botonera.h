@@ -3,6 +3,7 @@
 
 #include "estado.h"
 #include <QWidget>
+#include "qpushbutton.h"
 #include "qshortcut.h"
 #include "formatconcentrator.h"
 #include "zone_center.h"
@@ -22,14 +23,14 @@ public:
 
     void setOverlay(QString codigo);
 
-    void removeCodeFromRange(QString *boton);
-    void removeCodeFromLabelSelection(QString *boton);
-    void removeCodeFromQek(QString *boton);
-    void removeCodeFromThreat(QString *boton);
-    void removeCodeFromCenter(QString *boton);
-    void removeCodeFromDisplayMode(QString *boton);
-    void removeCodeFromDisplaySelection(QString *boton);
-    void removeCodeFromIcm(QString *boton);
+    void removeCodeFromRange(QString boton);
+    void removeCodeFromLabelSelection(QString boton);
+    void removeCodeFromQek(QString boton);
+    void removeCodeFromThreat(QString boton);
+    void removeCodeFromCenter(QString boton);
+    void removeCodeFromDisplayMode(QString boton);
+    void removeCodeFromDisplaySelection(QString boton);
+    void removeCodeFromIcm(QString boton);
 
     void sendCodeToRange(QString *boton);
     void sendCodeToLabelSelection(QString *boton);
@@ -58,6 +59,9 @@ private:
    FormatConcentrator *concentrator;
    QShortcut *shortcut;
    Estado *miEstado;
+   QPushButton *help_button = new QPushButton("");
+   void crearBotonHelp();
+   void distribucionLayout();
 };
 
 #endif // BOTONERA_H

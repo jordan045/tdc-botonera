@@ -17,6 +17,12 @@ zone_displayMode::zone_displayMode(Botonera *b):
         auto *logic_button = new Boton(this,labels[i-1]);
         logic_buttons.append(logic_button);
         QObject::connect(gui_buttons[i-1], &QPushButton::toggled, logic_button, &Boton::interact);
+        gui_buttons[i-1]->setStyleSheet(gui_buttons[i-1]->styleSheet() + "QPushButton {"
+                                                                             "    border: none;"  // Quita el borde
+                                                                             "}"
+                                                                             "QPushButton:pressed {"
+                                                                             "    border: none;"  // Mantén el borde oculto al presionar
+                                                                             "}");
     }
 }
 
@@ -26,12 +32,10 @@ void zone_displayMode::sendCode(QString code){
 }
 
 void zone_displayMode::removeCode(QString code){
-    miBotonera->removeCodeFromDisplayMode(&code);
+    miBotonera->removeCodeFromDisplayMode(code);
 }
 
-void zone_displayMode::sendMessage(){
-     miBotonera->sendMessage();
-}
+
 
 QString zone_displayMode::getName(){
     return "DISPLAYSELECTION";
