@@ -29,7 +29,7 @@ zone_threat::zone_threat(Botonera *b)
 
 void zone_threat::sendCode(QString code)
 {
-    miBotonera->sendCodeToThreat(&code);
+    miBotonera->sendCodeToThreat(code);
 }
 
 void zone_threat::removeCode(QString code)

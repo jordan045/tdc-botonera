@@ -40,7 +40,7 @@ public:
     }
 
     void sendCode(QString code){
-        miBotonera->sendCodeToQek(&code);
+        miBotonera->sendCodeToQek(code);
     }
     void removeCode(QString code){
         miBotonera->removeCodeFromQek(code);

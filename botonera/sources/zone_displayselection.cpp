@@ -28,7 +28,7 @@ zone_displaySelection::zone_displaySelection(Botonera *b)
 
 
 void zone_displaySelection::sendCode(QString code){
-    miBotonera->sendCodeToDisplaySelection(&code);
+    miBotonera->sendCodeToDisplaySelection(code);
 }
 
 void zone_displaySelection::removeCode(QString code){
