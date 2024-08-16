@@ -36,6 +36,7 @@ Thumbs.db
 /.qmake.stash
 /build
 /botonera/build
+/botonera/mensajesFC/*
 /build*
 
 # qtcreator generated files
