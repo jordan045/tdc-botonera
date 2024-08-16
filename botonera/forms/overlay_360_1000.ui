@@ -2000,6 +2000,9 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
           <height>50</height>
          </size>
         </property>
+        <property name="shortcut">
+         <string>Ctrl+Q</string>
+        </property>
         <property name="checkable">
          <bool>false</bool>
         </property>
@@ -2047,6 +2050,9 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
           <height>50</height>
          </size>
         </property>
+        <property name="shortcut">
+         <string>Ctrl+W</string>
+        </property>
         <property name="checkable">
          <bool>false</bool>
         </property>
@@ -2093,6 +2099,9 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
           <width>50</width>
           <height>50</height>
          </size>
+        </property>
+        <property name="shortcut">
+         <string>Ctrl+E</string>
         </property>
         <property name="checkable">
          <bool>false</bool>
@@ -4358,6 +4367,9 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
           <width>50</width>
           <height>50</height>
          </size>
+        </property>
+        <property name="shortcut">
+         <string>Ctrl+R</string>
         </property>
         <property name="checkable">
          <bool>false</bool>

@@ -100,6 +100,9 @@ QPushButton:pressed {image: url(':/center/img/Center/CU_OR_CENT_pressed.png');bo
       <property name="text">
        <string/>
       </property>
+      <property name="shortcut">
+       <string>Ctrl+A</string>
+      </property>
       <property name="checkable">
        <bool>true</bool>
       </property>
@@ -128,6 +131,9 @@ QPushButton:pressed {image: url(':/center/img/Center/OFF_CENT_pressed.png');bord
       </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="shortcut">
+       <string>Ctrl+S</string>
       </property>
       <property name="checkable">
        <bool>true</bool>
@@ -220,6 +226,9 @@ QPushButton:pressed {image: url(':/center/img/Center/DATA_REQ_pressed.png');
       </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="shortcut">
+       <string>Ctrl+D</string>
       </property>
       <property name="checkable">
        <bool>true</bool>

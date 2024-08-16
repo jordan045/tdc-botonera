@@ -8,6 +8,7 @@ OVERLAY_140_0010::OVERLAY_140_0010(Botonera *b)
     this->setMinimumSize(500,600);
     miBotonera = b;
     initiate();
+
 }
 
 OVERLAY_140_0010::~OVERLAY_140_0010()

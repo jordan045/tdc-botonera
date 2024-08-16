@@ -174,6 +174,8 @@ void Botonera::start(int tipo)
         }
     }
 
+    qDebug() << tipo << overlay;
+
     crearBotonHelp();
     distribucionLayout();
 
