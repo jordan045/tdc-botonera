@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>96</width>
-    <height>496</height>
+    <height>510</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>96</width>
-    <height>496</height>
+    <height>510</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>96</width>
-    <height>496</height>
+    <height>510</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -326,9 +326,9 @@ QPushButton:checked {image: url(':/display_selection/img/Display Selection/fig_p
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>459</y>
-     <width>78</width>
+     <x>17</x>
+     <y>465</y>
+     <width>65</width>
      <height>39</height>
     </rect>
    </property>

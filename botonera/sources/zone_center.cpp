@@ -32,7 +32,7 @@ zone_center::~zone_center(){
 }
 
 void zone_center::sendCode(QString code){
-    miBotonera->sendCodeToCenter(&code);
+    miBotonera->sendCodeToCenter(code);
 }
 
 void zone_center::removeCode(QString code){

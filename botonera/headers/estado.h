@@ -40,14 +40,14 @@ public:
     QString getModos() override;
     QString getOverlay() override;
 
-    void setRange(QString *r) override;
-    void setLabel(QString *l) override;
-    void setQEK(QString *q) override;
-    void setThreat(QString *t) override;
-    void setCenter(QString *c) override;
-    void setDisplayMode(QString *d) override;
-    void setDisplaySelection(QString *d) override;
-    void setICM(QString *i) override;
+    void setRange(QString r) override;
+    void setLabel(QString l) override;
+    void setQEK(QString q) override;
+    void setThreat(QString t) override;
+    void setCenter(QString c) override;
+    void setDisplayMode(QString d) override;
+    void setDisplaySelection(QString d) override;
+    void setICM(QString i) override;
 
 
 private:

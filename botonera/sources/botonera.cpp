@@ -79,40 +79,40 @@ void Botonera::removeCodeFromIcm(QString boton){
 }
 
 //Setters//
-void Botonera::sendCodeToRange(QString *boton){
+void Botonera::sendCodeToRange(QString boton){
     miEstado->setRange(boton);
 }
-void Botonera::sendCodeToLabelSelection(QString *boton){
+void Botonera::sendCodeToLabelSelection(QString boton){
     miEstado->setLabel(boton);
     sendMessage();
 }
 
-void Botonera::sendCodeToQek(QString *boton){
+void Botonera::sendCodeToQek(QString boton){
     miEstado->setQEK(boton);
     sendMessage();
 }
 
-void Botonera::sendCodeToThreat(QString *boton){
+void Botonera::sendCodeToThreat(QString boton){
     miEstado->setThreat(boton);
     sendMessage();
 }
 
-void Botonera::sendCodeToCenter(QString *boton){
+void Botonera::sendCodeToCenter(QString boton){
     miEstado->setCenter(boton);
     sendMessage();
 }
 
-void Botonera::sendCodeToDisplayMode(QString *boton){
+void Botonera::sendCodeToDisplayMode(QString boton){
     miEstado->setDisplayMode(boton);
     sendMessage();
 }
 
-void Botonera::sendCodeToDisplaySelection(QString *boton){
+void Botonera::sendCodeToDisplaySelection(QString boton){
     miEstado->setDisplaySelection(boton);
     sendMessage();
 }
 
-void Botonera::sendCodeToIcm(QString *boton){
+void Botonera::sendCodeToIcm(QString boton){
     miEstado->setICM(boton);
     sendMessage();
 }
@@ -233,9 +233,7 @@ void Botonera::distribucionLayout()
     QVBoxLayout *column_layout = new QVBoxLayout();
     QVBoxLayout *qek_layout = new QVBoxLayout();
 
-    //top_layout->addWidget();
     top_layout->addWidget(range_widget,Qt::AlignCenter);
-    //top_layout->addWidget(help_button);
 
     column_layout->addWidget(label_selection_widget);
     column_layout->addWidget(threat_assesment_widget);
@@ -254,6 +252,8 @@ void Botonera::distribucionLayout()
     outer_layout->addLayout(top_layout);
     outer_layout->addLayout(inner_layout);
     outer_layout->addWidget(help_button);
+
+    qDebug() << this->sizeHint();
 
     this->setLayout(outer_layout);
 

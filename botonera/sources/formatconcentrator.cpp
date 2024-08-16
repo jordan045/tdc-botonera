@@ -240,7 +240,8 @@ void FormatConcentrator::guardarMensaje(IEstado *estado)
     static QString formattedFile;
 
     date = QDateTime::currentDateTime();
-    formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
+    formattedTime = date.toString("dd/MM/yyyy hh:mm:ss");
+    formattedFile = date.toString("dd_MM_yyyy-hh_mm_ss");
 
     // Solo calcular la ruta si no ha sido inicializada
     if (mensajeFile.fileName().isEmpty()) {
@@ -275,6 +276,7 @@ void FormatConcentrator::guardarMensaje(IEstado *estado)
 
     QString bitString;
 
+    // Feo feo pero funciona no se toca más
     for (int i = 0; i < message->size(); ++i) {
         bitString.append(message->testBit(i) ? '1' : '0');
     }

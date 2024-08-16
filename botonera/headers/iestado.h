@@ -41,14 +41,14 @@ public:
     virtual QString getModos() = 0;
     virtual QString getOverlay() = 0;
 
-    virtual void setRange(QString *r) = 0;
-    virtual void setLabel(QString *l) = 0;
-    virtual void setQEK(QString *q) = 0;
-    virtual void setThreat(QString *t) = 0;
-    virtual void setCenter(QString *c) = 0;
-    virtual void setDisplayMode(QString *d) = 0;
-    virtual void setDisplaySelection(QString *d) = 0;
-    virtual void setICM(QString *i) = 0;
+    virtual void setRange(QString r) = 0;
+    virtual void setLabel(QString l) = 0;
+    virtual void setQEK(QString q) = 0;
+    virtual void setThreat(QString t) = 0;
+    virtual void setCenter(QString c) = 0;
+    virtual void setDisplayMode(QString d) = 0;
+    virtual void setDisplaySelection(QString d) = 0;
+    virtual void setICM(QString i) = 0;
 
 };
 

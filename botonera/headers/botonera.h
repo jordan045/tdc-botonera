@@ -32,14 +32,14 @@ public:
     void removeCodeFromDisplaySelection(QString boton);
     void removeCodeFromIcm(QString boton);
 
-    void sendCodeToRange(QString *boton);
-    void sendCodeToLabelSelection(QString *boton);
-    void sendCodeToQek(QString *boton);
-    void sendCodeToThreat(QString *boton);
-    void sendCodeToCenter(QString *boton);
-    void sendCodeToDisplayMode(QString *boton);
-    void sendCodeToDisplaySelection(QString *boton);
-    void sendCodeToIcm(QString *boton);
+    void sendCodeToRange(QString boton);
+    void sendCodeToLabelSelection(QString boton);
+    void sendCodeToQek(QString boton);
+    void sendCodeToThreat(QString boton);
+    void sendCodeToCenter(QString boton);
+    void sendCodeToDisplayMode(QString boton);
+    void sendCodeToDisplaySelection(QString boton);
+    void sendCodeToIcm(QString boton);
     void sendMessage();
     QString getOverlay();
     

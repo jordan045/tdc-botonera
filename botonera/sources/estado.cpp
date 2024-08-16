@@ -74,46 +74,46 @@ QString Estado::getQekDer(){            return qek;}
 QString Estado::getDisplaySelection(){  return displaySelection;}
 QString Estado::getRange(){             return range;}
 
-void Estado::setLabel(QString *s){
-    s->append(" ");
-    this->label.append(*s);
+void Estado::setLabel(QString s){
+    s.append(" ");
+    this->label.append(s);
     refresh();
 }
-void Estado::setQEK(QString *s){
-    this->qek.append(*s);
+void Estado::setQEK(QString s){
+    this->qek.append(s);
     this->qek.append(" ");
     refresh();
 }
-void Estado::setThreat(QString *s){
-    s->append(" ");
-    this->threat.append(*s);
+void Estado::setThreat(QString s){
+    s.append(" ");
+    this->threat.append(s);
     refresh();
 }
-void Estado::setCenter(QString *s){
-    s->append(" ");
-    this->center.append(*s);
+void Estado::setCenter(QString s){
+    s.append(" ");
+    this->center.append(s);
     refresh();
 }
-void Estado::setDisplayMode(QString *s){
-    s->append(" ");
-    this->displayMode.append(*s);
+void Estado::setDisplayMode(QString s){
+    s.append(" ");
+    this->displayMode.append(s);
     refresh();
 }
-void Estado::setICM(QString *s){
-    s->append(" ");
-    this->icm.append(*s);
+void Estado::setICM(QString s){
+    s.append(" ");
+    this->icm.append(s);
     refresh();
 }
-void Estado::setDisplaySelection(QString *s){
+void Estado::setDisplaySelection(QString s){
     if (!this->displaySelection.isEmpty() && !this->displaySelection.endsWith(" ")) {
         this->displaySelection.append(" ");
     }
-    this->displaySelection.append(*s);
+    this->displaySelection.append(s);
     refresh();
 }
-void Estado::setRange(QString *s){
-    s->append(" ");
-    this->range.append(*s);
+void Estado::setRange(QString s){
+    s.append(" ");
+    this->range.append(s);
     refresh();
 }
 
