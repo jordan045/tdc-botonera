@@ -149,4 +149,7 @@
         <file>img/Ayuda/ayuda.png</file>
         <file>img/Ayuda/ayuda_pressed.png</file>
     </qresource>
+    <qresource prefix="/fonts">
+        <file>fonts/bahnschrift.TTF</file>
+    </qresource>
 </RCC>

@@ -20,6 +20,7 @@
 #include "overlay_360_0110.h"
 #include "overlay_360_0111.h"
 #include "overlay_360_1000.h"
+#include "QFontDatabase"
 
 Botonera::Botonera(QWidget *parent) :
     QWidget(parent)
@@ -226,6 +227,9 @@ void Botonera::crearBotonHelp()
 
 void Botonera::distribucionLayout()
 {
+    QFontDatabase::addApplicationFont ( ":/fonts/fonts/bahnschrift.TTF" );
+    QFont Bahnschrift("Bahnschrift", 9, QFont::Normal);
+
     // Creación de la interfaz de botonera
     QHBoxLayout *top_layout = new QHBoxLayout();
     QVBoxLayout *outer_layout = new QVBoxLayout();
@@ -254,7 +258,7 @@ void Botonera::distribucionLayout()
     outer_layout->addWidget(help_button);
 
     this->setLayout(outer_layout);
-
+    this->setFont(Bahnschrift);
 }
 
 
