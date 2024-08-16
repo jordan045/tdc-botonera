@@ -16,6 +16,7 @@ public:
 
 private:
     Ui::OVERLAY_360_0110 *ui;
+    void shortcuts();
 };
 
 #endif // OVERLAY_360_0110_H
