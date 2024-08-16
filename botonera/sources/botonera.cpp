@@ -233,9 +233,7 @@ void Botonera::distribucionLayout()
     QVBoxLayout *column_layout = new QVBoxLayout();
     QVBoxLayout *qek_layout = new QVBoxLayout();
 
-    //top_layout->addWidget();
     top_layout->addWidget(range_widget,Qt::AlignCenter);
-    //top_layout->addWidget(help_button);
 
     column_layout->addWidget(label_selection_widget);
     column_layout->addWidget(threat_assesment_widget);
@@ -254,6 +252,8 @@ void Botonera::distribucionLayout()
     outer_layout->addLayout(top_layout);
     outer_layout->addLayout(inner_layout);
     outer_layout->addWidget(help_button);
+
+    qDebug() << this->sizeHint();
 
     this->setLayout(outer_layout);
 

@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>90</width>
-    <height>319</height>
+    <height>335</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>90</width>
-    <height>319</height>
+    <height>335</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>90</width>
-    <height>319</height>
+    <height>335</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -224,9 +224,9 @@ QPushButton:checked {image: url(':/threat/img/Threat/12_sec_pressed.png')}</stri
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>13</x>
-     <y>281</y>
-     <width>65</width>
+     <x>20</x>
+     <y>288</y>
+     <width>49</width>
      <height>37</height>
     </rect>
    </property>
