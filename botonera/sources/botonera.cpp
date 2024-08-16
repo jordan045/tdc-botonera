@@ -253,8 +253,6 @@ void Botonera::distribucionLayout()
     outer_layout->addLayout(inner_layout);
     outer_layout->addWidget(help_button);
 
-    qDebug() << this->sizeHint();
-
     this->setLayout(outer_layout);
 
 }

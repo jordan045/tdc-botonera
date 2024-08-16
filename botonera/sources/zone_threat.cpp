@@ -45,37 +45,52 @@ zone_threat::~zone_threat(){
     delete ui;
 }
 
-void zone_threat::on_THREAT_MIN_toggled(bool checked){
+void zone_threat::on_THREAT_4_15MIN_toggled(bool checked){
     if (checked){
-        ui->THREAT_12SEC->setChecked(false);
-        ui->THREAT_30SEC->setChecked(false);
-        ui->THREAT_6MIN->setChecked(false);
+        ui->THREAT_1_12SEC->setChecked(false);
+        ui->THREAT_2_30SEC->setChecked(false);
+        ui->THREAT_3_6MIN->setChecked(false);
+        ui->THREAT_5_RESET->setChecked(false);
     }
 }
 
-void zone_threat::on_THREAT_6MIN_toggled(bool checked){
+void zone_threat::on_THREAT_3_6MIN_toggled(bool checked){
     if (checked){
-        ui->THREAT_12SEC->setChecked(false);
-        ui->THREAT_30SEC->setChecked(false);
-        ui->THREAT_MIN->setChecked(false);
-    }
-}
-
-
-void zone_threat::on_THREAT_30SEC_toggled(bool checked){
-    if (checked){
-        ui->THREAT_12SEC->setChecked(false);
-        ui->THREAT_MIN->setChecked(false);
-        ui->THREAT_6MIN->setChecked(false);
+        ui->THREAT_1_12SEC->setChecked(false);
+        ui->THREAT_2_30SEC->setChecked(false);
+        ui->THREAT_4_15MIN->setChecked(false);
+        ui->THREAT_5_RESET->setChecked(false);
     }
 }
 
 
-void zone_threat::on_THREAT_12SEC_toggled(bool checked){
+void zone_threat::on_THREAT_2_30SEC_toggled(bool checked){
     if (checked){
-        ui->THREAT_MIN->setChecked(false);
-        ui->THREAT_30SEC->setChecked(false);
-        ui->THREAT_6MIN->setChecked(false);
+        ui->THREAT_1_12SEC->setChecked(false);
+        ui->THREAT_4_15MIN->setChecked(false);
+        ui->THREAT_3_6MIN->setChecked(false);
+        ui->THREAT_5_RESET->setChecked(false);
+    }
+}
+
+
+void zone_threat::on_THREAT_1_12SEC_toggled(bool checked){
+    if (checked){
+        ui->THREAT_4_15MIN->setChecked(false);
+        ui->THREAT_2_30SEC->setChecked(false);
+        ui->THREAT_3_6MIN->setChecked(false);
+        ui->THREAT_5_RESET->setChecked(false);
+    }
+}
+
+
+void zone_threat::on_THREAT_5_RESET_toggled(bool checked)
+{
+    if (checked){
+        ui->THREAT_1_12SEC->setChecked(false);
+        ui->THREAT_4_15MIN->setChecked(false);
+        ui->THREAT_2_30SEC->setChecked(false);
+        ui->THREAT_3_6MIN->setChecked(false);
     }
 }
 
