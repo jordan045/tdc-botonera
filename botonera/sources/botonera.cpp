@@ -26,6 +26,8 @@ Botonera::Botonera(QWidget *parent) :
     QWidget(parent)
 {
     miEstado = new Estado(this);
+    concentrator = new FormatConcentrator();
+
     range_widget = new zone_range(this);
     label_selection_widget = new zone_label(this);
     threat_assesment_widget = new zone_threat(this);
@@ -33,7 +35,6 @@ Botonera::Botonera(QWidget *parent) :
     center_widget = new zone_center(this);
     icm_widget = new zone_icm(this);
     display_selection_widget = new zone_displaySelection(this);
-    concentrator = new FormatConcentrator();
 }
 //---------Removers----------------------------//
 void Botonera::setOverlay(QString codigo){
@@ -82,6 +83,7 @@ void Botonera::removeCodeFromIcm(QString boton){
 //Setters//
 void Botonera::sendCodeToRange(QString boton){
     miEstado->setRange(boton);
+    sendMessage();
 }
 void Botonera::sendCodeToLabelSelection(QString boton){
     miEstado->setLabel(boton);
