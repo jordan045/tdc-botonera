@@ -1723,7 +1723,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_85">
+       <widget class="QPushButton" name="GUI_35">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -1770,7 +1770,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_91">
+       <widget class="QPushButton" name="GUI_36">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -1817,7 +1817,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_84">
+       <widget class="QPushButton" name="GUI_37">
         <property name="minimumSize">
          <size>
           <width>50</width>
@@ -3862,7 +3862,7 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_103">
+       <widget class="QPushButton" name="GUI_57">
         <property name="minimumSize">
          <size>
           <width>50</width>

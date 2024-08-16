@@ -13,3 +13,11 @@ OVERLAY_360_0010::~OVERLAY_360_0010()
 {
     delete ui;
 }
+
+void OVERLAY_360_0010::shortcuts()
+{
+    ui->GUI_57->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_R));
+    ui->GUI_37->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_R));
+    ui->GUI_36->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_R));
+    ui->GUI_35->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_R));
+}
