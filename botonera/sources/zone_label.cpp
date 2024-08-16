@@ -30,7 +30,7 @@ zone_label::~zone_label(){
 }
 
 void zone_label::sendCode(QString code){
-    miBotonera->sendCodeToLabelSelection(&code);
+    miBotonera->sendCodeToLabelSelection(code);
 }
 
 void zone_label::removeCode(QString code){

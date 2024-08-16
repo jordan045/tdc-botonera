@@ -35,7 +35,7 @@ zone_range::zone_range(Botonera *b)
 
 void zone_range::sendCode(QString code)
 {
-    miBotonera->sendCodeToRange(&code);
+    miBotonera->sendCodeToRange(code);
 }
 void zone_range::removeCode(QString code){
     miBotonera->removeCodeFromRange(code);

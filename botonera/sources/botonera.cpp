@@ -79,40 +79,40 @@ void Botonera::removeCodeFromIcm(QString boton){
 }
 
 //Setters//
-void Botonera::sendCodeToRange(QString *boton){
+void Botonera::sendCodeToRange(QString boton){
     miEstado->setRange(boton);
 }
-void Botonera::sendCodeToLabelSelection(QString *boton){
+void Botonera::sendCodeToLabelSelection(QString boton){
     miEstado->setLabel(boton);
     sendMessage();
 }
 
-void Botonera::sendCodeToQek(QString *boton){
+void Botonera::sendCodeToQek(QString boton){
     miEstado->setQEK(boton);
     sendMessage();
 }
 
-void Botonera::sendCodeToThreat(QString *boton){
+void Botonera::sendCodeToThreat(QString boton){
     miEstado->setThreat(boton);
     sendMessage();
 }
 
-void Botonera::sendCodeToCenter(QString *boton){
+void Botonera::sendCodeToCenter(QString boton){
     miEstado->setCenter(boton);
     sendMessage();
 }
 
-void Botonera::sendCodeToDisplayMode(QString *boton){
+void Botonera::sendCodeToDisplayMode(QString boton){
     miEstado->setDisplayMode(boton);
     sendMessage();
 }
 
-void Botonera::sendCodeToDisplaySelection(QString *boton){
+void Botonera::sendCodeToDisplaySelection(QString boton){
     miEstado->setDisplaySelection(boton);
     sendMessage();
 }
 
-void Botonera::sendCodeToIcm(QString *boton){
+void Botonera::sendCodeToIcm(QString boton){
     miEstado->setICM(boton);
     sendMessage();
 }

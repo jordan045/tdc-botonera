@@ -28,7 +28,7 @@ zone_displayMode::zone_displayMode(Botonera *b):
 
 
 void zone_displayMode::sendCode(QString code){
-    miBotonera->sendCodeToDisplayMode(&code);
+    miBotonera->sendCodeToDisplayMode(code);
 }
 
 void zone_displayMode::removeCode(QString code){
