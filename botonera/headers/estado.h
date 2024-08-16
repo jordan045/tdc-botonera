@@ -55,7 +55,6 @@ private:
     Botonera *miBotonera;
 
     QString getInstance();
-    //int getEstado();
     QString range;
     QString label;
     QString qek;
