@@ -1,6 +1,9 @@
+#include <QCoreApplication>
 #include <QtTest>
 
 // add necessary includes here
+#include "formatconcentrator.h"
+#include "stubestado.h"
 
 class formatConcentratorTest : public QObject
 {
@@ -24,8 +27,20 @@ void formatConcentratorTest::initTestCase() {}
 
 void formatConcentratorTest::cleanupTestCase() {}
 
-void formatConcentratorTest::test_case01() {}
+void formatConcentratorTest::test_case01() {
+    FormatConcentrator* concentrator = new FormatConcentrator();
+    StubEstado* stubEstado = new StubEstado();
 
-QTEST_APPLESS_MAIN(formatConcentratorTest)
+    QBitArray* localTest = concentrator->getMessage(stubEstado);
+    QBitArray* expected = new QBitArray(192);
+    //expected->setBit(0,true);
+
+    QCOMPARE(*localTest, *expected);
+
+    delete localTest;
+    delete expected;
+}
+
+QTEST_MAIN(formatConcentratorTest)
 
 #include "tst_formatconcentratortest.moc"
