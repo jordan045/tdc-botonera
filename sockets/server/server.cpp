@@ -1,11 +1,10 @@
 #include <iostream>
 #include <cstring>
 #include <thread>
-#include <map>
-#include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <unistd.h>
+// Clase Servidor
 
 #define PORT 8080
 #define BUFFER_SIZE 1024
