@@ -24,7 +24,7 @@ class Servidor
 public:
     Servidor(int puerto);
     ~Servidor();
-    void iniciar(std::function<void(const std::string&, const std::string&)> callback);
+    void iniciar(std::function<void(const char mensaje[1024], const char namespace_[20])> callback);
     int enviar(const char namespace_[20], const char mensaje[BUFFER_SIZE]);
     int recibir(char mensaje[1024], char namespace_[20]);
 
@@ -51,7 +51,6 @@ Servidor::Servidor(int puerto) : server_fd(0), cliente_fd(0), addrlen(sizeof(add
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = INADDR_ANY;
     address.sin_port = htons(puerto);
-    std::memset(buffer, 0, BUFFER_SIZE);
 }
 
 void Servidor::stop()
@@ -76,7 +75,7 @@ Servidor::~Servidor()
     stop();
 }
 
-void Servidor::iniciar(std::function<void(const std::string&, const std::string&)> callback)
+void Servidor::iniciar(std::function<void(const char mensaje[1024], const char namespace_[20])> callback)
 {
     crearSocket();
     configurarSocket();
@@ -174,8 +173,8 @@ int Servidor::recibir(char mensaje[1024], char namespace_[20])
 
 int main()
 {
-    auto callback = [](const std::string& message, const std::string& namespace_) {
-        std::cout << message << " : " << namespace_ << std::endl;
+    auto callback = [](const char mensaje[1024], const char namespace_[20]) {
+        std::cout << mensaje << " : " << namespace_ << std::endl;
     };
     // auto para que el compilador deduzca el tipo
 
