@@ -136,8 +136,9 @@ int Cliente::recibir(char mensaje[BUFFER_SIZE], char namespace_[NAMESPACE_SIZE])
 
 int main()
 {
+    char mensaje[BUFFER_SIZE];
     auto callback = [](const char mensaje[BUFFER_SIZE], const char namespace_[NAMESPACE_SIZE]) {
-        std::cout << mensaje << " : " << namespace_ << std::endl;
+        std::cout << "RX: " << mensaje << " : " << namespace_ << std::endl;
     };
     // auto para que el compilador deduzca el tipo
 
@@ -147,8 +148,10 @@ int main()
     std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(1));
     // Es necesario un pequeño retardo antes de enviar el primer mensaje
 
-    cliente.enviar("namespace1", "Hola, servidor en namespace1!");
-    cliente.enviar("namespace2", "Hola, servidor en namespace2!");
+    while (true) {
+        std::cin >> mensaje;
+        cliente.enviar("namespace2", mensaje);
+    }
 
     while (true);
 

@@ -173,8 +173,9 @@ int Servidor::recibir(char mensaje[1024], char namespace_[20])
 
 int main()
 {
+    char mensaje[BUFFER_SIZE];
     auto callback = [](const char mensaje[1024], const char namespace_[20]) {
-        std::cout << mensaje << " : " << namespace_ << std::endl;
+        std::cout << "RX: " << mensaje << " : " << namespace_ << std::endl;
     };
     // auto para que el compilador deduzca el tipo
 
@@ -184,9 +185,10 @@ int main()
     std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(1));
     // Es necesario un pequeño retardo antes de enviar el primer mensaje
 
-    servidor.enviar("namespace1", "hola");
-
-    while (true);
+    while (true) {
+        std::cin >> mensaje;
+        servidor.enviar("namespace1", mensaje);
+    }
 
     return 0;
 }
