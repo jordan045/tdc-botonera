@@ -32,7 +32,6 @@ private:
     struct sockaddr_in address;
     int addrlen;
     char buffer[BUFFER_SIZE];
-    std::map<std::string, std::string> namespaces;
 
     void crearSocket();
     void configurarSocket();
