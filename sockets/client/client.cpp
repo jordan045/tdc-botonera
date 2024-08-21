@@ -29,7 +29,6 @@ public:
     void conectar(std::function<void(const std::string&, const std::string&)> callback);
     int enviar(const char namespace_[NAMESPACE_SIZE], const char mensaje[BUFFER_SIZE]);
     int recibir(char mensaje[1024], char namespace_[20]);
-    void esperar_mensajes(std::function<void(const std::string&, const std::string&)> callback);
 
 private:
     int sock;
