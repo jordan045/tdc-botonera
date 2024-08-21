@@ -135,6 +135,7 @@ int main()
     hilo_recibidos.detach();
 
     std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(1));
+    // Es necesario un pequeño retardo antes de enviar el primer mensaje
 
     cliente.enviar("namespace1", "Hola, servidor en namespace1!");
     cliente.enviar("namespace2", "Hola, servidor en namespace2!");
