@@ -7,6 +7,8 @@
 #include <functional>
 #include <atomic> // Para matar el hilo secundario
 // Clase Servidor
+#include <chrono>
+// Ejemplo en main
 
 #define PORT 8080
 #define BUFFER_SIZE 1024
@@ -40,6 +42,8 @@ private:
     void enlazarSocket();
     void escucharConexiones();
     void aceptarConexion();
+    void stop();
+
 };
 
 Servidor::Servidor(int puerto) : server_fd(0), cliente_fd(0), addrlen(sizeof(address))
@@ -48,6 +52,14 @@ Servidor::Servidor(int puerto) : server_fd(0), cliente_fd(0), addrlen(sizeof(add
     address.sin_addr.s_addr = INADDR_ANY;
     address.sin_port = htons(puerto);
     std::memset(buffer, 0, BUFFER_SIZE);
+}
+
+void Servidor::stop()
+{
+    stop_thread = true;
+    if (worker_thread.joinable()) {
+        worker_thread.join();
+    }
 }
 
 Servidor::~Servidor()
@@ -60,6 +72,8 @@ Servidor::~Servidor()
     {
         close(server_fd);
     }
+
+    stop();
 }
 
 void Servidor::iniciar(std::function<void(const std::string&, const std::string&)> callback)
@@ -167,6 +181,11 @@ int main()
 
     Servidor servidor(PORT);
     servidor.iniciar(callback);
+
+    std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(1));
+    // Es necesario un pequeño retardo antes de enviar el primer mensaje
+
+    servidor.enviar("namespace1", "hola");
 
     while (true);
 
