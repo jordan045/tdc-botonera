@@ -7,6 +7,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <unistd.h>
+#include <chrono>
 
 #define PORT 8080
 #define BUFFER_SIZE 1024
@@ -126,11 +127,16 @@ void Cliente::esperar_mensajes()
 
 int main()
 {
+    using namespace std::this_thread; 
+    using namespace std::chrono;
+
     Cliente cliente("127.0.0.1", PORT);
     cliente.conectar();
 
     std::thread hilo_recibidos(&Cliente::esperar_mensajes, &cliente);
     hilo_recibidos.detach();
+
+    sleep_until(system_clock::now() + seconds(1));
 
     cliente.enviar("namespace1", "Hola, servidor en namespace1!");
     cliente.enviar("namespace2", "Hola, servidor en namespace2!");
