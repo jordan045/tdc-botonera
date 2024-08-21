@@ -66,7 +66,6 @@ void Servidor::iniciar()
     enlazarSocket();
     escucharConexiones();
     aceptarConexion();
-    manejarClientes();
 }
 
 void Servidor::crearSocket()
@@ -160,6 +159,11 @@ int main()
 {
     Servidor servidor(PORT);
     servidor.iniciar();
+
+    std::thread hilo_recibidos(&Servidor::manejarClientes, &servidor);
+    hilo_recibidos.detach();
+
+    std::cout << "Hola" << std::endl;
 
     while (true);
 
