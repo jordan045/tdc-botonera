@@ -26,9 +26,9 @@ class Cliente
 public:
     Cliente(const std::string &direccionIP, int puerto);
     ~Cliente();
-    void conectar(std::function<void(const std::string&, const std::string&)> callback);
+    void conectar(std::function<void(const char mensaje[BUFFER_SIZE], const char namespace_[NAMESPACE_SIZE])> callback);
     int enviar(const char namespace_[NAMESPACE_SIZE], const char mensaje[BUFFER_SIZE]);
-    int recibir(char mensaje[1024], char namespace_[20]);
+    int recibir(char mensaje[BUFFER_SIZE], char namespace_[NAMESPACE_SIZE]);
 
 private:
     int sock;
@@ -56,7 +56,6 @@ Cliente::~Cliente()
     }
     stop();
 }
-
 
 void Cliente::stop()
 {
@@ -87,7 +86,7 @@ void Cliente::configurarDireccion(const std::string &direccionIP, int puerto)
     }
 }
 
-void Cliente::conectar(std::function<void(const std::string&, const std::string&)> callback)
+void Cliente::conectar(std::function<void(const char mensaje[BUFFER_SIZE], const char namespace_[NAMESPACE_SIZE])> callback)
 {
     crearSocket();
     if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
@@ -100,7 +99,7 @@ void Cliente::conectar(std::function<void(const std::string&, const std::string&
 
         stop_thread = false;
         worker_thread = std::thread([this, callback]() {
-            char mensaje[1024], namespace_[20];
+            char mensaje[BUFFER_SIZE], namespace_[NAMESPACE_SIZE];
 
             while (!stop_thread)
             {
@@ -124,7 +123,7 @@ int Cliente::enviar(const char namespace_[NAMESPACE_SIZE], const char mensaje[BU
     return bytes_sent;
 }
 
-int Cliente::recibir(char mensaje[1024], char namespace_[20])
+int Cliente::recibir(char mensaje[BUFFER_SIZE], char namespace_[NAMESPACE_SIZE])
 {
     MensajeSerializado mensajeRecibido;
     size_t bytes_received = recv(sock, &mensajeRecibido, sizeof(MensajeSerializado), 0);
@@ -137,8 +136,8 @@ int Cliente::recibir(char mensaje[1024], char namespace_[20])
 
 int main()
 {
-    auto callback = [](const std::string& message, const std::string& namespace_) {
-        std::cout << message << " : " << namespace_ << std::endl;
+    auto callback = [](const char mensaje[BUFFER_SIZE], const char namespace_[NAMESPACE_SIZE]) {
+        std::cout << mensaje << " : " << namespace_ << std::endl;
     };
     // auto para que el compilador deduzca el tipo
 
