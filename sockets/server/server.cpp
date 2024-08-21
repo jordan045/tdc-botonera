@@ -4,6 +4,8 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <unistd.h>
+#include <functional>
+#include <atomic>
 // Clase Servidor
 
 #define PORT 8080
@@ -20,10 +22,9 @@ class Servidor
 public:
     Servidor(int puerto);
     ~Servidor();
-    void iniciar();
+    void iniciar(std::function<void(const std::string&)> callback);
     int enviar(const char namespace_[20], const char mensaje[BUFFER_SIZE]);
     int recibir(char mensaje[1024], char namespace_[20]);
-    void manejarClientes();
 
 private:
     int server_fd;
@@ -31,6 +32,8 @@ private:
     struct sockaddr_in address;
     int addrlen;
     char buffer[BUFFER_SIZE];
+    std::thread worker_thread;
+    std::atomic<bool> stop_thread;
 
     void crearSocket();
     void configurarSocket();
@@ -59,13 +62,25 @@ Servidor::~Servidor()
     }
 }
 
-void Servidor::iniciar()
+void Servidor::iniciar(std::function<void(const std::string&)> callback)
 {
     crearSocket();
     configurarSocket();
     enlazarSocket();
     escucharConexiones();
     aceptarConexion();
+
+    stop_thread = false;
+    worker_thread = std::thread([this, callback]() {
+        char mensaje[1024], namespace_[20];
+
+        while (!stop_thread)
+        {
+            if (recibir(mensaje, namespace_)) {
+                callback(mensaje);
+            }
+        }
+    });
 }
 
 void Servidor::crearSocket()
@@ -143,27 +158,14 @@ int Servidor::recibir(char mensaje[1024], char namespace_[20])
     return mensajeRecibido.longitud;
 }
 
-void Servidor::manejarClientes()
-{
-    char mensaje[1024], namespace_[20];
-
-    while (true)
-    {
-        if (recibir(mensaje, namespace_)) {
-            std::cout << mensaje << namespace_ << std::endl;
-        }
-    }
-}
-
 int main()
 {
+    auto callback = [](const std::string& message) {
+        std::cout << message << std::endl;
+    };
+
     Servidor servidor(PORT);
-    servidor.iniciar();
-
-    std::thread hilo_recibidos(&Servidor::manejarClientes, &servidor);
-    hilo_recibidos.detach();
-
-    std::cout << "Hola" << std::endl;
+    servidor.iniciar(callback);
 
     while (true);
 
