@@ -5,6 +5,8 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <unistd.h>
+#include <functional>
+#include <atomic>
 // Clase Cliente
 #include <chrono>
 // Ejemplo en main
@@ -24,19 +26,21 @@ class Cliente
 public:
     Cliente(const std::string &direccionIP, int puerto);
     ~Cliente();
-    void conectar();
+    void conectar(std::function<void(const std::string&, const std::string&)> callback);
     int enviar(const char namespace_[NAMESPACE_SIZE], const char mensaje[BUFFER_SIZE]);
-    std::string recibir();
-    void esperar_mensajes();
+    int recibir(char mensaje[1024], char namespace_[20]);
+    void esperar_mensajes(std::function<void(const std::string&, const std::string&)> callback);
 
 private:
     int sock;
     struct sockaddr_in serv_addr;
     char buffer[BUFFER_SIZE];
+    std::thread worker_thread;
+    std::atomic<bool> stop_thread;
 
     void crearSocket();
     void configurarDireccion(const std::string &direccionIP, int puerto);
-    void procesarMensaje(const std::string &mensaje);
+    void stop();
 };
 
 Cliente::Cliente(const std::string &direccionIP, int puerto) : sock(0)
@@ -50,6 +54,16 @@ Cliente::~Cliente()
     if (sock > 0)
     {
         close(sock);
+    }
+    stop();
+}
+
+
+void Cliente::stop()
+{
+    stop_thread = true;
+    if (worker_thread.joinable()) {
+        worker_thread.join();
     }
 }
 
@@ -74,15 +88,29 @@ void Cliente::configurarDireccion(const std::string &direccionIP, int puerto)
     }
 }
 
-void Cliente::conectar()
+void Cliente::conectar(std::function<void(const std::string&, const std::string&)> callback)
 {
     crearSocket();
     if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
     {
         std::cerr << "Fallo en la conexión" << std::endl;
         exit(EXIT_FAILURE);
+    } else {
+        // Conexion exitosa
+        std::cout << "Conectado al servidor en puerto " << PORT << std::endl;
+
+        stop_thread = false;
+        worker_thread = std::thread([this, callback]() {
+            char mensaje[1024], namespace_[20];
+
+            while (!stop_thread)
+            {
+                if (recibir(mensaje, namespace_)) {
+                    callback(mensaje, namespace_);
+                }
+            }
+        });
     }
-    std::cout << "Conectado al servidor" << std::endl;
 }
 
 int Cliente::enviar(const char namespace_[NAMESPACE_SIZE], const char mensaje[BUFFER_SIZE])
@@ -97,42 +125,26 @@ int Cliente::enviar(const char namespace_[NAMESPACE_SIZE], const char mensaje[BU
     return bytes_sent;
 }
 
-std::string Cliente::recibir()
+int Cliente::recibir(char mensaje[1024], char namespace_[20])
 {
-    int msglen = read(sock, buffer, BUFFER_SIZE);
-    if (msglen < 0)
-    {
-        return "\0";
-    }
-    return std::string(buffer);
-}
+    MensajeSerializado mensajeRecibido;
+    size_t bytes_received = recv(sock, &mensajeRecibido, sizeof(MensajeSerializado), 0);
 
-void Cliente::procesarMensaje(const std::string &mensaje)
-{
-    std::cout << "Mensaje recibido: " << mensaje << std::endl;
-}
+    strcpy(mensaje, mensajeRecibido.mensaje);
+    strcpy(namespace_, mensajeRecibido.namespace_);
 
-void Cliente::esperar_mensajes()
-{
-    std::string mensaje;
-
-    while (true)
-    {
-        mensaje = recibir();
-        if (!mensaje.empty())
-        {
-            procesarMensaje(mensaje);
-        }
-    }
+    return mensajeRecibido.longitud;
 }
 
 int main()
 {
-    Cliente cliente("127.0.0.1", PORT);
-    cliente.conectar();
+    auto callback = [](const std::string& message, const std::string& namespace_) {
+        std::cout << message << " : " << namespace_ << std::endl;
+    };
+    // auto para que el compilador deduzca el tipo
 
-    std::thread hilo_recibidos(&Cliente::esperar_mensajes, &cliente);
-    hilo_recibidos.detach();
+    Cliente cliente("127.0.0.1", PORT);
+    cliente.conectar(callback);
 
     std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(1));
     // Es necesario un pequeño retardo antes de enviar el primer mensaje
