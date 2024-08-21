@@ -5,7 +5,7 @@
 #include <netinet/in.h>
 #include <unistd.h>
 #include <functional>
-#include <atomic>
+#include <atomic> // Para matar el hilo secundario
 // Clase Servidor
 
 #define PORT 8080
@@ -22,7 +22,7 @@ class Servidor
 public:
     Servidor(int puerto);
     ~Servidor();
-    void iniciar(std::function<void(const std::string&)> callback);
+    void iniciar(std::function<void(const std::string&, const std::string&)> callback);
     int enviar(const char namespace_[20], const char mensaje[BUFFER_SIZE]);
     int recibir(char mensaje[1024], char namespace_[20]);
 
@@ -62,7 +62,7 @@ Servidor::~Servidor()
     }
 }
 
-void Servidor::iniciar(std::function<void(const std::string&)> callback)
+void Servidor::iniciar(std::function<void(const std::string&, const std::string&)> callback)
 {
     crearSocket();
     configurarSocket();
@@ -77,7 +77,7 @@ void Servidor::iniciar(std::function<void(const std::string&)> callback)
         while (!stop_thread)
         {
             if (recibir(mensaje, namespace_)) {
-                callback(mensaje);
+                callback(mensaje, namespace_);
             }
         }
     });
@@ -160,9 +160,10 @@ int Servidor::recibir(char mensaje[1024], char namespace_[20])
 
 int main()
 {
-    auto callback = [](const std::string& message) {
-        std::cout << message << std::endl;
+    auto callback = [](const std::string& message, const std::string& namespace_) {
+        std::cout << message << " : " << namespace_ << std::endl;
     };
+    // auto para que el compilador deduzca el tipo
 
     Servidor servidor(PORT);
     servidor.iniciar(callback);
