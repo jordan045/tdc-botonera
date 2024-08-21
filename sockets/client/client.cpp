@@ -11,9 +11,10 @@
 
 #define PORT 8080
 #define BUFFER_SIZE 1024
+#define NAMESPACE_SIZE 20
 
 struct MensajeSerializado {
-    char namespace_[20];
+    char namespace_[NAMESPACE_SIZE];
     char mensaje[BUFFER_SIZE];
     uint32_t longitud;
 };
@@ -24,7 +25,7 @@ public:
     Cliente(const std::string &direccionIP, int puerto);
     ~Cliente();
     void conectar();
-    int enviar(const char namespace_[20], const char mensaje[BUFFER_SIZE]);
+    int enviar(const char namespace_[NAMESPACE_SIZE], const char mensaje[BUFFER_SIZE]);
     std::string recibir();
     void esperar_mensajes();
 
@@ -84,7 +85,7 @@ void Cliente::conectar()
     std::cout << "Conectado al servidor" << std::endl;
 }
 
-int Cliente::enviar(const char namespace_[20], const char mensaje[BUFFER_SIZE])
+int Cliente::enviar(const char namespace_[NAMESPACE_SIZE], const char mensaje[BUFFER_SIZE])
 {
     MensajeSerializado mensaje_formateado;
     strcpy(mensaje_formateado.mensaje, mensaje);
