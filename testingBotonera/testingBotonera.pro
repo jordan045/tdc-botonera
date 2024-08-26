@@ -19,9 +19,14 @@ TEMPLATE = app
 HEADERS += \
     $$PWD/../botonera/headers/formatconcentrator.h \
     $$PWD/../botonera/headers/iestado.h \
+    bitarrayutils.h \
     stubestado.h
 
 SOURCES +=  \
+    bitarrayutils.cpp \
     stubestado.cpp \
     tst_formatconcentratortest.cpp \
     $$PWD/../botonera/sources/formatconcentrator.cpp
+
+RESOURCES += \
+    $$PWD/../botonera/resources.qrc

@@ -1,9 +1,9 @@
 #include <QCoreApplication>
 #include <QtTest>
 
-// add necessary includes here
 #include "formatconcentrator.h"
 #include "stubestado.h"
+#include "bitarrayutils.h"
 
 class formatConcentratorTest : public QObject
 {
@@ -16,6 +16,7 @@ public:
 private slots:
     void initTestCase();
     void cleanupTestCase();
+    void test_case01_data();
     void test_case01();
 };
 
@@ -27,18 +28,29 @@ void formatConcentratorTest::initTestCase() {}
 
 void formatConcentratorTest::cleanupTestCase() {}
 
+void formatConcentratorTest::test_case01_data(){
+    QTest::addColumn<QString>("overlay");
+    QTest::addColumn<QString>("range");
+    QTest::addColumn<QBitArray>("result");
+
+    QTest::newRow("") << "0001" << "RANGE2" << BitArrayUtils::qBitArrayfromString("000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000");
+}
+
 void formatConcentratorTest::test_case01() {
+    QFETCH(QString, overlay);
+    QFETCH(QString, range);
+    QFETCH(QBitArray, result);
+
     FormatConcentrator* concentrator = new FormatConcentrator();
     StubEstado* stubEstado = new StubEstado();
 
+    stubEstado->setOverlay(overlay);
+    stubEstado->setRange(range);
     QBitArray* localTest = concentrator->getMessage(stubEstado);
-    QBitArray* expected = new QBitArray(192);
-    //expected->setBit(0,true);
 
-    QCOMPARE(*localTest, *expected);
+    QCOMPARE(*localTest, result);
 
     delete localTest;
-    delete expected;
 }
 
 QTEST_MAIN(formatConcentratorTest)
