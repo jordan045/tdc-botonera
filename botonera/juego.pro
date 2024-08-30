@@ -11,6 +11,8 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    sources/AndTranslator.cpp \
+    sources/andGui.cpp \
     sources/boton.cpp \
     sources/botonera.cpp \
     sources/estado.cpp \
@@ -38,7 +40,9 @@ SOURCES += \
     sources/zone_threat.cpp \
 
 HEADERS += \
+    headers/AndTranslator.h \
     headers/Zone.h \
+    headers/andGui.h \
     headers/boton.h \
     headers/botonera.h \
     headers/estado.h \
@@ -67,6 +71,7 @@ HEADERS += \
     headers/zone_threat.h \
 
 FORMS += \
+    forms/andGui.ui \
     forms/overlay_140_0001.ui \
     forms/overlay_140_0010.ui \
     forms/overlay_140_0011.ui \
