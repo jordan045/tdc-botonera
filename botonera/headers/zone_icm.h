@@ -2,12 +2,10 @@
 #define ZONE_ICM_H
 
 #include "Zone.h"
-#include "andGui.h"
 #include <QWidget>
 
 namespace Ui {
 class zone_icm;
-class andGui;
 }
 
 class zone_icm : public Zone

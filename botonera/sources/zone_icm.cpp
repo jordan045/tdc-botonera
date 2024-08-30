@@ -5,7 +5,7 @@
 #include "ui_andGui.h"
 
 zone_icm::zone_icm(Botonera *b)
-    : ui(new Ui::andGui)
+    : ui(new Ui::zone_icm)
 {
     ui->setupUi(this);
     miBotonera = b;
