@@ -12,7 +12,7 @@ class Botonera;
 class Qek : public Zone
 {
 
-public:    
+public:
     void initiate(){
         gui_buttons = this->findChildren<QPushButton *>();
         //QList<QLine*> lin = this->findChildren<QLine*>();
@@ -22,21 +22,32 @@ public:
         //}
 
         QList<Boton*> logic_buttons = *new QList<Boton*>;
-        for(int i=1;i<=32;i++){
+        int buttonIndex = 0; // Índice para acceder a los gui_buttons
+        for (int i = 20; i <= 57; ++i) {
+            // Omitir los números no deseados
+            if ((i >= 28 && i <= 29) || (i >= 38 && i <= 39) || (i >= 48 && i <= 49)) {
+                continue; // Saltar los números no deseados
+            }
 
-            QString code = *new QString("QEK_");
+            QString code = "QEK_";
             code.append(QString::number(i));
-            auto *logic_button = new Boton(this,code);
+
+            auto *logic_button = new Boton(this, code);
             logic_buttons.append(logic_button);
-            QObject::connect(gui_buttons[i-1], &QPushButton::pressed, logic_button, &Boton::interact);
-            QObject::connect(gui_buttons[i-1], &QPushButton::released, logic_button, &Boton::interact);
-            gui_buttons[i-1]->setStyleSheet(gui_buttons[i-1]->styleSheet() + "QPushButton {"
-                                                                                 "    border: none;"  // Quita el borde
-                                                                                 "}"
-                                                                                 "QPushButton:pressed {"
-                                                                                 "    border: none;"  // Mantén el borde oculto al presionar
-                                                                                 "}");
+
+            QObject::connect(gui_buttons[buttonIndex], &QPushButton::pressed, logic_button, &Boton::interact);
+            QObject::connect(gui_buttons[buttonIndex], &QPushButton::released, logic_button, &Boton::interact);
+
+            gui_buttons[buttonIndex]->setStyleSheet(gui_buttons[buttonIndex]->styleSheet() + "QPushButton {"
+                                                                                             "    border: none;"
+                                                                                             "}"
+                                                                                             "QPushButton:pressed {"
+                                                                                             "    border: none;"
+                                                                                             "}");
+
+            ++buttonIndex; // Avanzar al siguiente botón de la GUI
         }
+
     }
 
     void sendCode(QString code){
