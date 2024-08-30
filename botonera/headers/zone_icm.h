@@ -7,7 +7,6 @@
 
 namespace Ui {
 class zone_icm;
-class andGui;
 }
 
 class zone_icm : public Zone

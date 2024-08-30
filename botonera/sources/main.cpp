@@ -14,26 +14,26 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("Botonera AR-TDC");
     a.setWindowIcon(QIcon(":/ico/armagedon.ico"));
 
-    // InitMenu d;
-    // d.show();
+     InitMenu d;
+     d.show();
 
-    QWidget window;
-    window.setWindowTitle("Binary to Char Converter");
-    window.resize(200, 100);
+    // QWidget window;
+    // window.setWindowTitle("Binary to Char Converter");
+    // window.resize(200, 100);
 
-    QLabel *label = new QLabel(&window);
-    label->setAlignment(Qt::AlignCenter);
+    // QLabel *label = new QLabel(&window);
+    // label->setAlignment(Qt::AlignCenter);
 
-    AndTranslator converter;
-    QObject::connect(&converter, &AndTranslator::conversionResult, [label](const QString &result) {
-        label->setText(result);
-    });
+    // AndTranslator converter;
+    // QObject::connect(&converter, &AndTranslator::conversionResult, [label](const QString &result) {
+    //     label->setText(result);
+    // });
 
-    // Ejemplo de cadena binaria
-    QString binaryString = "1000001"; // Correspondiente a 'A'
-    converter.processBinaryString(binaryString);
+    // // Ejemplo de cadena binaria
+    // QString binaryString = "1000001"; // Correspondiente a 'A'
+    // converter.processBinaryString(binaryString);
 
-    window.show();
+    // window.show();
 
     return a.exec();
 }
