@@ -1,5 +1,5 @@
 {
-  "range_scale": {
+  "RANGE_SCALE": {
     "RANGE2": {
       "type": "switch",
       "label": "2",
@@ -41,103 +41,103 @@
       "value": "111"
     }
   },
-  "display_selection": {
-    "air": {
+  "DISPLAY_SELECTION": {
+    "AIR": {
       "type": "switch",
       "label": "AIR",
       "pos": "21"
     },
-    "surf": {
+    "SURF": {
       "type": "switch",
       "label": "SURF",
       "pos": "20"
     },
-    "sub_surf": {
+    "SUB_SURF": {
       "type": "switch",
       "label": "SUB SURF",
       "pos": "19"
     },
-    "ref_pos": {
+    "REF_POS": {
       "type": "switch",
       "label": "REF POS",
       "pos": "18"
     },
-    "bear_sel": {
+    "BEAR_SER": {
       "type": "switch",
       "label": "BEAR SEL",
       "pos": "17"
     },
-    "link_sel": {
+    "LINK_SEL": {
       "type": "switch",
       "label": "LINK SEL",
       "pos": "16"
     },
-    "warf_sel": {
+    "WARF_SEL": {
       "type": "switch",
       "label": "WARF SEL",
       "pos": "15"
     },
-    "fig": {
+    "FIG": {
       "type": "switch",
       "label": "FIG",
       "pos": "14"
     }
   },
-  "threat_assesment": {
-    "12_sec": {
+  "THREAT_ASSESMENT": {
+    "12_SEC": {
       "type": "switch",
       "label": "12 SEC",
       "pos": "13"
     },
-    "30_sec": {
+    "30_SEC": {
       "type": "switch",
       "label": "30 SEC",
       "pos": "12"
     },
-    "6_min": {
+    "6_MIN": {
       "type": "switch",
       "label": "6 MIN",
       "pos": "11"
     },
-    "15_min": {
+    "15_MIN": {
       "type": "switch",
       "label": "15 MIN",
       "pos": "10"
     },
-    "reset": {
+    "RESET": {
       "type": "push",
       "label": "RESET",
       "pos": "9"
     }
   },
-  "label_selection": {
-    "ms": {
+  "LABEL_SELECTION": {
+    "MS": {
       "type": "switch",
       "label": "MS",
       "value": ""
     },
-    "trkm": {
+    "TRKM": {
       "type": "switch",
       "label": "TRKM",
       "value": ""
     },
-    "ampl_info": {
+    "AMPL_INFO": {
       "type": "switch",
       "label": "AMPL INFO",
       "value": ""
     },
-    "link_stat": {
+    "LINK_STAT": {
       "type": "switch",
       "label": "LINK STAT",
       "value": ""
     },
-    "tn": {
+    "TN": {
       "type": "switch",
       "label": "TN",
       "value": ""
     }
   },
-  "icm": {
+  "ICM": {
     "1": {
       "type": "switch",
       "label": "1",
@@ -174,7 +174,7 @@
       "value": "110"
     }
   },
-  "center": {
+  "CENTER": {
     "CU_OR_OFF_CENT": {
       "type": "push",
       "label": "CU OR OFF CENT",
@@ -243,7 +243,7 @@
       "pos": "10"
     }
   },
-  "qek": {
+  "QEK": {
     "QEK_20": {
     "type": "push",
     "label": "20",
@@ -405,40 +405,40 @@
     "value": "00101111"
   }
 },
-"overlays": {
-    "asw-corbeta": {
+"ORVERLAYS": {
+    "ASW-CORBETA": {
       "codigo": "0001",
       "tipo": "asw"
     },
-    "ops-corbeta": {
+    "OPS-COBERTA": {
       "codigo": "0010",
       "tipo": "ops"
     },
-    "aaw-corbeta": {
+    "AAW-COBERTA": {
       "codigo": "0011",
       "tipo": "aaw"
     },
-    "linco-corbeta": {
+    "LINCO-CORBETA": {
       "codigo": "0100",
       "tipo": "linco"
     },
-    "spc-destructor": {
+    "SPC-DESTRUCTOR": {
       "codigo": "0001",
       "tipo": "spc"
     },
-    "linco-destructor": {
+    "LINCO-DESTRUCTOR": {
       "codigo": "0010",
       "tipo": "linco"
     },
-    "heco-destructor": {
+    "HECO-DESTRUCTOR": {
       "codigo": "0101",
       "tipo": "heco"
     },
-    "apc-destructor": {
+    "APC-DESTRUCTOR": {
       "codigo": "0110",
       "tipo": "apc"
     },
-    "asw-destructor": {
+    "ASW-DESTRUCTOR": {
       "codigo": "0011",
       "tipo": "asw"
     },
