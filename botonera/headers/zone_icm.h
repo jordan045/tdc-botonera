@@ -2,7 +2,6 @@
 #define ZONE_ICM_H
 
 #include "Zone.h"
-#include "andGui.h"
 #include <QWidget>
 
 namespace Ui {

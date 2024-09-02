@@ -14,8 +14,8 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("Botonera AR-TDC");
     a.setWindowIcon(QIcon(":/ico/armagedon.ico"));
 
-     InitMenu d;
-     d.show();
+    InitMenu d;
+    d.show();
 
     // QWidget window;
     // window.setWindowTitle("Binary to Char Converter");

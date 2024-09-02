@@ -35,6 +35,7 @@ Botonera::Botonera(QWidget *parent) :
     center_widget = new zone_center(this);
     icm_widget = new zone_icm(this);
     display_selection_widget = new zone_displaySelection(this);
+    alfanumeric_display = new andGui(this);
 }
 //---------Removers----------------------------//
 void Botonera::setOverlay(QString codigo){
@@ -240,6 +241,7 @@ void Botonera::distribucionLayout()
     QHBoxLayout *inner_layout = new QHBoxLayout();
     QVBoxLayout *column_layout = new QVBoxLayout();
     QVBoxLayout *qek_layout = new QVBoxLayout();
+    QHBoxLayout *global_layout = new QHBoxLayout();
 
     top_layout->addWidget(range_widget,Qt::AlignCenter);
 
@@ -261,7 +263,11 @@ void Botonera::distribucionLayout()
     outer_layout->addLayout(inner_layout);
     outer_layout->addWidget(help_button);
 
-    this->setLayout(outer_layout);
+    global_layout->addLayout(outer_layout);
+    global_layout->addWidget(alfanumeric_display);
+    global_layout->setAlignment(alfanumeric_display, Qt::AlignCenter);
+
+    this->setLayout(global_layout);
     this->setFont(Bahnschrift);
 }
 

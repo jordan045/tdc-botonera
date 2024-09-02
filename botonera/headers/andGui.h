@@ -15,7 +15,7 @@ public:
     explicit andGui(QWidget *parent = nullptr);
     ~andGui();
 private:
-    Ui::andGui *ui;
+    Ui::AND *ui;
 };
 
 #endif // ANDGUI_H
