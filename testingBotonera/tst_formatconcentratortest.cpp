@@ -16,8 +16,10 @@ public:
 private slots:
     void initTestCase();
     void cleanupTestCase();
-    void test_case01_data();
-    void test_case01();
+    void test_case_allEmpty_data();
+    void test_case_allEmpty();
+    void test_case_isolatedBitTesting_data();
+    void test_case_isolatedBitTesting();
 };
 
 formatConcentratorTest::formatConcentratorTest() {}
@@ -28,7 +30,7 @@ void formatConcentratorTest::initTestCase() {}
 
 void formatConcentratorTest::cleanupTestCase() {}
 
-void formatConcentratorTest::test_case01_data(){
+void formatConcentratorTest::test_case_allEmpty_data(){
     QTest::addColumn<QString>("range");
     QTest::addColumn<QString>("displaySelection");
     QTest::addColumn<QString>("threatAssessment");
@@ -39,18 +41,18 @@ void formatConcentratorTest::test_case01_data(){
     QTest::addColumn<QString>("overlay");
     QTest::addColumn<QBitArray>("result");
 
-    QTest::newRow("")   << "RANGE2"
-                        << "air"
-                        << "12_sec"
-                        << "CU_OR_OFF_CENT"
-                        << "RR"
-                        << "QEK_20"
-                        << "1"
-                        << "0001"
-                        << BitArrayUtils::qBitArrayfromString("000000000000100000001000000000001000000000000001000000000000000000000000000000000000000000001000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000");
+    QTest::newRow("")   << "RANGE2 "    //range
+                        << ""           //displaySelection
+                        << ""           //threatAssessment
+                        << ""           //center
+                        << ""           //displayMode
+                        << ""           //qek
+                        << ""           //icm
+                        << "0001"       //overlay
+                        << BitArrayUtils::qBitArrayfromString("000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000");
 }
 
-void formatConcentratorTest::test_case01() {
+void formatConcentratorTest::test_case_allEmpty() {
     QFETCH(QString, range);
     QFETCH(QString, displaySelection);
     QFETCH(QString, threatAssessment);
@@ -78,6 +80,14 @@ void formatConcentratorTest::test_case01() {
     QCOMPARE(*localTest, result);
 
     delete localTest;
+}
+
+void formatConcentratorTest::test_case_isolatedBitTesting_data(){
+
+}
+
+void formatConcentratorTest::test_case_isolatedBitTesting(){
+
 }
 
 QTEST_MAIN(formatConcentratorTest)
