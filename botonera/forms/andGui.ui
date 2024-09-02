@@ -1,37 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
-<<<<<<< HEAD
- <class>Form</class>
- <widget class="QWidget" name="Form">
-=======
- <class>AND</class>
- <widget class="QWidget" name="AND">
->>>>>>> e4fdbb948e52ceea090ff3c53237c2a90ebf0a4e
+ <class>andGui</class>
+ <widget class="QWidget" name="andGui">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-<<<<<<< HEAD
-    <width>400</width>
-    <height>300</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Form</string>
-  </property>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>130</y>
-     <width>83</width>
-     <height>29</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>PushButton</string>
-   </property>
-=======
     <width>500</width>
     <height>375</height>
    </rect>
@@ -49,6 +23,9 @@
    <bool>true</bool>
   </property>
   <widget class="QFrame" name="frame">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -56,6 +33,9 @@
      <width>481</width>
      <height>371</height>
     </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>OpenHandCursor</cursorShape>
    </property>
    <property name="frameShape">
     <enum>QFrame::Box</enum>
@@ -75,6 +55,9 @@
     <property name="text">
      <string/>
     </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
@@ -87,6 +70,12 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_10">
@@ -111,19 +100,6 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>10</y>
-      <width>111</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
@@ -136,97 +112,8 @@
     <property name="text">
      <string/>
     </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_8">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>10</y>
-      <width>111</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>340</y>
-      <width>431</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="palette">
-     <palette>
-      <active>
-       <colorrole role="Base">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>45</red>
-          <green>45</green>
-          <blue>45</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </active>
-      <inactive>
-       <colorrole role="Base">
-        <brush brushstyle="SolidPattern">
-         <color alpha="0">
-          <red>45</red>
-          <green>45</green>
-          <blue>45</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </inactive>
-      <disabled/>
-     </palette>
-    </property>
-    <property name="font">
-     <font>
-      <family>Consolas</family>
-      <pointsize>18</pointsize>
-     </font>
-    </property>
-    <property name="cursor">
-     <cursorShape>IBeamCursor</cursorShape>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::ClickFocus</enum>
-    </property>
-    <property name="contextMenuPolicy">
-     <enum>Qt::NoContextMenu</enum>
-    </property>
-    <property name="autoFillBackground">
+    <property name="checkable">
      <bool>true</bool>
-    </property>
-    <property name="inputMask">
-     <string/>
-    </property>
-    <property name="text">
-     <string>*</string>
-    </property>
-    <property name="maxLength">
-     <number>32767</number>
-    </property>
-    <property name="frame">
-     <bool>false</bool>
-    </property>
-    <property name="echoMode">
-     <enum>QLineEdit::Normal</enum>
-    </property>
-    <property name="cursorPosition">
-     <number>1</number>
-    </property>
-    <property name="placeholderText">
-     <string/>
-    </property>
-    <property name="clearButtonEnabled">
-     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_4">
@@ -241,14 +128,17 @@
     <property name="text">
      <string/>
     </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>40</y>
-      <width>431</width>
-      <height>301</height>
+      <y>20</y>
+      <width>501</width>
+      <height>231</height>
      </rect>
     </property>
     <property name="font">
@@ -271,9 +161,6 @@ E DLRP   __-_____ ___-_____ ____
 F GRDLCK _____ ____         ____
 G SGO    __-_____ ___-_____ ____</string>
     </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-    </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
@@ -286,6 +173,9 @@ G SGO    __-_____ ___-_____ ____</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_9">
@@ -310,20 +200,80 @@ G SGO    __-_____ ___-_____ ____</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_7">
+   <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>10</y>
-      <width>111</width>
-      <height>24</height>
+      <x>10</x>
+      <y>340</y>
+      <width>461</width>
+      <height>28</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_input">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>310</y>
+      <width>451</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string/>
+     <string>TextLabel</string>
     </property>
    </widget>
->>>>>>> e4fdbb948e52ceea090ff3c53237c2a90ebf0a4e
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>0</y>
+      <width>421</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButton_W1">
+       <property name="text">
+        <string>WO1</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="autoExclusive">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_W2">
+       <property name="text">
+        <string>WO2</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="autoExclusive">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_W3">
+       <property name="text">
+        <string>WO3</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="autoExclusive">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
  </widget>
  <resources/>

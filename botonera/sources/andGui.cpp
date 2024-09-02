@@ -5,24 +5,29 @@
 #include <QDebug>
 
 andGui::andGui(QWidget *parent)
-    : QWidget(parent)
+    : QWidget(parent),ui(new Ui::andGui)
 {
     // Inicializa la interfaz de usuario si es necesario
     // ui->setupUi(this);
 
+    ui->setupUi(this);
+
     // Crea el QLabel
-    label = new QLabel(this);
-    label->setAlignment(Qt::AlignCenter);
+    andLabel = ui->label;
 
-    label->setWordWrap(true);// Permite que el texto se ajuste en varias líneas
-
-    label->setMinimumSize(600, 600);
-
+    QObject::connect(ui->pushButton_W1, &QPushButton::pressed, [this]() { tocarBoton("w01"); });
+    QObject::connect(ui->pushButton_W2, &QPushButton::pressed, [this]() { tocarBoton("w02"); });
+    QObject::connect(ui->pushButton_W3, &QPushButton::pressed, [this]() { tocarBoton("w03"); });
     // Conecta la señal de conversión de AndTranslator a una función lambda que actualiza el QLabel
     QObject::connect(&converter, &AndTranslator::conversionResult, [this](const QString &result) {
-        label->setText(result);
+        andLabel->setText(result);
     });
+
+
+
 }
+
+
 
 void andGui::recibirMensaje(QString entrada)
 {
@@ -41,22 +46,11 @@ void andGui::recibirMensaje(QString entrada)
             qDebug() << "Error en la conversión del segmento:" << binarySegment;
         }
     }
-    label->setText(textResult);
-=======
-
-andGui::andGui(QWidget *parent) : QWidget(parent) , ui(new Ui::AND)
-{
-    ui->setupUi(this);
->>>>>>> e4fdbb948e52ceea090ff3c53237c2a90ebf0a4e
+    andLabel->setText(textResult);
 }
 
-andGui::~andGui()
+void andGui::tocarBoton(const QString &mensaje)
 {
-<<<<<<< HEAD
-    // Eliminar el QLabel si es necesario
-    // No es necesario eliminar el QLabel aquí ya que está siendo manejado automáticamente por el parent (this)
-    // delete label; // Puedes comentar esta línea si el QLabel es manejado automáticamente por su parent
-=======
-    delete ui;
->>>>>>> e4fdbb948e52ceea090ff3c53237c2a90ebf0a4e
+    ui->label_input->setText(mensaje);
 }
+

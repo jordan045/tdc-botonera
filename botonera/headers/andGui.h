@@ -22,10 +22,13 @@ public:
     void recibirMensaje(QString entrada);
 
 private:
-    // Ui::andGui *ui;
+    Ui::andGui *ui;
     AndTranslator converter;
-    QLabel *label;
-    Ui::AND *ui;
+    QLabel *andLabel;
+
+private slots:
+    void tocarBoton(const QString &mensaje);
+
 };
 
 #endif // ANDGUI_H

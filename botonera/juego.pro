@@ -40,7 +40,6 @@ SOURCES += \
     sources/zone_threat.cpp \
 
 HEADERS += \
-    headers/AndTranslator.h \
     headers/Zone.h \
     headers/andGui.h \
     headers/andTranslator.h \

@@ -29,3 +29,4 @@ void AndTranslator::processBinaryString(const QString &binaryString)
     QString result = binaryToChar(binaryString);
     emit conversionResult(result);
 }
+
