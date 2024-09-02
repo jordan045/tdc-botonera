@@ -42,11 +42,21 @@ void andGui::recibirMensaje(QString entrada)
         }
     }
     label->setText(textResult);
+=======
+
+andGui::andGui(QWidget *parent) : QWidget(parent) , ui(new Ui::AND)
+{
+    ui->setupUi(this);
+>>>>>>> e4fdbb948e52ceea090ff3c53237c2a90ebf0a4e
 }
 
 andGui::~andGui()
 {
+<<<<<<< HEAD
     // Eliminar el QLabel si es necesario
     // No es necesario eliminar el QLabel aquí ya que está siendo manejado automáticamente por el parent (this)
     // delete label; // Puedes comentar esta línea si el QLabel es manejado automáticamente por su parent
+=======
+    delete ui;
+>>>>>>> e4fdbb948e52ceea090ff3c53237c2a90ebf0a4e
 }

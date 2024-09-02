@@ -245,6 +245,7 @@
   },
   "qek": {
     "QEK_20": {
+<<<<<<< HEAD
     "type": "push",
     "label": "20",
     "value": "00010000"
@@ -406,6 +407,169 @@
   }
 },
 "overlays": {
+=======
+      "type": "push",
+      "label": "20",
+      "value": "00010000"
+    },
+    "QEK_21": {
+      "type": "push",
+      "label": "21",
+      "value": "00010001"
+    },
+    "QEK_22": {
+      "type": "push",
+      "label": "22",
+      "value": "00010010"
+    },
+    "QEK_23": {
+      "type": "push",
+      "label": "23",
+      "value": "00010011"
+    },
+    "QEK_24": {
+      "type": "push",
+      "label": "24",
+      "value": "00010100"
+    },
+    "QEK_25": {
+      "type": "push",
+      "label": "25",
+      "value": "00010101"
+    },
+    "QEK_26": {
+      "type": "push",
+      "label": "26",
+      "value": "00010110"
+    },
+    "QEK_27": {
+      "type": "push",
+      "label": "27",
+      "value": "00010111"
+    },
+    "QEK_30": {
+      "type": "push",
+      "label": "30",
+      "value": "00011000"
+    },
+    "QEK_31": {
+      "type": "push",
+      "label": "31",
+      "value": "00011001"
+    },
+    "QEK_32": {
+      "type": "push",
+      "label": "32",
+      "value": "00011010"
+    },
+    "QEK_33": {
+      "type": "push",
+      "label": "33",
+      "value": "00011011"
+    },
+    "QEK_34": {
+      "type": "push",
+      "label": "34",
+      "value": "00011100"
+    },
+    "QEK_35": {
+      "type": "push",
+      "label": "35",
+      "value": "00011101"
+    },
+    "QEK_36": {
+      "type": "push",
+      "label": "36",
+      "value": "00011110"
+    },
+    "QEK_37": {
+      "type": "push",
+      "label": "37",
+      "value": "00011111"
+    },
+    "QEK_40": {
+      "type": "push",
+      "label": "40",
+      "value": "00100000"
+    },
+    "QEK_41": {
+      "type": "push",
+      "label": "41",
+      "value": "00100001"
+    },
+    "QEK_42": {
+      "type": "push",
+      "label": "42",
+      "value": "00100010"
+    },
+    "QEK_43": {
+      "type": "push",
+      "label": "43",
+      "value": "00100011"
+    },
+    "QEK_44": {
+      "type": "push",
+      "label": "44",
+      "value": "00100100"
+    },
+    "QEK_45": {
+      "type": "push",
+      "label": "45",
+      "value": "00100101"
+    },
+    "QEK_46": {
+      "type": "push",
+      "label": "46",
+      "value": "00100110"
+    },
+    "QEK_47": {
+      "type": "push",
+      "label": "47",
+      "value": "00100111"
+    },
+    "QEK_50": {
+      "type": "push",
+      "label": "50",
+      "value": "00101000"
+    },
+    "QEK_51": {
+      "type": "push",
+      "label": "51",
+      "value": "00101001"
+    },
+    "QEK_52": {
+      "type": "push",
+      "label": "52",
+      "value": "00101010"
+    },
+    "QEK_53": {
+      "type": "push",
+      "label": "53",
+      "value": "00101011"
+    },
+    "QEK_54": {
+      "type": "push",
+      "label": "54",
+      "value": "00101100"
+    },
+    "QEK_55": {
+      "type": "push",
+      "label": "55",
+      "value": "00101101"
+    },
+    "QEK_56": {
+      "type": "push",
+      "label": "56",
+      "value": "00101110"
+    },
+    "QEK_57": {
+      "type": "push",
+      "label": "57",
+      "value": "00101111"
+    }
+  },
+  "overlays": {
+>>>>>>> e4fdbb948e52ceea090ff3c53237c2a90ebf0a4e
     "asw-corbeta": {
       "codigo": "0001",
       "tipo": "asw"

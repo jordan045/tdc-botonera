@@ -9,17 +9,23 @@
 // class andGui;
 // }
 
+namespace Ui {
+    class andGui;
+}
+
+
 class andGui : public QWidget
 {
     Q_OBJECT
 public:
     explicit andGui(QWidget *parent = nullptr);
     void recibirMensaje(QString entrada);
-    ~andGui();
+
 private:
     // Ui::andGui *ui;
     AndTranslator converter;
     QLabel *label;
+    Ui::AND *ui;
 };
 
 #endif // ANDGUI_H

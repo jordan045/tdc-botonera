@@ -13,6 +13,7 @@
 #include "zone_threat.h"
 #include "zone_displayselection.h"
 #include "zone_displaymode.h"
+#include "andGui.h"
 
 class Qek;
 class Botonera : public QWidget
@@ -59,6 +60,8 @@ private:
    FormatConcentrator *concentrator;
    QShortcut *shortcut;
    Estado *miEstado;
+   andGui *alfanumeric_display;
+
    QPushButton *help_button = new QPushButton("");
    void crearBotonHelp();
    void distribucionLayout();
