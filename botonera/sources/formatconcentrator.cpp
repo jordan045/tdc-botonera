@@ -66,7 +66,7 @@ void FormatConcentrator::setDisplaySelection(IEstado *estado)
 {
     QStringList wordListDSelection = estado->getDisplaySelection().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListDSelection){
-        QJsonObject display = archivo["display_selection"].toObject();
+        QJsonObject display = archivo["DISPLAY_SELECTION"].toObject();
         QJsonObject displayActual = display[word].toObject();
         QString posicion = displayActual["pos"].toString();
         message->setBit(posicion.toInt(),true);
@@ -78,7 +78,7 @@ void FormatConcentrator::setThreat(IEstado *estado)
     QStringList wordListThreat = estado->getThreat().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListThreat)
     {
-        QJsonObject threat = archivo["threat_assesment"].toObject();
+        QJsonObject threat = archivo["THREAT_ASSESMENT"].toObject();
         QJsonObject threatActual = threat[word].toObject();
         QString posicion = threatActual["pos"].toString();
         message->setBit(posicion.toInt(),true);
@@ -91,7 +91,7 @@ void FormatConcentrator::setCenter(IEstado *estado)
     QStringList wordListCenter = estado->getCenter().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListCenter)
     {
-        QJsonObject center = archivo["center"].toObject();
+        QJsonObject center = archivo["CENTER"].toObject();
         QJsonObject centerActual = center[word].toObject();
         QString posicion = centerActual["pos"].toString();
         message->setBit(offset + posicion.toInt(),true);
@@ -105,7 +105,7 @@ void FormatConcentrator::setDisplayMode(IEstado *estado)
     QStringList wordListDisplayMode = estado->getDisplayMode().split(" ",Qt::SkipEmptyParts);
     foreach(const QString &word, wordListDisplayMode)
     {
-        QJsonObject displayMode = archivo["display_mode"].toObject();
+        QJsonObject displayMode = archivo["DISPLAY_MODE"].toObject();
         QJsonObject displayModeActual = displayMode[word].toObject();
         QString posicion = displayModeActual["pos"].toString();
         posFinal = offset+posicion.toInt();
@@ -120,7 +120,7 @@ void FormatConcentrator::setQEK(IEstado *estado)
     QStringList wordListQek = estado->getQEK().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListQek)
     {
-        QJsonObject qek = archivo["qek"].toObject();
+        QJsonObject qek = archivo["QEK"].toObject();
         QJsonObject qekActual = qek[word].toObject();
 
         QString posicion = qekActual["value"].toString();
@@ -149,7 +149,7 @@ void FormatConcentrator::setICM(IEstado *estado){
     QStringList wordListQek = estado->getCenter().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListQek)
     {
-        QJsonObject qek = archivo["qek"].toObject();
+        QJsonObject qek = archivo["QEK"].toObject();
         QJsonObject qekActual = qek[word].toObject();
         QString posicion = qekActual["value"].toString();
         int i = offset;
@@ -181,7 +181,7 @@ void FormatConcentrator::setOverlay(IEstado *estado){
 void FormatConcentrator::removeThreat(QString estado)
 {
 
-        QJsonObject threat = archivo["threat_assesment"].toObject();
+        QJsonObject threat = archivo["THREAT_ASSESMENT"].toObject();
         QJsonObject threatActual = threat[estado].toObject();
         QString posicion = threatActual["pos"].toString();
         message->setBit(posicion.toInt(),false);
@@ -192,7 +192,7 @@ void FormatConcentrator::removeDisplayMode(QString estado)
 {
     int offset = WORD_SIZE * 1; //Está en la primer palabra
     int posFinal = 0;
-    QJsonObject center = archivo["display_mode"].toObject();
+    QJsonObject center = archivo["DISPLAY_MODE"].toObject();
     QJsonObject centerActual = center[estado].toObject();
     QString posicion = centerActual["pos"].toString();
     posFinal = offset+posicion.toInt();
@@ -202,7 +202,7 @@ void FormatConcentrator::removeDisplayMode(QString estado)
 void FormatConcentrator::removeDisplaySelection(QString estado)
 {
 
-        QJsonObject display = archivo["display_selection"].toObject();
+        QJsonObject display = archivo["DISPLAY_SELECTION"].toObject();
         QJsonObject displayActual = display[estado].toObject();
         QString posicion = displayActual["pos"].toString();
         message->setBit(posicion.toInt(),false);
@@ -212,7 +212,7 @@ void FormatConcentrator::removeDisplaySelection(QString estado)
 void FormatConcentrator::removeCenter(QString estado)
 {
     int offset = WORD_SIZE * 1;
-    QJsonObject center = archivo["center"].toObject();
+    QJsonObject center = archivo["CENTER"].toObject();
     QJsonObject centerActual = center[estado].toObject();
     QString posicion = centerActual["pos"].toString();
     message->setBit(offset + posicion.toInt(),false);

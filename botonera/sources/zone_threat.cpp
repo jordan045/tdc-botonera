@@ -11,7 +11,7 @@ zone_threat::zone_threat(Botonera *b)
     QList<Boton*> logic_buttons = *new QList<Boton*>;
     QList<QPushButton*> gui_buttons = this->findChildren<QPushButton*>();
 
-    QList<QString> labels = {"12_sec","30_sec","6_min","15_min","reset"};
+    QList<QString> labels = {"12_SEC","30_SEC","6_MIN","15_MIN","RESET"};
 
     for(int i=1; i<=5;i++){
         auto *logic_button = new Boton(this,labels[i-1]);

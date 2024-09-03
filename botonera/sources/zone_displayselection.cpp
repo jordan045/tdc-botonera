@@ -9,7 +9,7 @@ zone_displaySelection::zone_displaySelection(Botonera *b)
     ui->setupUi(this);
     miBotonera = b;
 
-    QList<QString> labels = {"air","surf","sub_surf","ref_pos","bear_sel","link_sel","warf_sel","fig"};
+    QList<QString> labels = {"AIR","SURF","SUB_SURF","REF_POS","BEAR_SEL","LINK_SEL","WARF_SEL","FIG"};
 
     QList<QPushButton *> gui_buttons = this->findChildren<QPushButton*>();
     QList<Boton*> logic_buttons = *new QList<Boton*>;
