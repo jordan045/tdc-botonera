@@ -13,7 +13,7 @@ andGui::andGui(QWidget *parent)
     ui->setupUi(this);
 
     // Crea el QLabel
-    andLabel = ui->label;
+    andLabel = ui->ALabel;
 
     QObject::connect(ui->pushButton_W1, &QPushButton::pressed, [this]() { tocarBoton("w01"); });
     QObject::connect(ui->pushButton_W2, &QPushButton::pressed, [this]() { tocarBoton("w02"); });
@@ -51,6 +51,6 @@ void andGui::recibirMensaje(QString entrada)
 
 void andGui::tocarBoton(const QString &mensaje)
 {
-    ui->label_input->setText(mensaje);
+    qDebug() << mensaje;
 }
 
