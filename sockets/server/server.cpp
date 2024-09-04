@@ -158,6 +158,9 @@ bool Servidor::estaConectado() {
 
 int Servidor::enviar(const char namespace_[20], const char mensaje[BUFFER_SIZE])
 {
+    /*
+    Los mensajes que no se envian se almacenan en algun buffer interno.
+    */
     if (!estaConectado()) return -1;
     
     MensajeSerializado mensaje_formateado;
