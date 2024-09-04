@@ -166,14 +166,8 @@ int Servidor::enviar(const char namespace_[20], const char mensaje[BUFFER_SIZE])
 
     size_t bytes_sent = send(cliente_fd, &mensaje_formateado, sizeof(MensajeSerializado), 0);
 
-    if (bytes_sent == 0) {
-        conectado = true;
-    } else {
-        if (errno == EPIPE || errno == ENOTCONN) {
-            conectado = false;
-        } else {
-            conectado = false;
-        }
+    if (errno == EPIPE || errno == ENOTCONN) {
+        conectado = false;
     }
 
     return bytes_sent;
