@@ -34,12 +34,14 @@ private:
     int sock;
     struct sockaddr_in serv_addr;
     char buffer[BUFFER_SIZE];
+    bool conectado;
     std::thread worker_thread;
     std::atomic<bool> stop_thread;
 
     void crearSocket();
     void configurarDireccion(const std::string &direccionIP, int puerto);
     void stop();
+    bool estaConectado();
 };
 
 Cliente::Cliente(const std::string &direccionIP, int puerto) : sock(0)
@@ -97,6 +99,8 @@ void Cliente::conectar(std::function<void(const char mensaje[BUFFER_SIZE], const
         // Conexion exitosa
         std::cout << "Conectado al servidor en puerto " << PORT << std::endl;
 
+        conectado = true;
+
         stop_thread = false;
         worker_thread = std::thread([this, callback]() {
             char mensaje[BUFFER_SIZE], namespace_[NAMESPACE_SIZE];
@@ -111,8 +115,14 @@ void Cliente::conectar(std::function<void(const char mensaje[BUFFER_SIZE], const
     }
 }
 
+bool Cliente::estaConectado() {
+    return conectado;
+}
+
 int Cliente::enviar(const char namespace_[NAMESPACE_SIZE], const char mensaje[BUFFER_SIZE])
 {
+    if (!estaConectado()) return -1;
+    
     MensajeSerializado mensaje_formateado;
     strcpy(mensaje_formateado.mensaje, mensaje);
     strcpy(mensaje_formateado.namespace_, namespace_);
