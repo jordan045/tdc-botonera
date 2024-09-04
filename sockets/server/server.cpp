@@ -34,6 +34,7 @@ private:
     struct sockaddr_in address;
     int addrlen;
     char buffer[BUFFER_SIZE];
+    bool conectado;
     std::thread worker_thread;
     std::atomic<bool> stop_thread;
 
@@ -43,7 +44,7 @@ private:
     void escucharConexiones();
     void aceptarConexion();
     void stop();
-
+    bool estaConectado();
 };
 
 Servidor::Servidor(int puerto) : server_fd(0), cliente_fd(0), addrlen(sizeof(address))
@@ -82,6 +83,8 @@ void Servidor::iniciar(std::function<void(const char mensaje[1024], const char n
     enlazarSocket();
     escucharConexiones();
     aceptarConexion();
+
+    conectado = true;
 
     stop_thread = false;
     worker_thread = std::thread([this, callback]() {
@@ -149,13 +152,29 @@ void Servidor::aceptarConexion()
     }
 }
 
+bool Servidor::estaConectado() {
+    return conectado;
+}
+
 int Servidor::enviar(const char namespace_[20], const char mensaje[BUFFER_SIZE])
 {
+    if (!estaConectado()) return -1;
+    
     MensajeSerializado mensaje_formateado;
     strcpy(mensaje_formateado.mensaje, mensaje);
     strcpy(mensaje_formateado.namespace_, namespace_);
 
     size_t bytes_sent = send(cliente_fd, &mensaje_formateado, sizeof(MensajeSerializado), 0);
+
+    if (bytes_sent == 0) {
+        conectado = true;
+    } else {
+        if (errno == EPIPE || errno == ENOTCONN) {
+            conectado = false;
+        } else {
+            conectado = false;
+        }
+    }
 
     return bytes_sent;
 }
