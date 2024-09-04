@@ -44,7 +44,7 @@ void FormatConcentrator::setRange(IEstado *estado)
     QStringList wordListRange = estado->getRange().split(" ", Qt::SkipEmptyParts);
 
     foreach(const QString &word, wordListRange) {
-        QJsonObject rango = archivo["range_scale"].toObject();
+        QJsonObject rango = archivo["RANGE_SCALE"].toObject();
         QJsonObject rangoActual = rango[word].toObject();
         QString palabraRango = rangoActual["value"].toString();
 
@@ -69,7 +69,8 @@ void FormatConcentrator::setDisplaySelection(IEstado *estado)
         QJsonObject display = archivo["DISPLAY_SELECTION"].toObject();
         QJsonObject displayActual = display[word].toObject();
         QString posicion = displayActual["pos"].toString();
-        message->setBit(posicion.toInt(),true);
+        qDebug()<< posicion;
+        message->setBit(posicion.toInt()-1,true);
     }
 }
 
@@ -146,12 +147,18 @@ void FormatConcentrator::removeQEK()
 void FormatConcentrator::setICM(IEstado *estado){
     int offset = WORD_SIZE * 4; //Está en la cuarta palabra;
     offset += 23; //Hay que llegar a la pos 119
-    QStringList wordListQek = estado->getCenter().split(" ", Qt::SkipEmptyParts);
-    foreach(const QString &word,wordListQek)
+    QStringList wordListICM = estado->getICM().split(" ", Qt::SkipEmptyParts);
+    qDebug()<<offset;
+    if(wordListICM.size() == 0)
     {
-        QJsonObject qek = archivo["QEK"].toObject();
-        QJsonObject qekActual = qek[word].toObject();
-        QString posicion = qekActual["value"].toString();
+        for(int i = offset; i>116; i--)
+            message->setBit(i,true);
+    }
+    foreach(const QString &word,wordListICM)
+    {
+        QJsonObject ICM = archivo["ICM"].toObject();
+        QJsonObject ICMActual = ICM[word].toObject();
+        QString posicion = ICMActual["value"].toString();
         int i = offset;
         for(QChar caracter:posicion)
         {
@@ -205,7 +212,7 @@ void FormatConcentrator::removeDisplaySelection(QString estado)
         QJsonObject display = archivo["DISPLAY_SELECTION"].toObject();
         QJsonObject displayActual = display[estado].toObject();
         QString posicion = displayActual["pos"].toString();
-        message->setBit(posicion.toInt(),false);
+        message->setBit(posicion.toInt()-1,false);
 
 }
 
