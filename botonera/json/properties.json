@@ -62,7 +62,7 @@
       "label": "REF POS",
       "pos": "18"
     },
-    "BEAR_SER": {
+    "BEAR_SEL": {
       "type": "switch",
       "label": "BEAR SEL",
       "pos": "17"
