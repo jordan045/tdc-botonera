@@ -1,5 +1,6 @@
 #include <QCoreApplication>
 #include <QtTest>
+#include <QString>
 
 #include "formatconcentrator.h"
 #include "stubestado.h"
@@ -65,6 +66,8 @@ void formatConcentratorTest::test_case_allEmpty() {
 
     FormatConcentrator* concentrator = new FormatConcentrator();
     StubEstado* stubEstado = new StubEstado();
+    bool comparisonResult;
+    QBitArray* localTest;
 
     stubEstado->setRange(range);
     stubEstado->setDisplaySelection(displaySelection);
@@ -75,10 +78,13 @@ void formatConcentratorTest::test_case_allEmpty() {
     stubEstado->setICM(icm);
     stubEstado->setOverlay(overlay);
 
-    QBitArray* localTest = concentrator->getMessage(stubEstado);
+    localTest = concentrator->getMessage(stubEstado);
 
-    QCOMPARE(*localTest, result);
+    comparisonResult = ((*localTest) == result);
+    QVERIFY2(comparisonResult, qPrintable(BitArrayUtils::compareBitArrays((*localTest), result)));
 
+    delete concentrator;
+    delete stubEstado;
     delete localTest;
 }
 
@@ -900,6 +906,8 @@ void formatConcentratorTest::test_case_isolatedBitTesting(){
 
     FormatConcentrator* concentrator = new FormatConcentrator();
     StubEstado* stubEstado = new StubEstado();
+    bool comparisonResult;
+    QBitArray* localTest;
 
     stubEstado->setRange(range);
     stubEstado->setDisplaySelection(displaySelection);
@@ -910,10 +918,13 @@ void formatConcentratorTest::test_case_isolatedBitTesting(){
     stubEstado->setICM(icm);
     stubEstado->setOverlay(overlay);
 
-    QBitArray* localTest = concentrator->getMessage(stubEstado);
+    localTest = concentrator->getMessage(stubEstado);
 
-    QCOMPARE(*localTest, result);
+    comparisonResult = ((*localTest) == result);
+    QVERIFY2(comparisonResult, qPrintable(BitArrayUtils::compareBitArrays((*localTest), result)));
 
+    delete concentrator;
+    delete stubEstado;
     delete localTest;
 }
 
