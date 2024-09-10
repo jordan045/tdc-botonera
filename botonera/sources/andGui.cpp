@@ -31,22 +31,22 @@ andGui::andGui(QWidget *parent)
 
 void andGui::recibirMensaje(QString entrada)
 {
-    QString textResult;
-    for (int i = 0; i < entrada.size(); i += 8) {
-        // Obtener un segmento de 8 caracteres
-        QString binarySegment = entrada.mid(i, 8);
+    // QString textResult;
+    // for (int i = 0; i < entrada.size(); i += 8) {
+    //     // Obtener un segmento de 8 caracteres
+    //     QString binarySegment = entrada.mid(i, 8);
 
-        // Convertir el segmento binario a carácter usando binaryToChar
-        QString character = converter.binaryToChar(binarySegment);
+    //     // Convertir el segmento binario a carácter usando binaryToChar
+    //     //QString character = converter.binaryToChar(binarySegment);
 
-        // Verificar si la conversión fue exitosa
-        if (!character.isEmpty()) {
-            textResult.append(character);
-        } else {
-            qDebug() << "Error en la conversión del segmento:" << binarySegment;
-        }
-    }
-    andLabel->setText(textResult);
+    //     // Verificar si la conversión fue exitosa
+    //     if (!character.isEmpty()) {
+    //         textResult.append(character);
+    //     } else {
+    //         qDebug() << "Error en la conversión del segmento:" << binarySegment;
+    //     }
+    // }
+    // andLabel->setText(textResult);
 }
 
 void andGui::tocarBoton(const QString &mensaje)
