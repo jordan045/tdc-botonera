@@ -250,7 +250,7 @@ void formatConcentratorTest::test_case_isolatedBitTesting_data(){
     //---- DISPLAY SELECTION
 
     QTest::newRow("24")   << "RANGE2 "    //range
-                      << "air"           //displaySelection
+                      << "AIR"           //displaySelection
                       << ""           //threatAssessment
                       << ""           //center
                       << ""           //displayMode
@@ -260,7 +260,7 @@ void formatConcentratorTest::test_case_isolatedBitTesting_data(){
                       << BitArrayUtils::qBitArrayfromString("000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000111000000000000000000000000000000000000000000000000000000000000000000000000");
 
     QTest::newRow("25")   << "RANGE2 "    //range
-                      << "surf"           //displaySelection
+                      << "SURF"           //displaySelection
                       << ""           //threatAssessment
                       << ""           //center
                       << ""           //displayMode
@@ -270,7 +270,7 @@ void formatConcentratorTest::test_case_isolatedBitTesting_data(){
                       << BitArrayUtils::qBitArrayfromString("000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000111000000000000000000000000000000000000000000000000000000000000000000000000");
 
     QTest::newRow("26")   << "RANGE2 "    //range
-                      << "sub_surf"           //displaySelection
+                      << "SUB_SURF"           //displaySelection
                       << ""           //threatAssessment
                       << ""           //center
                       << ""           //displayMode
@@ -280,7 +280,7 @@ void formatConcentratorTest::test_case_isolatedBitTesting_data(){
                       << BitArrayUtils::qBitArrayfromString("000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000111000000000000000000000000000000000000000000000000000000000000000000000000");
 
     QTest::newRow("27")   << "RANGE2 "    //range
-                      << "ref_pos"           //displaySelection
+                      << "REF_POS"           //displaySelection
                       << ""           //threatAssessment
                       << ""           //center
                       << ""           //displayMode
@@ -290,7 +290,7 @@ void formatConcentratorTest::test_case_isolatedBitTesting_data(){
                       << BitArrayUtils::qBitArrayfromString("000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000111000000000000000000000000000000000000000000000000000000000000000000000000");
 
     QTest::newRow("28")   << "RANGE2 "    //range
-                      << "bear_sel"           //displaySelection
+                      << "BEAR_SEL"           //displaySelection
                       << ""           //threatAssessment
                       << ""           //center
                       << ""           //displayMode
@@ -300,7 +300,7 @@ void formatConcentratorTest::test_case_isolatedBitTesting_data(){
                       << BitArrayUtils::qBitArrayfromString("000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000111000000000000000000000000000000000000000000000000000000000000000000000000");
 
     QTest::newRow("29")   << "RANGE2 "    //range
-                      << "link_sel"           //displaySelection
+                      << "LINK_SEL"           //displaySelection
                       << ""           //threatAssessment
                       << ""           //center
                       << ""           //displayMode
@@ -310,7 +310,7 @@ void formatConcentratorTest::test_case_isolatedBitTesting_data(){
                       << BitArrayUtils::qBitArrayfromString("000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000111000000000000000000000000000000000000000000000000000000000000000000000000");
 
     QTest::newRow("30")   << "RANGE2 "    //range
-                      << "warf_sel"           //displaySelection
+                      << "WARF_SEL"           //displaySelection
                       << ""           //threatAssessment
                       << ""           //center
                       << ""           //displayMode
@@ -320,7 +320,7 @@ void formatConcentratorTest::test_case_isolatedBitTesting_data(){
                       << BitArrayUtils::qBitArrayfromString("000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000111000000000000000000000000000000000000000000000000000000000000000000000000");
 
     QTest::newRow("31")   << "RANGE2 "    //range
-                      << "fig"           //displaySelection
+                      << "FIG"           //displaySelection
                       << ""           //threatAssessment
                       << ""           //center
                       << ""           //displayMode
@@ -335,7 +335,7 @@ void formatConcentratorTest::test_case_isolatedBitTesting_data(){
 
     QTest::newRow("32")   << "RANGE2 "    //range
                       << ""             //displaySelection
-                      << "12_sec"       //threatAssessment
+                      << "12_SEC"       //threatAssessment
                       << ""             //center
                       << ""             //displayMode
                       << ""             //qek
@@ -345,7 +345,7 @@ void formatConcentratorTest::test_case_isolatedBitTesting_data(){
 
     QTest::newRow("33")   << "RANGE2 "    //range
                         << ""             //displaySelection
-                        << "30_sec"       //threatAssessment
+                        << "30_SEC"       //threatAssessment
                         << ""             //center
                         << ""             //displayMode
                         << ""             //qek
@@ -355,7 +355,7 @@ void formatConcentratorTest::test_case_isolatedBitTesting_data(){
 
     QTest::newRow("34")   << "RANGE2 "    //range
                       << ""             //displaySelection
-                      << "6_min"       //threatAssessment
+                      << "6_MIN"       //threatAssessment
                       << ""             //center
                       << ""             //displayMode
                       << ""             //qek
@@ -365,7 +365,7 @@ void formatConcentratorTest::test_case_isolatedBitTesting_data(){
 
     QTest::newRow("35")   << "RANGE2 "    //range
                       << ""             //displaySelection
-                      << "15_min"       //threatAssessment
+                      << "15_MIN"       //threatAssessment
                       << ""             //center
                       << ""             //displayMode
                       << ""             //qek
@@ -375,7 +375,7 @@ void formatConcentratorTest::test_case_isolatedBitTesting_data(){
 
     QTest::newRow("36")   << "RANGE2 "    //range
                       << ""             //displaySelection
-                      << "reset"       //threatAssessment
+                      << "RESET"       //threatAssessment
                       << ""             //center
                       << ""             //displayMode
                       << ""             //qek
