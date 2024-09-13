@@ -23,7 +23,7 @@ andGui::andGui(QWidget *parent)
         andLabel->setText(result);
     });
 
-
+    converter.processBinaryString();
 
 }
 
