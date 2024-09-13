@@ -236,4 +236,7 @@
         <file>img/AND/WARNINGS.png</file>
         <file>img/AND/WARNINGS_pressed.png</file>
     </qresource>
+    <qresource prefix="/binary">
+        <file>output_binary.txt</file>
+    </qresource>
 </RCC>
