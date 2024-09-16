@@ -12,22 +12,40 @@ andGui::andGui(QWidget *parent)
 
     ui->setupUi(this);
 
-    // Crea el QLabel
-    andLabel = ui->ALabel;
+    // Creamos un array de labels para guardarlos
+    labels.append(ui->TitleLabel);
+    labels.append(ui->ALabel);
+    labels.append(ui->BLabel);
+    labels.append(ui->CLabel);
+    labels.append(ui->DLabel);
+    labels.append(ui->ELabel);
+    labels.append(ui->FLabel);
+    labels.append(ui->GLabel);
+    labels.append(ui->HLabel);
+    labels.append(ui->ILabel);
+    labels.append(ui->JLabel);
+    labels.append(ui->KLabel);
+    labels.append(ui->LLabel);
+    labels.append(ui->MLabel);
+    labels.append(ui->NLabel);
+    labels.append(ui->OLabel);
 
     QObject::connect(ui->pushButton_W1, &QPushButton::pressed, [this]() { tocarBoton("w01"); });
     QObject::connect(ui->pushButton_W2, &QPushButton::pressed, [this]() { tocarBoton("w02"); });
     QObject::connect(ui->pushButton_W3, &QPushButton::pressed, [this]() { tocarBoton("w03"); });
+
     // Conecta la señal de conversión de AndTranslator a una función lambda que actualiza el QLabel
-    QObject::connect(&converter, &AndTranslator::conversionResult, [this](const QString &result) {
-        andLabel->setText(result);
+    QObject::connect(&converter, &AndTranslator::conversionResult, [this](const QPair<int,QString> line) {
+        setLine(line);
     });
 
     converter.processBinaryString();
 
 }
 
-
+void andGui::setLine(QPair<int,QString> line){
+    labels[line.first]->setText(line.second);
+}
 
 void andGui::recibirMensaje(QString entrada)
 {

@@ -25,6 +25,8 @@ private:
     Ui::andGui *ui;
     AndTranslator converter;
     QLabel *andLabel;
+    QVector<QLabel*> labels;
+    void setLine(QPair<int,QString>);
 
 private slots:
     void tocarBoton(const QString &mensaje);

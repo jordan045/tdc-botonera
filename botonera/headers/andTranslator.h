@@ -21,10 +21,10 @@ public:
 
 private:
     QByteArray getArray(QString &message);
-    QString processMessage(QByteArray &message);
+    QPair<int, QString> processMessage(QByteArray &message);
 
 signals:
-    void conversionResult(const QString &result);
+    void conversionResult(const QPair<int,QString> &result);
 
 
 };

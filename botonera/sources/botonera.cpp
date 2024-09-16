@@ -183,7 +183,7 @@ void Botonera::start(int tipo)
     crearBotonHelp();
     distribucionLayout();
 
-    this->show();
+    this->showMaximized();
 }
 
 void Botonera::infoMessage(){

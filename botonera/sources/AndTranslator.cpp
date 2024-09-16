@@ -22,7 +22,7 @@ AndTranslator::AndTranslator(QObject *parent) : QObject(parent)
 
 void AndTranslator::processBinaryString()
 {
-    QFile file(":/binary/output_binary.txt");
+    QFile file(":/binary/one_page.txt");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qWarning() << "No se pudo abrir el archivo";
         return;
@@ -30,16 +30,17 @@ void AndTranslator::processBinaryString()
 
     // Crear un QTextStream para leer el archivo línea por línea
     QTextStream in(&file);
+    QPair<int,QString> result;
     while (!in.atEnd()) {
         QString line = in.readLine();
         QByteArray messageArray = getArray(line);
-        QString result = processMessage(messageArray);
-        qDebug() << result;
+        result = processMessage(messageArray);
+        qDebug() << result.second;
+        emit conversionResult(result);
     }
     file.close();
 
 
-    //emit conversionResult(result);
 }
 
 QByteArray AndTranslator::getArray(QString &message){
@@ -59,20 +60,24 @@ QByteArray AndTranslator::getArray(QString &message){
     return byteArray;
 }
 
-QString AndTranslator::processMessage(QByteArray &message){
+QPair<int,QString> AndTranslator::processMessage(QByteArray &message){
+    QPair<int,QString> result;
+
     QString text = "";
     char row = message[2] & 0x0F;           //Extraer fila del tercer campo del mensaje
     int column = message[4];                //Extraer columna del quinto campo del mensaje
     int index = 5;                          //Comienza en 5 porque ahi está el primer caracter
     char nextChar = message[index];         //Extraer primer caracter del sexto campo
 
-    text.append(QString("%1").arg(row, 2, 10, QChar('0')));
-    text.append(" | ");
     while(nextChar != END_OF_TEXT){
         text.append(nextChar);
         index++;
         nextChar = message[index];
     }
-    return text;
+    int num_row = static_cast<int>(row);
+    result.first = num_row;
+    result.second = text;
+
+    return result;
 }
 
