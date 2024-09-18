@@ -2,33 +2,37 @@
 #define ANDGUI_H
 
 #include <QWidget>
+
 #include "ui_andGui.h"
 #include "andTranslator.h"
 #include "QLabel"
-// namespace Ui {
-// class andGui;
-// }
+#include "botonera.h"
 
 namespace Ui {
     class andGui;
+
 }
 
-
+class Botonera;
 class andGui : public QWidget
 {
     Q_OBJECT
 public:
     explicit andGui(QWidget *parent = nullptr);
     void recibirMensaje(QString entrada);
+    void setBotonera(Botonera *b);
 
 private:
+    Botonera *miBotonera;
     Ui::andGui *ui;
     AndTranslator converter;
     QLabel *andLabel;
     QVector<QLabel*> labels;
     void setLine(QPair<int,QString>);
-    void verticalTab(int i);
+    void selLinea(int i);
     int tab;
+
+
 
 private slots:
     void tocarBoton(const QString &mensaje);

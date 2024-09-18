@@ -13,9 +13,10 @@
 #include "zone_threat.h"
 #include "zone_displayselection.h"
 #include "zone_displaymode.h"
-#include "andGui.h"
+//#include "andGui.h"
 
 class Qek;
+class andGui;
 class Botonera : public QWidget
 {
     Q_OBJECT
@@ -41,7 +42,10 @@ public:
     void sendCodeToDisplayMode(QString boton);
     void sendCodeToDisplaySelection(QString boton);
     void sendCodeToIcm(QString boton);
+    void sendCharToMIK(QChar c);
+
     void sendMessage();
+
     QString getOverlay();
     
 public slots:

@@ -1,4 +1,5 @@
 #include "botonera.h"
+#include "andGui.h"
 #include "overlay_140_0001.h"
 #include "overlay_140_0010.h"
 #include "overlay_140_0011.h"
@@ -36,7 +37,8 @@ Botonera::Botonera(QWidget *parent) :
     icm_widget = new zone_icm(this);
     display_selection_widget = new zone_displaySelection(this);
 
-    alfanumeric_display = new andGui(this);
+    alfanumeric_display = new andGui();
+    alfanumeric_display->setBotonera(this);
 }
 //---------Removers----------------------------//
 void Botonera::setOverlay(QString codigo){
@@ -122,6 +124,11 @@ void Botonera::sendCodeToIcm(QString boton){
     sendMessage();
 }
 
+void Botonera::sendCharToMIK(QChar c){
+    miEstado->setMIK(c);
+    sendMessage();
+}
+
 void Botonera::sendMessage(){
     concentrator->getMessage(miEstado);
 }
@@ -184,6 +191,7 @@ void Botonera::start(int tipo)
     distribucionLayout();
 
     this->show();
+    alfanumeric_display->show();
 }
 
 void Botonera::infoMessage(){
@@ -265,8 +273,8 @@ void Botonera::distribucionLayout()
     outer_layout->addWidget(help_button);
 
     global_layout->addLayout(outer_layout);
-    global_layout->addWidget(alfanumeric_display);
-    global_layout->setAlignment(alfanumeric_display, Qt::AlignCenter);
+    //global_layout->addWidget(alfanumeric_display);
+    //global_layout->setAlignment(alfanumeric_display, Qt::AlignCenter);
 
     this->setLayout(global_layout);
     this->setFont(Bahnschrift);

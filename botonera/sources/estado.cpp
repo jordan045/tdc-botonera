@@ -12,6 +12,7 @@ Estado::Estado(Botonera *b)
     this->icm               = *new QString("");
     this->displayMode       = *new QString("");
     this->displaySelection  = *new QString("");
+    this->mik               = *new QString("");
 }
 
 void Estado::setOverlay(QString codigo){
@@ -69,6 +70,8 @@ QString Estado::getDisplayMode(){       return displayMode;}
 QString Estado::getICM(){               return icm;}
 QString Estado::getModos(){             return displayMode;}
 QString Estado::getOverlay(){           return overlay;}
+QString Estado::getMIK(){               return mik;}
+
 QString Estado::getQekIzq(){            return qek;}
 QString Estado::getQekDer(){            return qek;}
 QString Estado::getDisplaySelection(){  return displaySelection;}
@@ -104,6 +107,12 @@ void Estado::setICM(QString s){
     this->icm.append(s);
     refresh();
 }
+
+void Estado::setMIK(QChar c){
+    //c.append(" ");
+    this->mik.append(c);
+    refresh();
+}
 void Estado::setDisplaySelection(QString s){
     if (!this->displaySelection.isEmpty() && !this->displaySelection.endsWith(" ")) {
         this->displaySelection.append(" ");
@@ -131,6 +140,7 @@ void Estado::refresh()
                     << "\nDisplay Mode:\t " << displayMode
                     << "\nDisplay Selection:\t " << displaySelection
                     << "\nICM:\t\t " << icm
+                    << "\nMIK:\t\t " << mik
                     << "\n";
 }
 
