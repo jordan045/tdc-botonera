@@ -1,4 +1,4 @@
-#include "AndTranslator.h"
+#include "andTranslator.h"
 #include <QDebug>
 #include <QFile>
 

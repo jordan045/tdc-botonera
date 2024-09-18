@@ -3,7 +3,7 @@
 #include <initmenu.h>
 #include <andGui.h>
 
-#include <AndTranslator.h>
+#include <andTranslator.h>
 #include<QLabel>
 #include <QWidget>
 #include<QDebug>

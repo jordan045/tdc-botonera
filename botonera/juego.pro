@@ -12,7 +12,7 @@ CONFIG += c++17
 
 SOURCES += \
     sources/andGui.cpp \
-    sources/andTranslator.cpp \
+    sources/AndTranslator.cpp \
     sources/boton.cpp \
     sources/botonera.cpp \
     sources/estado.cpp \
