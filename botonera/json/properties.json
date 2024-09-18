@@ -1,5 +1,8 @@
 {
-  "range_scale": {
+  "PC":{
+    "rol":"MASTER"
+  },
+  "RANGE_SCALE": {
     "RANGE2": {
       "type": "switch",
       "label": "2",
@@ -41,103 +44,103 @@
       "value": "111"
     }
   },
-  "display_selection": {
-    "air": {
+  "DISPLAY_SELECTION": {
+    "AIR": {
       "type": "switch",
       "label": "AIR",
       "pos": "21"
     },
-    "surf": {
+    "SURF": {
       "type": "switch",
       "label": "SURF",
       "pos": "20"
     },
-    "sub_surf": {
+    "SUB_SURF": {
       "type": "switch",
       "label": "SUB SURF",
       "pos": "19"
     },
-    "ref_pos": {
+    "REF_POS": {
       "type": "switch",
       "label": "REF POS",
       "pos": "18"
     },
-    "bear_sel": {
+    "BEAR_SEL": {
       "type": "switch",
       "label": "BEAR SEL",
       "pos": "17"
     },
-    "link_sel": {
+    "LINK_SEL": {
       "type": "switch",
       "label": "LINK SEL",
       "pos": "16"
     },
-    "warf_sel": {
+    "WARF_SEL": {
       "type": "switch",
       "label": "WARF SEL",
       "pos": "15"
     },
-    "fig": {
+    "FIG": {
       "type": "switch",
       "label": "FIG",
       "pos": "14"
     }
   },
-  "threat_assesment": {
-    "12_sec": {
+  "THREAT_ASSESMENT": {
+    "12_SEC": {
       "type": "switch",
       "label": "12 SEC",
       "pos": "13"
     },
-    "30_sec": {
+    "30_SEC": {
       "type": "switch",
       "label": "30 SEC",
       "pos": "12"
     },
-    "6_min": {
+    "6_MIN": {
       "type": "switch",
       "label": "6 MIN",
       "pos": "11"
     },
-    "15_min": {
+    "15_MIN": {
       "type": "switch",
       "label": "15 MIN",
       "pos": "10"
     },
-    "reset": {
+    "RESET": {
       "type": "push",
       "label": "RESET",
       "pos": "9"
     }
   },
-  "label_selection": {
-    "ms": {
+  "LABEL_SELECTION": {
+    "MS": {
       "type": "switch",
       "label": "MS",
       "value": ""
     },
-    "trkm": {
+    "TRKM": {
       "type": "switch",
       "label": "TRKM",
       "value": ""
     },
-    "ampl_info": {
+    "AMPL_INFO": {
       "type": "switch",
       "label": "AMPL INFO",
       "value": ""
     },
-    "link_stat": {
+    "LINK_STAT": {
       "type": "switch",
       "label": "LINK STAT",
       "value": ""
     },
-    "tn": {
+    "TN": {
       "type": "switch",
       "label": "TN",
       "value": ""
     }
   },
-  "icm": {
+  "ICM": {
     "1": {
       "type": "switch",
       "label": "1",
@@ -174,7 +177,7 @@
       "value": "110"
     }
   },
-  "center": {
+  "CENTER": {
     "CU_OR_OFF_CENT": {
       "type": "push",
       "label": "CU OR OFF CENT",
@@ -206,7 +209,7 @@
       "pos": "19"
     }
   },
-  "display_mode": {
+  "DISPLAY_MODE": {
     "HM": {
       "type": "switch",
       "label": "HM",
@@ -243,9 +246,8 @@
       "pos": "10"
     }
   },
-  "qek": {
+  "QEK": {
     "QEK_20": {
-<<<<<<< HEAD
     "type": "push",
     "label": "20",
     "value": "00010000"
@@ -405,218 +407,5 @@
     "label": "57",
     "value": "00101111"
   }
-},
-"overlays": {
-=======
-      "type": "push",
-      "label": "20",
-      "value": "00010000"
-    },
-    "QEK_21": {
-      "type": "push",
-      "label": "21",
-      "value": "00010001"
-    },
-    "QEK_22": {
-      "type": "push",
-      "label": "22",
-      "value": "00010010"
-    },
-    "QEK_23": {
-      "type": "push",
-      "label": "23",
-      "value": "00010011"
-    },
-    "QEK_24": {
-      "type": "push",
-      "label": "24",
-      "value": "00010100"
-    },
-    "QEK_25": {
-      "type": "push",
-      "label": "25",
-      "value": "00010101"
-    },
-    "QEK_26": {
-      "type": "push",
-      "label": "26",
-      "value": "00010110"
-    },
-    "QEK_27": {
-      "type": "push",
-      "label": "27",
-      "value": "00010111"
-    },
-    "QEK_30": {
-      "type": "push",
-      "label": "30",
-      "value": "00011000"
-    },
-    "QEK_31": {
-      "type": "push",
-      "label": "31",
-      "value": "00011001"
-    },
-    "QEK_32": {
-      "type": "push",
-      "label": "32",
-      "value": "00011010"
-    },
-    "QEK_33": {
-      "type": "push",
-      "label": "33",
-      "value": "00011011"
-    },
-    "QEK_34": {
-      "type": "push",
-      "label": "34",
-      "value": "00011100"
-    },
-    "QEK_35": {
-      "type": "push",
-      "label": "35",
-      "value": "00011101"
-    },
-    "QEK_36": {
-      "type": "push",
-      "label": "36",
-      "value": "00011110"
-    },
-    "QEK_37": {
-      "type": "push",
-      "label": "37",
-      "value": "00011111"
-    },
-    "QEK_40": {
-      "type": "push",
-      "label": "40",
-      "value": "00100000"
-    },
-    "QEK_41": {
-      "type": "push",
-      "label": "41",
-      "value": "00100001"
-    },
-    "QEK_42": {
-      "type": "push",
-      "label": "42",
-      "value": "00100010"
-    },
-    "QEK_43": {
-      "type": "push",
-      "label": "43",
-      "value": "00100011"
-    },
-    "QEK_44": {
-      "type": "push",
-      "label": "44",
-      "value": "00100100"
-    },
-    "QEK_45": {
-      "type": "push",
-      "label": "45",
-      "value": "00100101"
-    },
-    "QEK_46": {
-      "type": "push",
-      "label": "46",
-      "value": "00100110"
-    },
-    "QEK_47": {
-      "type": "push",
-      "label": "47",
-      "value": "00100111"
-    },
-    "QEK_50": {
-      "type": "push",
-      "label": "50",
-      "value": "00101000"
-    },
-    "QEK_51": {
-      "type": "push",
-      "label": "51",
-      "value": "00101001"
-    },
-    "QEK_52": {
-      "type": "push",
-      "label": "52",
-      "value": "00101010"
-    },
-    "QEK_53": {
-      "type": "push",
-      "label": "53",
-      "value": "00101011"
-    },
-    "QEK_54": {
-      "type": "push",
-      "label": "54",
-      "value": "00101100"
-    },
-    "QEK_55": {
-      "type": "push",
-      "label": "55",
-      "value": "00101101"
-    },
-    "QEK_56": {
-      "type": "push",
-      "label": "56",
-      "value": "00101110"
-    },
-    "QEK_57": {
-      "type": "push",
-      "label": "57",
-      "value": "00101111"
-    }
-  },
-  "overlays": {
->>>>>>> e4fdbb948e52ceea090ff3c53237c2a90ebf0a4e
-    "asw-corbeta": {
-      "codigo": "0001",
-      "tipo": "asw"
-    },
-    "ops-corbeta": {
-      "codigo": "0010",
-      "tipo": "ops"
-    },
-    "aaw-corbeta": {
-      "codigo": "0011",
-      "tipo": "aaw"
-    },
-    "linco-corbeta": {
-      "codigo": "0100",
-      "tipo": "linco"
-    },
-    "spc-destructor": {
-      "codigo": "0001",
-      "tipo": "spc"
-    },
-    "linco-destructor": {
-      "codigo": "0010",
-      "tipo": "linco"
-    },
-    "heco-destructor": {
-      "codigo": "0101",
-      "tipo": "heco"
-    },
-    "apc-destructor": {
-      "codigo": "0110",
-      "tipo": "apc"
-    },
-    "asw-destructor": {
-      "codigo": "0011",
-      "tipo": "asw"
-    },
-    "ops-destructor": {
-      "codigo": "0100",
-      "tipo": "ops"
-    },
-    "aaw-destructor": {
-      "codigo": "0111",
-      "tipo": "aaw"
-    },
-    "ew-destructor": {
-      "codigo": "1000",
-      "tipo": "ew"
-    }
-  }
+}
 }
