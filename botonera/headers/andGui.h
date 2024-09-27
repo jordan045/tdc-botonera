@@ -2,6 +2,7 @@
 #define ANDGUI_H
 
 #include <QWidget>
+#include <QKeyEvent>
 
 #include "ui_andGui.h"
 #include "andTranslator.h"
@@ -32,6 +33,9 @@ private:
     void selLinea(int i);
     int tab;
 
+protected:
+    void keyReleaseEvent(QKeyEvent *event);
+    void keyPressEvent(QKeyEvent *event);
 
 
 private slots:

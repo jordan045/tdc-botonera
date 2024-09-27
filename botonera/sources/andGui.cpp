@@ -66,6 +66,21 @@ void andGui::selLinea(int t){
     tab = t;
 }
 
+void andGui::keyReleaseEvent(QKeyEvent *event){
+    QChar caracter = event->text()[0].toUpper();
+
+    //miBotonera->sendCharToMIK(caracter);
+    miBotonera->removeCharToMIK(caracter);
+
+}
+
+void andGui::keyPressEvent(QKeyEvent *event){
+    QChar caracter = event->text()[0].toUpper();
+    miBotonera->sendCharToMIK(caracter);
+}
+
+
+
 void andGui::setBotonera(Botonera *b){
     miBotonera = b;
 }
