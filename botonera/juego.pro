@@ -19,6 +19,7 @@ SOURCES += \
     sources/formatconcentrator.cpp \
     sources/initmenu.cpp \
     sources/main.cpp \
+    sources/mik.cpp \
     sources/overlay_140_0001.cpp \
     sources/overlay_140_0010.cpp \
     sources/overlay_140_0011.cpp \
@@ -69,6 +70,7 @@ HEADERS += \
     headers/zone_label.h \
     headers/zone_range.h \
     headers/zone_threat.h \
+    sources/mik.h \
 
 FORMS += \
     forms/andGui.ui \

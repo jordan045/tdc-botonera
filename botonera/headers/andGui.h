@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QKeyEvent>
 
+#include "sources/mik.h"
 #include "ui_andGui.h"
 #include "andTranslator.h"
 #include "QLabel"
@@ -32,6 +33,8 @@ private:
     void setLine(QPair<int,QString>);
     void selLinea(int i);
     int tab;
+    MIK *mik;
+
 
 protected:
     void keyReleaseEvent(QKeyEvent *event);
@@ -54,6 +57,9 @@ private slots:
     void on_KButton_clicked();
     void on_LButton_clicked();
     void on_MButton_clicked();
+    void on_pushButton_W1_pressed();
+    void on_pushButton_W2_pressed();
+    void on_pushButton_W3_pressed();
 };
 
 #endif // ANDGUI_H
