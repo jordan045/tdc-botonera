@@ -47,21 +47,7 @@ void andGui::setLine(QPair<int,QString> line){
     labels[line.first]->setText(line.second);
 }
 
-void andGui::selLinea(int t){
-    // int i= t;
-    // while (i != tab) {
-    //     if(tab > 13){
-    //         tab = 0;
-    //     }
-    //     else{
-    //         //llamo a estado
-    //         //qDebug()<< "Linea";
-    //         miBotonera->sendCharToMIK('S');//deberia ir el salto de linea
-    //         tab++;
-    //     }
-    // }
-    // tab = t;
-}
+
 
 void andGui::keyReleaseEvent(QKeyEvent *event){
     QChar caracter = event->text().front().toUpper();
@@ -78,8 +64,7 @@ void andGui::setBotonera(Botonera *b){
     mik = new MIK(b);
 }
 
-void andGui::recibirMensaje(QString entrada)
-{
+//void andGui::recibirMensaje(QString entrada){
     // QString textResult;
     // for (int i = 0; i < entrada.size(); i += 8) {
     //     // Obtener un segmento de 8 caracteres
@@ -96,7 +81,7 @@ void andGui::recibirMensaje(QString entrada)
     //     }
     // }
     // andLabel->setText(textResult);
-}
+//}
 
 void andGui::tocarBoton(const QString &mensaje){
     for(int i = 0; i < mensaje.length(); i++){

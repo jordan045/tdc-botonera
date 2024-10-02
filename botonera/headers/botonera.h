@@ -33,7 +33,7 @@ public:
     void removeCodeFromDisplayMode(QString boton);
     void removeCodeFromDisplaySelection(QString boton);
     void removeCodeFromIcm(QString boton);
-    void removeCharToMIK(QChar c);
+    void removeCharToMIK(QString c);
 
     void sendCodeToRange(QString boton);
     void sendCodeToLabelSelection(QString boton);
@@ -43,7 +43,7 @@ public:
     void sendCodeToDisplayMode(QString boton);
     void sendCodeToDisplaySelection(QString boton);
     void sendCodeToIcm(QString boton);
-    void sendCharToMIK(QChar c);
+    void sendCharToMIK(QString c);
 
     void sendMessage();
 

@@ -112,6 +112,7 @@
     <qresource prefix="/json">
         <file>json/overlay.json</file>
         <file>json/properties.json</file>
+        <file>json/mik.json</file>
     </qresource>
     <qresource prefix="/ico">
         <file>armagedon.ico</file>

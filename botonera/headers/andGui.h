@@ -31,7 +31,6 @@ private:
     QLabel *andLabel;
     QVector<QLabel*> labels;
     void setLine(QPair<int,QString>);
-    void selLinea(int i);
     int tab;
     MIK *mik;
 

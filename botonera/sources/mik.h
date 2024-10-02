@@ -14,6 +14,7 @@ public:
 
 private:
     Botonera *miBotonera;
+    QJsonObject teclasObj;
     int tab;
 
 };

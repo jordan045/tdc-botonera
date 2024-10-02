@@ -105,7 +105,9 @@ RESOURCES += \
 
 DISTFILES += \
     json/overlay.json \
+    json/mik.json \
     mensajesFC/mensajes.txt
+
 
 
 INCLUDEPATH += headers/
