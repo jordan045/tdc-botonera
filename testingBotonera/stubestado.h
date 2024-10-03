@@ -34,10 +34,15 @@ public:
     QString getDisplayMode() override;
     QString getDisplaySelection() override;
     QString getICM() override;
-    QString getQekIzq() override;
-    QString getQekDer() override;
     QString getModos() override;
     QString getOverlay() override;
+    QString getLabelS()        override;
+    QString getQEKS()          override;
+    QString getCenterS()       override;
+    QString getICMS()          override;
+    QString getDisplayModeS()  override;
+    QString getOverlayS()      override;
+
 
     void setRange(QString r) override;
     void setLabel(QString l) override;
@@ -47,6 +52,17 @@ public:
     void setDisplayMode(QString d) override;
     void setDisplaySelection(QString d) override;
     void setICM(QString i) override;
+    void setLabelS(QString l)      override;
+    void setQEKS(QString q)        override;
+    void setCenterS(QString c)     override;
+    void setICMS(QString i)        override;
+    void setDisplayModeS(QString d)override;
+    void setOverlayS(QString o)    override;
+
+    void setOverlayS(const QString &newOverlayS);
+
+signals:
+    void overlaySChanged();
 
 private:
     QString range;
@@ -58,6 +74,14 @@ private:
     QString displayMode;
     QString displaySelection;
     QString overlay;
+
+    QString labelS;
+    QString qekS;
+    QString centerS;
+    QString icmS;
+    QString displayModeS;
+    QString overlayS;
+    Q_PROPERTY(QString overlayS READ getOverlayS WRITE setOverlayS NOTIFY overlaySChanged FINAL)
 };
 
 #endif // STUBESTADO_H

@@ -21,47 +21,47 @@ class Botonera : public QWidget
 public:
     explicit Botonera(QWidget *parent = nullptr);
 
-    void setOverlay(QString codigo);
 
-    void removeCodeFromRange(QString boton);
-    void removeCodeFromLabelSelection(QString boton);
-    void removeCodeFromQek(QString boton);
-    void removeCodeFromThreat(QString boton);
-    void removeCodeFromCenter(QString boton);
-    void removeCodeFromDisplayMode(QString boton);
-    void removeCodeFromDisplaySelection(QString boton);
-    void removeCodeFromIcm(QString boton);
+    virtual void setOverlay(QString codigo)                 = 0;
+    virtual void sendCodeToRange(QString boton)             = 0;
+    virtual void sendCodeToLabelSelection(QString boton)    = 0;
+    virtual void sendCodeToQek(QString boton)               = 0;
+    virtual void sendCodeToThreat(QString boton)            = 0;
+    virtual void sendCodeToCenter(QString boton)            = 0;
+    virtual void sendCodeToDisplayMode(QString boton)       = 0;
+    virtual void sendCodeToDisplaySelection(QString boton)  = 0;
+    virtual void sendCodeToIcm(QString boton)               = 0;
 
-    void sendCodeToRange(QString boton);
-    void sendCodeToLabelSelection(QString boton);
-    void sendCodeToQek(QString boton);
-    void sendCodeToThreat(QString boton);
-    void sendCodeToCenter(QString boton);
-    void sendCodeToDisplayMode(QString boton);
-    void sendCodeToDisplaySelection(QString boton);
-    void sendCodeToIcm(QString boton);
-    void sendMessage();
-    QString getOverlay();
-    
+    virtual void removeCodeFromRange(QString boton)             = 0;
+    virtual void removeCodeFromLabelSelection(QString boton)    = 0;
+    virtual void removeCodeFromQek(QString boton)               = 0;
+    virtual void removeCodeFromThreat(QString boton)            = 0;
+    virtual void removeCodeFromCenter(QString boton)            = 0;
+    virtual void removeCodeFromDisplayMode(QString boton)       = 0;
+    virtual void removeCodeFromDisplaySelection(QString boton)  = 0;
+    virtual void removeCodeFromIcm(QString boton)               = 0;
+
 public slots:
     void start(int tipo);
     void infoMessage();
 
-private:
-   zone_range *range_widget;
-   zone_label *label_selection_widget;
-   Qek *qek_widget;
-   zone_threat *threat_assesment_widget;
-   zone_displayMode *display_mode_widget;
-   zone_displaySelection *display_selection_widget;
-   zone_center *center_widget;
-   zone_icm *icm_widget;
-   FormatConcentrator *concentrator;
-   QShortcut *shortcut;
-   Estado *miEstado;
-   QPushButton *help_button = new QPushButton("");
-   void crearBotonHelp();
-   void distribucionLayout();
+protected:
+    int overlay;
+    zone_range *range_widget;
+    zone_label *label_selection_widget;
+    Qek *qek_widget;
+    zone_threat *threat_assesment_widget;
+    zone_displayMode *display_mode_widget;
+    zone_displaySelection *display_selection_widget;
+    zone_center *center_widget;
+    zone_icm *icm_widget;
+    FormatConcentrator *concentrator;
+    QShortcut *shortcut;
+    Estado *miEstado;
+    QPushButton *help_button = new QPushButton("");
+    void crearBotonHelp();
+    void distribucionLayout();
+
 };
 
 #endif // BOTONERA_H

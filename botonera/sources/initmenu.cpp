@@ -9,12 +9,12 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <ui_initmenu.h>
+#include "botoneraMaster.h"
 
 InitMenu::InitMenu(QWidget *parent) :
     QWidget(parent)
 {
     QCoreApplication::setApplicationName("Botonera AR-TDC");
-    miBotonera = new Botonera();
 
     // Modal para mensajes de error
     QMessageBox::StandardButton reply;
@@ -93,7 +93,26 @@ InitMenu::InitMenu(QWidget *parent) :
 
     tipoBuque = mainObj["tipo"].toString().toInt();
 
+    bool master = true;
+
+    qDebug()<< "estoy por crear la botonera";
+    if(master){
+         miBotonera = new BotoneraMaster();
+        qDebug()<<"Se creo bien la botonera";
+    }
+    /*
+     * else
+     *      miBotonera = new BotoneraSlave();
+     * */
+
+
     QObject::connect(ui.continue_button, &QPushButton::clicked, this, &InitMenu::seleccion);
+    // miBotonera = new BotoneraMaster();
+    // auto overlay = "0001" ;
+    // miBotonera->setOverlay(overlay);
+    // miBotonera->start(tipoBuque);
+    // this->close();
+    //miBotonera->show();
 }
 
 void InitMenu::seleccion()
@@ -103,8 +122,11 @@ void InitMenu::seleccion()
     }else {
         auto overlay = group->checkedButton()->objectName();
         miBotonera->setOverlay(overlay);
+        qDebug()<<"Se seteo el overlay";
         miBotonera->start(tipoBuque);
+        qDebug()<< "se empezo la botonera";
         this->close();
+        miBotonera->show();
     }
 }
 
