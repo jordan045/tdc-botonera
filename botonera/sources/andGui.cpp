@@ -9,7 +9,6 @@
 andGui::andGui(QWidget *parent, Botonera *b)
     : QWidget(parent),ui(new Ui::andGui)
 {
-<<<<<<< HEAD
 
     // Crear QStackedWidget
     stackedWidget = new QStackedWidget(this);
@@ -34,16 +33,9 @@ andGui::andGui(QWidget *parent, Botonera *b)
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(stackedWidget);  // Solo agregamos el stackedWidget
     setLayout(layout);
-=======
-    // Inicializa la interfaz de usuario si es necesario
-    // ui->setupUi(this);
-    //miBotonera = b;
-    grilla = new Ui::andGrilla;
-    tab = 1;
-    ui->setupUi(this);
+    int tab = 1;
     miBotonera = b;
     mik = new MIK(b);
->>>>>>> 9397b39e761411d8c1e7dd0eb20aba0811a065f4
 
     // Creamos un array de labels para guardarlos
     labels.append(ui->TitleLabel);
@@ -138,20 +130,6 @@ void andGui::keyPressEvent(QKeyEvent *event){
     }
 }
 
-<<<<<<< HEAD
-void andGui::on_AButton_clicked(){mik->selLinea(1);}
-void andGui::on_BButton_clicked(){mik->selLinea(2);}
-void andGui::on_CButton_clicked(){mik->selLinea(3);}
-void andGui::on_DButton_clicked(){mik->selLinea(4);}
-void andGui::on_EButton_clicked(){mik->selLinea(5);}
-void andGui::on_FButton_clicked(){mik->selLinea(6);}
-void andGui::on_GButton_clicked(){mik->selLinea(7);}
-void andGui::on_HButton_clicked(){mik->selLinea(8);}
-void andGui::on_IButton_clicked(){mik->selLinea(9);}
-void andGui::on_JButton_clicked(){mik->selLinea(10);}
-void andGui::on_KButton_clicked(){mik->selLinea(11);}
-void andGui::on_LButton_clicked(){mik->selLinea(12);}
-=======
 void andGui::tocarBoton(const QString &mensaje){
     for(int i = 0; i < mensaje.length(); i++){
         mik->pressKey(mensaje[i]);
@@ -170,8 +148,6 @@ void andGui::on_IButton_clicked(){mik->selectLine(9);}
 void andGui::on_JButton_clicked(){mik->selectLine(10);}
 void andGui::on_KButton_clicked(){mik->selectLine(11);}
 void andGui::on_LButton_clicked(){mik->selectLine(12);}
-void andGui::on_MButton_clicked(){mik->selectLine(13);}
->>>>>>> 9397b39e761411d8c1e7dd0eb20aba0811a065f4
 
 void andGui::on_pushButton_W1_pressed(){tocarBoton("W01");}
 void andGui::on_pushButton_W2_pressed(){tocarBoton("W02");}
