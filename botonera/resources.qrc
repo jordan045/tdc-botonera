@@ -240,5 +240,6 @@
     <qresource prefix="/binary">
         <file>output_binary.txt</file>
         <file>one_page.txt</file>
+        <file>one_page.bin</file>
     </qresource>
 </RCC>

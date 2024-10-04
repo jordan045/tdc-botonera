@@ -22,6 +22,7 @@
 #include "overlay_360_0111.h"
 #include "overlay_360_1000.h"
 #include "QFontDatabase"
+#include <QScreen>
 
 Botonera::Botonera(QWidget *parent) :
     QWidget(parent)
@@ -143,8 +144,19 @@ QString Botonera::getOverlay(){
     return miEstado->getOverlay();
 }
 
+void centerWidget(QWidget *window, QScreen *screen){
+    QRect screenGeometry = screen->geometry();
+
+    int x = screenGeometry.x() + (screenGeometry.width() - window->width()) / 2;
+    int y = screenGeometry.y() + (screenGeometry.height() - window->height()) / 2;
+
+    window->move(x,y);
+}
+
 void Botonera::start(int tipo)
 {
+    QList<QScreen *> screens = QGuiApplication::screens();
+
     int overlay = getOverlay().toInt();
     if (tipo == 140){
         switch (overlay) {
@@ -191,16 +203,20 @@ void Botonera::start(int tipo)
         }
     }
 
-    qDebug() << tipo << overlay;
-
     crearBotonHelp();
     distribucionLayout();
 
+    if(screens.size() > 1){
+        centerWidget(this,screens[0]);
+        centerWidget(alfanumeric_display,screens[1]);
+    }
     this->show();
     alfanumeric_display->show();
 
     sendCharToMIK("HOLAA");
 }
+
+
 
 void Botonera::infoMessage(){
     // Genera el mensaje de ayuda con los atajos de teclado
@@ -243,8 +259,6 @@ void Botonera::crearBotonHelp()
 
     connect(shortcut, SIGNAL(activated()), this, SLOT(infoMessage()));
     connect(help_button, &QPushButton::clicked, this, &Botonera::infoMessage);
-
-
 }
 
 void Botonera::distribucionLayout()

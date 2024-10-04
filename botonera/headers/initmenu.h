@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include "botonera.h"
+#include "andGui.h"
+
 class InitMenu : public QWidget
 {
     Q_OBJECT

@@ -1,6 +1,7 @@
 #include "andGui.h"
 #include "ui_andGui.h"
 #include "andTranslator.h"
+#include "ui_andGrilla.h"
 #include <QLabel>
 #include <QDebug>
 
@@ -8,6 +9,10 @@ andGui::andGui(QWidget *parent, Botonera *b)
     : QWidget(parent),ui(new Ui::andGui)
 {
     // Inicializa la interfaz de usuario si es necesario
+    // ui->setupUi(this);
+    //miBotonera = b;
+    grilla = new Ui::andGrilla;
+    tab = 1;
     ui->setupUi(this);
     miBotonera = b;
     mik = new MIK(b);
@@ -30,9 +35,9 @@ andGui::andGui(QWidget *parent, Botonera *b)
     labels.append(ui->NLabel);
     labels.append(ui->OLabel);
 
-    //QObject::connect(ui->pushButton_W1, &QPushButton::pressed, [this]() { tocarBoton("W01"); });
-    //QObject::connect(ui->pushButton_W2, &QPushButton::pressed, [this]() { tocarBoton("W02"); });
-    //QObject::connect(ui->pushButton_W3, &QPushButton::pressed, [this]() { tocarBoton("W03"); });
+    QObject::connect(ui->pushButton_W1, &QPushButton::pressed, [this]() { tocarBoton("W01"); });
+    QObject::connect(ui->pushButton_W2, &QPushButton::pressed, [this]() { grilla->setupUi(this); this->update(); });
+    QObject::connect(ui->pushButton_W3, &QPushButton::pressed, [this]() { tocarBoton("W03"); });
 
     // Conecta la señal de conversión de AndTranslator a una función lambda que actualiza el QLabel
     QObject::connect(&converter, &AndTranslator::conversionResult, [this](const QPair<int,QString> line) {
@@ -40,6 +45,10 @@ andGui::andGui(QWidget *parent, Botonera *b)
     });
 
     converter.processBinaryString();
+
+    // Esto hace que se abra en una ventana aparte
+    this->setWindowFlag(Qt::Window);
+    this->setWindowTitle("AND");
 }
 
 void andGui::setLine(QPair<int,QString> line){
