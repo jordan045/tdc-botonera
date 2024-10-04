@@ -33,7 +33,7 @@ andGui::andGui(QWidget *parent, Botonera *b)
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(stackedWidget);  // Solo agregamos el stackedWidget
     setLayout(layout);
-    tab = 1;
+    int tab = 1;
     miBotonera = b;
     mik = new MIK(b);
 
@@ -148,7 +148,6 @@ void andGui::on_IButton_clicked(){mik->selectLine(9);}
 void andGui::on_JButton_clicked(){mik->selectLine(10);}
 void andGui::on_KButton_clicked(){mik->selectLine(11);}
 void andGui::on_LButton_clicked(){mik->selectLine(12);}
-void andGui::on_MButton_clicked(){mik->selectLine(13);}
 
 void andGui::on_pushButton_W1_pressed(){tocarBoton("W01");}
 void andGui::on_pushButton_W2_pressed(){tocarBoton("W02");}
