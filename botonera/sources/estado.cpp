@@ -35,7 +35,6 @@ void Estado::removeThreat(QString codigo){
     refresh();
 }
 void Estado::removeMIK(QString c){
-
     this->mik.clear();
     refresh();
 }
@@ -114,10 +113,10 @@ void Estado::setICM(QString s){
 }
 
 void Estado::setMIK(QString c){
-    //c.append(" ");
     this->mik.append(c);
     refresh();
 }
+
 void Estado::setDisplaySelection(QString s){
     if (!this->displaySelection.isEmpty() && !this->displaySelection.endsWith(" ")) {
         this->displaySelection.append(" ");
@@ -148,4 +147,3 @@ void Estado::refresh()
                     << "\nMIK:\t\t " << mik
                     << "\n";
 }
-

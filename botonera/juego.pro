@@ -70,7 +70,7 @@ HEADERS += \
     headers/zone_label.h \
     headers/zone_range.h \
     headers/zone_threat.h \
-    sources/mik.h \
+    headers/mik.h \
 
 FORMS += \
     forms/andGui.ui \

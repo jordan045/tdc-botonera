@@ -1,6 +1,6 @@
 {
   "teclas": {
-    "Espacio": {
+    " ": {
       "ASCII_Binario": "00100000",
       "ASCII_Octal": "040"
     },
