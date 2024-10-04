@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QKeyEvent>
 
+#include "qstackedwidget.h"
 #include "sources/mik.h"
 #include "ui_andGui.h"
 #include "andTranslator.h"
@@ -30,6 +31,7 @@ private:
     QVector<QLabel*> labels;
     void setLine(QPair<int,QString>);
     MIK *mik;
+    QStackedWidget *stackedWidget;
 
 protected:
     void keyReleaseEvent(QKeyEvent *event);
@@ -51,10 +53,11 @@ private slots:
     void on_JButton_clicked();
     void on_KButton_clicked();
     void on_LButton_clicked();
-    void on_MButton_clicked();
     void on_pushButton_W1_pressed();
     void on_pushButton_W2_pressed();
     void on_pushButton_W3_pressed();
+    void on_pushButton_grilla_clicked();
+    void on_pushButton_back_clicked();
 };
 
 #endif // ANDGUI_H
