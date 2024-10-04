@@ -4,16 +4,35 @@
 #include "ui_andGrilla.h"
 #include <QLabel>
 #include <QDebug>
+#include <QStackedWidget>
 
 andGui::andGui(QWidget *parent)
     : QWidget(parent),ui(new Ui::andGui)
 {
-    // Inicializa la interfaz de usuario si es necesario
-    // ui->setupUi(this);
-    //miBotonera = b;
-    grilla = new Ui::andGrilla;
-    tab = 1;
-    ui->setupUi(this);
+
+    // Crear QStackedWidget
+    stackedWidget = new QStackedWidget(this);
+
+    // Inicializar las interfaces
+    QWidget *mainInterface = new QWidget();  // Interfaz principal
+    grilla = new Ui::andGrilla;              // Inicializar andGrilla
+
+    // Configurar las interfaces
+    ui->setupUi(mainInterface);  // Cargar la interfaz principal en el widget
+    QWidget *grillaWidget = new QWidget();   // Crear un nuevo QWidget para la grilla
+    grilla->setupUi(grillaWidget);           // Cargar la interfaz de la grilla en el nuevo widget
+
+    // Agregar las interfaces al QStackedWidget
+    stackedWidget->addWidget(mainInterface); // Página 0: Interfaz principal
+    stackedWidget->addWidget(grillaWidget);  // Página 1: Interfaz andGrilla
+
+    // Mostrar la primera página (Interfaz principal)
+    stackedWidget->setCurrentIndex(0);
+
+    // Ahora el stackedWidget es el único widget en el layout
+    QVBoxLayout *layout = new QVBoxLayout(this);
+    layout->addWidget(stackedWidget);  // Solo agregamos el stackedWidget
+    setLayout(layout);
 
     // Creamos un array de labels para guardarlos
     labels.append(ui->TitleLabel);
@@ -33,9 +52,11 @@ andGui::andGui(QWidget *parent)
     labels.append(ui->NLabel);
     labels.append(ui->OLabel);
 
-    QObject::connect(ui->pushButton_W1, &QPushButton::pressed, [this]() { tocarBoton("W01"); });
-    QObject::connect(ui->pushButton_W2, &QPushButton::pressed, [this]() { grilla->setupUi(this); this->update(); });
-    QObject::connect(ui->pushButton_W3, &QPushButton::pressed, [this]() { tocarBoton("W03"); });
+    tab = 1;
+
+    connect(ui->pushButton_grilla, &QPushButton::clicked, this, &andGui::on_pushButton_grilla_clicked);
+    connect(grilla->pushButton_back, &QPushButton::clicked, this, &andGui::on_pushButton_back_clicked);
+
 
     // Conecta la señal de conversión de AndTranslator a una función lambda que actualiza el QLabel
     QObject::connect(&converter, &AndTranslator::conversionResult, [this](const QPair<int,QString> line) {
@@ -107,8 +128,21 @@ void andGui::on_IButton_clicked(){mik->selLinea(9);}
 void andGui::on_JButton_clicked(){mik->selLinea(10);}
 void andGui::on_KButton_clicked(){mik->selLinea(11);}
 void andGui::on_LButton_clicked(){mik->selLinea(12);}
-void andGui::on_MButton_clicked(){mik->selLinea(13);}
 
 void andGui::on_pushButton_W1_pressed(){tocarBoton("W01");}
 void andGui::on_pushButton_W2_pressed(){tocarBoton("W02");}
 void andGui::on_pushButton_W3_pressed(){tocarBoton("W03");}
+
+void andGui::on_pushButton_grilla_clicked()
+{
+    qDebug() << "Cambiando a la grilla";
+    stackedWidget->setCurrentIndex(1);  // Cambiar a la página con la grilla
+}
+
+
+void andGui::on_pushButton_back_clicked()
+{
+    qDebug() << "Cambiando a la principal";
+    stackedWidget->setCurrentIndex(0);  // Cambiar a la página con la grilla
+}
+

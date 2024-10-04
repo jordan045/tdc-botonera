@@ -22,8 +22,8 @@ AndTranslator::AndTranslator(QObject *parent) : QObject(parent)
 
 void AndTranslator::processBinaryString()
 {
-    QFile file(":/binary/one_page.bin");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    QFile file(":/binary/one_page2.bin");
+    if (!file.open(QIODevice::ReadOnly)) {
         qWarning() << "No se pudo abrir el archivo";
         return;
     }
@@ -36,10 +36,13 @@ void AndTranslator::processBinaryString()
     // Leer el archivo en bloques de blockSize bytes
     while (!file.atEnd()) {
         QByteArray block = file.read(blockSize);
-        // if (block.size() < blockSize) {
-        //     qWarning() << "Último bloque incompleto, ignorado";
-        //     break;  // Rompe el ciclo si no se pudo leer un bloque completo
-        // }
+        qDebug() << block.size() << "block size";
+
+
+        if (block.size() < blockSize) {
+            qWarning() << "Último bloque incompleto, ignorado";
+            break;  // Rompe el ciclo si no se pudo leer un bloque completo
+        }
 
         // Eliminar los primeros 3 bytes
         QByteArray cleanedBlock = block.mid(offset);
