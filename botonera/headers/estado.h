@@ -26,7 +26,7 @@ public:
     void removeQek(QString boton) override;
     void removeRange(QString boton) override;
     void removeThreat(QString boton) override;
-    void setMIK(QString);
+    void removeMIK(QString c);
 
     QString getRange() override;
     QString getLabel() override;
@@ -50,7 +50,7 @@ public:
     void setDisplayMode(QString d) override;
     void setDisplaySelection(QString d) override;
     void setICM(QString i) override;
-    void setMIK(QChar c);
+    void setMIK(QString c);
 
 
 private:

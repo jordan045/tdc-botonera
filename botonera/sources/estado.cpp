@@ -34,6 +34,11 @@ void Estado::removeThreat(QString codigo){
     this->threat.remove(codigo);
     refresh();
 }
+void Estado::removeMIK(QString c){
+
+    this->mik.clear();
+    refresh();
+}
 void Estado::removeDisplayMode(QString codigo){
     codigo.append(" ");
     this->displayMode.remove(codigo);
@@ -108,7 +113,7 @@ void Estado::setICM(QString s){
     refresh();
 }
 
-void Estado::setMIK(QChar c){
+void Estado::setMIK(QString c){
     //c.append(" ");
     this->mik.append(c);
     refresh();

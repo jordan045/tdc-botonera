@@ -1,0 +1,63 @@
+#include "mik.h"
+
+MIK::MIK(Botonera *b){
+    miBotonera = b;
+    tab = 1;
+
+    //QMessageBox::StandardButton reply;
+    // Lee el archivo JSON con la información de los overlays
+    QFile file(":/json/json/mik.json");
+    if (!file.open(QIODevice::ReadOnly)) {
+        qDebug("\nERROR al abrir json de MIK\n");
+    }
+
+    QByteArray data = file.readAll();
+    QJsonParseError jsonError;
+    QJsonDocument document = QJsonDocument::fromJson(data, &jsonError);
+    file.close();
+
+    if (jsonError.error != QJsonParseError::NoError) {
+        qDebug("Error Error al parsear JSON");
+        return;
+    }
+
+    // Verificar si el documento es un objeto
+    if (!document.isObject()) {
+        qWarning("El documento JSON no es un objeto.");
+        return;
+    }
+
+    QJsonObject rootObj = document.object();
+    teclasObj = rootObj["teclas"].toObject();
+
+
+}
+
+void MIK::selLinea(int t){
+    int i= t;
+
+    while (i != tab) {
+        if(tab > 13){
+            tab = 0;
+        }
+        else{
+            //llamo a estado
+            //qDebug()<< "Linea";
+            miBotonera->sendCharToMIK("S");//deberia ir el salto de linea
+            tab++;
+        }
+    }
+    tab = t;
+}
+
+void MIK::press(QChar c){
+    QJsonObject caracter = teclasObj[c].toObject();
+    QString toSend = caracter["ASCII_Octal"].toString();
+    miBotonera->sendCharToMIK(toSend);
+}
+
+void MIK::release(QChar c){
+    QJsonObject caracter = teclasObj[c].toObject();
+    QString toSend = caracter["ASCII_Octal"].toString();
+    miBotonera->removeCharToMIK(toSend);
+}

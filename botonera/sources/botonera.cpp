@@ -85,6 +85,12 @@ void Botonera::removeCodeFromIcm(QString boton){
     sendMessage();
 }
 
+void Botonera::removeCharToMIK(QString c)
+{
+    miEstado->removeMIK(c);
+    sendMessage();
+}
+
 //Setters//
 void Botonera::sendCodeToRange(QString boton){
     miEstado->setRange(boton);
@@ -125,7 +131,7 @@ void Botonera::sendCodeToIcm(QString boton){
     sendMessage();
 }
 
-void Botonera::sendCharToMIK(QChar c){
+void Botonera::sendCharToMIK(QString c){
     miEstado->setMIK(c);
     sendMessage();
 }

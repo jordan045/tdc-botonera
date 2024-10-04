@@ -49,50 +49,66 @@ andGui::andGui(QWidget *parent)
     this->setWindowTitle("AND");
 }
 
-
 void andGui::setLine(QPair<int,QString> line){
     labels[line.first]->setText(line.second);
 }
 
-void andGui::selLinea(int t){
-    int i= t;
-    while (i != tab) {
-        if(tab > 13){
-            tab = 0;
-        }
-        else{
-            //llamo a estado
-            qDebug()<< "Linea";
-            miBotonera->sendCharToMIK('S');//deberia ir el salto de linea
-            tab++;
-        }
-    }
-    //qDebug()<< "-------";
-    tab = t;
+
+
+void andGui::keyReleaseEvent(QKeyEvent *event){
+    QChar caracter = event->text().front().toUpper();
+    mik->release(caracter);
+}
+
+void andGui::keyPressEvent(QKeyEvent *event){
+    QChar caracter = event->text().front().toUpper();
+    mik->press(caracter);
 }
 
 void andGui::setBotonera(Botonera *b){
     miBotonera = b;
+    mik = new MIK(b);
 }
 
-void andGui::tocarBoton(const QString &mensaje)
-{
+//void andGui::recibirMensaje(QString entrada){
+    // QString textResult;
+    // for (int i = 0; i < entrada.size(); i += 8) {
+    //     // Obtener un segmento de 8 caracteres
+    //     QString binarySegment = entrada.mid(i, 8);
+
+    //     // Convertir el segmento binario a carácter usando binaryToChar
+    //     //QString character = converter.binaryToChar(binarySegment);
+
+    //     // Verificar si la conversión fue exitosa
+    //     if (!character.isEmpty()) {
+    //         textResult.append(character);
+    //     } else {
+    //         qDebug() << "Error en la conversión del segmento:" << binarySegment;
+    //     }
+    // }
+    // andLabel->setText(textResult);
+//}
+
+void andGui::tocarBoton(const QString &mensaje){
     for(int i = 0; i < mensaje.length(); i++){
-        miBotonera->sendCharToMIK(mensaje[i]);
+        mik->press(mensaje[i]);
     }
-    //qDebug() << mensaje;
 }
 
+void andGui::on_AButton_clicked(){mik->selLinea(1);}
+void andGui::on_BButton_clicked(){mik->selLinea(2);}
+void andGui::on_CButton_clicked(){mik->selLinea(3);}
+void andGui::on_DButton_clicked(){mik->selLinea(4);}
+void andGui::on_EButton_clicked(){mik->selLinea(5);}
+void andGui::on_FButton_clicked(){mik->selLinea(6);}
+void andGui::on_GButton_clicked(){mik->selLinea(7);}
+void andGui::on_HButton_clicked(){mik->selLinea(8);}
+void andGui::on_IButton_clicked(){mik->selLinea(9);}
+void andGui::on_JButton_clicked(){mik->selLinea(10);}
+void andGui::on_KButton_clicked(){mik->selLinea(11);}
+void andGui::on_LButton_clicked(){mik->selLinea(12);}
+void andGui::on_MButton_clicked(){mik->selLinea(13);}
 
-void andGui::on_AButton_clicked(){selLinea(1);}
-void andGui::on_BButton_clicked(){selLinea(2);}
-void andGui::on_CButton_clicked(){selLinea(3);}
-void andGui::on_DButton_clicked(){selLinea(4);}
-void andGui::on_EButton_clicked(){selLinea(5);}
-void andGui::on_FButton_clicked(){selLinea(6);}
-void andGui::on_GButton_clicked(){selLinea(7);}
-void andGui::on_HButton_clicked(){selLinea(8);}
-void andGui::on_IButton_clicked(){selLinea(9);}
-void andGui::on_JButton_clicked(){selLinea(10);}
-void andGui::on_KButton_clicked(){selLinea(11);}
-void andGui::on_LButton_clicked(){selLinea(12);}
+void andGui::on_pushButton_W1_pressed(){tocarBoton("W01");}
+void andGui::on_pushButton_W2_pressed(){tocarBoton("W02");}
+void andGui::on_pushButton_W3_pressed(){tocarBoton("W03");}
