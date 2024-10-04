@@ -38,8 +38,7 @@ Botonera::Botonera(QWidget *parent) :
     icm_widget = new zone_icm(this);
     display_selection_widget = new zone_displaySelection(this);
 
-    alfanumeric_display = new andGui(this);
-    alfanumeric_display->setBotonera(this);
+    alfanumeric_display = new andGui(NULL,this);
 }
 //---------Removers----------------------------//
 void Botonera::setOverlay(QString codigo){
@@ -85,8 +84,7 @@ void Botonera::removeCodeFromIcm(QString boton){
     sendMessage();
 }
 
-void Botonera::removeCharToMIK(QString c)
-{
+void Botonera::removeCharToMIK(QString c){
     miEstado->removeMIK(c);
     sendMessage();
 }
@@ -132,7 +130,9 @@ void Botonera::sendCodeToIcm(QString boton){
 }
 
 void Botonera::sendCharToMIK(QString c){
+    qDebug()<<">>>>>>>>>>>>>>>>>>sendCharToMIK() INI c = "<< c;
     miEstado->setMIK(c);
+    qDebug()<<">>>>>>>>>>>>>>>>>>sendCharToMIK() FIN";
     sendMessage();
 }
 
@@ -212,6 +212,8 @@ void Botonera::start(int tipo)
     }
     this->show();
     alfanumeric_display->show();
+
+    sendCharToMIK("HOLAA");
 }
 
 

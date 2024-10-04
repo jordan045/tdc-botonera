@@ -33,7 +33,7 @@ MIK::MIK(Botonera *b){
 
 }
 
-void MIK::selLinea(int t){
+void MIK::selectLine(int t){
     int i= t;
 
     while (i != tab) {
@@ -41,22 +41,22 @@ void MIK::selLinea(int t){
             tab = 0;
         }
         else{
-            //llamo a estado
-            //qDebug()<< "Linea";
-            miBotonera->sendCharToMIK("S");//deberia ir el salto de linea
+            pressKey(' ');
+            releaseKey(' ');
             tab++;
         }
     }
     tab = t;
 }
 
-void MIK::press(QChar c){
+void MIK::pressKey(QChar c){
     QJsonObject caracter = teclasObj[c].toObject();
     QString toSend = caracter["ASCII_Octal"].toString();
     miBotonera->sendCharToMIK(toSend);
+
 }
 
-void MIK::release(QChar c){
+void MIK::releaseKey(QChar c){
     QJsonObject caracter = teclasObj[c].toObject();
     QString toSend = caracter["ASCII_Octal"].toString();
     miBotonera->removeCharToMIK(toSend);

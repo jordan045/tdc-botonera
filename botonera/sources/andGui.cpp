@@ -6,9 +6,10 @@
 #include <QDebug>
 #include <QStackedWidget>
 
-andGui::andGui(QWidget *parent)
+andGui::andGui(QWidget *parent, Botonera *b)
     : QWidget(parent),ui(new Ui::andGui)
 {
+<<<<<<< HEAD
 
     // Crear QStackedWidget
     stackedWidget = new QStackedWidget(this);
@@ -33,6 +34,16 @@ andGui::andGui(QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(stackedWidget);  // Solo agregamos el stackedWidget
     setLayout(layout);
+=======
+    // Inicializa la interfaz de usuario si es necesario
+    // ui->setupUi(this);
+    //miBotonera = b;
+    grilla = new Ui::andGrilla;
+    tab = 1;
+    ui->setupUi(this);
+    miBotonera = b;
+    mik = new MIK(b);
+>>>>>>> 9397b39e761411d8c1e7dd0eb20aba0811a065f4
 
     // Creamos un array de labels para guardarlos
     labels.append(ui->TitleLabel);
@@ -74,48 +85,60 @@ void andGui::setLine(QPair<int,QString> line){
     labels[line.first]->setText(line.second);
 }
 
-
-
 void andGui::keyReleaseEvent(QKeyEvent *event){
-    QChar caracter = event->text().front().toUpper();
-    mik->release(caracter);
+
+    QString keyText = event->text();
+    switch (event->key()) {
+    case Qt::Key_Enter:{
+        mik->releaseKey('#');
+        break;
+    }
+    case Qt::Key_Space:{
+        mik->releaseKey('!');
+        break;
+    }
+    case Qt::Key_Backspace:{
+        mik->releaseKey('"');
+    }
+
+    default:
+        break;
+    }
+
+    if(!keyText.isEmpty()){
+        QChar caracter = keyText.front().toUpper();
+        mik->releaseKey(caracter);
+    }
+
 }
 
 void andGui::keyPressEvent(QKeyEvent *event){
-    QChar caracter = event->text().front().toUpper();
-    mik->press(caracter);
-}
 
-void andGui::setBotonera(Botonera *b){
-    miBotonera = b;
-    mik = new MIK(b);
-}
+    QString keyText = event->text();
 
-//void andGui::recibirMensaje(QString entrada){
-    // QString textResult;
-    // for (int i = 0; i < entrada.size(); i += 8) {
-    //     // Obtener un segmento de 8 caracteres
-    //     QString binarySegment = entrada.mid(i, 8);
+    switch (event->key()) {
+        case Qt::Key_Enter:
+            mik->pressKey('#');
+            break;
 
-    //     // Convertir el segmento binario a carácter usando binaryToChar
-    //     //QString character = converter.binaryToChar(binarySegment);
+        case Qt::Key_Space:
+            mik->pressKey('!');
+            break;
 
-    //     // Verificar si la conversión fue exitosa
-    //     if (!character.isEmpty()) {
-    //         textResult.append(character);
-    //     } else {
-    //         qDebug() << "Error en la conversión del segmento:" << binarySegment;
-    //     }
-    // }
-    // andLabel->setText(textResult);
-//}
+        case Qt::Key_Backspace:
+            mik->pressKey('"');
 
-void andGui::tocarBoton(const QString &mensaje){
-    for(int i = 0; i < mensaje.length(); i++){
-        mik->press(mensaje[i]);
+        default:
+            break;
+    }
+
+    if(!keyText.isEmpty()){
+        QChar caracter = event->text().front().toUpper();
+        mik->pressKey(caracter);
     }
 }
 
+<<<<<<< HEAD
 void andGui::on_AButton_clicked(){mik->selLinea(1);}
 void andGui::on_BButton_clicked(){mik->selLinea(2);}
 void andGui::on_CButton_clicked(){mik->selLinea(3);}
@@ -128,6 +151,27 @@ void andGui::on_IButton_clicked(){mik->selLinea(9);}
 void andGui::on_JButton_clicked(){mik->selLinea(10);}
 void andGui::on_KButton_clicked(){mik->selLinea(11);}
 void andGui::on_LButton_clicked(){mik->selLinea(12);}
+=======
+void andGui::tocarBoton(const QString &mensaje){
+    for(int i = 0; i < mensaje.length(); i++){
+        mik->pressKey(mensaje[i]);
+    }
+}
+
+void andGui::on_AButton_clicked(){mik->selectLine(1);}
+void andGui::on_BButton_clicked(){mik->selectLine(2);}
+void andGui::on_CButton_clicked(){mik->selectLine(3);}
+void andGui::on_DButton_clicked(){mik->selectLine(4);}
+void andGui::on_EButton_clicked(){mik->selectLine(5);}
+void andGui::on_FButton_clicked(){mik->selectLine(6);}
+void andGui::on_GButton_clicked(){mik->selectLine(7);}
+void andGui::on_HButton_clicked(){mik->selectLine(8);}
+void andGui::on_IButton_clicked(){mik->selectLine(9);}
+void andGui::on_JButton_clicked(){mik->selectLine(10);}
+void andGui::on_KButton_clicked(){mik->selectLine(11);}
+void andGui::on_LButton_clicked(){mik->selectLine(12);}
+void andGui::on_MButton_clicked(){mik->selectLine(13);}
+>>>>>>> 9397b39e761411d8c1e7dd0eb20aba0811a065f4
 
 void andGui::on_pushButton_W1_pressed(){tocarBoton("W01");}
 void andGui::on_pushButton_W2_pressed(){tocarBoton("W02");}

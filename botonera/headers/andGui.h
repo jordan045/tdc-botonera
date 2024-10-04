@@ -21,22 +21,17 @@ class andGui : public QWidget
 {
     Q_OBJECT
 public:
-    explicit andGui(QWidget *parent = nullptr);
-    void recibirMensaje(QString entrada);
-    void setBotonera(Botonera *b);
+    explicit andGui(QWidget *parent = nullptr,Botonera *b = nullptr);
 
 private:
     Botonera *miBotonera;
     Ui::andGui *ui;
     Ui::andGrilla *grilla;
     AndTranslator converter;
-    QLabel *andLabel;
     QVector<QLabel*> labels;
     void setLine(QPair<int,QString>);
-    int tab;
     MIK *mik;
     QStackedWidget *stackedWidget;
-
 
 protected:
     void keyReleaseEvent(QKeyEvent *event);

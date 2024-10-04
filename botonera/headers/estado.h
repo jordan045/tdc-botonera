@@ -50,6 +50,7 @@ public:
     void setDisplayMode(QString d) override;
     void setDisplaySelection(QString d) override;
     void setICM(QString i) override;
+
     void setMIK(QString c);
 
 
