@@ -1,6 +1,7 @@
 #include "andGui.h"
 #include "ui_andGui.h"
 #include "andTranslator.h"
+#include "ui_andGrilla.h"
 #include <QLabel>
 #include <QDebug>
 
@@ -10,6 +11,7 @@ andGui::andGui(QWidget *parent)
     // Inicializa la interfaz de usuario si es necesario
     // ui->setupUi(this);
     //miBotonera = b;
+    grilla = new Ui::andGrilla;
     tab = 1;
     ui->setupUi(this);
 
@@ -32,7 +34,7 @@ andGui::andGui(QWidget *parent)
     labels.append(ui->OLabel);
 
     QObject::connect(ui->pushButton_W1, &QPushButton::pressed, [this]() { tocarBoton("W01"); });
-    QObject::connect(ui->pushButton_W2, &QPushButton::pressed, [this]() { tocarBoton("W02"); });
+    QObject::connect(ui->pushButton_W2, &QPushButton::pressed, [this]() { grilla->setupUi(this); this->update(); });
     QObject::connect(ui->pushButton_W3, &QPushButton::pressed, [this]() { tocarBoton("W03"); });
 
     // Conecta la señal de conversión de AndTranslator a una función lambda que actualiza el QLabel
@@ -42,6 +44,9 @@ andGui::andGui(QWidget *parent)
 
     converter.processBinaryString();
 
+    // Esto hace que se abra en una ventana aparte
+    this->setWindowFlag(Qt::Window);
+    this->setWindowTitle("AND");
 }
 
 
@@ -70,26 +75,6 @@ void andGui::setBotonera(Botonera *b){
     miBotonera = b;
 }
 
-void andGui::recibirMensaje(QString entrada)
-{
-    // QString textResult;
-    // for (int i = 0; i < entrada.size(); i += 8) {
-    //     // Obtener un segmento de 8 caracteres
-    //     QString binarySegment = entrada.mid(i, 8);
-
-    //     // Convertir el segmento binario a carácter usando binaryToChar
-    //     //QString character = converter.binaryToChar(binarySegment);
-
-    //     // Verificar si la conversión fue exitosa
-    //     if (!character.isEmpty()) {
-    //         textResult.append(character);
-    //     } else {
-    //         qDebug() << "Error en la conversión del segmento:" << binarySegment;
-    //     }
-    // }
-    // andLabel->setText(textResult);
-}
-
 void andGui::tocarBoton(const QString &mensaje)
 {
     for(int i = 0; i < mensaje.length(); i++){
@@ -111,4 +96,3 @@ void andGui::on_IButton_clicked(){selLinea(9);}
 void andGui::on_JButton_clicked(){selLinea(10);}
 void andGui::on_KButton_clicked(){selLinea(11);}
 void andGui::on_LButton_clicked(){selLinea(12);}
-void andGui::on_MButton_clicked(){selLinea(13);}

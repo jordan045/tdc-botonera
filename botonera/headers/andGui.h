@@ -9,7 +9,7 @@
 #include "botonera.h"
 
 namespace Ui {
-    class andGui;
+    class andGrilla;
 
 }
 
@@ -25,6 +25,7 @@ public:
 private:
     Botonera *miBotonera;
     Ui::andGui *ui;
+    Ui::andGrilla *grilla;
     AndTranslator converter;
     QLabel *andLabel;
     QVector<QLabel*> labels;
@@ -49,7 +50,6 @@ private slots:
     void on_JButton_clicked();
     void on_KButton_clicked();
     void on_LButton_clicked();
-    void on_MButton_clicked();
 };
 
 #endif // ANDGUI_H
