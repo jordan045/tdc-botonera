@@ -22,20 +22,30 @@ AndTranslator::AndTranslator(QObject *parent) : QObject(parent)
 
 void AndTranslator::processBinaryString()
 {
-    QFile file(":/binary/one_page.txt");
+    QFile file(":/binary/one_page.bin");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qWarning() << "No se pudo abrir el archivo";
         return;
     }
 
-    // Crear un QTextStream para leer el archivo línea por línea
-    QTextStream in(&file);
-    QPair<int,QString> result;
-    while (!in.atEnd()) {
-        QString line = in.readLine();
-        QByteArray messageArray = getArray(line);
-        result = processMessage(messageArray);
-        qDebug() << result.second;
+    // Tamaño de cada bloque de datos a leer
+    const int blockSize = 51;
+    const int offset = 3;  // Número de bytes a eliminar al inicio
+    QPair<int, QString> result;
+
+    // Leer el archivo en bloques de blockSize bytes
+    while (!file.atEnd()) {
+        QByteArray block = file.read(blockSize);
+        // if (block.size() < blockSize) {
+        //     qWarning() << "Último bloque incompleto, ignorado";
+        //     break;  // Rompe el ciclo si no se pudo leer un bloque completo
+        // }
+
+        // Eliminar los primeros 3 bytes
+        QByteArray cleanedBlock = block.mid(offset);
+
+        result = processMessage(cleanedBlock);
+        qDebug() << result.first << " | " << result.second;
         emit conversionResult(result);
     }
     file.close();
@@ -68,13 +78,29 @@ QPair<int,QString> AndTranslator::processMessage(QByteArray &message){
     int column = message[4];                //Extraer columna del quinto campo del mensaje
     int index = 5;                          //Comienza en 5 porque ahi está el primer caracter
     char nextChar = message[index];         //Extraer primer caracter del sexto campo
+    int num_row = static_cast<int>(row);
+
+    // Convertir el valor de 'row' a hexadecimal
+    char rowH = message[2];
+    QString rowHex = QString::number(rowH, 16).toUpper().rightJustified(2, '0');
+
+    qDebug() << "Row en hexadecimal:" << rowHex;
 
     while(nextChar != END_OF_TEXT){
         text.append(nextChar);
         index++;
         nextChar = message[index];
     }
-    int num_row = static_cast<int>(row);
+
+    if(num_row == 15){
+        char asterix_column = message[TRAILING_OFFSET + 4] & 0x1F; //Extremos la columna donde va el asterisco, solo necesitamos los primeros 5 bits
+        int num_asterix_column = static_cast<int>(asterix_column);
+        text[num_asterix_column] = message[TRAILING_OFFSET + 5];
+    }
+
+    // Si estamos pintando la fila numero 15, tendremos un pequeño mensaje al final (con STX,VT, etc.)
+    // Leemos esa pequeña porción para pintar el asterisco donde corresponda
+
     result.first = num_row;
     result.second = text;
 

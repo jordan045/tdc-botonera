@@ -11,7 +11,7 @@
 #include "botonera.h"
 
 namespace Ui {
-    class andGui;
+    class andGrilla;
 
 }
 
@@ -25,6 +25,7 @@ public:
 private:
     Botonera *miBotonera;
     Ui::andGui *ui;
+    Ui::andGrilla *grilla;
     AndTranslator converter;
     QVector<QLabel*> labels;
     void setLine(QPair<int,QString>);

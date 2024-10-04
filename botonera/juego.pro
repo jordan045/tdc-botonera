@@ -73,6 +73,7 @@ HEADERS += \
     headers/mik.h \
 
 FORMS += \
+    forms/andGrilla.ui \
     forms/andGui.ui \
     forms/overlay_140_0001.ui \
     forms/overlay_140_0010.ui \
