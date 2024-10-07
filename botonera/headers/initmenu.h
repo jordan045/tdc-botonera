@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "botonera.h"
+
 class InitMenu : public QWidget
 {
     Q_OBJECT
@@ -14,6 +15,7 @@ private:
     void start();
     QButtonGroup *group;
     int tipoBuque;
+
 
 private slots:
     void seleccion();

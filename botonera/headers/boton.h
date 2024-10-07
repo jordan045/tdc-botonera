@@ -11,6 +11,7 @@ class Boton: public QObject
 
     public:
         Boton(Zone *z,QString codigo, QObject *parent = nullptr);
+
     public slots:
         void interact();
         void setState(bool);

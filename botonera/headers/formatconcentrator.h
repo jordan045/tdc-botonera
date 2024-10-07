@@ -23,6 +23,10 @@ public:
     void removeDisplaySelection(QString estado);
     void removeQEK();
 
+    void removeCenterS(QString estado);
+    void removeDisplayModeS(QString estado);
+    void removeQEKS();
+
 
 private:
     QBitArray *message;
@@ -38,6 +42,12 @@ private:
     void setDisplayMode(IEstado *estado);
     void setDisplaySelection(IEstado *estado);
     void setOverlay(IEstado *estado);
+
+    void setQekS(IEstado            *estado);
+    void setCenterS(IEstado         *estado);
+    void setIcmS(IEstado            *estado);
+    void setDisplayModeS(IEstado    *estado);
+    void setOverlayS(IEstado        *estado);
 
     void guardarMensaje(IEstado *estado);
 

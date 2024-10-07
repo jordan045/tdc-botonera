@@ -55,8 +55,16 @@ QString StubEstado::getDisplayMode(){       return displayMode;}
 QString StubEstado::getICM(){               return icm;}
 QString StubEstado::getModos(){             return displayMode;}
 QString StubEstado::getOverlay(){           return overlay;}
-QString StubEstado::getQekIzq(){            return qek;}
-QString StubEstado::getQekDer(){            return qek;}
+QString StubEstado::getLabelS(){            return labelS;}
+QString StubEstado::getQEKS(){              return qekS;}
+QString StubEstado::getCenterS(){           return centerS;}
+QString StubEstado::getICMS(){              return icmS;}
+QString StubEstado::getDisplayModeS(){      return displayModeS;}
+QString StubEstado::getOverlayS(){          return overlayS;}
+
+
+
+
 QString StubEstado::getDisplaySelection(){  return displaySelection;}
 QString StubEstado::getRange(){             return range;}
 
@@ -83,6 +91,39 @@ void StubEstado::setDisplayMode(QString s){
 void StubEstado::setICM(QString s){
     this->icm = s;
 }
+
+void StubEstado::setLabelS(QString l)
+{
+    this->labelS = l;
+}
+
+void StubEstado::setQEKS(QString q)
+{
+    this->qekS = q;
+}
+
+void StubEstado::setCenterS(QString c)
+{
+    this->centerS = c;
+}
+
+void StubEstado::setICMS(QString i)
+{
+    this->icmS = i;
+}
+
+void StubEstado::setDisplayModeS(QString d)
+{
+    this->displayModeS = d;
+}
+
+void StubEstado::setOverlayS(QString o)
+{
+    this->overlayS = o;
+}
+
+
+
 
 void StubEstado::setDisplaySelection(QString s){
     this->displaySelection = s;
