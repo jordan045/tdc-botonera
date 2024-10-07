@@ -56,7 +56,7 @@ zone_range::~zone_range(){
     delete ui;
 }
 
-void zone_range::comenzar()
+void zone_range::start()
 {
    boton4->interact();
    boton4->setState(true);

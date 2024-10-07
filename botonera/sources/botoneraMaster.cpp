@@ -5,7 +5,7 @@ BotoneraMaster::BotoneraMaster(QWidget *parent): Botonera(parent)
     qDebug()<< "estoy en el contructor de botonera Master";
     concentrator = new FormatConcentrator();
     estadoActual = new Estado(this);
-    range_widget->comenzar();
+    range_widget->start();
 }
 
 

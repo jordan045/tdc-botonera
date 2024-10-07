@@ -3,6 +3,7 @@ QT       += core gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 QT += uitools
+# QT += remoteobjects  #Invocacion remota de metodos
 
 CONFIG += c++17
 
@@ -14,6 +15,7 @@ SOURCES += \
     sources/boton.cpp \
     sources/botonera.cpp \
     sources/botoneraMaster.cpp \
+    sources/botoneraSlave.cpp \
     sources/estado.cpp \
     sources/formatconcentrator.cpp \
     sources/initmenu.cpp \
@@ -43,6 +45,7 @@ HEADERS += \
     headers/boton.h \
     headers/botonera.h \
     headers/botoneraMaster.h \
+    headers/botoneraSlave.h \
     headers/estado.h \
     headers/formatconcentrator.h \
     headers/iestado.h \

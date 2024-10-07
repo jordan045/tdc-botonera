@@ -19,7 +19,7 @@ public:
     void removeCode(QString code) override;
     QString getName() override;
     ~zone_range();
-    void comenzar();
+    void start();
 
 
 private:

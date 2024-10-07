@@ -189,7 +189,7 @@ void FormatConcentrator::setQekS(IEstado *estado)
 
 
 void FormatConcentrator::setICM(IEstado *estado){
-    int palabra= WORD_SIZE * 3; //Está en la cuarta palabra;
+    int palabra= WORD_SIZE * 4; //Está en la quinta palabra;
     int offset = 0;
     QStringList wordListICM = estado->getICM().split(" ", Qt::SkipEmptyParts);
     qDebug()<<"Posicion donde comienza ICM:"+ palabra;
@@ -303,11 +303,10 @@ void FormatConcentrator::removeThreat(QString estado)
 
 void FormatConcentrator::removeDisplayMode(QString estado)
 {
-    int offset = WORD_SIZE * 1; //Está en la segunda palabra
-    int posFinal = 0;
+    int palabra = WORD_SIZE * 1; //Está en la segunda palabra
     QJsonObject center = archivo["DISPLAY_MODE"].toObject();
     QString centerActual = center[estado].toString();
-    message->setBit(posFinal,false);
+    message->setBit(palabra+centerActual.toInt(),false);
 }
 void FormatConcentrator::removeDisplayModeS(QString estado)
 {
@@ -320,9 +319,9 @@ void FormatConcentrator::removeDisplayModeS(QString estado)
 void FormatConcentrator::removeDisplaySelection(QString estado)
 {
     QJsonObject display = archivo["DISPLAY_SELECTION"].toObject();
-    QJsonObject displayActual = display[estado].toObject();
-    QString posicion = displayActual["pos"].toString();
-    message->setBit(posicion.toInt(),false);
+    QString displayActual = display[estado].toString();
+    message->setBit(displayActual.toInt(),false);
+    qDebug()<<"Borre el display Selection desde Concentrator de la posicion: "<< displayActual;
 }
 void FormatConcentrator::removeCenterS(QString estado)
 {
@@ -332,9 +331,8 @@ void FormatConcentrator::removeCenter(QString estado)
 {
     int offset = WORD_SIZE * 1;
     QJsonObject center = archivo["CENTER"].toObject();
-    QJsonObject centerActual = center[estado].toObject();
-    QString posicion = centerActual["pos"].toString();
-    message->setBit(offset + posicion.toInt(),false);
+    QString centerActual = center[estado].toString();
+    message->setBit(offset + centerActual.toInt(),false);
 }
 
 //--------------------------------------------------------------------------//
