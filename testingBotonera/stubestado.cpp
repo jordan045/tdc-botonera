@@ -65,7 +65,7 @@ void StubEstado::setLabel(QString s){
 }
 
 void StubEstado::setQEK(QString s){
-    this->qek = "";
+    this->qek = s;
 }
 
 void StubEstado::setThreat(QString s){
