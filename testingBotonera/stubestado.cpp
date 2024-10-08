@@ -9,6 +9,12 @@ StubEstado::StubEstado(){
     this->icm               = *new QString("");
     this->displayMode       = *new QString("");
     this->displaySelection  = *new QString("");
+    this->labelS            = *new QString("");
+    this->qekS              = *new QString("");
+    this->centerS           = *new QString("");
+    this->icmS              = *new QString("");
+    this->displayModeS      = *new QString("");
+    this->overlayS          = *new QString("");
 }
 
 void StubEstado::setOverlay(QString codigo){
@@ -55,18 +61,15 @@ QString StubEstado::getDisplayMode(){       return displayMode;}
 QString StubEstado::getICM(){               return icm;}
 QString StubEstado::getModos(){             return displayMode;}
 QString StubEstado::getOverlay(){           return overlay;}
+QString StubEstado::getDisplaySelection(){  return displaySelection;}
+QString StubEstado::getRange(){             return range;}
+
 QString StubEstado::getLabelS(){            return labelS;}
 QString StubEstado::getQEKS(){              return qekS;}
 QString StubEstado::getCenterS(){           return centerS;}
 QString StubEstado::getICMS(){              return icmS;}
 QString StubEstado::getDisplayModeS(){      return displayModeS;}
 QString StubEstado::getOverlayS(){          return overlayS;}
-
-
-
-
-QString StubEstado::getDisplaySelection(){  return displaySelection;}
-QString StubEstado::getRange(){             return range;}
 
 void StubEstado::setLabel(QString s){
     this->label = s;
@@ -121,9 +124,6 @@ void StubEstado::setOverlayS(QString o)
 {
     this->overlayS = o;
 }
-
-
-
 
 void StubEstado::setDisplaySelection(QString s){
     this->displaySelection = s;
