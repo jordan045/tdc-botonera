@@ -40,6 +40,7 @@ public:
     virtual QString getQekDer() = 0;
     virtual QString getModos() = 0;
     virtual QString getOverlay() = 0;
+    virtual QString getMIK() = 0;
 
     virtual void setRange(QString r) = 0;
     virtual void setLabel(QString l) = 0;

@@ -40,7 +40,7 @@ public:
     QString getQekDer() override;
     QString getModos() override;
     QString getOverlay() override;
-    QString getMIK();
+    QString getMIK() override;
 
     void setRange(QString r) override;
     void setLabel(QString l) override;
