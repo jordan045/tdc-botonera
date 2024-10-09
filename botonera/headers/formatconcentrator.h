@@ -38,6 +38,7 @@ private:
     void setDisplayMode(IEstado *estado);
     void setDisplaySelection(IEstado *estado);
     void setOverlay(IEstado *estado);
+    void setMIK(IEstado *estado);
 
     void guardarMensaje(IEstado *estado);
 
@@ -45,7 +46,8 @@ private:
 
     void leerJson();
 
-    QJsonObject archivo;
+    QJsonObject buttonJson;
+    QJsonObject MIKJson;
 };
 
 

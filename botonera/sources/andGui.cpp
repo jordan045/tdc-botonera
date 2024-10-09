@@ -33,7 +33,7 @@ andGui::andGui(QWidget *parent, Botonera *b)
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(stackedWidget);  // Solo agregamos el stackedWidget
     setLayout(layout);
-    int tab = 1;
+    int filaActual = 1;
     miBotonera = b;
     mik = new MIK(b);
 
@@ -55,10 +55,25 @@ andGui::andGui(QWidget *parent, Botonera *b)
     labels.append(ui->NLabel);
     labels.append(ui->OLabel);
 
-    tab = 1;
 
     connect(ui->pushButton_grilla, &QPushButton::clicked, this, &andGui::on_pushButton_grilla_clicked);
     connect(grilla->pushButton_back, &QPushButton::clicked, this, &andGui::on_pushButton_back_clicked);
+
+    connect(ui->pushButton_W1,&QPushButton::clicked,this,&andGui::on_pushButton_W1_pressed);
+
+    //Conecta botones de lineas con su funcionalidad correspondiente
+    connect(ui->AButton,&QPushButton::clicked,this,&andGui::on_A_Button_clicked);
+    connect(ui->BButton,&QPushButton::clicked,this,&andGui::on_B_Button_clicked);
+    connect(ui->CButton,&QPushButton::clicked,this,&andGui::on_C_Button_clicked);
+    connect(ui->DButton,&QPushButton::clicked,this,&andGui::on_D_Button_clicked);
+    connect(ui->EButton,&QPushButton::clicked,this,&andGui::on_E_Button_clicked);
+    connect(ui->FButton,&QPushButton::clicked,this,&andGui::on_F_Button_clicked);
+    connect(ui->GButton,&QPushButton::clicked,this,&andGui::on_G_Button_clicked);
+    connect(ui->HButton,&QPushButton::clicked,this,&andGui::on_H_Button_clicked);
+    connect(ui->IButton,&QPushButton::clicked,this,&andGui::on_I_Button_clicked);
+    connect(ui->JButton,&QPushButton::clicked,this,&andGui::on_J_Button_clicked);
+    connect(ui->KButton,&QPushButton::clicked,this,&andGui::on_K_Button_clicked);
+    connect(ui->LButton,&QPushButton::clicked,this,&andGui::on_L_Button_clicked);
 
 
     // Conecta la señal de conversión de AndTranslator a una función lambda que actualiza el QLabel
@@ -133,22 +148,62 @@ void andGui::keyPressEvent(QKeyEvent *event){
 void andGui::tocarBoton(const QString &mensaje){
     for(int i = 0; i < mensaje.length(); i++){
         mik->pressKey(mensaje[i]);
+        qDebug()<<"llame a tocas boton con"<< mensaje[i];
     }
 }
 
-void andGui::on_AButton_clicked(){mik->selectLine(1);}
-void andGui::on_BButton_clicked(){mik->selectLine(2);}
-void andGui::on_CButton_clicked(){mik->selectLine(3);}
-void andGui::on_DButton_clicked(){mik->selectLine(4);}
-void andGui::on_EButton_clicked(){mik->selectLine(5);}
-void andGui::on_FButton_clicked(){mik->selectLine(6);}
-void andGui::on_GButton_clicked(){mik->selectLine(7);}
-void andGui::on_HButton_clicked(){mik->selectLine(8);}
-void andGui::on_IButton_clicked(){mik->selectLine(9);}
-void andGui::on_JButton_clicked(){mik->selectLine(10);}
-void andGui::on_KButton_clicked(){mik->selectLine(11);}
-void andGui::on_LButton_clicked(){mik->selectLine(12);}
+// Declaración de las funciones
 
+void andGui::on_A_Button_clicked(){
+    mik->selectLine(1);
+    qDebug() << "Toqué botón A";
+}
+void andGui::on_B_Button_clicked(){
+    mik->selectLine(2);
+    qDebug() << "Toqué botón B";
+}
+void andGui::on_C_Button_clicked(){
+    mik->selectLine(3);
+    qDebug() << "Toqué botón C";
+}
+void andGui::on_D_Button_clicked(){
+    mik->selectLine(4);
+    qDebug() << "Toqué botón D";
+}
+void andGui::on_E_Button_clicked(){
+    mik->selectLine(5);
+    qDebug() << "Toqué botón E";
+}
+void andGui::on_F_Button_clicked(){
+    mik->selectLine(6);
+    qDebug() << "Toqué botón F";
+}
+void andGui::on_G_Button_clicked(){
+    mik->selectLine(7);
+    qDebug() << "Toqué botón G";
+}
+void andGui::on_H_Button_clicked(){
+    mik->selectLine(8);
+    qDebug() << "Toqué botón H";
+}
+void andGui::on_I_Button_clicked(){
+    mik->selectLine(9);
+    qDebug() << "Toqué botón I";
+}
+void andGui::on_J_Button_clicked(){
+    mik->selectLine(10);
+    qDebug() << "Toqué botón J";
+}
+void andGui::on_K_Button_clicked(){
+    mik->selectLine(11);
+    qDebug() << "Toqué botón K";
+}
+void andGui::on_L_Button_clicked(){
+    mik->selectLine(12);
+    qDebug() << "Toqué botón L";
+}
+
+//Declaracion de las funciones de los works spaces
 void andGui::on_pushButton_W1_pressed(){tocarBoton("W01");}
 void andGui::on_pushButton_W2_pressed(){tocarBoton("W02");}
 void andGui::on_pushButton_W3_pressed(){tocarBoton("W03");}

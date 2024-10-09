@@ -41,18 +41,18 @@ protected:
 private slots:
     void tocarBoton(const QString &mensaje);
 
-    void on_AButton_clicked();
-    void on_BButton_clicked();
-    void on_CButton_clicked();
-    void on_DButton_clicked();
-    void on_EButton_clicked();
-    void on_FButton_clicked();
-    void on_GButton_clicked();
-    void on_HButton_clicked();
-    void on_IButton_clicked();
-    void on_JButton_clicked();
-    void on_KButton_clicked();
-    void on_LButton_clicked();
+    void on_A_Button_clicked();
+    void on_B_Button_clicked();
+    void on_C_Button_clicked();
+    void on_D_Button_clicked();
+    void on_E_Button_clicked();
+    void on_F_Button_clicked();
+    void on_G_Button_clicked();
+    void on_H_Button_clicked();
+    void on_I_Button_clicked();
+    void on_J_Button_clicked();
+    void on_K_Button_clicked();
+    void on_L_Button_clicked();
     void on_pushButton_W1_pressed();
     void on_pushButton_W2_pressed();
     void on_pushButton_W3_pressed();

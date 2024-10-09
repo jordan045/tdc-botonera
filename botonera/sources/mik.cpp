@@ -2,7 +2,7 @@
 
 MIK::MIK(Botonera *b){
     miBotonera = b;
-    tab = 1;
+    tab = 1; //Linea actual
 
     //QMessageBox::StandardButton reply;
     // Lee el archivo JSON con la información de los overlays
@@ -36,6 +36,7 @@ MIK::MIK(Botonera *b){
 void MIK::selectLine(int t){
     int i= t;
 
+    //Guardar en octal
     while (i != tab) {
         if(tab > 13){
             tab = 0;
@@ -52,7 +53,7 @@ void MIK::selectLine(int t){
 void MIK::pressKey(QChar c){
     QJsonObject caracter = teclasObj[c].toObject();
     QString toSend = caracter["ASCII_Octal"].toString();
-    miBotonera->sendCharToMIK(toSend);
+    miBotonera->sendCharToMIK(c);
 
 }
 
