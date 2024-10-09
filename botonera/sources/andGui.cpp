@@ -78,6 +78,27 @@ andGui::andGui(QWidget *parent, Botonera *b)
     connect(ui->KButton,&QPushButton::clicked,this,&andGui::on_K_Button_clicked);
     connect(ui->LButton,&QPushButton::clicked,this,&andGui::on_L_Button_clicked);
 
+    connect(grilla->P01_button, &QPushButton::clicked,this,&andGui::on_P01_button_clicked);
+    connect(grilla->P02_button, &QPushButton::clicked,this,&andGui::on_P02_button_clicked);
+    connect(grilla->P03_button, &QPushButton::clicked,this,&andGui::on_P03_button_clicked);
+    connect(grilla->P04_button, &QPushButton::clicked,this,&andGui::on_P04_button_clicked);
+    connect(grilla->P05_button, &QPushButton::clicked,this,&andGui::on_P05_button_clicked);
+    connect(grilla->P06_button, &QPushButton::clicked,this,&andGui::on_P06_button_clicked);
+    connect(grilla->P07_button, &QPushButton::clicked,this,&andGui::on_P07_button_clicked);
+    connect(grilla->P08_button, &QPushButton::clicked,this,&andGui::on_P08_button_clicked);
+    connect(grilla->P09_button, &QPushButton::clicked,this,&andGui::on_P09_button_clicked);
+    connect(grilla->P10_button, &QPushButton::clicked,this,&andGui::on_P10_button_clicked);
+    connect(grilla->P11_button, &QPushButton::clicked,this,&andGui::on_P11_button_clicked);
+    connect(grilla->P12_button, &QPushButton::clicked,this,&andGui::on_P12_button_clicked);
+    connect(grilla->P13_button, &QPushButton::clicked,this,&andGui::on_P13_button_clicked);
+    connect(grilla->P14_button, &QPushButton::clicked,this,&andGui::on_P14_button_clicked);
+    connect(grilla->P15_button, &QPushButton::clicked,this,&andGui::on_P15_button_clicked);
+    connect(grilla->P16_button, &QPushButton::clicked,this,&andGui::on_P16_button_clicked);
+    connect(grilla->P17_button, &QPushButton::clicked,this,&andGui::on_P17_button_clicked);
+    connect(grilla->S01_button, &QPushButton::clicked,this,&andGui::on_S01_button_clicked);
+    connect(grilla->S02_button, &QPushButton::clicked,this,&andGui::on_S02_button_clicked);
+    connect(grilla->S03_button, &QPushButton::clicked,this,&andGui::on_S03_button_clicked);
+    connect(grilla->S04_button, &QPushButton::clicked,this,&andGui::on_S04_button_clicked);
 
     // Conecta la señal de conversión de AndTranslator a una función lambda que actualiza el QLabel
     QObject::connect(&converter, &AndTranslator::conversionResult, [this](const QPair<int,QString> line) {
@@ -218,5 +239,110 @@ void andGui::on_pushButton_grilla_clicked(){
 
 void andGui::on_pushButton_back_clicked(){
     qDebug() << "Cambiando a la principal";
-    stackedWidget->setCurrentIndex(0);  // Cambiar a la página con la grilla
+    stackedWidget->setCurrentIndex(0);  // Cambiar a PRINCIPAL
+}
+
+void andGui::on_P01_button_clicked(){
+    tocarBoton("P01#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_P02_button_clicked(){
+    tocarBoton("P02#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_P03_button_clicked(){
+    tocarBoton("P03#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_P04_button_clicked(){
+    tocarBoton("P04#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_P05_button_clicked(){
+    tocarBoton("P05#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_P06_button_clicked(){
+    tocarBoton("P06#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_P07_button_clicked(){
+    tocarBoton("P07#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_P08_button_clicked(){
+    tocarBoton("P08#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_P09_button_clicked(){
+    tocarBoton("P09#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_P10_button_clicked(){
+    tocarBoton("P10#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_P11_button_clicked(){
+    tocarBoton("P11#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_P12_button_clicked(){
+    tocarBoton("P12#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_P13_button_clicked(){
+    tocarBoton("P13#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_P14_button_clicked(){
+    tocarBoton("P14#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_P15_button_clicked(){
+    tocarBoton("P15#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_P16_button_clicked(){
+    tocarBoton("P16#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_P17_button_clicked(){
+    tocarBoton("P17#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_S01_button_clicked(){
+    tocarBoton("S01#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_S02_button_clicked(){
+    tocarBoton("S02#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_S03_button_clicked(){
+    tocarBoton("S03#+#");
+    stackedWidget->setCurrentIndex(0);
+}
+
+void andGui::on_S04_button_clicked(){
+    tocarBoton("S04#+#");
+    stackedWidget->setCurrentIndex(0);
 }

@@ -58,6 +58,28 @@ private slots:
     void on_pushButton_W3_pressed();
     void on_pushButton_grilla_clicked();
     void on_pushButton_back_clicked();
+
+    void on_P01_button_clicked();
+    void on_P02_button_clicked();
+    void on_P03_button_clicked();
+    void on_P04_button_clicked();
+    void on_P05_button_clicked();
+    void on_P06_button_clicked();
+    void on_P07_button_clicked();
+    void on_P08_button_clicked();
+    void on_P09_button_clicked();
+    void on_P10_button_clicked();
+    void on_P11_button_clicked();
+    void on_P12_button_clicked();
+    void on_P13_button_clicked();
+    void on_P14_button_clicked();
+    void on_P15_button_clicked();
+    void on_P16_button_clicked();
+    void on_P17_button_clicked();
+    void on_S01_button_clicked();
+    void on_S02_button_clicked();
+    void on_S03_button_clicked();
+    void on_S04_button_clicked();
 };
 
 #endif // ANDGUI_H
