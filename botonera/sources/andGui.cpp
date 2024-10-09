@@ -33,7 +33,7 @@ andGui::andGui(QWidget *parent, Botonera *b)
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(stackedWidget);  // Solo agregamos el stackedWidget
     setLayout(layout);
-    int filaActual = 1;
+    //int filaActual = 1;
     miBotonera = b;
     mik = new MIK(b);
 
@@ -60,8 +60,11 @@ andGui::andGui(QWidget *parent, Botonera *b)
     connect(grilla->pushButton_back, &QPushButton::clicked, this, &andGui::on_pushButton_back_clicked);
 
     connect(ui->pushButton_W1,&QPushButton::clicked,this,&andGui::on_pushButton_W1_pressed);
+    connect(ui->pushButton_W2,&QPushButton::clicked,this,&andGui::on_pushButton_W2_pressed);
+    connect(ui->pushButton_W3,&QPushButton::clicked,this,&andGui::on_pushButton_W3_pressed);
 
     //Conecta botones de lineas con su funcionalidad correspondiente
+
     connect(ui->AButton,&QPushButton::clicked,this,&andGui::on_A_Button_clicked);
     connect(ui->BButton,&QPushButton::clicked,this,&andGui::on_B_Button_clicked);
     connect(ui->CButton,&QPushButton::clicked,this,&andGui::on_C_Button_clicked);
@@ -148,12 +151,12 @@ void andGui::keyPressEvent(QKeyEvent *event){
 void andGui::tocarBoton(const QString &mensaje){
     for(int i = 0; i < mensaje.length(); i++){
         mik->pressKey(mensaje[i]);
+        mik->releaseKey(mensaje[i]);
         qDebug()<<"llame a tocas boton con"<< mensaje[i];
     }
 }
 
 // Declaración de las funciones
-
 void andGui::on_A_Button_clicked(){
     mik->selectLine(1);
     qDebug() << "Toqué botón A";
@@ -208,16 +211,12 @@ void andGui::on_pushButton_W1_pressed(){tocarBoton("W01");}
 void andGui::on_pushButton_W2_pressed(){tocarBoton("W02");}
 void andGui::on_pushButton_W3_pressed(){tocarBoton("W03");}
 
-void andGui::on_pushButton_grilla_clicked()
-{
+void andGui::on_pushButton_grilla_clicked(){
     qDebug() << "Cambiando a la grilla";
     stackedWidget->setCurrentIndex(1);  // Cambiar a la página con la grilla
 }
 
-
-void andGui::on_pushButton_back_clicked()
-{
+void andGui::on_pushButton_back_clicked(){
     qDebug() << "Cambiando a la principal";
     stackedWidget->setCurrentIndex(0);  // Cambiar a la página con la grilla
 }
-

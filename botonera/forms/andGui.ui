@@ -76,7 +76,7 @@
       <x>120</x>
       <y>70</y>
       <width>411</width>
-      <height>381</height>
+      <height>450</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -618,7 +618,12 @@
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton {image: url(':/and/img/AND/A.png')}
+        <string notr="true">QPushButton{
+	background-color: transparent;
+	border: none;
+}
+QPushButton:focus{outline: none}
+QPushButton {image: url(':/and/img/AND/A.png')}
 QPushButton:checked {image: url(':/and/img/AND/A_pressed.png')}</string>
        </property>
        <property name="text">
@@ -662,7 +667,12 @@ QPushButton:checked {image: url(':/and/img/AND/A_pressed.png')}</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton {image: url(':/and/img/AND/H.png')}
+        <string notr="true">QPushButton{
+	background-color: transparent;
+	border: none;
+}
+QPushButton:focus{outline: none}
+QPushButton {image: url(':/and/img/AND/H.png')}
 QPushButton:checked {image: url(':/and/img/AND/H_pressed.png')}</string>
        </property>
        <property name="text">
@@ -703,7 +713,12 @@ QPushButton:checked {image: url(':/and/img/AND/H_pressed.png')}</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton {image: url(':/and/img/AND/B.png')}
+        <string notr="true">QPushButton{
+	background-color: transparent;
+	border: none;
+}
+QPushButton:focus{outline: none}
+QPushButton {image: url(':/and/img/AND/B.png')}
 QPushButton:checked {image: url(':/and/img/AND/B_pressed.png')}</string>
        </property>
        <property name="text">
@@ -744,7 +759,12 @@ QPushButton:checked {image: url(':/and/img/AND/B_pressed.png')}</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton {image: url(':/and/img/AND/I.png')}
+        <string notr="true">QPushButton{
+	background-color: transparent;
+	border: none;
+}
+QPushButton:focus{outline: none}
+QPushButton {image: url(':/and/img/AND/I.png')}
 QPushButton:checked {image: url(':/and/img/AND/I_pressed.png')}</string>
        </property>
        <property name="text">
@@ -785,7 +805,12 @@ QPushButton:checked {image: url(':/and/img/AND/I_pressed.png')}</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton {image: url(':/and/img/AND/C.png')}
+        <string notr="true">QPushButton{
+	background-color: transparent;
+	border: none;
+}
+QPushButton:focus{outline: none}
+QPushButton {image: url(':/and/img/AND/C.png')}
 QPushButton:checked {image: url(':/and/img/AND/C_pressed.png')}</string>
        </property>
        <property name="text">
@@ -826,7 +851,12 @@ QPushButton:checked {image: url(':/and/img/AND/C_pressed.png')}</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton {image: url(':/and/img/AND/J.png')}
+        <string notr="true">QPushButton{
+	background-color: transparent;
+	border: none;
+}
+QPushButton:focus{outline: none}
+QPushButton {image: url(':/and/img/AND/J.png')}
 QPushButton:checked {image: url(':/and/img/AND/J_pressed.png')}</string>
        </property>
        <property name="text">
@@ -867,7 +897,12 @@ QPushButton:checked {image: url(':/and/img/AND/J_pressed.png')}</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton {image: url(':/and/img/AND/D.png')}
+        <string notr="true">QPushButton{
+	background-color: transparent;
+	border: none;
+}
+QPushButton:focus{outline: none}
+QPushButton {image: url(':/and/img/AND/D.png')}
 QPushButton:checked {image: url(':/and/img/AND/D_pressed.png')}</string>
        </property>
        <property name="text">
@@ -908,7 +943,12 @@ QPushButton:checked {image: url(':/and/img/AND/D_pressed.png')}</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton {image: url(':/and/img/AND/K.png')}
+        <string notr="true">QPushButton{
+	background-color: transparent;
+	border: none;
+}
+QPushButton:focus{outline: none}
+QPushButton {image: url(':/and/img/AND/K.png')}
 QPushButton:checked {image: url(':/and/img/AND/K_pressed.png')}</string>
        </property>
        <property name="text">
@@ -949,7 +989,12 @@ QPushButton:checked {image: url(':/and/img/AND/K_pressed.png')}</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton {image: url(':/and/img/AND/E.png')}
+        <string notr="true">QPushButton{
+	background-color: transparent;
+	border: none;
+}
+QPushButton:focus{outline: none}
+QPushButton {image: url(':/and/img/AND/E.png')}
 QPushButton:checked {image: url(':/and/img/AND/E_pressed.png')}</string>
        </property>
        <property name="text">
@@ -993,7 +1038,12 @@ QPushButton:checked {image: url(':/and/img/AND/E_pressed.png')}</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton {image: url(':/and/img/AND/L.png')}
+        <string notr="true">QPushButton{
+	background-color: transparent;
+	border: none;
+}
+QPushButton:focus{outline: none}
+QPushButton {image: url(':/and/img/AND/L.png')}
 QPushButton:checked {image: url(':/and/img/AND/L_pressed.png')}</string>
        </property>
        <property name="text">
@@ -1037,7 +1087,12 @@ QPushButton:checked {image: url(':/and/img/AND/L_pressed.png')}</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton {image: url(':/and/img/AND/F.png')}
+        <string notr="true">QPushButton{
+	background-color: transparent;
+	border: none;
+}
+QPushButton:focus{outline: none}
+QPushButton {image: url(':/and/img/AND/F.png')}
 QPushButton:checked {image: url(':/and/img/AND/F_pressed.png')}</string>
        </property>
        <property name="text">
@@ -1078,7 +1133,12 @@ QPushButton:checked {image: url(':/and/img/AND/F_pressed.png')}</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton {image: url(':/and/img/AND/G.png')}
+        <string notr="true">QPushButton{
+	backgrounf-color: transparent;
+	border: none;
+}
+QPushButton:focus{outline: none}
+QPushButton {image: url(':/and/img/AND/G.png')}
 QPushButton:checked {image: url(':/and/img/AND/G_pressed.png')}</string>
        </property>
        <property name="text">
@@ -1145,6 +1205,9 @@ QPushButton:checked {image: url(':/and/img/AND/G_pressed.png')}</string>
        <property name="flat">
         <bool>true</bool>
        </property>
+       <attribute name="buttonGroup">
+        <string notr="true">workspaces</string>
+       </attribute>
       </widget>
      </item>
      <item>
@@ -1161,11 +1224,21 @@ QPushButton:checked {image: url(':/and/img/AND/G_pressed.png')}</string>
          <height>0</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <kerning>true</kerning>
+        </font>
+       </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton {image: url(':/and/img/AND/W01.png')}
+        <string notr="true">QPushButton{
+	background-color: transparent;
+	border: none;
+}
+QPushButton:focus{outline: none}
+QPushButton {image: url(':/and/img/AND/W01.png')}
 QPushButton:checked {image: url(':/and/img/AND/W01_pressed.png')}</string>
        </property>
        <property name="text">
@@ -1186,9 +1259,15 @@ QPushButton:checked {image: url(':/and/img/AND/W01_pressed.png')}</string>
        <property name="autoExclusive">
         <bool>true</bool>
        </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
        <property name="flat">
         <bool>true</bool>
        </property>
+       <attribute name="buttonGroup">
+        <string notr="true">workspaces</string>
+       </attribute>
       </widget>
      </item>
      <item>
@@ -1209,7 +1288,12 @@ QPushButton:checked {image: url(':/and/img/AND/W01_pressed.png')}</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton {image: url(':/and/img/AND/W02.png')}
+        <string notr="true">QPushButton{
+	background-color: transparent;
+	border: none;
+}
+QPushButton:focus{outline: none}
+QPushButton {image: url(':/and/img/AND/W02.png')}
 QPushButton:checked {image: url(':/and/img/AND/W02_pressed.png')}</string>
        </property>
        <property name="text">
@@ -1224,6 +1308,9 @@ QPushButton:checked {image: url(':/and/img/AND/W02_pressed.png')}</string>
        <property name="flat">
         <bool>true</bool>
        </property>
+       <attribute name="buttonGroup">
+        <string notr="true">workspaces</string>
+       </attribute>
       </widget>
      </item>
      <item>
@@ -1244,7 +1331,12 @@ QPushButton:checked {image: url(':/and/img/AND/W02_pressed.png')}</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">QPushButton {image: url(':/and/img/AND/W03.png')}
+        <string notr="true">QPushButton{
+	background-color: transparent;
+	border: none;
+}
+QPushButton:focus{outline: none}
+QPushButton {image: url(':/and/img/AND/W03.png')}
 QPushButton:checked {image: url(':/and/img/AND/W03_pressed.png')}</string>
        </property>
        <property name="text">
@@ -1259,6 +1351,9 @@ QPushButton:checked {image: url(':/and/img/AND/W03_pressed.png')}</string>
        <property name="flat">
         <bool>true</bool>
        </property>
+       <attribute name="buttonGroup">
+        <string notr="true">workspaces</string>
+       </attribute>
       </widget>
      </item>
      <item>
@@ -1285,6 +1380,9 @@ QPushButton:checked {image: url(':/and/img/AND/W03_pressed.png')}</string>
        <property name="flat">
         <bool>true</bool>
        </property>
+       <attribute name="buttonGroup">
+        <string notr="true">workspaces</string>
+       </attribute>
       </widget>
      </item>
     </layout>
@@ -1295,5 +1393,6 @@ QPushButton:checked {image: url(':/and/img/AND/W03_pressed.png')}</string>
  <connections/>
  <buttongroups>
   <buttongroup name="buttonGroup"/>
+  <buttongroup name="workspaces"/>
  </buttongroups>
 </ui>

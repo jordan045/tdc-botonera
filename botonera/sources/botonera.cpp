@@ -212,8 +212,6 @@ void Botonera::start(int tipo)
     }
     this->show();
     alfanumeric_display->show();
-
-    sendCharToMIK("HOLAA");
 }
 
 
