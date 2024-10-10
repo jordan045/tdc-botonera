@@ -21,6 +21,8 @@ private slots:
     void test_case_allEmpty();
     void test_case_isolatedBitTesting_data();
     void test_case_isolatedBitTesting();
+    void test_case_fromBinaryCaptures_data();
+    void test_case_fromBinaryCaptures();
 };
 
 formatConcentratorTest::formatConcentratorTest() {}
@@ -894,6 +896,395 @@ void formatConcentratorTest::test_case_isolatedBitTesting_data(){
 }
 
 void formatConcentratorTest::test_case_isolatedBitTesting(){
+    QFETCH(QString, range);
+    QFETCH(QString, displaySelection);
+    QFETCH(QString, threatAssessment);
+    QFETCH(QString, center);
+    QFETCH(QString, displayMode);
+    QFETCH(QString, qek);
+    QFETCH(QString, icm);
+    QFETCH(QString, overlay);
+    QFETCH(QBitArray, result);
+
+    FormatConcentrator* concentrator = new FormatConcentrator();
+    StubEstado* stubEstado = new StubEstado();
+    bool comparisonResult;
+    QBitArray* localTest;
+
+    stubEstado->setRange(range);
+    stubEstado->setDisplaySelection(displaySelection);
+    stubEstado->setThreat(threatAssessment);
+    stubEstado->setCenter(center);
+    stubEstado->setDisplayMode(displayMode);
+    stubEstado->setQEK(qek);
+    stubEstado->setICM(icm);
+    stubEstado->setOverlay(overlay);
+
+    localTest = concentrator->getMessage(stubEstado);
+
+    comparisonResult = ((*localTest) == result);
+    QVERIFY2(comparisonResult, qPrintable(BitArrayUtils::compareBitArrays((*localTest), result)));
+
+    delete concentrator;
+    delete stubEstado;
+    delete localTest;
+}
+
+void formatConcentratorTest::test_case_fromBinaryCaptures_data(){
+    QTest::addColumn<QString>("range");
+    QTest::addColumn<QString>("displaySelection");
+    QTest::addColumn<QString>("threatAssessment");
+    QTest::addColumn<QString>("center");
+    QTest::addColumn<QString>("displayMode");
+    QTest::addColumn<QString>("qek");
+    QTest::addColumn<QString>("icm");
+    QTest::addColumn<QString>("overlay");
+    QTest::addColumn<QBitArray>("result");
+
+    QTest::newRow("TST-0078")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "RESET"           //threatAssessment
+                              << ""           //center
+                              << "OWN_CURS TM"           //displayMode
+                              << ""           //qek
+                              << "7"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000000100000000000000110000000000000000010000000100000000000000000000000000000000000000110000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0079")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "RESET"           //threatAssessment
+                              << "OFF_CENT"           //center
+                              << "OWN_CURS TM"           //displayMode
+                              << ""           //qek
+                              << "7"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000000100000000001000110000000000000000010000000100000000000000000000000000000000000000110000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0080")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "RESET"           //threatAssessment
+                              << "CENT"           //center
+                              << "OWN_CURS TM"           //displayMode
+                              << ""           //qek
+                              << "7"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000000100000000000100110000000000000000010000000100000000000000000000000000000000000000110000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0081")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "RESET"           //threatAssessment
+                              << "RESET_OBM"           //center
+                              << "OWN_CURS TM"           //displayMode
+                              << ""           //qek
+                              << "7"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000000100000000000010110000000000000000010000000100000000000000000000000000000000000000110000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0082")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "RESET"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "7"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000000100000000000000000000000000000000010000000100000000000000000000000000000000000000110000110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0083")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "RESET"           //threatAssessment
+                              << ""           //center
+                              << "OWN_CURS"           //displayMode
+                              << ""           //qek
+                              << "7"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000000100000000000000010000000000000000010000000100000000000000000000000000000000000000110000110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0084")   << "RANGE256 "    //range
+                              << "AIR SURF SUB_SURF REF_POS BEAR_SEL LINK_SEL WARF_SEL FIG"           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "3"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111111111110010000000000000000000000000000000000010000000100000000000000000000000000000000000000010000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0085")   << "RANGE256 "    //range
+                              << "SUB_SURF REF_POS BEAR_SEL LINK_SEL WARF_SEL FIG"           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "3"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111001111110010000000000000000000000000000000000010000000100000000000000000000000000000000000000010000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0086")   << "RANGE256 "    //range
+                              << "REF_POS BEAR_SEL LINK_SEL WARF_SEL FIG"           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "3"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000111110010000000000000000000000000000000000010000000100000000000000000000000000000000000000010000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0087")   << "RANGE256 "    //range
+                              << "BEAR_SEL LINK_SEL WARF_SEL FIG"           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "3"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000011110010000000000000000000000000000000000010000000100000000000000000000000000000000000000010000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0088")   << "RANGE256 "    //range
+                              << "LINK_SEL WARF_SEL FIG"           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "3"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000001110010000000000000000000000000000000000010000000100000000000000000000000000000000000000010000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0089")   << "RANGE256 "    //range
+                              << "WARF_SEL FIG"           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "3"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000110010000000000000000000000000000000000010000000100000000000000000000000000000000000000010000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0090")   << "RANGE256 "    //range
+                              << "FIG"           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "3"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000010010000000000000000000000000000000000010000000100000000000000000000000000000000000000010000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0091")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "3"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000010000000000000000000000000000000000010000000100000000000000000000000000000000000000010000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0092")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "1"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000010000000000000000000000000000000000010000000100000000000000000000000000000000000000000000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0093")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "2"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000010000000000000000000000000000000000010000000100000000000000000000000000000000000000001000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0094")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "4"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000010000000000000000000000000000000000010000000100000000000000000000000000000000000000011000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0095")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "5"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000010000000000000000000000000000000000010000000100000000000000000000000000000000000000100000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0096")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "6"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000010000000000000000000000000000000000010000000100000000000000000000000000000000000000101000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0097")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "7"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000010000000000000000000000000000000000010000000100000000000000000000000000000000000000110000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0098")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "RESET"           //threatAssessment
+                              << ""           //center
+                              << "OWN_CURS TM"           //displayMode
+                              << "QEK_20"           //qek
+                              << "7"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000000100000000000000110000000000000000010000000100000000000000000100000000000000000000110000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0099")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "RESET"           //threatAssessment
+                              << ""           //center
+                              << "OWN_CURS TM"           //displayMode
+                              << "QEK_21"           //qek
+                              << "7"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000000100000000000000110000000000000000010000000100000000000000000110000000000000000000110000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0100")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "RESET"           //threatAssessment
+                              << ""           //center
+                              << "OWN_CURS TM"           //displayMode
+                              << "QEK_40"           //qek
+                              << "7"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000000100000000000000110000000000000000010000000100000000000000001000000000000000000000110000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0101")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "RESET"           //threatAssessment
+                              << ""           //center
+                              << "OWN_CURS TM"           //displayMode
+                              << "QEK_41"           //qek
+                              << "7"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000000100000000000000110000000000000000010000000100000000000000001010000000000000000000110000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0102")   << "RANGE64 "    //range
+                              << "AIR SURF SUB_SURF REF_POS BEAR_SEL LINK_SEL WARF_SEL FIG"           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "3"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("101111111110010000000000000000000000000000000000010000000100000000000000000000000000000000000000010000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0103")   << "RANGE2 "    //range
+                              << "AIR SURF SUB_SURF REF_POS BEAR_SEL LINK_SEL WARF_SEL FIG"           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "3"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("000111111110010000000000000000000000000000000000010000000100000000000000000000000000000000000000010000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0104")   << "RANGE4 "    //range
+                              << "AIR SURF SUB_SURF REF_POS BEAR_SEL LINK_SEL WARF_SEL FIG"           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "3"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("001111111110010000000000000000000000000000000000010000000100000000000000000000000000000000000000010000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0105")   << "RANGE8 "    //range
+                              << "AIR SURF SUB_SURF REF_POS BEAR_SEL LINK_SEL WARF_SEL FIG"           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "3"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("010111111110010000000000000000000000000000000000010000000100000000000000000000000000000000000000010000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0106")   << "RANGE16 "    //range
+                              << "AIR SURF SUB_SURF REF_POS BEAR_SEL LINK_SEL WARF_SEL FIG"           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "3"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("011111111110010000000000000000000000000000000000010000000100000000000000000000000000000000000000010000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0107")   << "RANGE32 "    //range
+                              << "AIR SURF SUB_SURF REF_POS BEAR_SEL LINK_SEL WARF_SEL FIG"           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "3"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("100111111110010000000000000000000000000000000000010000000100000000000000000000000000000000000000010000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0108")   << "RANGE128 "    //range
+                              << "AIR SURF SUB_SURF REF_POS BEAR_SEL LINK_SEL WARF_SEL FIG"           //displaySelection
+                              << "6_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "3"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("110111111110010000000000000000000000000000000000010000000100000000000000000000000000000000000000010000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0109")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "30_SEC"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "7"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000100000000000000000000000000000000000010000000100000000000000000000000000000000000000110000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0110")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "12_SEC"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "7"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000001000000000000000000000000000000000000010000000100000000000000000000000000000000000000110000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+    QTest::newRow("TST-0111")   << "RANGE256 "    //range
+                              << ""           //displaySelection
+                              << "15_MIN"           //threatAssessment
+                              << ""           //center
+                              << ""           //displayMode
+                              << ""           //qek
+                              << "7"           //icm
+                              << "0011"       //overlay
+                              << BitArrayUtils::qBitArrayfromString("111000000000001000000000000000000000000000000000010000000100000000000000000000000000000000000000110000110100010000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+
+
+}
+
+void formatConcentratorTest::test_case_fromBinaryCaptures() {
     QFETCH(QString, range);
     QFETCH(QString, displaySelection);
     QFETCH(QString, threatAssessment);
