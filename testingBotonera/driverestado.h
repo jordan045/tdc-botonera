@@ -1,20 +1,20 @@
-#ifndef STUBESTADO_H
-#define STUBESTADO_H
+#ifndef DRIVERESTADO_H
+#define DRIVERESTADO_H
 
 #include "iestado.h"
 
 /**
- * @brief StubEstado class
+ * @brief DriverEstado class
  *
  *  Sustituto de la clase Estado para la realización de las pruebas
  *  unitarias sobre FormatConcentrator.
  *
  */
 
-class StubEstado : public IEstado
+class DriverEstado : public IEstado
 {
 public:
-    StubEstado();
+    DriverEstado();
     void setOverlay(QString codigo) override;
 
     void removeIcm(QString boton) override;
@@ -84,4 +84,4 @@ private:
     Q_PROPERTY(QString overlayS READ getOverlayS WRITE setOverlayS NOTIFY overlaySChanged FINAL)
 };
 
-#endif // STUBESTADO_H
+#endif // DRIVERESTADO_H

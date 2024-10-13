@@ -20,11 +20,11 @@ HEADERS += \
     $$PWD/../botonera/headers/formatconcentrator.h \
     $$PWD/../botonera/headers/iestado.h \
     bitarrayutils.h \
-    stubestado.h
+    driverestado.h
 
 SOURCES +=  \
     bitarrayutils.cpp \
-    stubestado.cpp \
+    driverestado.cpp \
     tst_formatconcentratortest.cpp \
     $$PWD/../botonera/sources/formatconcentrator.cpp
 

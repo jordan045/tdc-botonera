@@ -3,7 +3,7 @@
 #include <QString>
 
 #include "formatconcentrator.h"
-#include "stubestado.h"
+#include "driverestado.h"
 #include "bitarrayutils.h"
 
 class formatConcentratorTest : public QObject
@@ -83,31 +83,31 @@ void formatConcentratorTest::test_case_allEmpty() {
     QFETCH(QBitArray, result);
 
     FormatConcentrator* concentrator = new FormatConcentrator();
-    StubEstado* stubEstado = new StubEstado();
+    DriverEstado* driverEstado = new DriverEstado();
     bool comparisonResult;
     QBitArray* localTest;
 
-    stubEstado->setRange(range);
-    stubEstado->setDisplaySelection(displaySelection);
-    stubEstado->setThreat(threatAssessment);
-    stubEstado->setCenter(center);
-    stubEstado->setDisplayMode(displayMode);
-    stubEstado->setQEK(qek);
-    stubEstado->setICM(icm);
-    stubEstado->setOverlay(overlay);
+    driverEstado->setRange(range);
+    driverEstado->setDisplaySelection(displaySelection);
+    driverEstado->setThreat(threatAssessment);
+    driverEstado->setCenter(center);
+    driverEstado->setDisplayMode(displayMode);
+    driverEstado->setQEK(qek);
+    driverEstado->setICM(icm);
+    driverEstado->setOverlay(overlay);
 
-    stubEstado->setQEKS(qekS);
-    stubEstado->setCenterS(centerS);
-    stubEstado->setICMS(icmS);
-    stubEstado->setOverlayS(overlayS);
+    driverEstado->setQEKS(qekS);
+    driverEstado->setCenterS(centerS);
+    driverEstado->setICMS(icmS);
+    driverEstado->setOverlayS(overlayS);
 
-    localTest = concentrator->getMessage(stubEstado);
+    localTest = concentrator->getMessage(driverEstado);
 
     comparisonResult = ((*localTest) == result);
     QVERIFY2(comparisonResult, qPrintable(BitArrayUtils::compareBitArrays((*localTest), result)));
 
     delete concentrator;
-    delete stubEstado;
+    delete driverEstado;
     delete localTest;
 }
 
@@ -1244,31 +1244,31 @@ void formatConcentratorTest::test_case_isolatedBitTesting(){
     QFETCH(QBitArray, result);
 
     FormatConcentrator* concentrator = new FormatConcentrator();
-    StubEstado* stubEstado = new StubEstado();
+    DriverEstado* driverEstado = new DriverEstado();
     bool comparisonResult;
     QBitArray* localTest;
 
-    stubEstado->setRange(range);
-    stubEstado->setDisplaySelection(displaySelection);
-    stubEstado->setThreat(threatAssessment);
-    stubEstado->setCenter(center);
-    stubEstado->setDisplayMode(displayMode);
-    stubEstado->setQEK(qek);
-    stubEstado->setICM(icm);
-    stubEstado->setOverlay(overlay);
+    driverEstado->setRange(range);
+    driverEstado->setDisplaySelection(displaySelection);
+    driverEstado->setThreat(threatAssessment);
+    driverEstado->setCenter(center);
+    driverEstado->setDisplayMode(displayMode);
+    driverEstado->setQEK(qek);
+    driverEstado->setICM(icm);
+    driverEstado->setOverlay(overlay);
 
-    stubEstado->setQEKS(qekS);
-    stubEstado->setCenterS(centerS);
-    stubEstado->setICMS(icmS);
-    stubEstado->setOverlayS(overlayS);
+    driverEstado->setQEKS(qekS);
+    driverEstado->setCenterS(centerS);
+    driverEstado->setICMS(icmS);
+    driverEstado->setOverlayS(overlayS);
 
-    localTest = concentrator->getMessage(stubEstado);
+    localTest = concentrator->getMessage(driverEstado);
 
     comparisonResult = ((*localTest) == result);
     QVERIFY2(comparisonResult, qPrintable(BitArrayUtils::compareBitArrays((*localTest), result)));
 
     delete concentrator;
-    delete stubEstado;
+    delete driverEstado;
     delete localTest;
 }
 
@@ -1786,31 +1786,31 @@ void formatConcentratorTest::test_case_fromBinaryCaptures() {
     QFETCH(QBitArray, result);
 
     FormatConcentrator* concentrator = new FormatConcentrator();
-    StubEstado* stubEstado = new StubEstado();
+    DriverEstado* driverEstado = new DriverEstado();
     bool comparisonResult;
     QBitArray* localTest;
 
-    stubEstado->setRange(range);
-    stubEstado->setDisplaySelection(displaySelection);
-    stubEstado->setThreat(threatAssessment);
-    stubEstado->setCenter(center);
-    stubEstado->setDisplayMode(displayMode);
-    stubEstado->setQEK(qek);
-    stubEstado->setICM(icm);
-    stubEstado->setOverlay(overlay);
+    driverEstado->setRange(range);
+    driverEstado->setDisplaySelection(displaySelection);
+    driverEstado->setThreat(threatAssessment);
+    driverEstado->setCenter(center);
+    driverEstado->setDisplayMode(displayMode);
+    driverEstado->setQEK(qek);
+    driverEstado->setICM(icm);
+    driverEstado->setOverlay(overlay);
 
-    stubEstado->setQEKS(qekS);
-    stubEstado->setCenterS(centerS);
-    stubEstado->setICMS(icmS);
-    stubEstado->setOverlayS(overlayS);
+    driverEstado->setQEKS(qekS);
+    driverEstado->setCenterS(centerS);
+    driverEstado->setICMS(icmS);
+    driverEstado->setOverlayS(overlayS);
 
-    localTest = concentrator->getMessage(stubEstado);
+    localTest = concentrator->getMessage(driverEstado);
 
     comparisonResult = ((*localTest) == result);
     QVERIFY2(comparisonResult, qPrintable(BitArrayUtils::compareBitArrays((*localTest), result)));
 
     delete concentrator;
-    delete stubEstado;
+    delete driverEstado;
     delete localTest;
 }
 
