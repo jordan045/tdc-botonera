@@ -59,7 +59,7 @@ public:
     void setDisplayModeS(QString d)override;
     void setOverlayS(QString o)    override;
 
-    void setOverlayS(const QString &newOverlayS);
+    //void setOverlayS(const QString &newOverlayS);
 
 signals:
     void overlaySChanged();
