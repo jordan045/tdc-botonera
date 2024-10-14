@@ -172,7 +172,7 @@ void andGui::keyPressEvent(QKeyEvent *event){
 void andGui::tocarBoton(const QString &mensaje){
     for(int i = 0; i < mensaje.length(); i++){
         mik->pressKey(mensaje[i]);
-        mik->releaseKey(mensaje[i]);
+        // mik->releaseKey(mensaje[i]);
         qDebug()<<"llame a tocas boton con"<< mensaje[i];
     }
 }

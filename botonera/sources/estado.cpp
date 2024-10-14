@@ -74,7 +74,25 @@ QString Estado::getDisplayMode(){       return displayMode;}
 QString Estado::getICM(){               return icm;}
 QString Estado::getModos(){             return displayMode;}
 QString Estado::getOverlay(){           return overlay;}
-QString Estado::getMIK(){               return mik;}
+
+
+QString Estado::getMIK(){
+    mik = mik.trimmed(); // Elimina espacios en blanco al inicio y al final
+
+    int index = mik.indexOf(' ');
+    QString token;
+
+    if (index == -1) {
+        // No hay espacios, es el último token
+        token = mik;
+        mik.clear();
+    } else {
+        token = mik.left(index);
+        mik = mik.mid(index + 1);
+    }
+
+    return token;
+}
 
 QString Estado::getQekIzq(){            return qek;}
 QString Estado::getQekDer(){            return qek;}
@@ -112,8 +130,9 @@ void Estado::setICM(QString s){
     refresh();
 }
 
-void Estado::setMIK(QString c){
-    this->mik.append(c);
+void Estado::setMIK(QString s){
+    s.append(" ");
+    this->mik.append(s);
     refresh();
 }
 

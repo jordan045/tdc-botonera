@@ -42,8 +42,8 @@ void MIK::selectLine(int t){
             tab = 0;
         }
         else{
-            pressKey(' ');
-            releaseKey(' ');
+            pressKey('s');
+            //releaseKey(' ');
             tab++;
         }
     }

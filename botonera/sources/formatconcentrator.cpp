@@ -191,17 +191,33 @@ void FormatConcentrator::setMIK(IEstado *estado)
     int palabra = WORD_SIZE * 2;
     int offset = 0;
     QString mikPalabra = estado->getMIK();
-    QJsonObject teclasMik = MIKJson["teclas"].toObject();
-    QJsonObject mikBinario = teclasMik[mikPalabra].toObject();
-    QString mik = mikBinario["ASCII_Binario"].toString();
-    for (QChar caracter:mik) {
-        if(caracter == '1'){
-            message->setBit(palabra+offset,true);
-        } else {
-            message->setBit(palabra+offset,false);
+
+    if(mikPalabra != ""){
+        QJsonObject teclasMik = MIKJson["teclas"].toObject();
+        qDebug()<< "la letra es: "<< mikPalabra;
+        QJsonObject mikBinario = teclasMik[mikPalabra].toObject();
+        QString mik = mikBinario["ASCII_Binario"].toString();
+        qDebug()<< "La letra representa: "<< mik;
+        for (QChar caracter:mik) {
+            if(caracter == '1'){
+                message->setBit(palabra+offset,true);
+            } else {
+                message->setBit(palabra+offset,false);
+            }
+            offset++;
         }
-        offset++;
     }
+    else{
+        for(char caracter:"01000000"){
+            if(caracter == '1'){
+                message->setBit(palabra+offset,true);
+            } else {
+                message->setBit(palabra+offset,false);
+            }
+            offset++;
+        }
+    }
+    qDebug() << "\nMI:\t " << "-" << mikPalabra  << "-";
 }
 
 
@@ -291,7 +307,6 @@ void FormatConcentrator::guardarMensaje(IEstado *estado)
             << "\nDM:\t " << "-" << estado->getDisplayMode()        << "-"
             << "\nDS:\t " << "-" << estado->getDisplaySelection()   << "-"
             << "\nIC:\t " << "-" << estado->getICM()                << "-"
-            << "\nMI:\t " << "-" << estado->getMIK()                << "-"
             << "\n\n";
 
     QString bitString;

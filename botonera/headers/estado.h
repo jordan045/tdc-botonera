@@ -40,6 +40,13 @@ public:
     QString getQekDer() override;
     QString getModos() override;
     QString getOverlay() override;
+
+    /*
+     * GetMik()
+     * funcionaria como una cola, se le pide el primer caracter a traves de getMik() y va quitando este primer elemento.
+     * Asi deberia ser con el resto de aspectos?
+     * de esta forma guardamos un estado actual y cada vez que el DHC solicita format concentrator, este le va pidiendo a estado cada caracter.
+     * */
     QString getMIK() override;
 
     void setRange(QString r) override;
@@ -50,8 +57,7 @@ public:
     void setDisplayMode(QString d) override;
     void setDisplaySelection(QString d) override;
     void setICM(QString i) override;
-
-    void setMIK(QString c);
+    void setMIK(QString m);
 
 
 private:
