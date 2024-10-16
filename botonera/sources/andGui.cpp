@@ -119,23 +119,27 @@ void andGui::setLine(QPair<int,QString> line){
 void andGui::keyReleaseEvent(QKeyEvent *event){
 
     QString keyText = event->text();
+    /*
     switch (event->key()) {
     case Qt::Key_Enter:{
+        qDebug()<<"ENTER EN RELEASE";
         mik->releaseKey('#');
         break;
     }
     case Qt::Key_Space:{
+        qDebug()<<"SPACE EN RELEASE";
         mik->releaseKey('!');
         break;
     }
     case Qt::Key_Backspace:{
+        qDebug()<<"BACK EN RELEASE";
         mik->releaseKey('"');
     }
 
     default:
         break;
     }
-
+    */
     if(!keyText.isEmpty()){
         QChar caracter = keyText.front().toUpper();
         mik->releaseKey(caracter);
@@ -146,23 +150,27 @@ void andGui::keyReleaseEvent(QKeyEvent *event){
 void andGui::keyPressEvent(QKeyEvent *event){
 
     QString keyText = event->text();
-
+    qDebug()<<"KEY TEXT: "<< keyText;
+/*
     switch (event->key()) {
-        case Qt::Key_Enter:
+    case Qt::Key_Enter:
+            qDebug()<<"ENTER EN PRESS";
             mik->pressKey('#');
             break;
 
         case Qt::Key_Space:
+            qDebug()<<"SPACE EN PRESS";
             mik->pressKey('!');
             break;
 
         case Qt::Key_Backspace:
+            qDebug()<<"BACK EN PRESS";
             mik->pressKey('"');
 
         default:
             break;
     }
-
+*/
     if(!keyText.isEmpty()){
         QChar caracter = event->text().front().toUpper();
         mik->pressKey(caracter);
@@ -172,15 +180,13 @@ void andGui::keyPressEvent(QKeyEvent *event){
 void andGui::tocarBoton(const QString &mensaje){
     for(int i = 0; i < mensaje.length(); i++){
         mik->pressKey(mensaje[i]);
-        // mik->releaseKey(mensaje[i]);
-        qDebug()<<"llame a tocas boton con"<< mensaje[i];
     }
 }
 
 // Declaración de las funciones
 void andGui::on_A_Button_clicked(){
     mik->selectLine(1);
-    qDebug() << "Toqué botón A";
+    //qDebug() << "Toqué botón A";
 }
 void andGui::on_B_Button_clicked(){
     mik->selectLine(2);

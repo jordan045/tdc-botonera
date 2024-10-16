@@ -130,9 +130,7 @@ void Botonera::sendCodeToIcm(QString boton){
 }
 
 void Botonera::sendCharToMIK(QString c){
-    qDebug()<<">>>>>>>>>>>>>>>>>>sendCharToMIK() INI c = "<< c;
     miEstado->setMIK(c);
-    qDebug()<<">>>>>>>>>>>>>>>>>>sendCharToMIK() FIN";
 }
 
 void Botonera::sendMessage(){

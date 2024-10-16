@@ -3,15 +3,15 @@
       "ASCII_Binario": "00100000",
       "ASCII_Octal": "040"
     },
-    "!": {
+    " ": {
       "ASCII_Binario": "00100001",
       "ASCII_Octal": "041"
     },
-    "\"": {
+    "\b": {
       "ASCII_Binario": "00100010",
       "ASCII_Octal": "042"
     },
-    "#": {
+    "\r": {
       "ASCII_Binario": "00100011",
       "ASCII_Octal": "043"
     },
