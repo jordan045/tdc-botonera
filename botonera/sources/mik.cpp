@@ -60,5 +60,5 @@ void MIK::pressKey(QChar c){
 void MIK::releaseKey(QChar c){
     QJsonObject caracter = teclasObj[c].toObject();
     QString toSend = caracter["ASCII_Octal"].toString();
-    miBotonera->removeCharToMIK(toSend);
+    //miBotonera->removeCharToMIK(toSend);
 }

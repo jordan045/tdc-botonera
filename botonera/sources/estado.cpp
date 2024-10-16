@@ -1,4 +1,5 @@
 #include "estado.h"
+#include <QDebug>
 
 Estado::Estado(Botonera *b)
 {
@@ -90,7 +91,7 @@ QString Estado::getMIK(){
         token = mik.left(index);
         mik = mik.mid(index + 1);
     }
-
+    qDebug()<<"Llamé a getMIK()"<<token;
     return token;
 }
 
@@ -133,6 +134,8 @@ void Estado::setICM(QString s){
 void Estado::setMIK(QString s){
     s.append(" ");
     this->mik.append(s);
+    qDebug()<<"agregue a" << s;
+    qDebug()<<"la mik es:" << mik;
     refresh();
 }
 

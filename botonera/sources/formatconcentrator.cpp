@@ -192,6 +192,7 @@ void FormatConcentrator::setMIK(IEstado *estado)
     int offset = 0;
     QString mikPalabra = estado->getMIK();
 
+    qDebug()<<"Se invocó a setMIK, palabra mik:" <<mikPalabra;
     if(mikPalabra != ""){
         QJsonObject teclasMik = MIKJson["teclas"].toObject();
         qDebug()<< "la letra es: "<< mikPalabra;
