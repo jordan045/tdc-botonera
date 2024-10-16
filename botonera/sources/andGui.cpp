@@ -150,10 +150,16 @@ void andGui::keyReleaseEvent(QKeyEvent *event){
 void andGui::keyPressEvent(QKeyEvent *event){
 
     QString keyText = event->text();
-    qDebug()<<"KEY TEXT: "<< keyText;
-/*
+    //qDebug()<<"KEY TEXT: "<< keyText;
+
+    if(event->key() == Qt::Key_Return ||event->key() == Qt::Key_Enter){
+        qDebug()<<"--- ENTER EN PRESS ---";
+        mik->pressKey('\r');
+    }else{
+    /*
     switch (event->key()) {
-    case Qt::Key_Enter:
+
+        case Qt::Key_Enter:
             qDebug()<<"ENTER EN PRESS";
             mik->pressKey('#');
             break;
@@ -170,10 +176,12 @@ void andGui::keyPressEvent(QKeyEvent *event){
         default:
             break;
     }
-*/
+    */
+
     if(!keyText.isEmpty()){
         QChar caracter = event->text().front().toUpper();
         mik->pressKey(caracter);
+    }
     }
 }
 
