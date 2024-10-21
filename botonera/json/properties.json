@@ -1,411 +1,98 @@
-{
-  "PC":{
-    "rol":"MASTER"
-  },
-  "RANGE_SCALE": {
-    "RANGE2": {
-      "type": "switch",
-      "label": "2",
-      "value": "000"
+
+{   
+    "master":true,
+    "RANGE_SCALE":{
+        "RANGE2":"000",
+        "RANGE4":"001",
+        "RANGE8":"010",
+        "RANGE16":"011",
+        "RANGE32":"100",
+        "RANGE64":"101",
+        "RANGE128":"110",
+        "RANGE256":"111"
     },
-    "RANGE4": {
-      "type": "switch",
-      "label": "4",
-      "value": "001"
+    "DISPLAY_SELECTION":{
+        "AIR":"3",
+        "SURF":"4",
+        "SUB_SURF":"5",
+        "REF_POS":"6",
+        "BEAR_SEL":"7",
+        "LINK_SEL": "8",
+        "WARF_SEL": "9",
+        "FIG": "10"
     },
-    "RANGE8": {
-      "type": "switch",
-      "label": "8",
-      "value": "010"
+    "THREAT_ASSESMENT":{
+        "12_SEC":"11",
+        "30_SEC":"12",
+        "6_MIN":"13",
+        "15_MIN":"14",
+        "RESET":"15"
     },
-    "RANGE16": {
-      "type": "switch",
-      "label": "16",
-      "value": "011"
+    "LABEL_SELECTION":{
+        "MS":"",
+        "TKRM":"",
+        "AMPL_INFO":"",
+        "LINK_STAT":"",
+        "TN":""
     },
-    "RANGE32": {
-      "type": "switch",
-      "label": "32",
-      "value": "100"
+    "ICM":{
+        "1":"000",
+        "2":"001",
+        "3":"010",
+        "4":"011",
+        "5":"100",
+        "6":"101",
+        "7":"110"
     },
-    "RANGE64": {
-      "type": "switch",
-      "label": "64",
-      "value": "101"
+    "CENTER":{
+        "CU_OR_OFF_CENT":"0",
+        "CU_OR_CENT":"1",
+        "OFF_CENT":"2",
+        "CENT":"3",
+        "RESET_OBM":"4",
+        "DATA_REQ":"5"
     },
-    "RANGE128": {
-      "type": "switch",
-      "label": "128",
-      "value": "110"
+    "DISPLAY_MODE":{
+        "HM":"",
+        "RR":"15",
+        "OWN_CURS":"7",
+        "SYMB_LARGE":"",
+        "TM":"6",
+        "EMERG":"",
+        "SYST_ALARM":"14"
     },
-    "RANGE256": {
-      "type": "switch",
-      "label": "256",
-      "value": "111"
-    }
-  },
-  "DISPLAY_SELECTION": {
-    "AIR": {
-      "type": "switch",
-      "label": "AIR",
-      "pos": "21"
-    },
-    "SURF": {
-      "type": "switch",
-      "label": "SURF",
-      "pos": "20"
-    },
-    "SUB_SURF": {
-      "type": "switch",
-      "label": "SUB SURF",
-      "pos": "19"
-    },
-    "REF_POS": {
-      "type": "switch",
-      "label": "REF POS",
-      "pos": "18"
-    },
-    "BEAR_SEL": {
-      "type": "switch",
-      "label": "BEAR SEL",
-      "pos": "17"
-    },
-    "LINK_SEL": {
-      "type": "switch",
-      "label": "LINK SEL",
-      "pos": "16"
-    },
-    "WARF_SEL": {
-      "type": "switch",
-      "label": "WARF SEL",
-      "pos": "15"
-    },
-    "FIG": {
-      "type": "switch",
-      "label": "FIG",
-      "pos": "14"
-    }
-  },
-  "THREAT_ASSESMENT": {
-    "12_SEC": {
-      "type": "switch",
-      "label": "12 SEC",
-      "pos": "13"
-    },
-    "30_SEC": {
-      "type": "switch",
-      "label": "30 SEC",
-      "pos": "12"
-    },
-    "6_MIN": {
-      "type": "switch",
-      "label": "6 MIN",
-      "pos": "11"
-    },
-    "15_MIN": {
-      "type": "switch",
-      "label": "15 MIN",
-      "pos": "10"
-    },
-    "RESET": {
-      "type": "push",
-      "label": "RESET",
-      "pos": "9"
-    }
-  },
-  "LABEL_SELECTION": {
-    "MS": {
-      "type": "switch",
-      "label": "MS",
-      "value": ""
-    },
-    "TRKM": {
-      "type": "switch",
-      "label": "TRKM",
-      "value": ""
-    },
-    "AMPL_INFO": {
-      "type": "switch",
-      "label": "AMPL INFO",
-      "value": ""
-    },
-    "LINK_STAT": {
-      "type": "switch",
-      "label": "LINK STAT",
-      "value": ""
-    },
-    "TN": {
-      "type": "switch",
-      "label": "TN",
-      "value": ""
-    }
-  },
-  "ICM": {
-    "1": {
-      "type": "switch",
-      "label": "1",
-      "value": "000"
-    },
-    "2": {
-      "type": "switch",
-      "label": "2",
-      "value": "001"
-    },
-    "3": {
-      "type": "switch",
-      "label": "3",
-      "value": "010"
-    },
-    "4": {
-      "type": "switch",
-      "label": "4",
-      "value": "011"
-    },
-    "5": {
-      "type": "switch",
-      "label": "5",
-      "value": "100"
-    },
-    "6": {
-      "type": "switch",
-      "label": "6",
-      "value": "101"
-    },
-    "7": {
-      "type": "switch",
-      "label": "7",
-      "value": "110"
-    }
-  },
-  "CENTER": {
-    "CU_OR_OFF_CENT": {
-      "type": "push",
-      "label": "CU OR OFF CENT",
-      "pos": "24"
-    },
-    "CU_OR_CENT": {
-      "type": "push",
-      "label": "CU OR CENT",
-      "pos": "23"
-    },
-    "OFF_CENT": {
-      "type": "push",
-      "label": "OFF CENT",
-      "pos": "22"
-    },
-    "CENT": {
-      "type": "push",
-      "label": "CENT",
-      "pos": "21"
-    },
-    "RESET_OBM": {
-      "type": "push",
-      "label": "RESET OBM",
-      "pos": "20"
-    },
-    "DATA_REQ": {
-      "label": "???????",
-      "type": "push",
-      "pos": "19"
-    }
-  },
-  "DISPLAY_MODE": {
-    "HM": {
-      "type": "switch",
-      "label": "HM",
-      "value": ""
-    },
-    "RR": {
-      "type": "switch",
-      "label": "RR",
-      "pos": "9"
-    },
-    "OWN_CURS": {
-      "type": "switch",
-      "label": "OWN CURS",
-      "pos": "17"
-    },
-    "SYMB_LARGE": {
-      "type": "switch",
-      "label": "SYMB LARGE",
-      "value": ""
-    },
-    "TM": {
-      "type": "switch",
-      "label": "TM",
-      "pos": "18"
-    },
-    "EMERG": {
-      "type": "switch",
-      "label": "EMERG",
-      "value": ""
-    },
-    "SYST_ALARM": {
-      "type": "push",
-      "label": "SYST ALARM",
-      "pos": "10"
-    }
-  },
-  "QEK": {
-    "QEK_20": {
-    "type": "push",
-    "label": "20",
-    "value": "00010000"
-},
-"QEK_21": {
-    "type": "push",
-    "label": "21",
-    "value": "00010001"
-},
-"QEK_22": {
-    "type": "push",
-    "label": "22",
-    "value": "00010010"
-},
-"QEK_23": {
-    "type": "push",
-    "label": "23",
-    "value": "00010011"
-},
-"QEK_24": {
-    "type": "push",
-    "label": "24",
-    "value": "00010100"
-},
-"QEK_25": {
-    "type": "push",
-    "label": "25",
-    "value": "00010101"
-},
-"QEK_26": {
-    "type": "push",
-    "label": "26",
-    "value": "00010110"
-},
-"QEK_27": {
-    "type": "push",
-    "label": "27",
-    "value": "00010111"
-},
-"QEK_30": {
-    "type": "push",
-    "label": "30",
-    "value": "00011000"
-},
-"QEK_31": {
-    "type": "push",
-    "label": "31",
-    "value": "00011001"
-},
-"QEK_32": {
-    "type": "push",
-    "label": "32",
-    "value": "00011010"
-},
-"QEK_33": {
-    "type": "push",
-    "label": "33",
-    "value": "00011011"
-},
-"QEK_34": {
-    "type": "push",
-    "label": "34",
-    "value": "00011100"
-},
-"QEK_35": {
-    "type": "push",
-    "label": "35",
-    "value": "00011101"
-},
-"QEK_36": {
-    "type": "push",
-    "label": "36",
-    "value": "00011110"
-},
-"QEK_37": {
-    "type": "push",
-    "label": "37",
-    "value": "00011111"
-},
-"QEK_40": {
-    "type": "push",
-    "label": "40",
-    "value": "00100000"
-},
-"QEK_41": {
-    "type": "push",
-    "label": "41",
-    "value": "00100001"
-},
-"QEK_42": {
-    "type": "push",
-    "label": "42",
-    "value": "00100010"
-},
-"QEK_43": {
-    "type": "push",
-    "label": "43",
-    "value": "00100011"
-},
-"QEK_44": {
-    "type": "push",
-    "label": "44",
-    "value": "00100100"
-},
-"QEK_45": {
-    "type": "push",
-    "label": "45",
-    "value": "00100101"
-},
-"QEK_46": {
-    "type": "push",
-    "label": "46",
-    "value": "00100110"
-},
-"QEK_47": {
-    "type": "push",
-    "label": "47",
-    "value": "00100111"
-},
-"QEK_50": {
-    "type": "push",
-    "label": "50",
-    "value": "00101000"
-},
-"QEK_51": {
-    "type": "push",
-    "label": "51",
-    "value": "00101001"
-},
-"QEK_52": {
-    "type": "push",
-    "label": "52",
-    "value": "00101010"
-},
-"QEK_53": {
-    "type": "push",
-    "label": "53",
-    "value": "00101011"
-},
-"QEK_54": {
-    "type": "push",
-    "label": "54",
-    "value": "00101100"
-},
-"QEK_55": {
-    "type": "push",
-    "label": "55",
-    "value": "00101101"
-},
-"QEK_56": {
-    "type": "push",
-    "label": "56",
-    "value": "00101110"
-},
-"QEK_57": {
-    "type": "push",
-    "label": "57",
-    "value": "00101111"
-  }
-}
+    "QEK":{
+        "QEK_20":"00010000",
+        "QEK_21":"00010001",
+        "QEK_22":"00010010",
+        "QEK_23":"00010011",
+        "QEK_24":"00010100",
+        "QEK_25":"00010101",
+        "QEK_26":"00010110",
+        "QEK_27":"00010111",
+        "QEK_30":"00011000",
+        "QEK_31":"00011001",
+        "QEK_32":"00011010",
+        "QEK_33":"00011011",
+        "QEK_34":"00011100",
+        "QEK_35":"00011101",
+        "QEK_36":"00011110",
+        "QEK_37":"00011111",
+        "QEK_40":"00100000",
+        "QEK_41":"00100001",
+        "QEK_42":"00100010",
+        "QEK_43":"00100011",
+        "QEK_44":"00100100",
+        "QEK_45":"00100101",
+        "QEK_46":"00100110",
+        "QEK_47":"00100111",
+        "QEK_50":"00101000",
+        "QEK_51":"00101001",
+        "QEK_52":"00101010",
+        "QEK_53":"00101011",
+        "QEK_54":"00101100",
+        "QEK_55":"00101101",
+        "QEK_56":"00101110",
+        "QEK_57":"00101111"
+     }
 }

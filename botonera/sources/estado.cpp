@@ -14,6 +14,12 @@ Estado::Estado(Botonera *b)
     this->displayMode       = *new QString("");
     this->displaySelection  = *new QString("");
     this->mik               = *new QString("");
+    this->labelS            = *new QString("");
+    this->qekS              = *new QString("");
+    this->centerS           = *new QString("");
+    this->icmS              = *new QString("");
+    this->displayModeS      = *new QString("");
+    this->overlayS          = *new QString("");
 }
 
 void Estado::setOverlay(QString codigo){
@@ -95,10 +101,14 @@ QString Estado::getMIK(){
     return token;
 }
 
-QString Estado::getQekIzq(){            return qek;}
-QString Estado::getQekDer(){            return qek;}
 QString Estado::getDisplaySelection(){  return displaySelection;}
 QString Estado::getRange(){             return range;}
+QString Estado::getLabelS()        {return labelS      ;}
+QString Estado::getQEKS()          {return qekS        ;}
+QString Estado::getCenterS()       {return centerS     ;}
+QString Estado::getICMS()          {return icmS        ;}
+QString Estado::getDisplayModeS()  {return displayModeS;}
+QString Estado::getOverlayS()      {return overlayS    ;}
 
 void Estado::setLabel(QString s){
     s.append(" ");
@@ -139,6 +149,48 @@ void Estado::setMIK(QString s){
     refresh();
 }
 
+void Estado::setLabelS(QString l)
+{
+    l.append(" ");
+    this->labelS.append(l);
+    refresh();
+}
+
+void Estado::setQEKS(QString q)
+{
+    q.append(" ");
+    this->qekS.append(q);
+    refresh();
+}
+
+void Estado::setCenterS(QString c)
+{
+    c.append(" ");
+    this->centerS.append(c);
+    refresh();
+}
+
+void Estado::setICMS(QString i)
+{
+    i.append(" ");
+    this->icmS.append(i);
+    refresh();
+}
+
+void Estado::setDisplayModeS(QString d)
+{
+    d.append(" ");
+    this->displayModeS.append(d);
+    refresh();
+}
+
+void Estado::setOverlayS(QString o)
+{
+    o.append(" ");
+    this->overlayS.append(o);
+    refresh();
+}
+
 void Estado::setDisplaySelection(QString s){
     if (!this->displaySelection.isEmpty() && !this->displaySelection.endsWith(" ")) {
         this->displaySelection.append(" ");
@@ -167,5 +219,12 @@ void Estado::refresh()
                     << "\nDisplay Selection:\t " << displaySelection
                     << "\nICM:\t\t " << icm
                     << "\nMIK:\t\t " << mik
+                    << "\nSLAVE"
+                    << "\nLabels Selection:\t " << labelS
+                    << "\nQEKs:\t\t " << qekS
+                    << "\nCenters:\t\t " << centerS
+                    << "\nDisplay Mode:\t " << displayModeS
+                    << "\nICM:\t\t " << icm
+                    <<  "\nOverlayS \t\t"<< overlayS
                     << "\n";
 }

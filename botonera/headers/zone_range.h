@@ -8,6 +8,8 @@ namespace Ui {
 class zone_range;
 }
 
+class Boton;
+
 class zone_range : public Zone
 {
 
@@ -17,9 +19,12 @@ public:
     void removeCode(QString code) override;
     QString getName() override;
     ~zone_range();
+    void start();
+
 
 private:
     Ui::zone_range *ui;
+    Boton *boton4;
 };
 
 #endif // ZONE_RANGE_H

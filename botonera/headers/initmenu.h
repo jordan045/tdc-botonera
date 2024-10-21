@@ -17,6 +17,7 @@ private:
     QButtonGroup *group;
     int tipoBuque;
 
+
 private slots:
     void seleccion();
 

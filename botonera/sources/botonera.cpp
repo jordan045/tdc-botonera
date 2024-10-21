@@ -40,106 +40,7 @@ Botonera::Botonera(QWidget *parent) :
 
     alfanumeric_display = new andGui(NULL,this);
 }
-//---------Removers----------------------------//
-void Botonera::setOverlay(QString codigo){
-    miEstado->setOverlay(codigo);
-    sendMessage();
-}
-void Botonera::removeCodeFromRange(QString boton){
-    miEstado->removeRange(boton);
-    sendMessage();
-}
-void Botonera::removeCodeFromLabelSelection(QString boton){
-    miEstado->removeLabel(boton);
-    concentrator->removeDisplaySelection(boton);
-    sendMessage();
-}
-void Botonera::removeCodeFromQek(QString boton){
-    miEstado->removeQek(boton);
-    concentrator->removeQEK();
-    sendMessage();
-}
-void Botonera::removeCodeFromThreat(QString boton){
-    miEstado->removeThreat(boton);
-    concentrator->removeThreat(boton);
-    sendMessage();
-}
-void Botonera::removeCodeFromCenter(QString boton){
-    miEstado->removeCenter(boton);
-    concentrator->removeCenter(boton);
-    sendMessage();
-}
-void Botonera::removeCodeFromDisplayMode(QString boton){
-    miEstado->removeDisplayMode(boton);
-    concentrator->removeDisplayMode(boton);
-    sendMessage();
-}
-void Botonera::removeCodeFromDisplaySelection(QString boton){
-    miEstado->removeDisplaySelection(boton);
-    concentrator->removeDisplaySelection(boton);
-    sendMessage();
-}
-void Botonera::removeCodeFromIcm(QString boton){
-    miEstado->removeIcm(boton);
-    sendMessage();
-}
 
-void Botonera::removeCharToMIK(QString c){
-    miEstado->removeMIK(c);
-    sendMessage();
-}
-
-//Setters//
-void Botonera::sendCodeToRange(QString boton){
-    miEstado->setRange(boton);
-    sendMessage();
-}
-void Botonera::sendCodeToLabelSelection(QString boton){
-    miEstado->setLabel(boton);
-    sendMessage();
-}
-
-void Botonera::sendCodeToQek(QString boton){
-    miEstado->setQEK(boton);
-    sendMessage();
-}
-
-void Botonera::sendCodeToThreat(QString boton){
-    miEstado->setThreat(boton);
-    sendMessage();
-}
-
-void Botonera::sendCodeToCenter(QString boton){
-    miEstado->setCenter(boton);
-    sendMessage();
-}
-
-void Botonera::sendCodeToDisplayMode(QString boton){
-    miEstado->setDisplayMode(boton);
-    sendMessage();
-}
-
-void Botonera::sendCodeToDisplaySelection(QString boton){
-    miEstado->setDisplaySelection(boton);
-    sendMessage();
-}
-
-void Botonera::sendCodeToIcm(QString boton){
-    miEstado->setICM(boton);
-    sendMessage();
-}
-
-void Botonera::sendCharToMIK(QString c){
-    miEstado->setMIK(c);
-}
-
-void Botonera::sendMessage(){
-    concentrator->getMessage(miEstado);
-}
-
-QString Botonera::getOverlay(){
-    return miEstado->getOverlay();
-}
 
 void centerWidget(QWidget *window, QScreen *screen){
     QRect screenGeometry = screen->geometry();
@@ -150,11 +51,11 @@ void centerWidget(QWidget *window, QScreen *screen){
     window->move(x,y);
 }
 
+
 void Botonera::start(int tipo)
 {
     QList<QScreen *> screens = QGuiApplication::screens();
 
-    int overlay = getOverlay().toInt();
     if (tipo == 140){
         switch (overlay) {
         case 1:
@@ -211,6 +112,10 @@ void Botonera::start(int tipo)
     alfanumeric_display->show();
 }
 
+void Botonera::setOverlay(QString codigo)
+{
+    overlay = codigo.toInt();
+}
 
 
 void Botonera::infoMessage(){
@@ -238,7 +143,7 @@ void Botonera::infoMessage(){
     //                "</table>";
     // msg.setText(text);
     // msg.exec();
-    sendMessage();
+
 }
 
 void Botonera::crearBotonHelp()

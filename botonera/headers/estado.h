@@ -36,8 +36,12 @@ public:
     QString getDisplayMode() override;
     QString getDisplaySelection() override;
     QString getICM() override;
-    QString getQekIzq() override;
-    QString getQekDer() override;
+    QString getLabelS()        override;
+    QString getQEKS()          override;
+    QString getCenterS()       override;
+    QString getICMS()          override;
+    QString getDisplayModeS()  override;
+    QString getOverlayS()      override;
     QString getModos() override;
     QString getOverlay() override;
 
@@ -59,6 +63,13 @@ public:
     void setICM(QString i) override;
     void setMIK(QString m);
 
+    void setLabelS(QString l)       override;
+    void setQEKS(QString q)         override;
+    void setCenterS(QString c)      override;
+    void setICMS(QString i)         override;
+    void setDisplayModeS(QString d) override;
+    void setOverlayS(QString o)     override;
+
 
 private:
     Botonera *miBotonera;
@@ -74,6 +85,13 @@ private:
     QString displaySelection;
     QString overlay;
     QString mik;
+
+    QString labelS;
+    QString qekS;
+    QString centerS;
+    QString icmS;
+    QString displayModeS;
+    QString overlayS;
 
     void refresh();
 };
