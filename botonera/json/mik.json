@@ -1,0 +1,239 @@
+ {"teclas": {
+    "s": {
+      "ASCII_Binario": "00100000",
+      "ASCII_Octal": "040"
+    },
+    " ": {
+      "ASCII_Binario": "00100001",
+      "ASCII_Octal": "041"
+    },
+    "\b": {
+      "ASCII_Binario": "00100010",
+      "ASCII_Octal": "042"
+    },
+    "\r": {
+      "ASCII_Binario": "00100011",
+      "ASCII_Octal": "043"
+    },
+    "$": {
+      "ASCII_Binario": "00100100",
+      "ASCII_Octal": "044"
+    },
+    "%": {
+      "ASCII_Binario": "00100101",
+      "ASCII_Octal": "045"
+    },
+    "&": {
+      "ASCII_Binario": "00100110",
+      "ASCII_Octal": "046"
+    },
+    "'": {
+      "ASCII_Binario": "00100111",
+      "ASCII_Octal": "047"
+    },
+    "(": {
+      "ASCII_Binario": "00101000",
+      "ASCII_Octal": "050"
+    },
+    ")": {
+      "ASCII_Binario": "00101001",
+      "ASCII_Octal": "051"
+    },
+    "*": {
+      "ASCII_Binario": "00101010",
+      "ASCII_Octal": "052"
+    },
+    "+": {
+      "ASCII_Binario": "00101011",
+      "ASCII_Octal": "053"
+    },
+    ",": {
+      "ASCII_Binario": "00101100",
+      "ASCII_Octal": "054"
+    },
+    "-": {
+      "ASCII_Binario": "00101101",
+      "ASCII_Octal": "055"
+    },
+    ".": {
+      "ASCII_Binario": "00101110",
+      "ASCII_Octal": "056"
+    },
+    "/": {
+      "ASCII_Binario": "00101111",
+      "ASCII_Octal": "057"
+    },
+    "0": {
+      "ASCII_Binario": "00110000",
+      "ASCII_Octal": "060"
+    },
+    "1": {
+      "ASCII_Binario": "00110001",
+      "ASCII_Octal": "061"
+    },
+    "2": {
+      "ASCII_Binario": "00110010",
+      "ASCII_Octal": "062"
+    },
+    "3": {
+      "ASCII_Binario": "00110011",
+      "ASCII_Octal": "063"
+    },
+    "4": {
+      "ASCII_Binario": "00110100",
+      "ASCII_Octal": "064"
+    },
+    "5": {
+      "ASCII_Binario": "00110101",
+      "ASCII_Octal": "065"
+    },
+    "6": {
+      "ASCII_Binario": "00110110",
+      "ASCII_Octal": "066"
+    },
+    "7": {
+      "ASCII_Binario": "00110111",
+      "ASCII_Octal": "067"
+    },
+    "8": {
+      "ASCII_Binario": "00111000",
+      "ASCII_Octal": "070"
+    },
+    "9": {
+      "ASCII_Binario": "00111001",
+      "ASCII_Octal": "071"
+    },
+    ":": {
+      "ASCII_Binario": "00111010",
+      "ASCII_Octal": "072"
+    },
+    ";": {
+      "ASCII_Binario": "00111011",
+      "ASCII_Octal": "073"
+    },
+    "<": {
+      "ASCII_Binario": "00111100",
+      "ASCII_Octal": "074"
+    },
+    "=": {
+      "ASCII_Binario": "00111101",
+      "ASCII_Octal": "075"
+    },
+    ">": {
+      "ASCII_Binario": "00111110",
+      "ASCII_Octal": "076"
+    },
+    "?": {
+      "ASCII_Binario": "00111111",
+      "ASCII_Octal": "077"
+    },
+    "@": {
+      "ASCII_Binario": "01000000",
+      "ASCII_Octal": "100"
+    },
+    "A": {
+      "ASCII_Binario": "01000001",
+      "ASCII_Octal": "101"
+    },
+    "B": {
+      "ASCII_Binario": "01000010",
+      "ASCII_Octal": "102"
+    },
+    "C": {
+      "ASCII_Binario": "01000011",
+      "ASCII_Octal": "103"
+    },
+    "D": {
+      "ASCII_Binario": "01000100",
+      "ASCII_Octal": "104"
+    },
+    "E": {
+      "ASCII_Binario": "01000101",
+      "ASCII_Octal": "105"
+    },
+    "F": {
+      "ASCII_Binario": "01000110",
+      "ASCII_Octal": "106"
+    },
+    "G": {
+      "ASCII_Binario": "01000111",
+      "ASCII_Octal": "107"
+    },
+    "H": {
+      "ASCII_Binario": "01001000",
+      "ASCII_Octal": "110"
+    },
+    "I": {
+      "ASCII_Binario": "01001001",
+      "ASCII_Octal": "111"
+    },
+    "J": {
+      "ASCII_Binario": "01001010",
+      "ASCII_Octal": "112"
+    },
+    "K": {
+      "ASCII_Binario": "01001011",
+      "ASCII_Octal": "113"
+    },
+    "L": {
+      "ASCII_Binario": "01001100",
+      "ASCII_Octal": "114"
+    },
+    "M": {
+      "ASCII_Binario": "01001101",
+      "ASCII_Octal": "115"
+    },
+    "N": {
+      "ASCII_Binario": "01001110",
+      "ASCII_Octal": "116"
+    },
+    "O": {
+      "ASCII_Binario": "01001111",
+      "ASCII_Octal": "117"
+    },
+    "P": {
+      "ASCII_Binario": "01010000",
+      "ASCII_Octal": "120"
+    },
+    "Q": {
+      "ASCII_Binario": "01010001",
+      "ASCII_Octal": "121"
+    },
+    "R": {
+      "ASCII_Binario": "01010010",
+      "ASCII_Octal": "122"
+    },
+    "S": {
+      "ASCII_Binario": "01010011",
+      "ASCII_Octal": "123"
+    },
+    "T": {
+      "ASCII_Binario": "01010100",
+      "ASCII_Octal": "124"
+    },
+    "U": {
+      "ASCII_Binario": "01010101",
+      "ASCII_Octal": "125"
+    },
+    "V": {
+      "ASCII_Binario": "01010110",
+      "ASCII_Octal": "126"
+    },
+    "W": {
+      "ASCII_Binario": "01010111",
+      "ASCII_Octal": "127"
+    },
+    "X": {
+      "ASCII_Binario": "01011000",
+      "ASCII_Octal": "130"
+    },
+    "Y": {
+      "ASCII_Binario": "01011001",
+      "ASCII_Octal": "131"
+    },
+    "Z": {
+      "ASCII_Binario": "01011010",
+      "ASCII_Octal": "132"
+    }
+  }
+}

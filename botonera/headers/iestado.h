@@ -38,12 +38,14 @@ public:
     virtual QString getICM() = 0;
     virtual QString getModos() = 0;
     virtual QString getOverlay() = 0;
+    virtual QString getMIK() = 0;
     virtual QString getLabelS()        = 0;
     virtual QString getQEKS()          = 0;
     virtual QString getCenterS()       = 0;
     virtual QString getICMS()          = 0;
     virtual QString getDisplayModeS()  = 0;
     virtual QString getOverlayS()      = 0;
+
 
     virtual void setRange(QString r) = 0;
     virtual void setLabel(QString l) = 0;

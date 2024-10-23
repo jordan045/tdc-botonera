@@ -13,8 +13,10 @@
 #include "zone_threat.h"
 #include "zone_displayselection.h"
 #include "zone_displaymode.h"
+//#include "andGui.h"
 
 class Qek;
+class andGui;
 class Botonera : public QWidget
 {
     Q_OBJECT
@@ -31,6 +33,7 @@ public:
     virtual void sendCodeToDisplayMode(QString boton)       = 0;
     virtual void sendCodeToDisplaySelection(QString boton)  = 0;
     virtual void sendCodeToIcm(QString boton)               = 0;
+    virtual void sendCharToMIK(QString c);
 
     virtual void removeCodeFromRange(QString boton)             = 0;
     virtual void removeCodeFromLabelSelection(QString boton)    = 0;
@@ -60,6 +63,7 @@ protected:
     Estado *miEstado;
     QPushButton *help_button = new QPushButton("");
     void crearBotonHelp();
+    andGui *alfanumeric_display;
     void distribucionLayout();
 
 };

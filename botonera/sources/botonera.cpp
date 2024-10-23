@@ -1,4 +1,5 @@
 #include "botonera.h"
+#include "andGui.h"
 #include "overlay_140_0001.h"
 #include "overlay_140_0010.h"
 #include "overlay_140_0011.h"
@@ -21,26 +22,40 @@
 #include "overlay_360_0111.h"
 #include "overlay_360_1000.h"
 #include "QFontDatabase"
+#include <QScreen>
 
 Botonera::Botonera(QWidget *parent) :
     QWidget(parent)
 {
-    qDebug()<<"Constructor botonera";
+    miEstado = new Estado(this);
+    concentrator = new FormatConcentrator();
+
     range_widget = new zone_range(this);
-    qDebug()<<"cree el rango";
     label_selection_widget = new zone_label(this);
     threat_assesment_widget = new zone_threat(this);
     display_mode_widget = new zone_displayMode(this);
     center_widget = new zone_center(this);
     icm_widget = new zone_icm(this);
     display_selection_widget = new zone_displaySelection(this);
-    qDebug()<<"termine de hacer las zonas";
+
+    alfanumeric_display = new andGui(NULL,this);
 }
 
+
+void centerWidget(QWidget *window, QScreen *screen){
+    QRect screenGeometry = screen->geometry();
+
+    int x = screenGeometry.x() + (screenGeometry.width() - window->width()) / 2;
+    int y = screenGeometry.y() + (screenGeometry.height() - window->height()) / 2;
+
+    window->move(x,y);
+}
 
 
 void Botonera::start(int tipo)
 {
+    QList<QScreen *> screens = QGuiApplication::screens();
+
     if (tipo == 140){
         switch (overlay) {
         case 1:
@@ -86,43 +101,49 @@ void Botonera::start(int tipo)
         }
     }
 
-    qDebug() << tipo << overlay;
-
     crearBotonHelp();
     distribucionLayout();
 
-
+    if(screens.size() > 1){
+        centerWidget(this,screens[0]);
+        centerWidget(alfanumeric_display,screens[1]);
+    }
+    this->show();
+    alfanumeric_display->show();
 }
 
 void Botonera::setOverlay(QString codigo)
 {
     overlay = codigo.toInt();
 }
+
+
 void Botonera::infoMessage(){
-    // Genera el mensaje de ayuda con los atajos de teclado
-    QMessageBox msg;
+    // // Genera el mensaje de ayuda con los atajos de teclado
+    // QMessageBox msg;
 
-    msg.setWindowTitle("ATAJOS DE TECLADO");
-    QString text = "<table style='border-collapse: collapse;'>"
-                   "<tr><td style='text-align: left; padding: 8px;'>WIPE</td><td style='text-align: right; padding: 8px;'>Ctrl+R</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>CLOSE CONTROL</td><td style='text-align: right; padding: 8px;'>Ctrl+E</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>CORRECT</td><td style='text-align: right; padding: 8px;'>Ctrl+W</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>NEXT TRACK</td><td style='text-align: right; padding: 8px;'>Ctrl+Q</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>DATA REQUEST</td><td style='text-align: right; padding: 8px;'>Ctrl+D</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>CENTER</td><td style='text-align: right; padding: 8px;'>Ctrl+S</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>OFF CENTER</td><td style='text-align: right; padding: 8px;'>Ctrl+A</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>2 DM</td><td style='text-align: right; padding: 8px;'>F2</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>4 DM</td><td style='text-align: right; padding: 8px;'>F3</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>8 DM</td><td style='text-align: right; padding: 8px;'>F4</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>16 DM</td><td style='text-align: right; padding: 8px;'>F5</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>32 DM</td><td style='text-align: right; padding: 8px;'>F6</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>64 DM</td><td style='text-align: right; padding: 8px;'>F7</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>128 DM</td><td style='text-align: right; padding: 8px;'>F8</td></tr>"
-                   "<tr><td style='text-align: left; padding: 8px;'>256 DM</td><td style='text-align: right; padding: 8px;'>F9</td></tr>"
+    // msg.setWindowTitle("ATAJOS DE TECLADO");
+    // QString text = "<table style='border-collapse: collapse;'>"
+    //                "<tr><td style='text-align: left; padding: 8px;'>WIPE</td><td style='text-align: right; padding: 8px;'>Ctrl+R</td></tr>"
+    //                "<tr><td style='text-align: left; padding: 8px;'>CLOSE CONTROL</td><td style='text-align: right; padding: 8px;'>Ctrl+E</td></tr>"
+    //                "<tr><td style='text-align: left; padding: 8px;'>CORRECT</td><td style='text-align: right; padding: 8px;'>Ctrl+W</td></tr>"
+    //                "<tr><td style='text-align: left; padding: 8px;'>NEXT TRACK</td><td style='text-align: right; padding: 8px;'>Ctrl+Q</td></tr>"
+    //                "<tr><td style='text-align: left; padding: 8px;'>DATA REQUEST</td><td style='text-align: right; padding: 8px;'>Ctrl+D</td></tr>"
+    //                "<tr><td style='text-align: left; padding: 8px;'>CENTER</td><td style='text-align: right; padding: 8px;'>Ctrl+S</td></tr>"
+    //                "<tr><td style='text-align: left; padding: 8px;'>OFF CENTER</td><td style='text-align: right; padding: 8px;'>Ctrl+A</td></tr>"
+    //                "<tr><td style='text-align: left; padding: 8px;'>2 DM</td><td style='text-align: right; padding: 8px;'>F2</td></tr>"
+    //                "<tr><td style='text-align: left; padding: 8px;'>4 DM</td><td style='text-align: right; padding: 8px;'>F3</td></tr>"
+    //                "<tr><td style='text-align: left; padding: 8px;'>8 DM</td><td style='text-align: right; padding: 8px;'>F4</td></tr>"
+    //                "<tr><td style='text-align: left; padding: 8px;'>16 DM</td><td style='text-align: right; padding: 8px;'>F5</td></tr>"
+    //                "<tr><td style='text-align: left; padding: 8px;'>32 DM</td><td style='text-align: right; padding: 8px;'>F6</td></tr>"
+    //                "<tr><td style='text-align: left; padding: 8px;'>64 DM</td><td style='text-align: right; padding: 8px;'>F7</td></tr>"
+    //                "<tr><td style='text-align: left; padding: 8px;'>128 DM</td><td style='text-align: right; padding: 8px;'>F8</td></tr>"
+    //                "<tr><td style='text-align: left; padding: 8px;'>256 DM</td><td style='text-align: right; padding: 8px;'>F9</td></tr>"
 
-                   "</table>";
-    msg.setText(text);
-    msg.exec();
+    //                "</table>";
+    // msg.setText(text);
+    // msg.exec();
+
 }
 
 void Botonera::crearBotonHelp()
@@ -139,8 +160,6 @@ void Botonera::crearBotonHelp()
 
     connect(shortcut, SIGNAL(activated()), this, SLOT(infoMessage()));
     connect(help_button, &QPushButton::clicked, this, &Botonera::infoMessage);
-
-
 }
 
 void Botonera::distribucionLayout()
@@ -154,6 +173,7 @@ void Botonera::distribucionLayout()
     QHBoxLayout *inner_layout = new QHBoxLayout();
     QVBoxLayout *column_layout = new QVBoxLayout();
     QVBoxLayout *qek_layout = new QVBoxLayout();
+    QHBoxLayout *global_layout = new QHBoxLayout();
 
     top_layout->addWidget(range_widget,Qt::AlignCenter);
 
@@ -175,8 +195,15 @@ void Botonera::distribucionLayout()
     outer_layout->addLayout(inner_layout);
     outer_layout->addWidget(help_button);
 
-    this->setLayout(outer_layout);
+    global_layout->addLayout(outer_layout);
+    //global_layout->addWidget(alfanumeric_display);
+    //global_layout->setAlignment(alfanumeric_display, Qt::AlignCenter);
+
+    this->setLayout(global_layout);
     this->setFont(Bahnschrift);
+
+    // QString mensaje = "0101011100110000001100010010000000110001001100100010000001001100010010010100111001001011001000000011000100110100001000000101010001010010010000110100101100100000001100100011001100110000001000000100110000100000001010110011000000110110000010100101010001011000010100110101010000100001001011010000101001000001001000000010000000100000001011010010110100101101001011010010110100000100000001011010010110100101101001011010010110100000100000001011010010110100101101001011010010110100001010010000100010000000100000001000000010110100101101001011010010110100000100000001011010010110100101101001011010010110100000100000001011010010110100101101001011010010110100001010000110010000000100000001000000010110100101101001011010010110100000100000001011010010110100101101001011010010110100000100000001011010010110100101101001011010010110100001010001000100010000000100000001000000010110100101101001011010010110100000100000001011010010110100101101001011010010110100000100000001011010010110100101101001011010010110100001010001010010100001000000101001101010000001000000010000001000000010110100101101001011010010110101001010";
+    // alfanumeric_display->recibirMensaje(mensaje);
 }
 
 

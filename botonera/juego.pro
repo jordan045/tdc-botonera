@@ -12,6 +12,8 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    sources/andGui.cpp \
+    sources/AndTranslator.cpp \
     sources/boton.cpp \
     sources/botonera.cpp \
     sources/botoneraMaster.cpp \
@@ -20,6 +22,7 @@ SOURCES += \
     sources/formatconcentrator.cpp \
     sources/initmenu.cpp \
     sources/main.cpp \
+    sources/mik.cpp \
     sources/overlay_140_0001.cpp \
     sources/overlay_140_0010.cpp \
     sources/overlay_140_0011.cpp \
@@ -42,6 +45,8 @@ SOURCES += \
 
 HEADERS += \
     headers/Zone.h \
+    headers/andGui.h \
+    headers/andTranslator.h \
     headers/boton.h \
     headers/botonera.h \
     headers/botoneraMaster.h \
@@ -70,8 +75,11 @@ HEADERS += \
     headers/zone_label.h \
     headers/zone_range.h \
     headers/zone_threat.h \
+    headers/mik.h \
 
 FORMS += \
+    forms/andGrilla.ui \
+    forms/andGui.ui \
     forms/overlay_140_0001.ui \
     forms/overlay_140_0010.ui \
     forms/overlay_140_0011.ui \
@@ -103,7 +111,9 @@ RESOURCES += \
 
 DISTFILES += \
     json/overlay.json \
+    json/mik.json \
     mensajesFC/mensajes.txt
+
 
 
 INCLUDEPATH += headers/

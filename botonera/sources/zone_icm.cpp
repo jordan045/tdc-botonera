@@ -2,6 +2,7 @@
 #include "boton.h"
 #include "ui_zone_icm.h"
 #include "botonera.h"
+#include "ui_andGui.h"
 
 zone_icm::zone_icm(Botonera *b)
     : ui(new Ui::zone_icm)

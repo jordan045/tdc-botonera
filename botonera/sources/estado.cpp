@@ -1,4 +1,5 @@
 #include "estado.h"
+#include <QDebug>
 
 Estado::Estado(Botonera *b)
 {
@@ -12,6 +13,7 @@ Estado::Estado(Botonera *b)
     this->icm               = *new QString("");
     this->displayMode       = *new QString("");
     this->displaySelection  = *new QString("");
+    this->mik               = *new QString("");
     this->labelS            = *new QString("");
     this->qekS              = *new QString("");
     this->centerS           = *new QString("");
@@ -37,6 +39,10 @@ void Estado::removeCenter( QString codigo){
 void Estado::removeThreat(QString codigo){
     codigo.append(" ");
     this->threat.remove(codigo);
+    refresh();
+}
+void Estado::removeMIK(QString c){
+    this->mik.clear();
     refresh();
 }
 void Estado::removeDisplayMode(QString codigo){
@@ -75,6 +81,26 @@ QString Estado::getDisplayMode(){       return displayMode;}
 QString Estado::getICM(){               return icm;}
 QString Estado::getModos(){             return displayMode;}
 QString Estado::getOverlay(){           return overlay;}
+
+
+QString Estado::getMIK(){
+    mik = mik.trimmed(); // Elimina espacios en blanco al inicio y al final
+
+    int index = mik.indexOf(' ');
+    QString token;
+
+    if (index == -1) {
+        // No hay espacios, es el último token
+        token = mik;
+        mik.clear();
+    } else {
+        token = mik.left(index);
+        mik = mik.mid(index + 1);
+    }
+    qDebug()<<"Llamé a getMIK()"<<token;
+    return token;
+}
+
 QString Estado::getDisplaySelection(){  return displaySelection;}
 QString Estado::getRange(){             return range;}
 QString Estado::getLabelS()        {return labelS      ;}
@@ -112,6 +138,14 @@ void Estado::setDisplayMode(QString s){
 void Estado::setICM(QString s){
     s.append(" ");
     this->icm.append(s);
+    refresh();
+}
+
+void Estado::setMIK(QString s){
+    s.append(" ");
+    this->mik.append(s);
+    qDebug()<<"agregue a" << s;
+    qDebug()<<"la mik es:" << mik;
     refresh();
 }
 
@@ -157,10 +191,6 @@ void Estado::setOverlayS(QString o)
     refresh();
 }
 
-
-
-
-
 void Estado::setDisplaySelection(QString s){
     if (!this->displaySelection.isEmpty() && !this->displaySelection.endsWith(" ")) {
         this->displaySelection.append(" ");
@@ -188,6 +218,7 @@ void Estado::refresh()
                     << "\nDisplay Mode:\t " << displayMode
                     << "\nDisplay Selection:\t " << displaySelection
                     << "\nICM:\t\t " << icm
+                    << "\nMIK:\t\t " << mik
                     << "\nSLAVE"
                     << "\nLabels Selection:\t " << labelS
                     << "\nQEKs:\t\t " << qekS
@@ -197,4 +228,3 @@ void Estado::refresh()
                     <<  "\nOverlayS \t\t"<< overlayS
                     << "\n";
 }
-

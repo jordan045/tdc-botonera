@@ -31,6 +31,7 @@ void FormatConcentrator::setMessage(IEstado *estado)
     setQEK(estado);
     setICM(estado);
     setOverlay(estado);
+    setMIK(estado);
     setIcmS(estado);
     setQekS(estado);
     setOverlayS(estado);
@@ -49,7 +50,7 @@ void FormatConcentrator::setRange(IEstado *estado)
     QStringList wordListRange = estado->getRange().split(" ", Qt::SkipEmptyParts);
 
     foreach(const QString &word, wordListRange) {
-        QJsonObject rango = archivo["RANGE_SCALE"].toObject();
+        QJsonObject rango = buttonJson["RANGE_SCALE"].toObject();
         QString rangoActual = rango[word].toString();
 
         // Inicializa un índice para establecer los bits
@@ -70,7 +71,7 @@ void FormatConcentrator::setDisplaySelection(IEstado *estado)
 {
     QStringList wordListDSelection = estado->getDisplaySelection().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListDSelection){
-        QJsonObject display = archivo["DISPLAY_SELECTION"].toObject();
+        QJsonObject display = buttonJson["DISPLAY_SELECTION"].toObject();
         QString displayActual = display[word].toString();
         qDebug()<<"Posicion display Actual" + displayActual;
         int posicion = displayActual.toInt();
@@ -83,7 +84,7 @@ void FormatConcentrator::setThreat(IEstado *estado)
     QStringList wordListThreat = estado->getThreat().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListThreat)
     {
-        QJsonObject threat = archivo["THREAT_ASSESMENT"].toObject();
+        QJsonObject threat = buttonJson["THREAT_ASSESMENT"].toObject();
         QString threatActual = threat[word].toString();
         int posicion = threatActual.toInt();
         message->setBit(posicion,true);
@@ -96,7 +97,7 @@ void FormatConcentrator::setCenter(IEstado *estado)
     QStringList wordListCenter = estado->getCenter().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListCenter)
     {
-        QJsonObject center = archivo["CENTER"].toObject();
+        QJsonObject center = buttonJson["CENTER"].toObject();
         QString centerActual = center[word].toString();
         int posicion = centerActual.toInt();
         message->setBit(palabra + posicion,true);
@@ -109,7 +110,7 @@ void FormatConcentrator::setCenterS(IEstado* estado)
     QStringList wordlistCenterS = estado->getCenterS().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word, wordlistCenterS) {
 
-        QJsonObject centerS = archivo["CENTER"].toObject();
+        QJsonObject centerS = buttonJson["CENTER"].toObject();
         QString centerSActual = centerS[word].toString();
         int posicion = centerSActual.toInt();
         message->setBit(palabra+posicion,true);
@@ -123,7 +124,7 @@ void FormatConcentrator::setDisplayMode(IEstado *estado)
     QStringList wordListDisplayMode = estado->getDisplayMode().split(" ",Qt::SkipEmptyParts);
     foreach(const QString &word, wordListDisplayMode)
     {
-        QJsonObject displayMode = archivo["DISPLAY_MODE"].toObject();
+        QJsonObject displayMode = buttonJson["DISPLAY_MODE"].toObject();
         QString displayModeActual = displayMode[word].toString();
         int posicion = displayModeActual.toInt();
         message->setBit(palabra+posicion,true);
@@ -136,7 +137,7 @@ void FormatConcentrator::setDisplayModeS(IEstado *estado)
     QStringList wordListDisplayModeS = estado->getDisplayModeS().split(" ",Qt::SkipEmptyParts);
     foreach(const QString &word, wordListDisplayModeS)
     {
-        QJsonObject displayMode = archivo["DISPLAY_MODE"].toObject();
+        QJsonObject displayMode = buttonJson["DISPLAY_MODE"].toObject();
         QString displayModeActual = displayMode[word].toString();
         int posicion = displayModeActual.toInt();
         message->setBit(palabra+posicion,true);
@@ -152,9 +153,8 @@ void FormatConcentrator::setQEK(IEstado *estado)
     QStringList wordListQek = estado->getQEK().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListQek)
     {
-        QJsonObject qek = archivo["QEK"].toObject();
+        QJsonObject qek = buttonJson["QEK"].toObject();
         QString qekActual = qek[word].toString();
-
         for(QChar caracter:qekActual)
         {
             if(caracter == '1')
@@ -173,7 +173,7 @@ void FormatConcentrator::setQekS(IEstado *estado)
     QStringList wordListQek = estado->getQEKS().split(" ", Qt::SkipEmptyParts);
     foreach(const QString &word,wordListQek)
     {
-        QJsonObject qek = archivo["QEK"].toObject();
+        QJsonObject qek = buttonJson["QEK"].toObject();
         QString qekActual = qek[word].toString();
 
         for(QChar caracter:qekActual)
@@ -200,7 +200,7 @@ void FormatConcentrator::setICM(IEstado *estado){
     }
     foreach(const QString &word,wordListICM)
     {
-        QJsonObject ICM = archivo["ICM"].toObject();
+        QJsonObject ICM = buttonJson["ICM"].toObject();
         QString ICMActual = ICM[word].toString();
         for(QChar caracter:ICMActual)
         {
@@ -226,7 +226,7 @@ void FormatConcentrator::setIcmS(IEstado *estado)
     }
     foreach(const QString &word,wordListICMS)
     {
-        QJsonObject ICMS = archivo["ICM"].toObject();
+        QJsonObject ICMS = buttonJson["ICM"].toObject();
         QString ICMSActual = ICMS[word].toString();
         for(QChar caracter:ICMSActual)
         {
@@ -257,6 +257,40 @@ void FormatConcentrator::setOverlay(IEstado *estado){
     }
 }
 
+void FormatConcentrator::setMIK(IEstado *estado)
+{
+    int palabra = WORD_SIZE * 2;
+    int offset = 0;
+    QString mikPalabra = estado->getMIK();
+
+    qDebug()<<"Se invocó a setMIK, palabra mik:" <<mikPalabra;
+    if(mikPalabra != ""){
+        QJsonObject teclasMik = MIKJson["teclas"].toObject();
+        qDebug()<< "la letra es: "<< mikPalabra;
+        QJsonObject mikBinario = teclasMik[mikPalabra].toObject();
+        QString mik = mikBinario["ASCII_Binario"].toString();
+        qDebug()<< "La letra representa: "<< mik;
+        for (QChar caracter:mik) {
+            if(caracter == '1'){
+                message->setBit(palabra+offset,true);
+            } else {
+                message->setBit(palabra+offset,false);
+            }
+            offset++;
+        }
+    }
+    else{
+        for(char caracter:"01000000"){
+            if(caracter == '1'){
+                message->setBit(palabra+offset,true);
+            } else {
+                message->setBit(palabra+offset,false);
+            }
+            offset++;
+        }
+    }
+    qDebug() << "\nMI:\t " << "-" << mikPalabra  << "-";
+}
 
 void FormatConcentrator::setOverlayS(IEstado *estado){
 
@@ -273,8 +307,6 @@ void FormatConcentrator::setOverlayS(IEstado *estado){
         offset++;
     }
 }
-
-
 
 void FormatConcentrator::removeQEK()
 {
@@ -295,7 +327,7 @@ void FormatConcentrator::removeQEKS()
 void FormatConcentrator::removeThreat(QString estado)
 {
 
-        QJsonObject threat = archivo["THREAT_ASSESMENT"].toObject();
+        QJsonObject threat = buttonJson["THREAT_ASSESMENT"].toObject();
         QString threatActual = threat[estado].toString();
         message->setBit(threatActual.toInt(),false);
 
@@ -304,21 +336,21 @@ void FormatConcentrator::removeThreat(QString estado)
 void FormatConcentrator::removeDisplayMode(QString estado)
 {
     int palabra = WORD_SIZE * 1; //Está en la segunda palabra
-    QJsonObject center = archivo["DISPLAY_MODE"].toObject();
+    QJsonObject center = buttonJson["DISPLAY_MODE"].toObject();
     QString centerActual = center[estado].toString();
     message->setBit(palabra+centerActual.toInt(),false);
 }
 void FormatConcentrator::removeDisplayModeS(QString estado)
 {
     int palabra = WORD_SIZE * 1; //Está en la segunda palabra
-    QJsonObject center = archivo["DISPLAY_MODE"].toObject();
+    QJsonObject center = buttonJson["DISPLAY_MODE"].toObject();
     QString displayModeActual = center[estado].toString();
     message->setBit(palabra+displayModeActual.toInt(),false);
 }
 
 void FormatConcentrator::removeDisplaySelection(QString estado)
 {
-    QJsonObject display = archivo["DISPLAY_SELECTION"].toObject();
+    QJsonObject display = buttonJson["DISPLAY_SELECTION"].toObject();
     QString displayActual = display[estado].toString();
     message->setBit(displayActual.toInt(),false);
     qDebug()<<"Borre el display Selection desde Concentrator de la posicion: "<< displayActual;
@@ -330,7 +362,7 @@ void FormatConcentrator::removeCenterS(QString estado)
 void FormatConcentrator::removeCenter(QString estado)
 {
     int offset = WORD_SIZE * 1;
-    QJsonObject center = archivo["CENTER"].toObject();
+    QJsonObject center = buttonJson["CENTER"].toObject();
     QString centerActual = center[estado].toString();
     message->setBit(offset + centerActual.toInt(),false);
 }
@@ -358,14 +390,14 @@ void FormatConcentrator::guardarMensaje(IEstado *estado)
         dir.cdUp();
         dir.cd("mensajesFC");
 
-        //Se generan nuevos archivos en cada ejecución con la fecha y hora
+        //Se generan nuevos buttonJsons en cada ejecución con la fecha y hora
         QString mensajeFilePath = dir.absolutePath() + "/" + formattedFile + ".log";
-        qDebug() << "Format Concentrator: Archivo de log creado en " +mensajeFilePath;
+        qDebug() << "Format Concentrator: buttonJson de log creado en " +mensajeFilePath;
         mensajeFile.setFileName(mensajeFilePath);
 
         if (!mensajeFile.open(QIODevice::Append | QIODevice::Text)) {
-            qDebug() << "ERROR al abrir el archivo de mensajes.";
-            return;  // Salir si no se puede abrir el archivo
+            qDebug() << "ERROR al abrir el buttonJson de mensajes.";
+            return;  // Salir si no se puede abrir el buttonJson
         }
 
         out.setDevice(&mensajeFile);
@@ -416,9 +448,28 @@ void FormatConcentrator::leerJson()
             return;
         }
         if(Document.isObject())
-        archivo = Document.object();
+        buttonJson = Document.object();
     }
     else
-        qDebug()<<"Hubo un error, no se abrio el archivo";
+        qDebug()<<"Hubo un error, no se abrio el buttonJson";
+
+
+    QString MIKFilePath = ":/json/json/mik.json";
+    QFile MIKFile(MIKFilePath);
+    if(MIKFile.open(QIODevice::ReadOnly))
+    {
+        QByteArray Bytes = MIKFile.readAll();
+        MIKFile.close();
+        QJsonParseError MIKJsonError;
+        QJsonDocument MIKDocument = QJsonDocument::fromJson(Bytes,&MIKJsonError);
+        if(MIKJsonError.error != QJsonParseError::NoError){
+            qDebug()<<"ERROR in Json Data";
+            return;
+        }
+        if(MIKDocument.isObject())
+            MIKJson = MIKDocument.object();
+    }
+    else
+        qDebug()<<"Hubo un error, no se abrio el buttonJson";
 }
 

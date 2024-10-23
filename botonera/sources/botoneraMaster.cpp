@@ -101,6 +101,10 @@ void BotoneraMaster::sendMessage(){
     concentrator->getMessage(estadoActual);
 }
 
+void Botonera::sendCharToMIK(QString c){
+    miEstado->setMIK(c);
+}
+
 QString BotoneraMaster::getOverlay(){
     return estadoActual->getOverlay();
 }
