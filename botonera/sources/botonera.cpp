@@ -37,8 +37,8 @@ Botonera::Botonera(QWidget *parent) :
     center_widget = new zone_center(this);
     icm_widget = new zone_icm(this);
     display_selection_widget = new zone_displaySelection(this);
-
     alfanumeric_display = new andGui(NULL,this);
+
 }
 
 
@@ -143,7 +143,7 @@ void Botonera::infoMessage(){
     //                "</table>";
     // msg.setText(text);
     // msg.exec();
-
+    sendMessage();
 }
 
 void Botonera::crearBotonHelp()

@@ -7,7 +7,7 @@ class BotoneraMaster:public Botonera{
 
 private:
     FormatConcentrator *concentrator;
-    Estado *estadoActual;
+    //Estado *estadoActual;
 
 public:
         explicit BotoneraMaster(QWidget *parent = nullptr);
@@ -30,7 +30,9 @@ public:
         void sendCodeToDisplayMode(QString boton) override;
         void sendCodeToDisplaySelection(QString boton)override;
         void sendCodeToIcm(QString boton) override;
-        void sendMessage();
+        void sendMessage() override;
+        void sendCharToMIK(QString c) override;
+
         QString getOverlay();
 
 };

@@ -4,7 +4,7 @@ BotoneraMaster::BotoneraMaster(QWidget *parent): Botonera(parent)
 {
     qDebug()<< "estoy en el contructor de botonera Master";
     concentrator = new FormatConcentrator();
-    estadoActual = new Estado(this);
+   // estadoActual = new Estado(this);
     range_widget->start();
 }
 
@@ -13,100 +13,101 @@ BotoneraMaster::BotoneraMaster(QWidget *parent): Botonera(parent)
 
 void BotoneraMaster::setOverlay(QString codigo){
     overlay = codigo.toInt();
-    estadoActual->setOverlay(codigo);
-    sendMessage();
+    miEstado->setOverlay(codigo);
+   // sendMessage();
 }
 void BotoneraMaster::removeCodeFromRange(QString boton){
-    estadoActual->removeRange(boton);
-    sendMessage();
+    miEstado->removeRange(boton);
+   // sendMessage();
 }
 void BotoneraMaster::removeCodeFromLabelSelection(QString boton){
-    estadoActual->removeLabel(boton);
+    miEstado->removeLabel(boton);
     concentrator->removeDisplaySelection(boton);
-    sendMessage();
+  //  sendMessage();
 }
 void BotoneraMaster::removeCodeFromQek(QString boton){
-    estadoActual->removeQek(boton);
+    miEstado->removeQek(boton);
     concentrator->removeQEK();
-    sendMessage();
+    //sendMessage();
 }
 void BotoneraMaster::removeCodeFromThreat(QString boton){
-    estadoActual->removeThreat(boton);
+    miEstado->removeThreat(boton);
     concentrator->removeThreat(boton);
-    sendMessage();
+    //sendMessage();
 }
 void BotoneraMaster::removeCodeFromCenter(QString boton){
-    estadoActual->removeCenter(boton);
+    miEstado->removeCenter(boton);
     concentrator->removeCenter(boton);
-    sendMessage();
+    //senMessage();
 }
 void BotoneraMaster::removeCodeFromDisplayMode(QString boton){
-    estadoActual->removeDisplayMode(boton);
+    miEstado->removeDisplayMode(boton);
     concentrator->removeDisplayMode(boton);
-    sendMessage();
+    //senMessage();
 }
 void BotoneraMaster::removeCodeFromDisplaySelection(QString boton){
-    estadoActual->removeDisplaySelection(boton);
+    miEstado->removeDisplaySelection(boton);
     concentrator->removeDisplaySelection(boton);
-    sendMessage();
+    //sendMessage();
 }
 void BotoneraMaster::removeCodeFromIcm(QString boton){
-    estadoActual->removeIcm(boton);
-    sendMessage();
+    miEstado->removeIcm(boton);
+    //sendMessage();
 }
 
 /* ------------------SETTERS-----------------------*/
 
 void BotoneraMaster::sendCodeToRange(QString boton){
-    estadoActual->setRange(boton);
-    sendMessage();
+    miEstado->setRange(boton);
+    //sendMessage();
 }
 void BotoneraMaster::sendCodeToLabelSelection(QString boton){
-    estadoActual->setLabel(boton);
-    sendMessage();
+    miEstado->setLabel(boton);
+    //sendMessage();
 }
 
 void BotoneraMaster::sendCodeToQek(QString boton){
-    estadoActual->setQEK(boton);
-    sendMessage();
+    miEstado->setQEK(boton);
+    //sendMessage();
 }
 
 void BotoneraMaster::sendCodeToThreat(QString boton){
-    estadoActual->setThreat(boton);
-    sendMessage();
+    miEstado->setThreat(boton);
+    //sendMessage();
 }
 
 void BotoneraMaster::sendCodeToCenter(QString boton){
-    estadoActual->setCenter(boton);
-    sendMessage();
+    miEstado->setCenter(boton);
+    //sendMessage();
 }
 
 void BotoneraMaster::sendCodeToDisplayMode(QString boton){
-    estadoActual->setDisplayMode(boton);
-    sendMessage();
+    miEstado->setDisplayMode(boton);
+    //sendMessage();
 }
 
 void BotoneraMaster::sendCodeToDisplaySelection(QString boton){
-    estadoActual->setDisplaySelection(boton);
-    sendMessage();
+    miEstado->setDisplaySelection(boton);
+    //sendMessage();
 }
 
 void BotoneraMaster::sendCodeToIcm(QString boton){
-    estadoActual->setICM(boton);
-    sendMessage();
+    miEstado->setICM(boton);
+    //sendMessage();
 }
 
 
 void BotoneraMaster::sendMessage(){
-    concentrator->getMessage(estadoActual);
+    concentrator->getMessage(miEstado);
 }
 
-void Botonera::sendCharToMIK(QString c){
+void BotoneraMaster::sendCharToMIK(QString c){
     miEstado->setMIK(c);
+    qDebug()<< "Llamado en sendCharToMik<<" + c;
 }
 
 QString BotoneraMaster::getOverlay(){
-    return estadoActual->getOverlay();
+    return miEstado->getOverlay();
 }
 
 

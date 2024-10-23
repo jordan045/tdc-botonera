@@ -52,7 +52,7 @@ void MIK::selectLine(int t){
 
 void MIK::pressKey(QChar c){
     QJsonObject caracter = teclasObj[c].toObject();
-    QString toSend = caracter["ASCII_Octal"].toString();
+   // QString toSend = caracter["ASCII_Octal"].toString();
     miBotonera->sendCharToMIK(c);
 }
 

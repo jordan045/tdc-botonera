@@ -289,7 +289,7 @@ void FormatConcentrator::setMIK(IEstado *estado)
             offset++;
         }
     }
-    qDebug() << "\nMI:\t " << "-" << mikPalabra  << "-";
+    qDebug() << "\nMI que mando a FC:\t " << "-" << mikPalabra  << "-";
 }
 
 void FormatConcentrator::setOverlayS(IEstado *estado){

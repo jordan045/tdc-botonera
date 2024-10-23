@@ -84,13 +84,15 @@ QString Estado::getOverlay(){           return overlay;}
 
 
 QString Estado::getMIK(){
-    mik = mik.trimmed(); // Elimina espacios en blanco al inicio y al final
+    //mik = mik.trimmed(); // Elimina espacios en blanco al inicio y al final
 
+    qDebug()<< "Mik al llamar a getMIK()"<< mik;
     int index = mik.indexOf(' ');
     QString token;
 
     if (index == -1) {
         // No hay espacios, es el último token
+        qDebug()<<"COMO esta la MIK"<<mik;
         token = mik;
         mik.clear();
     } else {
@@ -119,6 +121,8 @@ void Estado::setQEK(QString s){
     this->qek.append(s);
     this->qek.append(" ");
     refresh();
+    qDebug()<<"Llame qek: " << mik;
+    qDebug()<<"ACA el ICM" << icm;
 }
 void Estado::setThreat(QString s){
     s.append(" ");
@@ -144,8 +148,6 @@ void Estado::setICM(QString s){
 void Estado::setMIK(QString s){
     s.append(" ");
     this->mik.append(s);
-    qDebug()<<"agregue a" << s;
-    qDebug()<<"la mik es:" << mik;
     refresh();
 }
 
@@ -206,6 +208,8 @@ void Estado::setRange(QString s){
 
 void Estado::refresh()
 {
+    qDebug() << "Llamé a refresh() Por qué se separan mik y el resto?";
+
     QDateTime date = QDateTime::currentDateTime();
     QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
 
@@ -224,7 +228,7 @@ void Estado::refresh()
                     << "\nQEKs:\t\t " << qekS
                     << "\nCenters:\t\t " << centerS
                     << "\nDisplay Mode:\t " << displayModeS
-                    << "\nICM:\t\t " << icm
+                    << "\nICM:\t\t " << icmS
                     <<  "\nOverlayS \t\t"<< overlayS
                     << "\n";
 }

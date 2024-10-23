@@ -678,6 +678,9 @@
           <height>0</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
         <property name="styleSheet">
          <string notr="true">QPushButton {image: url(':/qek/img/QEK/qek.png')}
 QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
@@ -731,6 +734,9 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
           <height>0</height>
          </size>
         </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
         <property name="styleSheet">
          <string>QPushButton {image: url(':/qek/img/QEK/qek.png')}
 QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
@@ -783,6 +789,9 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
           <width>0</width>
           <height>0</height>
          </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
         </property>
         <property name="styleSheet">
          <string>QPushButton {image: url(':/qek/img/QEK/qek.png')}
@@ -839,6 +848,9 @@ QPushButton:pressed {image: url(':/qek/img/QEK/qek_pressed.png')}</string>
           <width>0</width>
           <height>0</height>
          </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton {image: url(':/qek/img/QEK/qek.png')}
