@@ -2,6 +2,7 @@
 #define SCUDP_H
 
 #include "andTranslator.h"
+#include "formatconcentrator.h"
 #include <QObject>
 #include <QUdpSocket>
 
@@ -12,7 +13,7 @@ class SCUDP : QObject
     Q_OBJECT
 
 public:
-    explicit SCUDP(QObject *parent = nullptr, AndTranslator *c = nullptr);
+    explicit SCUDP(QObject *parent = nullptr, AndTranslator *c = nullptr,FormatConcentrator *f = nullptr);
     void sendMessage(const QString &message, const QString &address, quint16 port);
 
 private slots:
@@ -23,16 +24,20 @@ private:
     //QByteArray datagram;
     void deviceAddress(QByteArray d);
 
-    QByteArray bitwise(QByteArray &data);
+    QByteArray bitwise(const QByteArray &data);
+    QByteArray bitArrayToByteArray(const QBitArray &bitArray) ;
 
     void pedidoDCLCONC();
-    void DCLCONC();
+    void DCLCONC(QByteArray d);
     void AND1(QByteArray d);
-    void AND2();
-    void LPD();
+    void AND2(QByteArray d);
+    void LPD(QByteArray d);
 
+
+    QHostAddress *FPGA; //Host? o se manda de otra forma?
 
     AndTranslator *converter;
+    FormatConcentrator *fc;
 };
 
 #endif // SCUDP_H

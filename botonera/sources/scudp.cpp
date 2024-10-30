@@ -60,6 +60,11 @@ void SCUDP::deviceAddress(QByteArray d){
     }
 }
 
+void SCUDP::pedidoDCLCONC(QByteArray d)
+{
+
+}
+
 QByteArray bitwiseInvert(const QByteArray &data) {//podria pasarse el tamaño por parametro
     QByteArray invertedData = data;
     for (int i = 0; i < invertedData.size(); ++i) {
