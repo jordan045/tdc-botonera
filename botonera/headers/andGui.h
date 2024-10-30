@@ -5,7 +5,7 @@
 #include <QKeyEvent>
 
 #include "qstackedwidget.h"
-#include "sources/mik.h"
+#include "mik.h"
 #include "ui_andGui.h"
 #include "andTranslator.h"
 #include "QLabel"

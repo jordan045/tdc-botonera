@@ -105,7 +105,7 @@ andGui::andGui(QWidget *parent, Botonera *b)
         setLine(line);
     });
 
-    converter.processBinaryString();
+    //converter.processBinaryString();
 
     // Esto hace que se abra en una ventana aparte
     this->setWindowFlag(Qt::Window);

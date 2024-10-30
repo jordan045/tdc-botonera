@@ -16,7 +16,7 @@ class AndTranslator:public QObject
     Q_OBJECT
 public:
     explicit AndTranslator(QObject *parent = nullptr);
-    void processBinaryString();
+    void processBinaryString(QByteArray data);
     // // Método para convertir una cadena binaria a un carácter
     // QString binaryToChar(const QString &binaryString) const;
 
