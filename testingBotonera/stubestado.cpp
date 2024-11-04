@@ -9,6 +9,7 @@ StubEstado::StubEstado(){
     this->icm               = *new QString("");
     this->displayMode       = *new QString("");
     this->displaySelection  = *new QString("");
+    this->mik               = *new QString("");
     this->labelS            = *new QString("");
     this->qekS              = *new QString("");
     this->centerS           = *new QString("");
@@ -31,6 +32,10 @@ void StubEstado::removeCenter(QString codigo){
 
 void StubEstado::removeThreat(QString codigo){
     this->threat = "";
+}
+
+void StubEstado::removeMIK(QString c){
+    this->mik = "";
 }
 
 void StubEstado::removeDisplayMode(QString codigo){
@@ -61,6 +66,7 @@ QString StubEstado::getDisplayMode(){       return displayMode;}
 QString StubEstado::getICM(){               return icm;}
 QString StubEstado::getModos(){             return displayMode;}
 QString StubEstado::getOverlay(){           return overlay;}
+QString StubEstado::getMIK(){               return mik;}
 QString StubEstado::getDisplaySelection(){  return displaySelection;}
 QString StubEstado::getRange(){             return range;}
 
@@ -93,6 +99,10 @@ void StubEstado::setDisplayMode(QString s){
 
 void StubEstado::setICM(QString s){
     this->icm = s;
+}
+
+void StubEstado::setMIK(QString m){
+    this->mik = m;
 }
 
 void StubEstado::setLabelS(QString l){
