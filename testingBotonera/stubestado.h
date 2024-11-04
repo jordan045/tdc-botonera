@@ -1,20 +1,20 @@
-#ifndef DRIVERESTADO_H
-#define DRIVERESTADO_H
+#ifndef STUBESTADO_H
+#define STUBESTADO_H
 
 #include "iestado.h"
 
 /**
- * @brief DriverEstado class
+ * @brief StubEstado class
  *
  *  Sustituto de la clase Estado para la realización de las pruebas
  *  unitarias sobre FormatConcentrator.
  *
  */
 
-class DriverEstado : public IEstado
+class StubEstado : public IEstado
 {
 public:
-    DriverEstado();
+    StubEstado();
     void setOverlay(QString codigo) override;
 
     void removeIcm(QString boton) override;
@@ -36,12 +36,13 @@ public:
     QString getICM() override;
     QString getModos() override;
     QString getOverlay() override;
-    QString getLabelS()        override;
-    QString getQEKS()          override;
-    QString getCenterS()       override;
-    QString getICMS()          override;
-    QString getDisplayModeS()  override;
-    QString getOverlayS()      override;
+    QString getMIK() override;
+    QString getLabelS() override;
+    QString getQEKS() override;
+    QString getCenterS() override;
+    QString getICMS() override;
+    QString getDisplayModeS() override;
+    QString getOverlayS() override;
 
 
     void setRange(QString r) override;
@@ -52,13 +53,12 @@ public:
     void setDisplayMode(QString d) override;
     void setDisplaySelection(QString d) override;
     void setICM(QString i) override;
-    void setLabelS(QString l)      override;
-    void setQEKS(QString q)        override;
-    void setCenterS(QString c)     override;
-    void setICMS(QString i)        override;
-    void setDisplayModeS(QString d)override;
-    void setOverlayS(QString o)    override;
-
+    void setLabelS(QString l) override;
+    void setQEKS(QString q) override;
+    void setCenterS(QString c) override;
+    void setICMS(QString i) override;
+    void setDisplayModeS(QString d) override;
+    void setOverlayS(QString o) override;
     //void setOverlayS(const QString &newOverlayS);
 
 signals:
@@ -84,4 +84,4 @@ private:
     Q_PROPERTY(QString overlayS READ getOverlayS WRITE setOverlayS NOTIFY overlaySChanged FINAL)
 };
 
-#endif // DRIVERESTADO_H
+#endif // STUBESTADO_H
