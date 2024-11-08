@@ -1,57 +1,53 @@
-#include "scudp.h"
+#include "Transciever_FPGA.h"
 
 #include <QHostAddress>
 #include <QDebug>
 
 
-SCUDP::SCUDP(QObject *parent, AndTranslator *c, FormatConcentrator *f) : QObject(parent){
-
+Transciever_FPGA::Transciever_FPGA(QObject *parent, AndTranslator *translator, FormatConcentrator *FC) : QObject(parent){
+    //Crear el socket y conectarlo al puerto de la FPGA
     udpSocket = new QUdpSocket(this);
-
     udpSocket->bind(QHostAddress::Any, PORT);
 
-    connect(udpSocket, SIGNAL(readyRead()), this, SLOT(readPendingDatagrams()));
-    connect(&ACKdclconc, SIGNAL(&QTimer::timeout), SLOT(&SCUDP::reenviarDCLCONC));
+    //Conectar la llegada de mensajes nuevos con la clasificación de mensajes
+    connect(udpSocket, &QUdpSocket::readyRead, this, &Transciever_FPGA::readPendingDatagrams);
+    connect(&ACKdclconc, &QTimer::timeout, this, &Transciever_FPGA::reenviarDCLCONC);
 
-    converter = c;
-    fc = f;
+    converter = translator;
+    fc = FC;
 }
 
-void SCUDP::sendMessage(const QString &message, const QString &address, quint16 port){
-    QByteArray datagram = message.toUtf8();
-    udpSocket->writeDatagram(datagram, QHostAddress(address), port);
-}
-
-void SCUDP::readPendingDatagrams(){
+void Transciever_FPGA::readPendingDatagrams(){
     while (udpSocket->hasPendingDatagrams()) {
         QByteArray datagram;
-        datagram.resize(udpSocket->pendingDatagramSize());
+        datagram.resize(udpSocket->pendingDatagramSize()); //Resize al tamaño del mensaje recibido
 
+        //Son datos de salida de readDatagram
         QHostAddress sender;
         quint16 senderPort;
 
         udpSocket->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
-        deviceAddress(datagram);
-        //qDebug() << "Received from" << sender.toString() << ":" << senderPort << "message:" << datagram;
+        readDeviceAddress(datagram);
     }
 }
 
 
-void SCUDP::deviceAddress(QByteArray d){
-    if(!d.isNull()){
-        char da = d.at(0);  //Agarro el primer byte, pero solo me sirve
-                            //los ultimos 4bits (los 4 primeros son 0s)
-        switch (da) {
-            case 0x00:
-                LPD(d.last(d.size() - 3));//lo mando sin encabezado
-                break;
+void Transciever_FPGA::readDeviceAddress(QByteArray datagram){
+    if(!datagram.isNull()){
+        char device_address = datagram.at(0);  //Agarro el primer byte, pero solo me sirve
+                                         //los ultimos 4bits (los 4 primeros son 0s)
+        QByteArray payload = datagram.last(datagram.size()-3);
 
+        switch (device_address) {
+            case 0x00:
+                sendToLPD(payload);
+                break;
             case 0x01:
                 pedidoDCLCONC();
                 break;
 
             case 0x02:
-                AND1(d.last(d.size() - 3));//lo mando sin encabezado
+                AND1(payload);
                 break;
 
             case 0x03:
@@ -60,7 +56,7 @@ void SCUDP::deviceAddress(QByteArray d){
 
             case 0x04:
                 //ACK DLC CONC
-                recibiACK(d.mid(1,1));
+                recibiACK(datagram.mid(1,1));
                 break;
 
             default:
@@ -69,7 +65,7 @@ void SCUDP::deviceAddress(QByteArray d){
     }
 }
 
-QBitArray SCUDP::byteArrayToBitArray(const QByteArray &byteArray){
+QBitArray Transciever_FPGA::byteArrayToBitArray(const QByteArray &byteArray){
     QBitArray bitArray(byteArray.size() * 8); // Crea un QBitArray con el tamaño en bits
 
     for (int i = 0; i < byteArray.size(); ++i) {
@@ -82,7 +78,7 @@ QBitArray SCUDP::byteArrayToBitArray(const QByteArray &byteArray){
 
 }
 
-QByteArray SCUDP::bitArrayToByteArray(const QBitArray &bitArray) {
+QByteArray Transciever_FPGA::bitArrayToByteArray(const QBitArray &bitArray) {
     QByteArray byteArray((bitArray.size() + 7) / 8, 0); // Crea un QByteArray con el tamaño adecuado, inicializado a 0
 
     for (int i = 0; i < bitArray.size(); ++i) {
@@ -101,33 +97,33 @@ QByteArray bitwiseInvert(const QByteArray &data) {//podria pasarse el tamaño po
     return invertedData;
 }
 
-void SCUDP::pedidoDCLCONC(){
+void Transciever_FPGA::pedidoDCLCONC(){
     QBitArray a(5);
     QByteArray DCLCONCdata = bitArrayToByteArray(a); //Necesito un getMessage sin parametro en FC
     QByteArray DCLCONCneg = bitwiseInvert(DCLCONCdata);
     DCLCONC(DCLCONCneg);//recibo por pedido, mando po DCL CONC
 }
 
-void SCUDP::DCLCONC(QByteArray d){
+void Transciever_FPGA::DCLCONC(QByteArray d){
     d[0] = 0x04;
     ultimoCONC = d;
     udpSocket->writeDatagram(ultimoCONC, QHostAddress::AnyIPv4, PORT);//QHostAddress esta mal creo, tenog q poner la ip
     ACKdclconc.start(200);
 }
 
-void SCUDP::AND1(QByteArray d){
+void Transciever_FPGA::AND1(QByteArray d){
     QByteArray data = bitwiseInvert(d);
     converter->processBinaryString(data);
     //falta ACK
 }
 
-void SCUDP::LPD(QByteArray d){
+void Transciever_FPGA::sendToLPD(QByteArray d){
     char lastByte = d.at(d.size()-1);
     qint8 id = lastByte & 0x0F;
     //clasificar los id, hacerlo con switch?
 }
 
-void SCUDP::recibiACK(QByteArray ack){
+void Transciever_FPGA::recibiACK(QByteArray ack){
     QBitArray ACKbit(16);
     ACKbit = byteArrayToBitArray(ack);
     if(ACKbit[0] == true){
@@ -138,7 +134,7 @@ void SCUDP::recibiACK(QByteArray ack){
     }
 }
 
-void SCUDP::reenviarDCLCONC(){
+void Transciever_FPGA::reenviarDCLCONC(){
     DCLCONC(ultimoCONC);
 }
 

@@ -1,5 +1,5 @@
-#ifndef SCUDP_H
-#define SCUDP_H
+#ifndef TRANSCIEVER_FPGA_H
+#define TRANSCIEVER_FPGA_H
 
 #include "andTranslator.h"
 #include "formatconcentrator.h"
@@ -9,12 +9,12 @@
 
 #define PORT 1111
 
-class SCUDP : QObject
+class Transciever_FPGA : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit SCUDP(QObject *parent = nullptr, AndTranslator *c = nullptr,FormatConcentrator *f = nullptr);
+    explicit Transciever_FPGA(QObject *parent = nullptr, AndTranslator *c = nullptr,FormatConcentrator *f = nullptr);
     void sendMessage(const QString &message, const QString &address, quint16 port);
 
 private slots:
@@ -24,7 +24,7 @@ private slots:
 private:
     QUdpSocket *udpSocket;
     //QByteArray datagram;
-    void deviceAddress(QByteArray d);
+    void readDeviceAddress(QByteArray d);
 
     QByteArray bitwise(const QByteArray &data);
     QByteArray bitArrayToByteArray(const QBitArray &bitArray);
@@ -35,7 +35,7 @@ private:
     void DCLCONC(QByteArray d);
     void AND1(QByteArray d);
     void AND2(QByteArray d);
-    void LPD(QByteArray d);
+    void sendToLPD(QByteArray d);
 
 
 
@@ -49,7 +49,7 @@ private:
     FormatConcentrator *fc;
 };
 
-#endif // SCUDP_H
+#endif // TRANSCIEVER_FPGA_H
 
 //   Pedido DCL CONC
 //   DCL CONC
