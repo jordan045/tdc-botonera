@@ -42,7 +42,7 @@ void MIK::selectLine(int t){
             tab = 0;
         }
         else{
-            pressKey('s');
+            pressKey("s");
             //releaseKey(' ');
             tab++;
         }
@@ -50,14 +50,14 @@ void MIK::selectLine(int t){
     tab = t;
 }
 
-void MIK::pressKey(QChar c){
-    QJsonObject caracter = teclasObj[c].toObject();
-    QString toSend = caracter["ASCII_Octal"].toString();
+void MIK::pressKey(QString c){
+    //QJsonObject caracter = teclasObj[c].toObject();
+    //QString toSend = caracter["ASCII_Octal"].toString();
     miBotonera->sendCharToMIK(c);
 }
 
-void MIK::releaseKey(QChar c){
-    QJsonObject caracter = teclasObj[c].toObject();
-    QString toSend = caracter["ASCII_Octal"].toString();
+void MIK::releaseKey(QString c){
+    //QJsonObject caracter = teclasObj[c].toObject();
+    //QString toSend = caracter["ASCII_Octal"].toString();
     //miBotonera->removeCharToMIK(toSend);
 }

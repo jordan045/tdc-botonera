@@ -116,9 +116,10 @@ void andGui::setLine(QPair<int,QString> line){
     labels[line.first]->setText(line.second);
 }
 
-void andGui::keyReleaseEvent(QKeyEvent *event){
-
+void andGui::keyReleaseEvent(QKeyEvent *event){//Aparententemente release ya no se usa
+    /*
     QString keyText = event->text();
+    qDebug()<< keyText<< "   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
     /*
     switch (event->key()) {
     case Qt::Key_Enter:{
@@ -139,50 +140,62 @@ void andGui::keyReleaseEvent(QKeyEvent *event){
     default:
         break;
     }
-    */
+
     if(!keyText.isEmpty()){
         QChar caracter = keyText.front().toUpper();
         mik->releaseKey(caracter);
     }
-
+    */
 }
 
 void andGui::keyPressEvent(QKeyEvent *event){
 
     QString keyText = event->text();
-    //qDebug()<<"KEY TEXT: "<< keyText;
 
-    if(event->key() == Qt::Key_Return ||event->key() == Qt::Key_Enter){
-        qDebug()<<"--- ENTER EN PRESS ---";
-        mik->pressKey('\r');
-    }else{
-    /*
     switch (event->key()) {
-
-        case Qt::Key_Enter:
-            qDebug()<<"ENTER EN PRESS";
-            mik->pressKey('#');
+        case Qt::Key_Return:
+            mik->pressKey("EXECUTE");
+            break;
+        case Qt::Key_Enter://Enter de teclado numerico
+            mik->pressKey("EXECUTE");
             break;
 
         case Qt::Key_Space:
-            qDebug()<<"SPACE EN PRESS";
-            mik->pressKey('!');
+            mik->pressKey("SPACE");
             break;
 
         case Qt::Key_Backspace:
-            qDebug()<<"BACK EN PRESS";
-            mik->pressKey('"');
+            mik->pressKey("ERASE_LINE");
+            break;
+
+        case Qt::Key_Left:
+            mik->pressKey("MARK_BWD");
+            break;
+
+        case Qt::Key_Right:
+            mik->pressKey("MARK_FWD");
+            break;
+
+        case Qt::Key_F2:
+            mik->pressKey("RB");
+            break;
+
+        case Qt::Key_F3:
+            mik->pressKey("DR_OBM");
+            break;
+
+        case Qt::Key_F4:
+            mik->pressKey("WIPE_WARM");
+            break;
 
         default:
+            if(!keyText.isEmpty()){
+                QChar caracter = event->text().front().toUpper();
+                mik->pressKey(caracter);
+            }
             break;
     }
-    */
 
-    if(!keyText.isEmpty()){
-        QChar caracter = event->text().front().toUpper();
-        mik->pressKey(caracter);
-    }
-    }
 }
 
 void andGui::tocarBoton(const QString &mensaje){
@@ -242,9 +255,9 @@ void andGui::on_L_Button_clicked(){
 }
 
 //Declaracion de las funciones de los works spaces
-void andGui::on_pushButton_W1_pressed(){tocarBoton("W01");}
-void andGui::on_pushButton_W2_pressed(){tocarBoton("W02");}
-void andGui::on_pushButton_W3_pressed(){tocarBoton("W03");}
+void andGui::on_pushButton_W1_pressed(){tocarBoton("W 0 1");}
+void andGui::on_pushButton_W2_pressed(){tocarBoton("W 0 2");}
+void andGui::on_pushButton_W3_pressed(){tocarBoton("W 0 3");}
 
 void andGui::on_pushButton_grilla_clicked(){
     qDebug() << "Cambiando a la grilla";
@@ -257,106 +270,106 @@ void andGui::on_pushButton_back_clicked(){
 }
 
 void andGui::on_P01_button_clicked(){
-    tocarBoton("P01#+#");
+    tocarBoton("P 0 1 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P02_button_clicked(){
-    tocarBoton("P02#+#");
+    tocarBoton("P 0 2 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P03_button_clicked(){
-    tocarBoton("P03#+#");
+    tocarBoton("P 0 3 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P04_button_clicked(){
-    tocarBoton("P04#+#");
+    tocarBoton("P 0 4 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P05_button_clicked(){
-    tocarBoton("P05#+#");
+    tocarBoton("P 0 5 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P06_button_clicked(){
-    tocarBoton("P06#+#");
+    tocarBoton("P 0 6 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P07_button_clicked(){
-    tocarBoton("P07#+#");
+    tocarBoton("P 0 7 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P08_button_clicked(){
-    tocarBoton("P08#+#");
+    tocarBoton("P 0 8 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P09_button_clicked(){
-    tocarBoton("P09#+#");
+    tocarBoton("P 0 9 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P10_button_clicked(){
-    tocarBoton("P10#+#");
+    tocarBoton("P 1 0 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P11_button_clicked(){
-    tocarBoton("P11#+#");
+    tocarBoton("P 1 1 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P12_button_clicked(){
-    tocarBoton("P12#+#");
+    tocarBoton("P 1 2 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P13_button_clicked(){
-    tocarBoton("P13#+#");
+    tocarBoton("P 1 3 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P14_button_clicked(){
-    tocarBoton("P14#+#");
+    tocarBoton("P 1 4 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P15_button_clicked(){
-    tocarBoton("P15#+#");
+    tocarBoton("P 1 5 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P16_button_clicked(){
-    tocarBoton("P16#+#");
+    tocarBoton("P 1 6 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P17_button_clicked(){
-    tocarBoton("P17#+#");
+    tocarBoton("P 1 7 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_S01_button_clicked(){
-    tocarBoton("S01#+#");
+    tocarBoton("S 0 1 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_S02_button_clicked(){
-    tocarBoton("S02#+#");
+    tocarBoton("S 0 2 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_S03_button_clicked(){
-    tocarBoton("S03#+#");
+    tocarBoton("S 0 3 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_S04_button_clicked(){
-    tocarBoton("S04#+#");
+    tocarBoton("S 0 4 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
