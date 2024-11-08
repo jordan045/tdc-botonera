@@ -20,40 +20,11 @@ AndTranslator::AndTranslator(QObject *parent) : QObject(parent)
 //     return QString(QChar(static_cast<ushort>(decimalValue)));
 // }
 
-void AndTranslator::processBinaryString()
+void AndTranslator::processBinaryString(QByteArray data)
 {
-    QFile file(":/binary/one_page2.bin");
-    if (!file.open(QIODevice::ReadOnly)) {
-        qWarning() << "No se pudo abrir el archivo";
-        return;
-    }
-
-    // Tamaño de cada bloque de datos a leer
-    const int blockSize = 51;
-    const int offset = 3;  // Número de bytes a eliminar al inicio
     QPair<int, QString> result;
-
-    // Leer el archivo en bloques de blockSize bytes
-    while (!file.atEnd()) {
-        QByteArray block = file.read(blockSize);
-        qDebug() << block.size() << "block size";
-
-
-        if (block.size() < blockSize) {
-            qWarning() << "Último bloque incompleto, ignorado";
-            break;  // Rompe el ciclo si no se pudo leer un bloque completo
-        }
-
-        // Eliminar los primeros 3 bytes
-        QByteArray cleanedBlock = block.mid(offset);
-
-        result = processMessage(cleanedBlock);
-        qDebug() << result.first << " | " << result.second;
-        emit conversionResult(result);
-    }
-    file.close();
-
-
+    result = processMessage(data);
+    emit conversionResult(result);
 }
 
 QByteArray AndTranslator::getArray(QString &message){
@@ -109,4 +80,3 @@ QPair<int,QString> AndTranslator::processMessage(QByteArray &message){
 
     return result;
 }
-

@@ -1,0 +1,58 @@
+#ifndef SCUDP_H
+#define SCUDP_H
+
+#include "andTranslator.h"
+#include "formatconcentrator.h"
+#include <QObject>
+#include <QUdpSocket>
+#include <QTimer>
+
+#define PORT 1111
+
+class SCUDP : QObject
+{
+    Q_OBJECT
+
+public:
+    explicit SCUDP(QObject *parent = nullptr, AndTranslator *c = nullptr,FormatConcentrator *f = nullptr);
+    void sendMessage(const QString &message, const QString &address, quint16 port);
+
+private slots:
+    void readPendingDatagrams();
+    void reenviarDCLCONC();
+
+private:
+    QUdpSocket *udpSocket;
+    //QByteArray datagram;
+    void deviceAddress(QByteArray d);
+
+    QByteArray bitwise(const QByteArray &data);
+    QByteArray bitArrayToByteArray(const QBitArray &bitArray);
+    QBitArray byteArrayToBitArray(const QByteArray &byteArray);
+
+    void recibiACK(QByteArray ack);
+    void pedidoDCLCONC();
+    void DCLCONC(QByteArray d);
+    void AND1(QByteArray d);
+    void AND2(QByteArray d);
+    void LPD(QByteArray d);
+
+
+
+    QHostAddress *FPGA; //Host? o se manda de otra forma?
+
+    QByteArray ultimoCONC;
+
+    QTimer ACKdclconc;
+
+    AndTranslator *converter;
+    FormatConcentrator *fc;
+};
+
+#endif // SCUDP_H
+
+//   Pedido DCL CONC
+//   DCL CONC
+//   AND1
+//   AND2
+//   LPD
