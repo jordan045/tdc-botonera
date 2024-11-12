@@ -9,8 +9,8 @@ class MIK
 public:
     MIK(Botonera *b);
     void selectLine(int t);
-    void pressKey(QChar c);
-    void releaseKey(QChar c);
+    void pressKey(QString c);
+    void releaseKey(QString c);
 
 private:
     Botonera *miBotonera;

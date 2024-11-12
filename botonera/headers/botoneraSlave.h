@@ -1,6 +1,6 @@
 #ifndef BOTONERASLAVE_H
 #define BOTONERASLAVE_H
-#include <Botonera.h>
+#include <botonera.h>
 class BotoneraSlave: public Botonera{
 
 public:
