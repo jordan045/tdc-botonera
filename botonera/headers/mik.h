@@ -11,6 +11,7 @@ public:
     void selectLine(int t);
     void pressKey(QString c);
     void releaseKey(QString c);
+    int getTab();
 
 private:
     Botonera *miBotonera;

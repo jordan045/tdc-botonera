@@ -32,9 +32,10 @@ private:
     void setLine(QPair<int,QString>);
     MIK *mik;
     QStackedWidget *stackedWidget;
+    void saltoDeLineaTecla();
+
 
 protected:
-    void keyReleaseEvent(QKeyEvent *event);
     void keyPressEvent(QKeyEvent *event);
 
 
@@ -80,6 +81,7 @@ private slots:
     void on_S02_button_clicked();
     void on_S03_button_clicked();
     void on_S04_button_clicked();
+    void on_pushButton_Del_clicked();
 };
 
 #endif // ANDGUI_H

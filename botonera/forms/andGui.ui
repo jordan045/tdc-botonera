@@ -648,7 +648,7 @@ QPushButton:checked {image: url(':/and/img/AND/A_pressed.png')}</string>
         <bool>true</bool>
        </property>
        <attribute name="buttonGroup">
-        <string notr="true">buttonGroup</string>
+        <string notr="true">selGroup</string>
        </attribute>
       </widget>
      </item>
@@ -697,7 +697,7 @@ QPushButton:checked {image: url(':/and/img/AND/H_pressed.png')}</string>
         <bool>true</bool>
        </property>
        <attribute name="buttonGroup">
-        <string notr="true">buttonGroup</string>
+        <string notr="true">selGroup</string>
        </attribute>
       </widget>
      </item>
@@ -746,7 +746,7 @@ QPushButton:checked {image: url(':/and/img/AND/B_pressed.png')}</string>
         <bool>true</bool>
        </property>
        <attribute name="buttonGroup">
-        <string notr="true">buttonGroup</string>
+        <string notr="true">selGroup</string>
        </attribute>
       </widget>
      </item>
@@ -795,7 +795,7 @@ QPushButton:checked {image: url(':/and/img/AND/I_pressed.png')}</string>
         <bool>true</bool>
        </property>
        <attribute name="buttonGroup">
-        <string notr="true">buttonGroup</string>
+        <string notr="true">selGroup</string>
        </attribute>
       </widget>
      </item>
@@ -844,7 +844,7 @@ QPushButton:checked {image: url(':/and/img/AND/C_pressed.png')}</string>
         <bool>true</bool>
        </property>
        <attribute name="buttonGroup">
-        <string notr="true">buttonGroup</string>
+        <string notr="true">selGroup</string>
        </attribute>
       </widget>
      </item>
@@ -893,7 +893,7 @@ QPushButton:checked {image: url(':/and/img/AND/J_pressed.png')}</string>
         <bool>true</bool>
        </property>
        <attribute name="buttonGroup">
-        <string notr="true">buttonGroup</string>
+        <string notr="true">selGroup</string>
        </attribute>
       </widget>
      </item>
@@ -942,7 +942,7 @@ QPushButton:checked {image: url(':/and/img/AND/D_pressed.png')}</string>
         <bool>true</bool>
        </property>
        <attribute name="buttonGroup">
-        <string notr="true">buttonGroup</string>
+        <string notr="true">selGroup</string>
        </attribute>
       </widget>
      </item>
@@ -991,7 +991,7 @@ QPushButton:checked {image: url(':/and/img/AND/K_pressed.png')}</string>
         <bool>true</bool>
        </property>
        <attribute name="buttonGroup">
-        <string notr="true">buttonGroup</string>
+        <string notr="true">selGroup</string>
        </attribute>
       </widget>
      </item>
@@ -1043,7 +1043,7 @@ QPushButton:checked {image: url(':/and/img/AND/E_pressed.png')}</string>
         <bool>true</bool>
        </property>
        <attribute name="buttonGroup">
-        <string notr="true">buttonGroup</string>
+        <string notr="true">selGroup</string>
        </attribute>
       </widget>
      </item>
@@ -1095,7 +1095,7 @@ QPushButton:checked {image: url(':/and/img/AND/L_pressed.png')}</string>
         <bool>true</bool>
        </property>
        <attribute name="buttonGroup">
-        <string notr="true">buttonGroup</string>
+        <string notr="true">selGroup</string>
        </attribute>
       </widget>
      </item>
@@ -1144,7 +1144,7 @@ QPushButton:checked {image: url(':/and/img/AND/F_pressed.png')}</string>
         <bool>true</bool>
        </property>
        <attribute name="buttonGroup">
-        <string notr="true">buttonGroup</string>
+        <string notr="true">selGroup</string>
        </attribute>
       </widget>
      </item>
@@ -1193,7 +1193,7 @@ QPushButton:checked {image: url(':/and/img/AND/G_pressed.png')}</string>
         <bool>true</bool>
        </property>
        <attribute name="buttonGroup">
-        <string notr="true">buttonGroup</string>
+        <string notr="true">selGroup</string>
        </attribute>
       </widget>
      </item>
@@ -1213,7 +1213,7 @@ QPushButton:checked {image: url(':/and/img/AND/G_pressed.png')}</string>
       <number>0</number>
      </property>
      <item>
-      <widget class="QPushButton" name="pushButton_10">
+      <widget class="QPushButton" name="pushButton_Del">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -1444,6 +1444,6 @@ QPushButton:checked {image: url(':/and/img/AND/W03_pressed.png')}</string>
  <connections/>
  <buttongroups>
   <buttongroup name="workspaces"/>
-  <buttongroup name="buttonGroup"/>
+  <buttongroup name="selGroup"/>
  </buttongroups>
 </ui>
