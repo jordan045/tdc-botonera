@@ -30,11 +30,11 @@ private:
     QByteArray bitArrayToByteArray(const QBitArray &bitArray);
     QBitArray byteArrayToBitArray(const QByteArray &byteArray);
 
-    void recibiACK(QByteArray ack, char n);
-    void pedidoDCLCONC(char n);
-    void DCLCONC(QByteArray d, char n);
-    void AND1(QByteArray d);
-    void AND2(QByteArray d);
+    void recibiACK(QByteArray ack, char n[]);
+    void pedidoDCLCONC(char n[]);
+    void DCLCONC(QByteArray d, char n[]);
+    void AND1(QByteArray d, char n[]);
+    void AND2(QByteArray d, char n[]);
     void sendToLPD(QByteArray d);
 
 
@@ -43,7 +43,7 @@ private:
 
     //QByteArray ultimoCONC;
 
-    QPair<QByteArray,char> ultimoCONC;
+    QPair<QByteArray,char[2]> ultimoCONC;
     QTimer ACKdclconc;
 
     AndTranslator *converter;
