@@ -57,7 +57,7 @@ void Transciever_FPGA::readDeviceAddress(QByteArray datagram){
 
             case 0x04:
                 //ACK DLC CONC
-                recibiACK(datagram.mid(1,1));
+                recibiACK(datagram.mid(1,1), numero_secuencia);
                 break;
 
             default:
@@ -124,10 +124,11 @@ void Transciever_FPGA::sendToLPD(QByteArray d){
     //clasificar los id, hacerlo con switch?
 }
 
-void Transciever_FPGA::recibiACK(QByteArray ack){
+void Transciever_FPGA::recibiACK(QByteArray ack, char n){
     QBitArray ACKbit(16);
     ACKbit = byteArrayToBitArray(ack);
-    if(ACKbit[0] == true){
+    char numero_de_secuencuencia = ultimoCONC.second & 0x7F;
+    if(ACKbit[0] == true && n == numero_de_secuencuencia){
         ACKdclconc.stop();
     }else{
         //podria reenviarse, pero ya lo hace el timer, a definir con Chris
@@ -136,5 +137,5 @@ void Transciever_FPGA::recibiACK(QByteArray ack){
 }
 
 void Transciever_FPGA::reenviarDCLCONC(){
-    DCLCONC(ultimoCONC.first,ultimoCONC.second);
+    DCLCONC(ultimoCONC.first,ultimoCONC.second);//envia el mismo numero de secuencia?
 }

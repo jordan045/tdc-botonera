@@ -35,7 +35,6 @@ SOURCES += \
     sources/overlay_360_0110.cpp \
     sources/overlay_360_0111.cpp \
     sources/overlay_360_1000.cpp \
-    sources/transciever_fpga.cpp \
     sources/zone_center.cpp \
     sources/zone_displaymode.cpp \
     sources/zone_displayselection.cpp \

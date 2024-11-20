@@ -30,7 +30,7 @@ private:
     QByteArray bitArrayToByteArray(const QBitArray &bitArray);
     QBitArray byteArrayToBitArray(const QByteArray &byteArray);
 
-    void recibiACK(QByteArray ack);
+    void recibiACK(QByteArray ack, char n);
     void pedidoDCLCONC(char n);
     void DCLCONC(QByteArray d, char n);
     void AND1(QByteArray d);
