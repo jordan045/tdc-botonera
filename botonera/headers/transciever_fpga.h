@@ -31,8 +31,8 @@ private:
     QBitArray byteArrayToBitArray(const QByteArray &byteArray);
 
     void recibiACK(QByteArray ack);
-    void pedidoDCLCONC();
-    void DCLCONC(QByteArray d);
+    void pedidoDCLCONC(char n);
+    void DCLCONC(QByteArray d, char n);
     void AND1(QByteArray d);
     void AND2(QByteArray d);
     void sendToLPD(QByteArray d);
@@ -41,8 +41,9 @@ private:
 
     QHostAddress *FPGA; //Host? o se manda de otra forma?
 
-    QByteArray ultimoCONC;
+    //QByteArray ultimoCONC;
 
+    QPair<QByteArray,char> ultimoCONC;
     QTimer ACKdclconc;
 
     AndTranslator *converter;

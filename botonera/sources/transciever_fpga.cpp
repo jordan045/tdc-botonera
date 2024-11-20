@@ -1,4 +1,4 @@
-#include "Transciever_FPGA.h"
+#include "transciever_fpga.h"
 
 #include <QHostAddress>
 #include <QDebug>
@@ -36,6 +36,7 @@ void Transciever_FPGA::readDeviceAddress(QByteArray datagram){
     if(!datagram.isNull()){
         char device_address = datagram.at(0);  //Agarro el primer byte, pero solo me sirve
                                          //los ultimos 4bits (los 4 primeros son 0s)
+        char numero_secuencia = datagram.at(1);
         QByteArray payload = datagram.last(datagram.size()-3);
 
         switch (device_address) {
@@ -43,7 +44,7 @@ void Transciever_FPGA::readDeviceAddress(QByteArray datagram){
                 sendToLPD(payload);
                 break;
             case 0x01:
-                pedidoDCLCONC();
+                pedidoDCLCONC(numero_secuencia);
                 break;
 
             case 0x02:
@@ -75,7 +76,6 @@ QBitArray Transciever_FPGA::byteArrayToBitArray(const QByteArray &byteArray){
         }
     }
     return bitArray;
-
 }
 
 QByteArray Transciever_FPGA::bitArrayToByteArray(const QBitArray &bitArray) {
@@ -97,17 +97,18 @@ QByteArray bitwiseInvert(const QByteArray &data) {//podria pasarse el tamaño po
     return invertedData;
 }
 
-void Transciever_FPGA::pedidoDCLCONC(){
+void Transciever_FPGA::pedidoDCLCONC(char n){
     QBitArray a(5);
     QByteArray DCLCONCdata = bitArrayToByteArray(a); //Necesito un getMessage sin parametro en FC
     QByteArray DCLCONCneg = bitwiseInvert(DCLCONCdata);
-    DCLCONC(DCLCONCneg);//recibo por pedido, mando po DCL CONC
+    DCLCONC(DCLCONCneg, n);//recibo por pedido, mando po DCL CONC
 }
 
-void Transciever_FPGA::DCLCONC(QByteArray d){
+void Transciever_FPGA::DCLCONC(QByteArray d, char n){
     d[0] = 0x04;
-    ultimoCONC = d;
-    udpSocket->writeDatagram(ultimoCONC, QHostAddress::AnyIPv4, PORT);//QHostAddress esta mal creo, tenog q poner la ip
+    ultimoCONC.first = d;
+    ultimoCONC.second = n;
+    udpSocket->writeDatagram(ultimoCONC.first, QHostAddress::AnyIPv4, PORT);//QHostAddress esta mal creo, tenog q poner la ip
     ACKdclconc.start(200);
 }
 
@@ -135,6 +136,5 @@ void Transciever_FPGA::recibiACK(QByteArray ack){
 }
 
 void Transciever_FPGA::reenviarDCLCONC(){
-    DCLCONC(ultimoCONC);
+    DCLCONC(ultimoCONC.first,ultimoCONC.second);
 }
-
