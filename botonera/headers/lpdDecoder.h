@@ -12,6 +12,10 @@
 #define CURSOR_MESSAGE_LENGTH 12
 #define DECENTERED_MESSAGE_LENGTH 6
 
+#define MARKER_ID 0x01
+#define CURSOR_ID 0x05
+#define DECENTERED_ID 0x09
+
 class LPDDecoder: public QObject
 {
     Q_OBJECT

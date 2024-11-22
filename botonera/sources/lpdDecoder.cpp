@@ -45,9 +45,9 @@ void LPDDecoder::processMessage(QByteArray &message, int wordLength, QList<Marke
     int offset = 0; // Marca siempre el inicio del próximo mensaje
 
     while (offset < wordLength) {
-        char id = message[offset + 2] & 0x0F;
+        char id = message[offset + 2] & 0x0F; //Ultimos 4 bits
 
-        if(id == 0x01){ //Marker Message
+        if(id == MARKER_ID){ //Marker Message
             bool is_valid = message[offset + 2] & 0x10;
 
             if (!is_valid) { // Saltar hasta un EOMM, que está en el tercer campo
@@ -58,9 +58,9 @@ void LPDDecoder::processMessage(QByteArray &message, int wordLength, QList<Marke
                 continue;
             }
 
-            bool PV = message[offset + 2] & 0x20;
-            bool AP = message[offset + 5] & 0x20;
-            bool LS = message[offset + 2] & 0x30;
+            bool PV = message[offset + 2] & 0x20; //5 posición
+            bool AP = message[offset + 5] & 0x20; //5 posición
+            bool LS = message[offset + 2] & 0x30; //6 posición
 
             QByteArray mainSymbol;
             QByteArray courseIndicator;
@@ -102,7 +102,7 @@ void LPDDecoder::processMessage(QByteArray &message, int wordLength, QList<Marke
             if(!PV) offset += LONG_MESSAGE_LENGTH;
             else offset += SHORT_MESSAGE_LENGTH;
         }
-        else if(id == 0x05){ //Cursor Message
+        else if(id == CURSOR_ID){ //Cursor Message
             bool is_valid = message[offset + 2] & 0x10;
 
             if (!is_valid) { // Saltar 12 bytes
@@ -153,7 +153,7 @@ void LPDDecoder::processMessage(QByteArray &message, int wordLength, QList<Marke
             cursorList.append(newCursor);
             offset += CURSOR_MESSAGE_LENGTH;
         }
-        else if(id == 0x09){ //Decentered Image
+        else if(id == DECENTERED_ID){ //Decentered Image
             bool is_valid = message[offset + 2] & 0x10;
             if (!is_valid) { // Saltar 12 bytes
                 offset += DECENTERED_MESSAGE_LENGTH;
