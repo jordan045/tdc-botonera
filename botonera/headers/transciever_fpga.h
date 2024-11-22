@@ -40,8 +40,9 @@ private:
 
     QHostAddress *FPGA; //Host? o se manda de otra forma?
 
-    QByteArray ultimoCONC;
+    //QByteArray ultimoCONC;
 
+    QPair<QByteArray,char[2]> ultimoCONC;
     QTimer ACKdclconc;
 
     AndTranslator *converter;
