@@ -8,7 +8,7 @@
 #include <QTimer>
 
 #define PORT 1111
-
+#define IP "127.0.0.1"
 class Transciever_FPGA : public QObject
 {
     Q_OBJECT
@@ -32,10 +32,10 @@ private:
 
     void recibiACK(QByteArray ack, char n[]);
     void pedidoDCLCONC(char n[]);
-    void DCLCONC(QByteArray d, char n[]);
-    void AND1(QByteArray d, char n[]);
-    void AND2(QByteArray d, char n[]);
-    void sendToLPD(QByteArray d);
+    void DCLCONC(QByteArray data, char n[]);
+    void AND1(QByteArray data, char n[]);
+    void AND2(QByteArray data, char n[]);
+    void sendToLPD(QByteArray data);
 
 
 
