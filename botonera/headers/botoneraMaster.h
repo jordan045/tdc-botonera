@@ -1,6 +1,8 @@
 #ifndef BOTONERAMASTER_H
 #define BOTONERAMASTER_H
 
+#include "rep_botoneraMaster_source.h"
+
 #include "botonera.h"
 
 class BotoneraMaster:public Botonera{

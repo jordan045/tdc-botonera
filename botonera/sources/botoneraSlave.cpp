@@ -97,5 +97,5 @@ void BotoneraSlave::sendMessage()
 
 QString BotoneraSlave::getOverlay()
 {
-
+    return "q";
 }

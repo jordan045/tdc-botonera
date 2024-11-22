@@ -1,0 +1,18 @@
+#ifndef BOTONERAMASTER_REP
+#define BOTONERAMASTER_REP
+
+#include <QString>
+
+class botoneraMaster
+{
+    SLOT(sendCodeToRange(QString boton));
+    SLOT(sendCodeToLabelSelection(QString boton));
+    SLOT(sendCodeToQek(QString boton));
+    SLOT(sendCodeToThreat(QString boton));
+    SLOT(sendCodeToCenter(QString boton));
+    SLOT(sendCodeToDisplayMode(QString boton));
+    SLOT(sendCodeToDisplaySelection(QString boton));
+    SLOT(sendCodeToIcm(QString boton));
+};
+
+#endif // BOTONERAMASTER_REP
