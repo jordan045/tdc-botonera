@@ -8,14 +8,14 @@
 #include <QUdpSocket>
 #include <QTimer>
 
-#define PORT 9000
-
+#define PORT 1111
+#define IP "127.0.0.1"
 class Transciever_FPGA : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit Transciever_FPGA(QObject *parent = nullptr, AndTranslator *c = nullptr, FormatConcentrator *f = nullptr, LPDDecoder *decoder = nullptr);
+    explicit Transciever_FPGA(QObject *parent = nullptr, AndTranslator *c = nullptr,FormatConcentrator *f = nullptr, LPDDecoder *decoder = nullptr);
     void sendMessage(const QString &message, const QString &address, quint16 port);
 
 private slots:
@@ -31,12 +31,14 @@ private:
     QByteArray bitArrayToByteArray(const QBitArray &bitArray);
     QBitArray byteArrayToBitArray(const QByteArray &byteArray);
 
-    void recibiACK(QByteArray ack);
-    void pedidoDCLCONC();
-    void DCLCONC(QByteArray d);
-    void AND1(QByteArray d);
-    void AND2(QByteArray d);
-    void sendToLPD(QByteArray d, int wordLength);
+    void recibiACK(QByteArray ack, char n[]);
+    void pedidoDCLCONC(char n[]);
+    void DCLCONC(QByteArray data, char n[]);
+    void AND1(QByteArray data, char n[]);
+    void AND2(QByteArray data, char n[]);
+    void sendToLPD(QByteArray data, int wordLength);
+
+
 
     QHostAddress *FPGA; //Host? o se manda de otra forma?
 
