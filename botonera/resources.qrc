@@ -243,5 +243,7 @@
         <file>one_page.txt</file>
         <file>one_page.bin</file>
         <file>one_page2.bin</file>
+        <file>LPD1_inverted.bin</file>
+        <file>LPD2_inverted.bin</file>
     </qresource>
 </RCC>

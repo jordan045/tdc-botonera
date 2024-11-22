@@ -4,7 +4,7 @@
 #include <QDebug>
 
 
-Transciever_FPGA::Transciever_FPGA(QObject *parent, AndTranslator *translator, FormatConcentrator *FC) : QObject(parent){
+Transciever_FPGA::Transciever_FPGA(QObject *parent, AndTranslator *translator, FormatConcentrator *FC, LPDDecoder *decoder) : QObject(parent){
     //Crear el socket y conectarlo al puerto de la FPGA
     udpSocket = new QUdpSocket(this);
     udpSocket->bind(QHostAddress::Any, PORT);
@@ -15,6 +15,7 @@ Transciever_FPGA::Transciever_FPGA(QObject *parent, AndTranslator *translator, F
 
     converter = translator;
     fc = FC;
+    this->decoder = decoder;
 }
 
 void Transciever_FPGA::readPendingDatagrams(){
@@ -37,10 +38,13 @@ void Transciever_FPGA::readDeviceAddress(QByteArray datagram){
         char device_address = datagram.at(0);  //Agarro el primer byte, pero solo me sirve
                                          //los ultimos 4bits (los 4 primeros son 0s)
         QByteArray payload = datagram.last(datagram.size()-3);
+        int wordLength;
 
         switch (device_address) {
             case 0x00:
-                sendToLPD(payload);
+                wordLength = datagram.at(2);
+                wordLength = wordLength * 3;
+                sendToLPD(payload,wordLength);
                 break;
             case 0x01:
                 pedidoDCLCONC();
@@ -117,10 +121,8 @@ void Transciever_FPGA::AND1(QByteArray d){
     //falta ACK
 }
 
-void Transciever_FPGA::sendToLPD(QByteArray d){
-    char lastByte = d.at(d.size()-1);
-    qint8 id = lastByte & 0x0F;
-    //clasificar los id, hacerlo con switch?
+void Transciever_FPGA::sendToLPD(QByteArray d, int wordLength){
+    decoder->processLPDMessage(d, wordLength);
 }
 
 void Transciever_FPGA::recibiACK(QByteArray ack){

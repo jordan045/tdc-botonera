@@ -25,6 +25,7 @@ void AndTranslator::processBinaryString(QByteArray data)
     QPair<int, QString> result;
     result = processMessage(data);
     emit conversionResult(result);
+
 }
 
 QByteArray AndTranslator::getArray(QString &message){

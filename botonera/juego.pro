@@ -18,10 +18,14 @@ SOURCES += \
     sources/botonera.cpp \
     sources/botoneraMaster.cpp \
     sources/botoneraSlave.cpp \
+    sources/cursorMessage.cpp \
+    sources/decenteredimage.cpp \
     sources/estado.cpp \
     sources/formatconcentrator.cpp \
     sources/initmenu.cpp \
+    sources/lpdDecoder.cpp \
     sources/main.cpp \
+    sources/markerMessage.cpp \
     sources/mik.cpp \
     sources/overlay_140_0001.cpp \
     sources/overlay_140_0010.cpp \
@@ -78,6 +82,10 @@ HEADERS += \
     headers/zone_threat.h \
     headers/mik.h \
     headers/transciever_fpga.h \
+    headers/cursorMessage.h \
+    headers/decenteredimage.h \
+    headers/lpdDecoder.h \
+    headers/markerMessage.h
 
 FORMS += \
     forms/andGrilla.ui \
