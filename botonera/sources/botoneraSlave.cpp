@@ -1,7 +1,13 @@
 #include <botoneraSlave.h>
 
-BotoneraSlave::BotoneraSlave(QWidget *parent):Botonera(parent){
+BotoneraSlave::BotoneraSlave(QWidget *parent, QSharedPointer<botoneraMasterReplica> ptr):Botonera(parent), reptr(ptr){
     range_widget->start();
+    if(!reptr)
+    {
+        qDebug()<<"El reptr no se inicializo";
+    }
+    initConnections();
+
 }
 
 void BotoneraSlave::removeCodeFromRange(QString boton)
@@ -52,50 +58,63 @@ void BotoneraSlave::setOverlay(QString codigo)
 
 void BotoneraSlave::sendCodeToRange(QString boton)
 {
-
+    emit emitCodeToRange(boton);
 }
 
 void BotoneraSlave::sendCodeToLabelSelection(QString boton)
 {
-
+    emit emitCodeToLabelSelection(boton);
 }
 
 void BotoneraSlave::sendCodeToQek(QString boton)
 {
-
+    emit emitCodeToQek(boton);
 }
 
 void BotoneraSlave::sendCodeToThreat(QString boton)
 {
-
+    emit emitCodeToThreat(boton);
 }
 
 void BotoneraSlave::sendCodeToCenter(QString boton)
 {
-
+    emit emitCodeToCenter(boton);
 }
 
 void BotoneraSlave::sendCodeToDisplayMode(QString boton)
 {
-
+    emit emitCodeToDisplayMode(boton);
 }
 
 void BotoneraSlave::sendCodeToDisplaySelection(QString boton)
 {
-
+    emit emitCodeToDisplaySelection(boton);
 }
 
 void BotoneraSlave::sendCodeToIcm(QString boton)
 {
-
+    emit emitCodeToIcm(boton);
 }
 
 void BotoneraSlave::sendMessage()
 {
-
 }
 
 QString BotoneraSlave::getOverlay()
 {
     return "q";
+}
+
+void BotoneraSlave::initConnections()
+{
+    QObject::connect(this,&BotoneraSlave::emitCodeToRange,reptr.data(),&botoneraMasterReplica::sendCodeToRange);
+    QObject::connect(this,&BotoneraSlave::emitCodeToLabelSelection,reptr.data(),&botoneraMasterReplica::sendCodeToRange);
+    QObject::connect(this,&BotoneraSlave::emitCodeToQek,reptr.data(),&botoneraMasterReplica::sendCodeToRange);
+    QObject::connect(this,&BotoneraSlave::emitCodeToThreat,reptr.data(),&botoneraMasterReplica::sendCodeToRange);
+    QObject::connect(this,&BotoneraSlave::emitCodeToCenter,reptr.data(),&botoneraMasterReplica::sendCodeToRange);
+    QObject::connect(this,&BotoneraSlave::emitCodeToDisplayMode,reptr.data(),&botoneraMasterReplica::sendCodeToRange);
+    QObject::connect(this,&BotoneraSlave::emitCodeToDisplaySelection,reptr.data(),&botoneraMasterReplica::sendCodeToRange);
+    QObject::connect(this,&BotoneraSlave::emitCodeToIcm,reptr.data(),&botoneraMasterReplica::sendCodeToRange);
+
+
 }

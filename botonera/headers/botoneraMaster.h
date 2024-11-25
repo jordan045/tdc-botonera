@@ -5,7 +5,7 @@
 
 #include "botonera.h"
 
-class BotoneraMaster:public Botonera{
+class BotoneraMaster:public Botonera, public botoneraMasterSource{
 
 private:
     FormatConcentrator *concentrator;
@@ -33,6 +33,13 @@ public:
         void sendCodeToDisplaySelection(QString boton)override;
         void sendCodeToIcm(QString boton) override;
         void sendMessage();
+
+        //-- Los Setters de Slave //
+        void sendCodeToCenterSlave(QString boton);
+        void sendCharToMIKSlave(QString caracter);
+        void sendCodeToIcmSlave(QString boton);
+        void sendCodeToQekSlave(QString boton);
+
         QString getOverlay();
 
 };

@@ -10,6 +10,7 @@
 #include <QMessageBox>
 #include <ui_initmenu.h>
 #include "botoneraMaster.h"
+#include "botoneraSlave.h"
 
 InitMenu::InitMenu(QWidget *parent) :
     QWidget(parent)
@@ -98,7 +99,34 @@ InitMenu::InitMenu(QWidget *parent) :
     qDebug()<< "estoy por crear la botonera";
     if(master){
          miBotonera = new BotoneraMaster();
-        qDebug()<<"Se creo bien la botonera";
+         // BotoneraMaster* miBotoneraMaster = new BotoneraMaster();
+         qDebug()<<"Se creo bien la botonera";
+
+         //TODO Fijarse si no desaparece al cerrar el initMenu
+
+
+         QRemoteObjectHost srcNode(QUrl (QStringLiteral("local:replica"))); // TODO poner la ip
+
+         auto source = dynamic_cast<botoneraMasterSource *>(miBotonera);
+
+         if(source){
+             srcNode.enableRemoting(source);
+         }else{
+             qDebug()<<"Error: miBotonera no es del tipo BotoneraMasterSource";
+         }
+        // permite el compartir
+
+
+    }
+    else{
+
+        QSharedPointer<botoneraMasterReplica> ptr; //puntero compartido para mnatener la repilca de la fuente
+
+        QRemoteObjectNode repNode;
+        repNode.connectToNode(QUrl(QStringLiteral("local:replica"))); // conectar con el host remoto
+        ptr.reset(repNode.acquire<botoneraMasterReplica>()); //adquiere la replica de la fuente desde el nodo host;
+
+        miBotonera = new BotoneraSlave(nullptr,ptr);
     }
     /*
      * else

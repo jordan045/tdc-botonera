@@ -1,6 +1,7 @@
 #ifndef BOTONERAMASTER_REP
 #define BOTONERAMASTER_REP
 
+#include "Botonera.h"
 #include <QString>
 
 class botoneraMaster
@@ -12,7 +13,7 @@ class botoneraMaster
     SLOT(sendCodeToCenter(QString boton));
     SLOT(sendCodeToDisplayMode(QString boton));
     SLOT(sendCodeToDisplaySelection(QString boton));
-    SLOT(sendCodeToIcm(QString boton));
+    SLOT(sendCodeToIcmSlave(QString boton));
 };
 
 #endif // BOTONERAMASTER_REP

@@ -1,10 +1,12 @@
 #ifndef BOTONERASLAVE_H
 #define BOTONERASLAVE_H
 #include <botonera.h>
+#include "rep_botoneraMaster_replica.h"
 class BotoneraSlave: public Botonera{
+    Q_OBJECT
 
 public:
-    explicit BotoneraSlave(QWidget *parent = nullptr);
+    explicit BotoneraSlave(QWidget *parent = nullptr, QSharedPointer<botoneraMasterReplica> ptr = nullptr);
     void removeCodeFromRange(QString boton)             override;
     void removeCodeFromLabelSelection(QString boton)    override;
     void removeCodeFromQek(QString boton)               override;
@@ -26,6 +28,23 @@ public:
     void sendCodeToIcm(QString boton) override;
     void sendMessage();
     QString getOverlay();
+
+    void initConnections();
+
+signals:
+    void emitCodeToRange(QString boton);
+    void emitCodeToLabelSelection(QString boton);
+    void emitCodeToQek(QString boton);
+    void emitCodeToThreat(QString boton);
+    void emitCodeToCenter(QString boton);
+    void emitCodeToDisplayMode(QString boton);
+    void emitCodeToDisplaySelection(QString boton);
+    void emitCodeToIcm(QString boton);
+    void emitCodeTo(QString boton);
+    void emitCodeToOverlay();
+
+private:
+    QSharedPointer<botoneraMasterReplica> reptr;
 };
 
 #endif // BOTONERASLAVE_H

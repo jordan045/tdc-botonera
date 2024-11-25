@@ -108,6 +108,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 REPC_SOURCE = headers/botoneraMaster.rep
+REPC_REPLICA = headers/botoneraMaster.rep
 
 RESOURCES += \
     resources.qrc

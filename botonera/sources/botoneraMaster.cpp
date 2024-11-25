@@ -1,6 +1,6 @@
 #include "botoneraMaster.h"
 #include "estado.h"
-BotoneraMaster::BotoneraMaster(QWidget *parent): Botonera(parent)
+BotoneraMaster::BotoneraMaster(QWidget *parent): Botonera(parent),botoneraMasterSource(parent)
 {
     qDebug()<< "estoy en el contructor de botonera Master";
     concentrator = new FormatConcentrator();
@@ -100,6 +100,28 @@ void BotoneraMaster::sendCodeToIcm(QString boton){
 void BotoneraMaster::sendMessage(){
     concentrator->getMessage(estadoActual);
 }
+
+void BotoneraMaster::sendCodeToCenterSlave(QString boton)
+{
+    estadoActual->setCenterS(boton);
+}
+
+void BotoneraMaster::sendCharToMIKSlave(QString caracter)
+{
+    estadoActual->setMIK(caracter); //TODO hay que implementar el seMIKS();
+}
+
+void BotoneraMaster::sendCodeToIcmSlave(QString boton)
+{
+    estadoActual->setICMS(boton);
+}
+
+void BotoneraMaster::sendCodeToQekSlave(QString boton)
+{
+    estadoActual->setQEKS(boton);
+}
+
+
 
 void Botonera::sendCharToMIK(QString c){
     miEstado->setMIK(c);
