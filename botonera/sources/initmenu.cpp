@@ -105,7 +105,7 @@ InitMenu::InitMenu(QWidget *parent) :
          //TODO Fijarse si no desaparece al cerrar el initMenu
 
 
-         QRemoteObjectHost srcNode(QUrl (QStringLiteral("local:replica"))); // TODO poner la ip
+         QRemoteObjectHost srcNode(QUrl (QStringLiteral("tcp://0.0.0.0:8080"))); // TODO poner la ip
 
          auto source = dynamic_cast<botoneraMasterSource *>(miBotonera);
 
@@ -124,7 +124,7 @@ InitMenu::InitMenu(QWidget *parent) :
         QSharedPointer<botoneraMasterReplica> ptr; //puntero compartido para mnatener la repilca de la fuente
 
         QRemoteObjectNode repNode;
-        repNode.connectToNode(QUrl(QStringLiteral("local:replica"))); // conectar con el host remoto
+        repNode.connectToNode(QUrl(QStringLiteral("tcp://181.168.125.148:8080"))); // conectar con el host remoto
         ptr.reset(repNode.acquire<botoneraMasterReplica>()); //adquiere la replica de la fuente desde el nodo host;
 
         miBotonera = new BotoneraSlave(nullptr,ptr);
