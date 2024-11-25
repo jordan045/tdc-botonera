@@ -8,9 +8,9 @@ class botoneraMaster
 {
     SLOT(sendCodeToRange(QString boton));
     SLOT(sendCodeToLabelSelection(QString boton));
-    SLOT(sendCodeToQek(QString boton));
+    SLOT(sendCodeToQekSlave(QString boton));
     SLOT(sendCodeToThreat(QString boton));
-    SLOT(sendCodeToCenter(QString boton));
+    SLOT(sendCodeToCenterSlave(QString boton));
     SLOT(sendCodeToDisplayMode(QString boton));
     SLOT(sendCodeToDisplaySelection(QString boton));
     SLOT(sendCodeToIcmSlave(QString boton));

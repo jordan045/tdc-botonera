@@ -48,14 +48,14 @@ InitMenu::InitMenu(QWidget *parent) :
         qWarning("El documento JSON no es un objeto.");
         return;
     }
-    QJsonObject mainObj = document.object();
+    QJsonObject OverlayJson = document.object();
 
     // Verificar si el objeto contiene un array llamado "overlay"
-    if (!mainObj.contains("overlay") || !mainObj["overlay"].isArray()) {
+    if (!OverlayJson.contains("overlay") || !OverlayJson["overlay"].isArray()) {
         qWarning("El objeto JSON no contiene un array 'overlay'.");
         return;
     }
-    QJsonArray jsonArray = mainObj["overlay"].toArray();
+    QJsonArray jsonArray = OverlayJson["overlay"].toArray();
 
     Ui::InitMenu ui;
     ui.setupUi(this);
@@ -92,15 +92,15 @@ InitMenu::InitMenu(QWidget *parent) :
         countY++;
     }
 
-    tipoBuque = mainObj["tipo"].toString().toInt();
+    tipoBuque = OverlayJson["tipo"].toString().toInt(); // obtengo el tipoDeBuque
 
-    bool master = true;
+    bool master = OverlayJson["master"].toBool(); //obtengo el valor de master.
 
     qDebug()<< "estoy por crear la botonera";
     if(master){
          miBotonera = new BotoneraMaster();
          // BotoneraMaster* miBotoneraMaster = new BotoneraMaster();
-         qDebug()<<"Se creo bien la botonera";
+         qDebug()<<"Se creo bien la botonera Master";
 
          //TODO Fijarse si no desaparece al cerrar el initMenu
 
@@ -120,6 +120,7 @@ InitMenu::InitMenu(QWidget *parent) :
     }
     else{
 
+        qDebug()<< "Se creó la slave";
         QSharedPointer<botoneraMasterReplica> ptr; //puntero compartido para mnatener la repilca de la fuente
 
         QRemoteObjectNode repNode;
