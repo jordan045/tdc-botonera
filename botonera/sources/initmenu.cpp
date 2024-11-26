@@ -97,35 +97,38 @@ InitMenu::InitMenu(QWidget *parent) :
     bool master = OverlayJson["master"].toBool(); //obtengo el valor de master.
 
     qDebug()<< "estoy por crear la botonera";
-    if(master){
-         miBotonera = new BotoneraMaster();
+    if(master){ //Si es maestro creo una botonera master
+
+
+        miBotonera = new BotoneraMaster();
          // BotoneraMaster* miBotoneraMaster = new BotoneraMaster();
          qDebug()<<"Se creo bien la botonera Master";
-
-         //TODO Fijarse si no desaparece al cerrar el initMenu
-
-
-         QRemoteObjectHost srcNode(QUrl (QStringLiteral("tcp://0.0.0.0:8080"))); // TODO poner la ip
-
-         auto source = dynamic_cast<botoneraMasterSource *>(miBotonera);
+        srcNode = new QRemoteObjectHost(QUrl (QStringLiteral("tcp://0.0.0.0:5000")));
+         auto source = dynamic_cast<botoneraMasterSource *>(miBotonera); //fuente, toma el objeto miBotonera y lo muestra en el puerto
 
          if(source){
-             srcNode.enableRemoting(source);
+             if(srcNode->enableRemoting(source)) //habilita el remoto
+                qDebug() << "Servidor remoto habilitado en:" << srcNode->hostUrl();
+            else
+                 qDebug()<<"No se habilito el servidor";
          }else{
              qDebug()<<"Error: miBotonera no es del tipo BotoneraMasterSource";
          }
-        // permite el compartir
-
-
     }
     else{
-
+        //sino creo una botonera slave
         qDebug()<< "Se creó la slave";
         QSharedPointer<botoneraMasterReplica> ptr; //puntero compartido para mnatener la repilca de la fuente
 
-        QRemoteObjectNode repNode;
-        repNode.connectToNode(QUrl(QStringLiteral("tcp://181.168.125.148:8080"))); // conectar con el host remoto
-        ptr.reset(repNode.acquire<botoneraMasterReplica>()); //adquiere la replica de la fuente desde el nodo host;
+        QRemoteObjectNode nodoReplica; //nodo replica es el que recibe el objeto
+        nodoReplica.connectToNode(QUrl(QStringLiteral("tcp://192.168.1.1:8080"))); // conectar con el host remoto
+        ptr.reset(nodoReplica.acquire<botoneraMasterReplica>()); //adquiere la replica de la fuente desde el nodo host;
+
+        if (!ptr->isInitialized()) {
+            qDebug() << "La réplica no está inicializada.";
+        }else{
+        qDebug() << "La réplica se inicializó correctamente.";
+        }
 
         miBotonera = new BotoneraSlave(nullptr,ptr);
     }

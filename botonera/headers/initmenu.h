@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "botonera.h"
 #include "andGui.h"
+#include "botoneraMaster.h"
 
 class InitMenu : public QWidget
 {
@@ -16,6 +17,8 @@ private:
     void start();
     QButtonGroup *group;
     int tipoBuque;
+        //TODO Fijarse si no desaparece al cerrar el initMenu
+    QRemoteObjectHost* srcNode;
 
 
 private slots:
