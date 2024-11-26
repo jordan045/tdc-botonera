@@ -39,6 +39,11 @@ Botonera::Botonera(QWidget *parent) :
     display_selection_widget = new zone_displaySelection(this);
 
     alfanumeric_display = new andGui(NULL,this);
+    translator = new AndTranslator(this);
+}
+
+AndTranslator* Botonera::getTranslator(){
+    return translator;
 }
 
 

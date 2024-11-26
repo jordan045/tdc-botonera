@@ -9,7 +9,7 @@
 andGui::andGui(QWidget *parent, Botonera *b)
     : QWidget(parent),ui(new Ui::andGui)
 {
-
+    qDebug() << "ALOHA CHUPAVERGAS";
     // Crear QStackedWidget
     stackedWidget = new QStackedWidget(this);
 
@@ -102,6 +102,7 @@ andGui::andGui(QWidget *parent, Botonera *b)
 
     // Conecta la señal de conversión de AndTranslator a una función lambda que actualiza el QLabel
     QObject::connect(&converter, &AndTranslator::conversionResult, [this](const QPair<int,QString> line) {
+        qDebug() << "SEÑAL RECIBIDA!!!";
         setLine(line);
     });
 
@@ -119,27 +120,7 @@ void andGui::setLine(QPair<int,QString> line){
 void andGui::keyReleaseEvent(QKeyEvent *event){
 
     QString keyText = event->text();
-    /*
-    switch (event->key()) {
-    case Qt::Key_Enter:{
-        qDebug()<<"ENTER EN RELEASE";
-        mik->releaseKey('#');
-        break;
-    }
-    case Qt::Key_Space:{
-        qDebug()<<"SPACE EN RELEASE";
-        mik->releaseKey('!');
-        break;
-    }
-    case Qt::Key_Backspace:{
-        qDebug()<<"BACK EN RELEASE";
-        mik->releaseKey('"');
-    }
 
-    default:
-        break;
-    }
-    */
     if(!keyText.isEmpty()){
         QChar caracter = keyText.front().toUpper();
         mik->releaseKey(caracter);

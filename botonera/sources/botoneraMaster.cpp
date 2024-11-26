@@ -14,91 +14,92 @@ BotoneraMaster::BotoneraMaster(QWidget *parent): Botonera(parent)
 void BotoneraMaster::setOverlay(QString codigo){
     overlay = codigo.toInt();
     estadoActual->setOverlay(codigo);
-    sendMessage();
+    //getConcentrator();
 }
 void BotoneraMaster::removeCodeFromRange(QString boton){
     estadoActual->removeRange(boton);
-    sendMessage();
+    //getConcentrator();
 }
 void BotoneraMaster::removeCodeFromLabelSelection(QString boton){
     estadoActual->removeLabel(boton);
     concentrator->removeDisplaySelection(boton);
-    sendMessage();
+    //getConcentrator();
 }
 void BotoneraMaster::removeCodeFromQek(QString boton){
     estadoActual->removeQek(boton);
     concentrator->removeQEK();
-    sendMessage();
+    //getConcentrator();
 }
 void BotoneraMaster::removeCodeFromThreat(QString boton){
     estadoActual->removeThreat(boton);
     concentrator->removeThreat(boton);
-    sendMessage();
+    //getConcentrator();
 }
 void BotoneraMaster::removeCodeFromCenter(QString boton){
     estadoActual->removeCenter(boton);
     concentrator->removeCenter(boton);
-    sendMessage();
+    //getConcentrator();
 }
 void BotoneraMaster::removeCodeFromDisplayMode(QString boton){
     estadoActual->removeDisplayMode(boton);
     concentrator->removeDisplayMode(boton);
-    sendMessage();
+    //getConcentrator();
 }
 void BotoneraMaster::removeCodeFromDisplaySelection(QString boton){
     estadoActual->removeDisplaySelection(boton);
     concentrator->removeDisplaySelection(boton);
-    sendMessage();
+    //getConcentrator();
 }
 void BotoneraMaster::removeCodeFromIcm(QString boton){
     estadoActual->removeIcm(boton);
-    sendMessage();
+    //getConcentrator();
 }
 
 /* ------------------SETTERS-----------------------*/
 
 void BotoneraMaster::sendCodeToRange(QString boton){
     estadoActual->setRange(boton);
-    sendMessage();
+    //getConcentrator();
 }
 void BotoneraMaster::sendCodeToLabelSelection(QString boton){
     estadoActual->setLabel(boton);
-    sendMessage();
+    //getConcentrator();
 }
 
 void BotoneraMaster::sendCodeToQek(QString boton){
     estadoActual->setQEK(boton);
-    sendMessage();
+    //getConcentrator();
 }
 
 void BotoneraMaster::sendCodeToThreat(QString boton){
     estadoActual->setThreat(boton);
-    sendMessage();
+    //getConcentrator();
 }
 
 void BotoneraMaster::sendCodeToCenter(QString boton){
     estadoActual->setCenter(boton);
-    sendMessage();
+    //getConcentrator();
 }
 
 void BotoneraMaster::sendCodeToDisplayMode(QString boton){
     estadoActual->setDisplayMode(boton);
-    sendMessage();
+    //getConcentrator();
 }
 
 void BotoneraMaster::sendCodeToDisplaySelection(QString boton){
     estadoActual->setDisplaySelection(boton);
-    sendMessage();
+    //getConcentrator();
 }
 
 void BotoneraMaster::sendCodeToIcm(QString boton){
     estadoActual->setICM(boton);
-    sendMessage();
+    //getConcentrator();
 }
 
 
-void BotoneraMaster::sendMessage(){
-    concentrator->getMessage(estadoActual);
+QByteArray BotoneraMaster::getConcentrator(){
+    QByteArray DCLCONC = concentrator->getMessage(estadoActual);
+    return DCLCONC;
 }
 
 void Botonera::sendCharToMIK(QString c){

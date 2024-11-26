@@ -13,6 +13,7 @@
 #include "zone_threat.h"
 #include "zone_displayselection.h"
 #include "zone_displaymode.h"
+#include "andTranslator.h"
 //#include "andGui.h"
 
 class Qek;
@@ -44,6 +45,8 @@ public:
     virtual void removeCodeFromDisplaySelection(QString boton)  = 0;
     virtual void removeCodeFromIcm(QString boton)               = 0;
 
+    AndTranslator* getTranslator();
+
 public slots:
     void start(int tipo);
     void infoMessage();
@@ -64,6 +67,7 @@ protected:
     QPushButton *help_button = new QPushButton("");
     void crearBotonHelp();
     andGui *alfanumeric_display;
+    AndTranslator *translator;
     void distribucionLayout();
 
 };

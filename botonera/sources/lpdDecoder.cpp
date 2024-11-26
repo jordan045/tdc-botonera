@@ -25,12 +25,12 @@ void LPDDecoder::processLPDMessage(QByteArray data, int wordLength)
     QByteArray messageArray = file.readAll().mid(3);
     processMessage(messageArray, 255, markerList, cursorList);
 
-    for(MarkerMessage &marker: markerList){
-        marker.toString();
-    }
-    for(CursorMessage &cursor: cursorList){
-        cursor.toString();
-    }
+    // for(MarkerMessage &marker: markerList){
+    //     marker.toString();
+    // }
+    // for(CursorMessage &cursor: cursorList){
+    //     cursor.toString();
+    // }
 
     emit processResult(markerList, cursorList);
 

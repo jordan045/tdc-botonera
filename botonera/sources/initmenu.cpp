@@ -124,6 +124,13 @@ void InitMenu::seleccion()
         miBotonera->setOverlay(overlay);
         qDebug()<<"Se seteo el overlay";
         miBotonera->start(tipoBuque);
+        lpd = new LPDDecoder();
+        translator = new AndTranslator();
+        comunicationSystem = new Transciever_FPGA(
+            this,
+            miBotonera->getTranslator(),
+            static_cast<BotoneraMaster*>(miBotonera),
+            lpd);
         qDebug()<< "se empezo la botonera";
         this->close();
         miBotonera->show();

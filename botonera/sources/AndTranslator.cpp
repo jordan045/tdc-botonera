@@ -20,10 +20,11 @@ AndTranslator::AndTranslator(QObject *parent) : QObject(parent)
 //     return QString(QChar(static_cast<ushort>(decimalValue)));
 // }
 
-void AndTranslator::processBinaryString(QByteArray data)
+void AndTranslator::processAndMessage(QByteArray data)
 {
     QPair<int, QString> result;
     result = processMessage(data);
+    qDebug() << result.first << " | " << result.second;
     emit conversionResult(result);
 
 }

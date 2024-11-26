@@ -184,7 +184,7 @@ void formatConcentratorTest::performComparison(StubEstado *stubEstado){
     QBitArray* localTest;
     QFETCH(QBitArray, expectedResult);
 
-    localTest = concentrator->getMessage(stubEstado);
+    //localTest = concentrator->getMessage(stubEstado);
     comparisonResult = ((*localTest) == expectedResult);
     QVERIFY2(comparisonResult, qPrintable(BitArrayUtils::compareBitArrays((*localTest), expectedResult)));
 
