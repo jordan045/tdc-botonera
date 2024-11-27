@@ -141,15 +141,15 @@ void andGui::setLine(QPair<int,QString> line){
 }
 
 
-void andGui::keyReleaseEvent(QKeyEvent *event){
+// void andGui::keyReleaseEvent(QKeyEvent *event){
 
-    QString keyText = event->text();
+//     QString keyText = event->text();
 
-    if(!keyText.isEmpty()){
-        QChar caracter = keyText.front().toUpper();
-        mik->releaseKey(caracter);
-    }
-}
+//     if(!keyText.isEmpty()){
+//         QChar caracter = keyText.front().toUpper();
+//         mik->releaseKey(caracter);
+//     }
+// }
 
 void andGui::saltoDeLineaTecla(){
     int i = (mik->getTab() == 12) ? 1 : mik->getTab() + 1;
