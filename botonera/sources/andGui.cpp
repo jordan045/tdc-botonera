@@ -1,14 +1,15 @@
 #include "andGui.h"
 #include "ui_andGui.h"
-#include "andTranslator.h"
+#include "decoderAND.h"
 #include "ui_andGrilla.h"
 #include <QLabel>
 #include <QDebug>
 #include <QStackedWidget>
 
-andGui::andGui(QWidget *parent, Botonera *b)
+andGui::andGui(QWidget *parent, Botonera *b, decoderAND *translator)
     : QWidget(parent),ui(new Ui::andGui)
 {
+    converter = translator;
 
     // Crear QStackedWidget
     stackedWidget = new QStackedWidget(this);
@@ -36,6 +37,7 @@ andGui::andGui(QWidget *parent, Botonera *b)
     //int filaActual = 1;
     miBotonera = b;
     mik = new MIK(b);
+
 
     // Creamos un array de labels para guardarlos
     labels.append(ui->TitleLabel);
@@ -124,19 +126,29 @@ andGui::andGui(QWidget *parent, Botonera *b)
     connect(grilla->S04_button, &QPushButton::clicked,this,&andGui::on_S04_button_clicked);
 
     // Conecta la señal de conversión de AndTranslator a una función lambda que actualiza el QLabel
-    QObject::connect(&converter, &AndTranslator::conversionResult, [this](const QPair<int,QString> line) {
+    QObject::connect(converter, &decoderAND::conversionResult, [this](const QPair<int,QString> line) {
         setLine(line);
     });
-
-    converter.processBinaryString();
 
     // Esto hace que se abra en una ventana aparte
     this->setWindowFlag(Qt::Window);
     this->setWindowTitle("AND");
+    this->show();
 }
 
 void andGui::setLine(QPair<int,QString> line){
     labels[line.first]->setText(line.second);
+}
+
+
+void andGui::keyReleaseEvent(QKeyEvent *event){
+
+    QString keyText = event->text();
+
+    if(!keyText.isEmpty()){
+        QChar caracter = keyText.front().toUpper();
+        mik->releaseKey(caracter);
+    }
 }
 
 void andGui::saltoDeLineaTecla(){
@@ -145,6 +157,7 @@ void andGui::saltoDeLineaTecla(){
     b->setDown(true);
     b->click();
 }
+
 
 
 

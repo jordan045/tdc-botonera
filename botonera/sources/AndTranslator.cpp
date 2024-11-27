@@ -1,62 +1,21 @@
-#include "andTranslator.h"
+#include "decoderAND.h"
 #include <QDebug>
 #include <QFile>
 
-AndTranslator::AndTranslator(QObject *parent) : QObject(parent)
+decoderAND::decoderAND(QObject *parent) : QObject(parent)
 {
 }
-// QString AndTranslator::binaryToChar(const QString &message) const
-// {
-//     // Convertir la cadena binaria a un valor decimal
-//     bool ok;
-//     unsigned long decimalValue = message.toULong(&ok, 2); // Base 2 para binario
 
-//     if (!ok) {
-//         qDebug() << "Error en la conversión de binario a decimal";
-//         return QString();
-//     }
 
-//     // Convertir el valor decimal a un carácter
-//     return QString(QChar(static_cast<ushort>(decimalValue)));
-// }
-
-void AndTranslator::processBinaryString()
+void decoderAND::processAndMessage(QByteArray data)
 {
-    QFile file(":/binary/one_page2.bin");
-    if (!file.open(QIODevice::ReadOnly)) {
-        qWarning() << "No se pudo abrir el archivo";
-        return;
-    }
-
-    // Tamaño de cada bloque de datos a leer
-    const int blockSize = 51;
-    const int offset = 3;  // Número de bytes a eliminar al inicio
     QPair<int, QString> result;
-
-    // Leer el archivo en bloques de blockSize bytes
-    while (!file.atEnd()) {
-        QByteArray block = file.read(blockSize);
-        qDebug() << block.size() << "block size";
-
-
-        if (block.size() < blockSize) {
-            qWarning() << "Último bloque incompleto, ignorado";
-            break;  // Rompe el ciclo si no se pudo leer un bloque completo
-        }
-
-        // Eliminar los primeros 3 bytes
-        QByteArray cleanedBlock = block.mid(offset);
-
-        result = processMessage(cleanedBlock);
-        qDebug() << result.first << " | " << result.second;
-        emit conversionResult(result);
-    }
-    file.close();
-
-
+    result = processMessage(data);
+    emit conversionResult(result);
+    qDebug() << "emitimos";
 }
 
-QByteArray AndTranslator::getArray(QString &message){
+QByteArray decoderAND::getArray(QString &message){
     QByteArray byteArray;
 
     for (int i = 0; i < message.length(); i += BYTE_LENGTH) {
@@ -73,7 +32,7 @@ QByteArray AndTranslator::getArray(QString &message){
     return byteArray;
 }
 
-QPair<int,QString> AndTranslator::processMessage(QByteArray &message){
+QPair<int,QString> decoderAND::processMessage(QByteArray &message){
     QPair<int,QString> result;
 
     QString text = "";
@@ -90,6 +49,7 @@ QPair<int,QString> AndTranslator::processMessage(QByteArray &message){
     qDebug() << "Row en hexadecimal:" << rowHex;
 
     while(nextChar != END_OF_TEXT){
+
         text.append(nextChar);
         index++;
         nextChar = message[index];
@@ -109,4 +69,3 @@ QPair<int,QString> AndTranslator::processMessage(QByteArray &message){
 
     return result;
 }
-

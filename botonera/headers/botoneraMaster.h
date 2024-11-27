@@ -30,7 +30,7 @@ public:
         void sendCodeToDisplayMode(QString boton) override;
         void sendCodeToDisplaySelection(QString boton)override;
         void sendCodeToIcm(QString boton) override;
-        void sendMessage();
+        QByteArray getConcentrator();
         QString getOverlay();
 
 };

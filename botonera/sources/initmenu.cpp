@@ -16,7 +16,6 @@ InitMenu::InitMenu(QWidget *parent) :
 {
     QCoreApplication::setApplicationName("Botonera AR-TDC");
 
-    // Modal para mensajes de error
     QMessageBox::StandardButton reply;
 
     // Lee el archivo JSON con la información de los overlays
@@ -95,10 +94,8 @@ InitMenu::InitMenu(QWidget *parent) :
 
     bool master = true;
 
-    qDebug()<< "estoy por crear la botonera";
     if(master){
-         miBotonera = new BotoneraMaster();
-        qDebug()<<"Se creo bien la botonera";
+         botonera = new BotoneraMaster();
     }
     /*
      * else
@@ -107,12 +104,6 @@ InitMenu::InitMenu(QWidget *parent) :
 
 
     QObject::connect(ui.continue_button, &QPushButton::clicked, this, &InitMenu::seleccion);
-    // miBotonera = new BotoneraMaster();
-    // auto overlay = "0001" ;
-    // miBotonera->setOverlay(overlay);
-    // miBotonera->start(tipoBuque);
-    // this->close();
-    //miBotonera->show();
 }
 
 void InitMenu::seleccion()
@@ -121,12 +112,22 @@ void InitMenu::seleccion()
         QMessageBox::warning(this, "Advertencia", "Seleccione un ambiente de trabajo");
     }else {
         auto overlay = group->checkedButton()->objectName();
-        miBotonera->setOverlay(overlay);
-        qDebug()<<"Se seteo el overlay";
-        miBotonera->start(tipoBuque);
-        qDebug()<< "se empezo la botonera";
+
+        botonera->setOverlay(overlay);
+        botonera->start(tipoBuque);
+
+        decoderLPD = new class decoderLPD(this);
+        decoderAND = new class decoderAND(this);
+        andGui = new class andGui(this, botonera, decoderAND);
+
+        comunicationSystem = new transcieverFPGA(
+            this,
+            decoderAND,
+            static_cast<BotoneraMaster*>(botonera),
+            decoderLPD);
+
         this->close();
-        miBotonera->show();
+        botonera->show();
     }
 }
 

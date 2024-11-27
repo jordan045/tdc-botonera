@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,10 +18,14 @@ SOURCES += \
     sources/botonera.cpp \
     sources/botoneraMaster.cpp \
     sources/botoneraSlave.cpp \
+    sources/cursorMessage.cpp \
+    sources/decenteredimage.cpp \
     sources/estado.cpp \
     sources/formatconcentrator.cpp \
     sources/initmenu.cpp \
+    sources/lpdDecoder.cpp \
     sources/main.cpp \
+    sources/markerMessage.cpp \
     sources/mik.cpp \
     sources/overlay_140_0001.cpp \
     sources/overlay_140_0010.cpp \
@@ -42,15 +46,17 @@ SOURCES += \
     sources/zone_label.cpp \
     sources/zone_range.cpp \
     sources/zone_threat.cpp \
+    sources/transciever_fpga.cpp \
 
 HEADERS += \
     headers/Zone.h \
     headers/andGui.h \
-    headers/andTranslator.h \
     headers/boton.h \
     headers/botonera.h \
     headers/botoneraMaster.h \
     headers/botoneraSlave.h \
+    headers/decoderAND.h \
+    headers/decoderLPD.h \
     headers/estado.h \
     headers/formatconcentrator.h \
     headers/iestado.h \
@@ -76,6 +82,10 @@ HEADERS += \
     headers/zone_range.h \
     headers/zone_threat.h \
     headers/mik.h \
+    headers/transciever_fpga.h \
+    headers/cursorMessage.h \
+    headers/decenteredimage.h \
+    headers/markerMessage.h
 
 FORMS += \
     forms/andGrilla.ui \
