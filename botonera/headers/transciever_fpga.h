@@ -9,7 +9,9 @@
 #include <QTimer>
 
 #define PORT 9000
-#define IP "172.16.0.100"
+#define IP_FPGA "172.16.0.100"
+#define IP_MASTER "172.16.0.99"
+#define MAC_ADDRESS "34BDFA99B530"
 
 #define DA_CONCENTRADOR 0x04
 #define DA_AND1 0x02

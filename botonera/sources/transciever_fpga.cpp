@@ -51,18 +51,28 @@ void transcieverFPGA::readPendingDatagrams(){
         quint16 senderPort;
 
         udpSocket->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
+        qDebug() << "llego algo" << datagram.size();
         readDeviceAddress(datagram);
     }
 }
 
 void transcieverFPGA::readDeviceAddress(QByteArray datagram){
     if(!datagram.isNull()){
-        char deviceAddress = datagram.at(0) & 0x0F;  //Sirve los ultimos 4 bits
+        if (datagram.size() < 3) {
+            qWarning() << "Datagrama muy pequeño para procesar. Tamaño:" << datagram.size();
+            return;
+        }
 
-        //El número de secuencia de cada trama se representa con 15 bits
+        char deviceAddress = datagram.at(0) & 0x0F;
+
         quint16 sequenceNumber = (static_cast<quint16>(datagram.at(1)) << 8) | static_cast<quint8>(datagram.at(2));
 
-        QByteArray payload = datagram.last(datagram.size()-3); //Elimina el encabezado
+        // Si hay más de 3 bytes, el resto es el payload
+        QByteArray payload;
+        if (datagram.size() > 3) {
+            payload = datagram.mid(3);
+        }
+        qDebug() << "pay " << payload;
         int wordLength;
 
         switch (deviceAddress) {
@@ -122,7 +132,7 @@ void transcieverFPGA::sendConcentrator(QByteArray data){
     bufferConcentrador.first = data;
     bufferConcentrador.second = sequenceNumber;
 
-    if (udpSocket->writeDatagram(message, QHostAddress(IP), PORT) == -1) {
+    if (udpSocket->writeDatagram(message, QHostAddress(IP_FPGA), PORT) == -1) {
         qWarning() << "Failed to send datagram:" << udpSocket->errorString();
     }
     timerConcentrador.start(200);
@@ -130,12 +140,13 @@ void transcieverFPGA::sendConcentrator(QByteArray data){
 
 void transcieverFPGA::AND1(QByteArray data, quint16 sequenceNumber){
     QByteArray invertedData = negateData(data);
+
     QByteArray ack_message = QByteArray(3,0x0);
 
     ack_message[0] = DA_AND1;
     ack_message[1] = (sequenceNumber >> 8) & 0xFF;
     ack_message[2] = sequenceNumber & 0xFF;
-    udpSocket->writeDatagram(ack_message, QHostAddress(IP), PORT);
+    udpSocket->writeDatagram(ack_message, QHostAddress(IP_FPGA), PORT);
 
     decoderAND->processAndMessage(invertedData);
 }
@@ -151,7 +162,7 @@ void transcieverFPGA::AND2(QByteArray data, quint16 sequenceNumber){
     ack_message[0] = DA_AND1;
     ack_message[1] = (sequenceNumber >> 8) & 0xFF;
     ack_message[2] = sequenceNumber & 0xFF;
-    udpSocket->writeDatagram(ack_message, QHostAddress(IP), PORT);
+    udpSocket->writeDatagram(ack_message, QHostAddress(IP_FPGA), PORT);
 
     decoderAND->processAndMessage(invertedData);
     /*
