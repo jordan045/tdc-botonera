@@ -57,9 +57,32 @@ andGui::andGui(QWidget *parent, Botonera *b, decoderAND *translator)
     labels.append(ui->NLabel);
     labels.append(ui->OLabel);
 
+    //QButtonGroup *group = ui->selGroup;
 
+    ui->selGroup->setId(ui->AButton,1);
+    ui->selGroup->setId(ui->BButton,2);
+    ui->selGroup->setId(ui->CButton,3);
+    ui->selGroup->setId(ui->DButton,4);
+    ui->selGroup->setId(ui->EButton,5);
+    ui->selGroup->setId(ui->FButton,6);
+    ui->selGroup->setId(ui->GButton,7);
+    ui->selGroup->setId(ui->HButton,8);
+    ui->selGroup->setId(ui->IButton,9);
+    ui->selGroup->setId(ui->JButton,10);
+    ui->selGroup->setId(ui->KButton,11);
+    ui->selGroup->setId(ui->LButton,12);
+
+    /*
+    int i = 1;
+    for(QAbstractButton *b : ui->selGroup->buttons()){
+        //ui->selGroup->addButton(b,i+1);
+        ui->selGroup->setId(b,i++);
+        qDebug()<< ui->selGroup->id(b) << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
+    }
+    */
     connect(ui->pushButton_grilla, &QPushButton::clicked, this, &andGui::on_pushButton_grilla_clicked);
     connect(grilla->pushButton_back, &QPushButton::clicked, this, &andGui::on_pushButton_back_clicked);
+    connect(ui->pushButton_Del, &QPushButton::clicked, this, &andGui::on_pushButton_Del_clicked);
 
     connect(ui->pushButton_W1,&QPushButton::clicked,this,&andGui::on_pushButton_W1_pressed);
     connect(ui->pushButton_W2,&QPushButton::clicked,this,&andGui::on_pushButton_W2_pressed);
@@ -117,6 +140,7 @@ void andGui::setLine(QPair<int,QString> line){
     labels[line.first]->setText(line.second);
 }
 
+
 void andGui::keyReleaseEvent(QKeyEvent *event){
 
     QString keyText = event->text();
@@ -125,45 +149,71 @@ void andGui::keyReleaseEvent(QKeyEvent *event){
         QChar caracter = keyText.front().toUpper();
         mik->releaseKey(caracter);
     }
-
 }
+
+void andGui::saltoDeLineaTecla(){
+    int i = (mik->getTab() == 12) ? 1 : mik->getTab() + 1;
+    QAbstractButton *b = ui->selGroup->button(i);
+    b->setDown(true);
+    b->click();
+}
+
+
+
 
 void andGui::keyPressEvent(QKeyEvent *event){
 
     QString keyText = event->text();
-    //qDebug()<<"KEY TEXT: "<< keyText;
 
-    if(event->key() == Qt::Key_Return ||event->key() == Qt::Key_Enter){
-        qDebug()<<"--- ENTER EN PRESS ---";
-        mik->pressKey('\r');
-    }else{
-    /*
     switch (event->key()) {
-
-        case Qt::Key_Enter:
-            qDebug()<<"ENTER EN PRESS";
-            mik->pressKey('#');
+        case Qt::Key_Return:
+            mik->pressKey("EXECUTE");
+            break;
+        case Qt::Key_Enter://Enter de teclado numerico
+            mik->pressKey("EXECUTE");
             break;
 
         case Qt::Key_Space:
-            qDebug()<<"SPACE EN PRESS";
-            mik->pressKey('!');
+            mik->pressKey("SPACE");
             break;
 
         case Qt::Key_Backspace:
-            qDebug()<<"BACK EN PRESS";
-            mik->pressKey('"');
+            mik->pressKey("ERASE_LINE");
+            break;
+
+        case Qt::Key_Left:
+            mik->pressKey("MARK_BWD");
+            break;
+
+        case Qt::Key_Right:
+            mik->pressKey("MARK_FWD");
+            break;
+
+        case Qt::Key_F2:
+            mik->pressKey("RB");
+            break;
+
+        case Qt::Key_F3:
+            mik->pressKey("DR_OBM");
+            break;
+
+        case Qt::Key_F4:
+            mik->pressKey("WIPE_WARM");
+            break;
+
+        case Qt::Key_Down:
+            qDebug()<< "SSSEEELLL";
+            saltoDeLineaTecla();
+            break;
 
         default:
+            if(!keyText.isEmpty()){
+                QChar caracter = event->text().front().toUpper();
+                mik->pressKey(caracter);
+            }
             break;
     }
-    */
 
-    if(!keyText.isEmpty()){
-        QChar caracter = event->text().front().toUpper();
-        mik->pressKey(caracter);
-    }
-    }
 }
 
 void andGui::tocarBoton(const QString &mensaje){
@@ -179,53 +229,53 @@ void andGui::on_A_Button_clicked(){
 }
 void andGui::on_B_Button_clicked(){
     mik->selectLine(2);
-    qDebug() << "Toqué botón B";
+    //qDebug() << "Toqué botón B";
 }
 void andGui::on_C_Button_clicked(){
     mik->selectLine(3);
-    qDebug() << "Toqué botón C";
+    //qDebug() << "Toqué botón C";
 }
 void andGui::on_D_Button_clicked(){
     mik->selectLine(4);
-    qDebug() << "Toqué botón D";
+    //qDebug() << "Toqué botón D";
 }
 void andGui::on_E_Button_clicked(){
     mik->selectLine(5);
-    qDebug() << "Toqué botón E";
+    //qDebug() << "Toqué botón E";
 }
 void andGui::on_F_Button_clicked(){
     mik->selectLine(6);
-    qDebug() << "Toqué botón F";
+    //qDebug() << "Toqué botón F";
 }
 void andGui::on_G_Button_clicked(){
     mik->selectLine(7);
-    qDebug() << "Toqué botón G";
+    //qDebug() << "Toqué botón G";
 }
 void andGui::on_H_Button_clicked(){
     mik->selectLine(8);
-    qDebug() << "Toqué botón H";
+    //qDebug() << "Toqué botón H";
 }
 void andGui::on_I_Button_clicked(){
     mik->selectLine(9);
-    qDebug() << "Toqué botón I";
+    //qDebug() << "Toqué botón I";
 }
 void andGui::on_J_Button_clicked(){
     mik->selectLine(10);
-    qDebug() << "Toqué botón J";
+    //qDebug() << "Toqué botón J";
 }
 void andGui::on_K_Button_clicked(){
     mik->selectLine(11);
-    qDebug() << "Toqué botón K";
+    //qDebug() << "Toqué botón K";
 }
 void andGui::on_L_Button_clicked(){
     mik->selectLine(12);
-    qDebug() << "Toqué botón L";
+    //qDebug() << "Toqué botón L";
 }
 
 //Declaracion de las funciones de los works spaces
-void andGui::on_pushButton_W1_pressed(){tocarBoton("W01");}
-void andGui::on_pushButton_W2_pressed(){tocarBoton("W02");}
-void andGui::on_pushButton_W3_pressed(){tocarBoton("W03");}
+void andGui::on_pushButton_W1_pressed(){tocarBoton("W 0 1");}
+void andGui::on_pushButton_W2_pressed(){tocarBoton("W 0 2");}
+void andGui::on_pushButton_W3_pressed(){tocarBoton("W 0 3");}
 
 void andGui::on_pushButton_grilla_clicked(){
     qDebug() << "Cambiando a la grilla";
@@ -238,106 +288,113 @@ void andGui::on_pushButton_back_clicked(){
 }
 
 void andGui::on_P01_button_clicked(){
-    tocarBoton("P01#+#");
+    tocarBoton("P 0 1 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P02_button_clicked(){
-    tocarBoton("P02#+#");
+    tocarBoton("P 0 2 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P03_button_clicked(){
-    tocarBoton("P03#+#");
+    tocarBoton("P 0 3 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P04_button_clicked(){
-    tocarBoton("P04#+#");
+    tocarBoton("P 0 4 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P05_button_clicked(){
-    tocarBoton("P05#+#");
+    tocarBoton("P 0 5 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P06_button_clicked(){
-    tocarBoton("P06#+#");
+    tocarBoton("P 0 6 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P07_button_clicked(){
-    tocarBoton("P07#+#");
+    tocarBoton("P 0 7 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P08_button_clicked(){
-    tocarBoton("P08#+#");
+    tocarBoton("P 0 8 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P09_button_clicked(){
-    tocarBoton("P09#+#");
+    tocarBoton("P 0 9 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P10_button_clicked(){
-    tocarBoton("P10#+#");
+    tocarBoton("P 1 0 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P11_button_clicked(){
-    tocarBoton("P11#+#");
+    tocarBoton("P 1 1 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P12_button_clicked(){
-    tocarBoton("P12#+#");
+    tocarBoton("P 1 2 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P13_button_clicked(){
-    tocarBoton("P13#+#");
+    tocarBoton("P 1 3 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P14_button_clicked(){
-    tocarBoton("P14#+#");
+    tocarBoton("P 1 4 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P15_button_clicked(){
-    tocarBoton("P15#+#");
+    tocarBoton("P 1 5 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P16_button_clicked(){
-    tocarBoton("P16#+#");
+    tocarBoton("P 1 6 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_P17_button_clicked(){
-    tocarBoton("P17#+#");
+    tocarBoton("P 1 7 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_S01_button_clicked(){
-    tocarBoton("S01#+#");
+    tocarBoton("S 0 1 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_S02_button_clicked(){
-    tocarBoton("S02#+#");
+    tocarBoton("S 0 2 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_S03_button_clicked(){
-    tocarBoton("S03#+#");
+    tocarBoton("S 0 3 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
 void andGui::on_S04_button_clicked(){
-    tocarBoton("S04#+#");
+    tocarBoton("S 0 4 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
+
+
+
+void andGui::on_pushButton_Del_clicked(){
+    tocarBoton("- EXECUTE");
+}
+
