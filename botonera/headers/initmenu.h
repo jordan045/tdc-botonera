@@ -4,7 +4,7 @@
 #include <QWidget>
 #include "botonera.h"
 #include "andGui.h"
-#include "lpdDecoder.h"
+#include "decoderLPD.h"
 #include "transciever_fpga.h"
 
 class InitMenu : public QWidget
@@ -14,10 +14,11 @@ public:
     explicit InitMenu(QWidget *parent = nullptr);
 
 private:
-    Botonera *miBotonera;
-    LPDDecoder *lpd;
-    AndTranslator *translator;
-    Transciever_FPGA *comunicationSystem;
+    Botonera *botonera;
+    decoderLPD *decoderLPD;
+    decoderAND *decoderAND;
+    transcieverFPGA *comunicationSystem;
+    andGui *andGui;
 
     void start();
     QButtonGroup *group;

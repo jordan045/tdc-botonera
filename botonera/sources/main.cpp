@@ -3,7 +3,6 @@
 #include <initmenu.h>
 #include <andGui.h>
 
-#include "lpdDecoder.h"
 #include<QLabel>
 #include <QWidget>
 #include<QDebug>
@@ -17,10 +16,6 @@ int main(int argc, char *argv[])
 
     InitMenu d;
     d.show();
-
-    LPDDecoder lpd;
-    lpd.processLPDMessage(0x0,0);
-
 
     return a.exec();
 }

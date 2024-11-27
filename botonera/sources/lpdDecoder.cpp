@@ -1,4 +1,4 @@
-#include "lpdDecoder.h"
+#include "decoderLPD.h"
 #include "markerMessage.h"
 #include "cursorMessage.h"
 #include "qdebug.h"
@@ -6,11 +6,11 @@
 #include <QByteArray>
 #include <QFile>
 
-LPDDecoder::LPDDecoder(QObject *parent) : QObject(parent)
+decoderLPD::decoderLPD(QObject *parent) : QObject(parent)
 {
 }
 
-void LPDDecoder::processLPDMessage(QByteArray data, int wordLength)
+void decoderLPD::processLPDMessage(QByteArray data, int wordLength)
 {
     QList<MarkerMessage> markerList;
     QList<CursorMessage> cursorList;
@@ -37,7 +37,7 @@ void LPDDecoder::processLPDMessage(QByteArray data, int wordLength)
     file.close();
 }
 
-void LPDDecoder::processMessage(QByteArray &message, int wordLength, QList<MarkerMessage> &markerList, QList<CursorMessage> &cursorList)
+void decoderLPD::processMessage(QByteArray &message, int wordLength, QList<MarkerMessage> &markerList, QList<CursorMessage> &cursorList)
 {
     markerList.clear();
     cursorList.clear();
@@ -173,7 +173,7 @@ void LPDDecoder::processMessage(QByteArray &message, int wordLength, QList<Marke
     }
 }
 
-QPair<qfloat16,qfloat16> LPDDecoder::getCoords(QByteArray message, int offset){
+QPair<qfloat16,qfloat16> decoderLPD::getCoords(QByteArray message, int offset){
     qfloat16 coordX = 0.0f;
     qfloat16 coordY = 0.0f;
 

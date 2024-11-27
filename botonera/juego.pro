@@ -51,11 +51,12 @@ SOURCES += \
 HEADERS += \
     headers/Zone.h \
     headers/andGui.h \
-    headers/andTranslator.h \
     headers/boton.h \
     headers/botonera.h \
     headers/botoneraMaster.h \
     headers/botoneraSlave.h \
+    headers/decoderAND.h \
+    headers/decoderLPD.h \
     headers/estado.h \
     headers/formatconcentrator.h \
     headers/iestado.h \
@@ -84,7 +85,6 @@ HEADERS += \
     headers/transciever_fpga.h \
     headers/cursorMessage.h \
     headers/decenteredimage.h \
-    headers/lpdDecoder.h \
     headers/markerMessage.h
 
 FORMS += \

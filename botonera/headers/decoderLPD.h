@@ -1,5 +1,5 @@
-#ifndef LPDDECODER_H
-#define LPDDECODER_H
+#ifndef DECODERLPD_H
+#define DECODERLPD_H
 
 #include "cursorMessage.h"
 #include "markerMessage.h"
@@ -16,11 +16,11 @@
 #define CURSOR_ID 0x05
 #define DECENTERED_ID 0x09
 
-class LPDDecoder: public QObject
+class decoderLPD: public QObject
 {
     Q_OBJECT
 public:
-    explicit LPDDecoder(QObject *parent = nullptr);
+    explicit decoderLPD(QObject *parent = nullptr);
     void processLPDMessage(QByteArray data, int wordLenght);
 
 private:
@@ -32,4 +32,4 @@ signals:
     void processResult(const QList<MarkerMessage> &markerList, QList<CursorMessage> &cursorList);
 };
 
-#endif // LPDDECODER_H
+#endif // DECODERLPD_H

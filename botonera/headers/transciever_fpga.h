@@ -1,9 +1,9 @@
 #ifndef TRANSCIEVER_FPGA_H
 #define TRANSCIEVER_FPGA_H
 
-#include "andTranslator.h"
+#include "decoderAND.h"
 #include "botoneraMaster.h"
-#include "lpdDecoder.h"
+#include "decoderLPD.h"
 #include <QObject>
 #include <QUdpSocket>
 #include <QTimer>
@@ -17,12 +17,12 @@
 #define DA_LPD 0x00
 #define DA_PEDIDO_CONCENTRADOR 0x01
 
-class Transciever_FPGA : public QObject
+class transcieverFPGA : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit Transciever_FPGA(QObject *parent = nullptr, AndTranslator *c = nullptr,BotoneraMaster *botonera = nullptr, LPDDecoder *decoder = nullptr);
+    explicit transcieverFPGA(QObject *parent = nullptr, decoderAND *c = nullptr,BotoneraMaster *botonera = nullptr, decoderLPD *decoder = nullptr);
     void sendMessage(const QString &message, const QString &address, quint16 port);
 
 private slots:
@@ -52,8 +52,8 @@ private:
     QPair<QByteArray,quint16> bufferConcentrador;
     QTimer timerConcentrador;
 
-    AndTranslator *converter;
-    LPDDecoder *decoder;
+    decoderAND *decoderAND;
+    decoderLPD *decoderLPD;
     BotoneraMaster *botonera;
 };
 

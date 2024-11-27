@@ -3,43 +3,45 @@
 #include <QDebug>
 
 
-Transciever_FPGA::Transciever_FPGA(QObject *parent, AndTranslator *translator, BotoneraMaster *botonera, LPDDecoder *decoder) : QObject(parent){
+transcieverFPGA::transcieverFPGA(QObject *parent, class decoderAND *decoderAND, BotoneraMaster *botonera, class decoderLPD *decoderLPD) : QObject(parent){
     //Crear el socket y conectarlo al puerto de la FPGA
     udpSocket = new QUdpSocket(this);
     udpSocket->bind(QHostAddress::Any, PORT);
 
     //Conectar la llegada de mensajes nuevos con la clasificación de mensajes
-    connect(udpSocket, &QUdpSocket::readyRead, this, &Transciever_FPGA::readPendingDatagrams);
-    connect(&timerConcentrador, &QTimer::timeout, this, &Transciever_FPGA::reenviarDCLCONC);
+    connect(udpSocket, &QUdpSocket::readyRead, this, &transcieverFPGA::readPendingDatagrams);
+    connect(&timerConcentrador, &QTimer::timeout, this, &transcieverFPGA::reenviarDCLCONC);
 
-    converter = translator;
+    this->decoderAND = decoderAND;
     this->botonera = botonera;
-    this->decoder = decoder;
+    this->decoderLPD = decoderLPD;
 
-    QFile file(":/binary/and_raw_onepage.bin");
-    if (!file.open(QIODevice::ReadOnly)) {
-        qWarning() << "No se pudo abrir el archivo";
-        return;
-    }
+    /* TEST INYECTION
+        QFile file(":/binary/and_raw_onepage.bin");
+        if (!file.open(QIODevice::ReadOnly)) {
+            qWarning() << "No se pudo abrir el archivo";
+            return;
+        }
 
-    // Tamaño de cada bloque de datos a leer
-    const int blockSize = 51;
-    QPair<int, QString> result;
+        // Tamaño de cada bloque de datos a leer
+        const int blockSize = 51;
+        QPair<int, QString> result;
 
-    // Leer el archivo en bloques de blockSize bytes
-    while (!file.atEnd()) {
-        QByteArray block = file.read(blockSize);
-        readDeviceAddress(block);
-    }
-    file.close();
+        // Leer el archivo en bloques de blockSize bytes
+        while (!file.atEnd()) {
+            QByteArray block = file.read(blockSize);
+            readDeviceAddress(block);
+        }
+        file.close();
+    */
 }
 
-quint16 Transciever_FPGA::getNextSequenceNumber() {
+quint16 transcieverFPGA::getNextSequenceNumber() {
     sequenceCounter = (sequenceCounter + 1) & 0x7FFF; // Incrementa y aplica una máscara de 15 bits (0x7FFF)
     return sequenceCounter;
 }
 
-void Transciever_FPGA::readPendingDatagrams(){
+void transcieverFPGA::readPendingDatagrams(){
     while (udpSocket->hasPendingDatagrams()) {
         QByteArray datagram;
         datagram.resize(udpSocket->pendingDatagramSize()); //Resize al tamaño del mensaje recibido
@@ -53,7 +55,7 @@ void Transciever_FPGA::readPendingDatagrams(){
     }
 }
 
-void Transciever_FPGA::readDeviceAddress(QByteArray datagram){
+void transcieverFPGA::readDeviceAddress(QByteArray datagram){
     if(!datagram.isNull()){
         char deviceAddress = datagram.at(0) & 0x0F;  //Sirve los ultimos 4 bits
 
@@ -101,13 +103,13 @@ QByteArray negateData(const QByteArray &data) {
     return invertedData;
 }
 
-void Transciever_FPGA::generateConcentrator(){
+void transcieverFPGA::generateConcentrator(){
     QByteArray concentrator = botonera->getConcentrator();
     concentrator = negateData(concentrator);
     sendConcentrator(concentrator);
 }
 
-void Transciever_FPGA::sendConcentrator(QByteArray data){
+void transcieverFPGA::sendConcentrator(QByteArray data){
     QByteArray header = QByteArray(3,0x0);
     quint16 sequenceNumber = getNextSequenceNumber();
 
@@ -126,7 +128,7 @@ void Transciever_FPGA::sendConcentrator(QByteArray data){
     timerConcentrador.start(200);
 }
 
-void Transciever_FPGA::AND1(QByteArray data, quint16 sequenceNumber){
+void transcieverFPGA::AND1(QByteArray data, quint16 sequenceNumber){
     QByteArray invertedData = negateData(data);
     QByteArray ack_message = QByteArray(3,0x0);
 
@@ -135,14 +137,14 @@ void Transciever_FPGA::AND1(QByteArray data, quint16 sequenceNumber){
     ack_message[2] = sequenceNumber & 0xFF;
     udpSocket->writeDatagram(ack_message, QHostAddress(IP), PORT);
 
-    converter->processAndMessage(invertedData);
+    decoderAND->processAndMessage(invertedData);
 }
 
-void Transciever_FPGA::sendToLPD(QByteArray d, int wordLength){
-    decoder->processLPDMessage(d, wordLength);
+void transcieverFPGA::sendToLPD(QByteArray d, int wordLength){
+    decoderLPD->processLPDMessage(d, wordLength);
 }
 
-void Transciever_FPGA::AND2(QByteArray data, quint16 sequenceNumber){
+void transcieverFPGA::AND2(QByteArray data, quint16 sequenceNumber){
     QByteArray invertedData = negateData(data);
     QByteArray ack_message = QByteArray(3,0x0);
 
@@ -151,7 +153,7 @@ void Transciever_FPGA::AND2(QByteArray data, quint16 sequenceNumber){
     ack_message[2] = sequenceNumber & 0xFF;
     udpSocket->writeDatagram(ack_message, QHostAddress(IP), PORT);
 
-    converter->processAndMessage(invertedData);
+    decoderAND->processAndMessage(invertedData);
     /*
      * Aca hay que mandar a TCP-Slave, merge con SC-TCP
      * Para despues mandarlo a converter
@@ -159,7 +161,7 @@ void Transciever_FPGA::AND2(QByteArray data, quint16 sequenceNumber){
     */
 }
 
-void Transciever_FPGA::recieveACK(QByteArray ack, quint16 sequenceNumber){
+void transcieverFPGA::recieveACK(QByteArray ack, quint16 sequenceNumber){
     bool flagAck = ack[0] & 0x80;
 
     if(flagAck && (sequenceNumber == bufferConcentrador.second)){
@@ -169,6 +171,6 @@ void Transciever_FPGA::recieveACK(QByteArray ack, quint16 sequenceNumber){
     }
 }
 
-void Transciever_FPGA::reenviarDCLCONC(){
+void transcieverFPGA::reenviarDCLCONC(){
     sendConcentrator(bufferConcentrador.first);//envia el mismo numero de secuencia?
 }

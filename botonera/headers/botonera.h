@@ -13,17 +13,13 @@
 #include "zone_threat.h"
 #include "zone_displayselection.h"
 #include "zone_displaymode.h"
-#include "andTranslator.h"
-//#include "andGui.h"
 
 class Qek;
-class andGui;
 class Botonera : public QWidget
 {
     Q_OBJECT
 public:
     explicit Botonera(QWidget *parent = nullptr);
-
 
     virtual void setOverlay(QString codigo)                 = 0;
     virtual void sendCodeToRange(QString boton)             = 0;
@@ -45,8 +41,6 @@ public:
     virtual void removeCodeFromDisplaySelection(QString boton)  = 0;
     virtual void removeCodeFromIcm(QString boton)               = 0;
 
-    AndTranslator* getTranslator();
-
 public slots:
     void start(int tipo);
     void infoMessage();
@@ -66,8 +60,6 @@ protected:
     Estado *miEstado;
     QPushButton *help_button = new QPushButton("");
     void crearBotonHelp();
-    andGui *alfanumeric_display;
-    AndTranslator *translator;
     void distribucionLayout();
 
 };

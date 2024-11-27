@@ -1,35 +1,21 @@
-#include "andTranslator.h"
+#include "decoderAND.h"
 #include <QDebug>
 #include <QFile>
 
-AndTranslator::AndTranslator(QObject *parent) : QObject(parent)
+decoderAND::decoderAND(QObject *parent) : QObject(parent)
 {
 }
-// QString AndTranslator::binaryToChar(const QString &message) const
-// {
-//     // Convertir la cadena binaria a un valor decimal
-//     bool ok;
-//     unsigned long decimalValue = message.toULong(&ok, 2); // Base 2 para binario
 
-//     if (!ok) {
-//         qDebug() << "Error en la conversión de binario a decimal";
-//         return QString();
-//     }
 
-//     // Convertir el valor decimal a un carácter
-//     return QString(QChar(static_cast<ushort>(decimalValue)));
-// }
-
-void AndTranslator::processAndMessage(QByteArray data)
+void decoderAND::processAndMessage(QByteArray data)
 {
     QPair<int, QString> result;
     result = processMessage(data);
-    qDebug() << result.first << " | " << result.second;
     emit conversionResult(result);
 
 }
 
-QByteArray AndTranslator::getArray(QString &message){
+QByteArray decoderAND::getArray(QString &message){
     QByteArray byteArray;
 
     for (int i = 0; i < message.length(); i += BYTE_LENGTH) {
@@ -46,7 +32,7 @@ QByteArray AndTranslator::getArray(QString &message){
     return byteArray;
 }
 
-QPair<int,QString> AndTranslator::processMessage(QByteArray &message){
+QPair<int,QString> decoderAND::processMessage(QByteArray &message){
     QPair<int,QString> result;
 
     QString text = "";
