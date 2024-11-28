@@ -55,6 +55,32 @@ void BotoneraMaster::removeCodeFromIcm(QString boton){
     sendMessage();
 }
 
+void BotoneraMaster::removeCodeFromCenterSlave(QString boton)
+{
+    estadoActual->removeCenterS(boton);
+    sendMessage();
+}
+
+void BotoneraMaster::removeCodeFromMIKSlave(QString caracter)
+{
+    estadoActual->removeMIK(caracter); //TODO CAMBIAR
+    sendMessage();
+}
+
+void BotoneraMaster::removeCodeFromIcmSlave(QString boton)
+{
+    estadoActual->removeICMS(boton);
+    sendMessage();
+}
+
+void BotoneraMaster::removeCodeFromQekSlave(QString boton)
+{
+    estadoActual->removeQEKS(boton);
+    sendMessage();
+}
+
+
+
 /* ------------------SETTERS-----------------------*/
 
 void BotoneraMaster::sendCodeToRange(QString boton){

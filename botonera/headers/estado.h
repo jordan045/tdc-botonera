@@ -28,6 +28,13 @@ public:
     void removeThreat(QString boton) override;
     void removeMIK(QString c) override;
 
+    void removeLabelS(QString l)       override;
+    void removeQEKS(QString q)         override;
+    void removeCenterS(QString c)      override;
+    void removeICMS(QString i)         override;
+    void removeDisplayModeS(QString d) override;
+    void removeOverlayS(QString o)     override;
+
     QString getRange() override;
     QString getLabel() override;
     QString getQEK() override;

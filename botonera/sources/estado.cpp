@@ -45,6 +45,44 @@ void Estado::removeMIK(QString c){
     this->mik.clear();
     refresh();
 }
+
+void Estado::removeLabelS(QString codigo)
+{
+    codigo.append("");
+    this->labelS.remove(codigo);
+    refresh();
+}
+
+void Estado::removeQEKS(QString codigo){
+    codigo.append("");
+    this->qekS.remove(codigo);
+    refresh();
+}
+
+void Estado::removeCenterS(QString codigo){
+    codigo.append("");
+    this->centerS.remove(codigo);
+    refresh();
+}
+
+void Estado::removeICMS(QString codigo){
+    codigo.append("");
+    this->icmS.remove(codigo);
+    refresh();
+}
+
+void Estado::removeDisplayModeS(QString codigo){
+    codigo.append("");
+    this->displayModeS.remove(codigo);
+    refresh();
+}
+
+void Estado::removeOverlayS(QString codigo){
+    codigo.append("");
+    this->overlayS.remove(codigo);
+    refresh();
+}
+
 void Estado::removeDisplayMode(QString codigo){
     codigo.append(" ");
     this->displayMode.remove(codigo);

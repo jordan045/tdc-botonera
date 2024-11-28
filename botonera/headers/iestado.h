@@ -29,6 +29,13 @@ public:
     virtual void removeThreat(QString boton) = 0;
     virtual void removeMIK(QString c) = 0;
 
+    virtual void removeLabelS(QString l)       = 0;
+    virtual void removeQEKS(QString q)         = 0;
+    virtual void removeCenterS(QString c)      = 0;
+    virtual void removeICMS(QString i)         = 0;
+    virtual void removeDisplayModeS(QString d) = 0;
+    virtual void removeOverlayS(QString o)     = 0;
+
     virtual QString getRange() = 0;
     virtual QString getLabel() = 0;
     virtual QString getQEK() = 0;

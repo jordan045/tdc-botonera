@@ -14,41 +14,42 @@ void BotoneraSlave::removeCodeFromRange(QString boton)
 {
     //Acá seria mandarle a la BotoneraMaster que elimine codeFromRange con el boton que le mando
     //Investigar
+    emit emitRemoveFromRange(boton);
 }
 
 void BotoneraSlave::removeCodeFromLabelSelection(QString boton)
 {
-
+    emit emitRemoveFromLabelSelection(boton);
 }
 
 void BotoneraSlave::removeCodeFromQek(QString boton)
 {
-
+    emit emitRemoveFromQek(boton);
 }
 
 void BotoneraSlave::removeCodeFromThreat(QString boton)
 {
-
+    emit emitRemoveFromThreat(boton);
 }
 
 void BotoneraSlave::removeCodeFromCenter(QString boton)
 {
-
+    emit emitRemoveFromCenter(boton);
 }
 
 void BotoneraSlave::removeCodeFromDisplayMode(QString boton)
 {
-
+    emit emitRemoveFromDisplayMode(boton);
 }
 
 void BotoneraSlave::removeCodeFromDisplaySelection(QString boton)
 {
-
+    emit emitRemoveFromDisplaySelection(boton);
 }
 
 void BotoneraSlave::removeCodeFromIcm(QString boton)
 {
-
+    emit emitRemoveFromIcm(boton);
 }
 
 void BotoneraSlave::setOverlay(QString codigo)
@@ -107,6 +108,7 @@ QString BotoneraSlave::getOverlay()
 
 void BotoneraSlave::initConnections()
 {
+    //Conectar los sendCodeTo.
     QObject::connect(this,&BotoneraSlave::emitCodeToRange,reptr.data(),&botoneraMasterReplica::sendCodeToRange);
     QObject::connect(this,&BotoneraSlave::emitCodeToLabelSelection,reptr.data(),&botoneraMasterReplica::sendCodeToLabelSelection);
     QObject::connect(this,&BotoneraSlave::emitCodeToQek,reptr.data(),&botoneraMasterReplica::sendCodeToQekSlave);
@@ -115,6 +117,17 @@ void BotoneraSlave::initConnections()
     QObject::connect(this,&BotoneraSlave::emitCodeToDisplayMode,reptr.data(),&botoneraMasterReplica::sendCodeToDisplayMode);
     QObject::connect(this,&BotoneraSlave::emitCodeToDisplaySelection,reptr.data(),&botoneraMasterReplica::sendCodeToDisplaySelection);
     QObject::connect(this,&BotoneraSlave::emitCodeToIcm,reptr.data(),&botoneraMasterReplica::sendCodeToIcmSlave);
+
+    //Conecta los removeFrom
+    QObject::connect(this,&BotoneraSlave::emitRemoveFromRange,reptr.data(),&botoneraMasterReplica::removeCodeFromRange);
+    QObject::connect(this,&BotoneraSlave::emitRemoveFromLabelSelection,reptr.data(),&botoneraMasterReplica::removeCodeFromLabelSelection);
+    QObject::connect(this,&BotoneraSlave::emitRemoveFromQek,reptr.data(),&botoneraMasterReplica::removeCodeFromQekSlave);
+    QObject::connect(this,&BotoneraSlave::emitRemoveFromThreat,reptr.data(),&botoneraMasterReplica::removeCodeFromThreat);
+    QObject::connect(this,&BotoneraSlave::emitRemoveFromCenter,reptr.data(),&botoneraMasterReplica::removeCodeFromCenterSlave);
+    QObject::connect(this,&BotoneraSlave::emitRemoveFromDisplayMode,reptr.data(),&botoneraMasterReplica::removeCodeFromDisplayMode);
+    QObject::connect(this,&BotoneraSlave::emitRemoveFromDisplaySelection,reptr.data(),&botoneraMasterReplica::removeCodeFromDisplaySelection);
+    QObject::connect(this,&BotoneraSlave::emitRemoveFromIcm,reptr.data(),&botoneraMasterReplica::removeCodeFromIcmSlave);
+
 
 
 }
