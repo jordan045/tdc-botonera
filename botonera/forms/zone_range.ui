@@ -35,14 +35,14 @@
     </rect>
    </property>
    <property name="frameShape">
-    <enum>QFrame::Box</enum>
+    <enum>QFrame::Shape::Box</enum>
    </property>
    <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
+    <enum>QFrame::Shadow::Plain</enum>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_3">
     <item>
-     <widget class="QPushButton" name="RANGE_002">
+     <widget class="QPushButton" name="RANGE2">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -98,7 +98,7 @@ QPushButton:checked {image: url(:/range/img/Range/2_pressed.png)}</string>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="RANGE_004">
+     <widget class="QPushButton" name="RANGE4">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -166,7 +166,7 @@ QPushButton:checked {image: url(:/range/img/Range/4_pressed.png)}</string>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="RANGE_008">
+     <widget class="QPushButton" name="RANGE8">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -222,7 +222,7 @@ QPushButton:checked {image: url(:/range/img/Range/8_pressed.png)}</string>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="RANGE_016">
+     <widget class="QPushButton" name="RANGE16">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -275,7 +275,7 @@ QPushButton:checked {image: url(:/range/img/Range/16_pressed.png)}</string>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="RANGE_032">
+     <widget class="QPushButton" name="RANGE32">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -331,7 +331,7 @@ QPushButton:checked {image: url(:/range/img/Range/32_pressed.png)}</string>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="RANGE_064">
+     <widget class="QPushButton" name="RANGE64">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -387,7 +387,7 @@ QPushButton:checked {image: url(:/range/img/Range/64_pressed.png)}</string>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="RANGE_128">
+     <widget class="QPushButton" name="RANGE128">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -443,7 +443,7 @@ QPushButton:checked {image: url(:/range/img/Range/128_pressed.png)}</string>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="RANGE_256">
+     <widget class="QPushButton" name="RANGE256">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -525,7 +525,7 @@ QPushButton:checked {image: url(:/range/img/Range/256_pressed.png)}
     <string>RANGE SCALE</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <set>Qt::AlignmentFlag::AlignCenter</set>
    </property>
   </widget>
  </widget>

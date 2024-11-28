@@ -29,11 +29,35 @@ zone_threat::zone_threat(Botonera *b)
 
 void zone_threat::sendCode(QString code)
 {
+    QString codigo = "THREAT_";
+    codigo.append(code);
+    qDebug()<<"El codigo threatAssesment es:" <<codigo;
+    QPushButton *button = this->findChild<QPushButton*>(codigo);
+    if(button){
+        button->setChecked(true);
+        qDebug()<<"se activó el boton visual del displaySelection";
+    }else
+    {
+        qDebug()<<"No se encontró el boton del displaySelection";
+    }
     miBotonera->sendCodeToThreat(code);
 }
 
 void zone_threat::removeCode(QString code)
 {
+    QString codigo = "THREAT_";
+    codigo.append(code);
+    qDebug()<<"El codigo threatAssesment es:" <<codigo;
+    QPushButton *button = this->findChild<QPushButton*>(codigo);
+    if(button){
+        button->setChecked(false);
+        qDebug()<<"se activó el boton visual del displaySelection";
+    }else
+    {
+        qDebug()<<"No se encontró el boton del displaySelection";
+    }
+    miBotonera->sendCodeToThreat(code);
+
     miBotonera->removeCodeFromThreat(code);
 }
 
@@ -47,39 +71,39 @@ zone_threat::~zone_threat(){
 
 void zone_threat::on_THREAT_4_15MIN_toggled(bool checked){
     if (checked){
-        ui->THREAT_1_12SEC->setChecked(false);
-        ui->THREAT_2_30SEC->setChecked(false);
-        ui->THREAT_3_6MIN->setChecked(false);
-        ui->THREAT_5_RESET->setChecked(false);
+        ui->THREAT_12_SEC->setChecked(false);
+        ui->THREAT_30_SEC->setChecked(false);
+        ui->THREAT_6_MIN->setChecked(false);
+        ui->THREAT_RESET->setChecked(false);
     }
 }
 
 void zone_threat::on_THREAT_3_6MIN_toggled(bool checked){
     if (checked){
-        ui->THREAT_1_12SEC->setChecked(false);
-        ui->THREAT_2_30SEC->setChecked(false);
-        ui->THREAT_4_15MIN->setChecked(false);
-        ui->THREAT_5_RESET->setChecked(false);
+        ui->THREAT_12_SEC->setChecked(false);
+        ui->THREAT_30_SEC->setChecked(false);
+        ui->THREAT_15_MIN->setChecked(false);
+        ui->THREAT_RESET->setChecked(false);
     }
 }
 
 
 void zone_threat::on_THREAT_2_30SEC_toggled(bool checked){
     if (checked){
-        ui->THREAT_1_12SEC->setChecked(false);
-        ui->THREAT_4_15MIN->setChecked(false);
-        ui->THREAT_3_6MIN->setChecked(false);
-        ui->THREAT_5_RESET->setChecked(false);
+        ui->THREAT_12_SEC->setChecked(false);
+        ui->THREAT_15_MIN->setChecked(false);
+        ui->THREAT_6_MIN->setChecked(false);
+        ui->THREAT_RESET->setChecked(false);
     }
 }
 
 
 void zone_threat::on_THREAT_1_12SEC_toggled(bool checked){
     if (checked){
-        ui->THREAT_4_15MIN->setChecked(false);
-        ui->THREAT_2_30SEC->setChecked(false);
-        ui->THREAT_3_6MIN->setChecked(false);
-        ui->THREAT_5_RESET->setChecked(false);
+        ui->THREAT_15_MIN->setChecked(false);
+        ui->THREAT_30_SEC->setChecked(false);
+        ui->THREAT_6_MIN->setChecked(false);
+        ui->THREAT_RESET->setChecked(false);
     }
 }
 
@@ -87,10 +111,10 @@ void zone_threat::on_THREAT_1_12SEC_toggled(bool checked){
 void zone_threat::on_THREAT_5_RESET_toggled(bool checked)
 {
     if (checked){
-        ui->THREAT_1_12SEC->setChecked(false);
-        ui->THREAT_4_15MIN->setChecked(false);
-        ui->THREAT_2_30SEC->setChecked(false);
-        ui->THREAT_3_6MIN->setChecked(false);
+        ui->THREAT_12_SEC->setChecked(false);
+        ui->THREAT_15_MIN->setChecked(false);
+        ui->THREAT_30_SEC->setChecked(false);
+        ui->THREAT_6_MIN->setChecked(false);
     }
 }
 

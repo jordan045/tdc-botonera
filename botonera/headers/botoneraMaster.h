@@ -22,6 +22,7 @@ public:
         void removeCodeFromDisplaySelection(QString boton)  override;
         void removeCodeFromIcm(QString boton)               override;
 
+        //--Removers Slave--//
         void removeCodeFromCenterSlave(QString boton);
         void removeCodeFromMIKSlave(QString caracter);
         void removeCodeFromIcmSlave(QString boton);
