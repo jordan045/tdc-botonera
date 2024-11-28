@@ -5,6 +5,7 @@
 #include "botonera.h"
 #include "andGui.h"
 #include "botoneraMaster.h"
+#include "botoneraSlave.h"
 
 class InitMenu : public QWidget
 {
@@ -19,10 +20,21 @@ private:
     int tipoBuque;
         //TODO Fijarse si no desaparece al cerrar el initMenu
     QRemoteObjectHost* srcNode;
+    QRemoteObjectNode nodoReplica;
+    QSharedPointer<botoneraMasterReplica> ptr;
 
+    QJsonArray jsonArray;
+
+    bool master;
+
+    void leerArchivos();
+    void iniciarInterfaz();
+    void iniciarConexión();
 
 private slots:
     void seleccion();
+
+
 
 };
 
