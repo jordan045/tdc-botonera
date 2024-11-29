@@ -45,13 +45,8 @@ signals:
     void emitCodeToOverlay(QString codigo);
     void emitCharToMik(QString codigo);
 
-    void emitRemoveFromRange(QString boton);
-    void emitRemoveFromLabelSelection(QString boton);
     void emitRemoveFromQek(QString boton);
-    void emitRemoveFromThreat(QString boton);
     void emitRemoveFromCenter(QString boton);
-    void emitRemoveFromDisplayMode(QString boton);
-    void emitRemoveFromDisplaySelection(QString boton);
     void emitRemoveFromIcm(QString boton);
 
 

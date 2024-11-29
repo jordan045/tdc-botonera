@@ -28,6 +28,7 @@ zone_displayMode::zone_displayMode(Botonera *b):
 
 
 void zone_displayMode::sendCode(QString code){
+    qDebug()<<"boton displayMode es "<< code;
     miBotonera->sendCodeToDisplayMode(code);
 }
 

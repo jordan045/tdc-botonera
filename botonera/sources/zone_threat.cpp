@@ -67,7 +67,10 @@ QString zone_threat::getName(){
 
 void zone_threat::interact(QString boton)
 {
-    QPushButton *button = this->findChild<QPushButton*>(boton);
+    QString codigo = "THREAT_";
+    codigo.append(boton);
+    qDebug()<<"El codigo threatAssesment es:" <<codigo;
+    QPushButton *button = this->findChild<QPushButton*>(codigo);
     button->toggle();
 }
 
