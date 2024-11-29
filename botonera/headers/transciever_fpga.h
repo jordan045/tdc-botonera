@@ -8,7 +8,8 @@
 #include <QUdpSocket>
 #include <QTimer>
 
-#define PORT 9000
+#define PORT_NOTEBOOK 8001
+#define PORT_FPGA 9000
 #define IP_FPGA "172.16.0.100"
 #define IP_MASTER "172.16.0.99"
 #define MAC_ADDRESS "34BDFA99B530"

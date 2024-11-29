@@ -30,21 +30,21 @@ void InitMenu::seleccion()
         QMessageBox::warning(this, "Advertencia", "Seleccione un ambiente de trabajo");
     }else {
         auto overlay = group->checkedButton()->objectName();
-        miBotonera->setOverlay(overlay);
+        myBotonera->setOverlay(overlay);
         qDebug()<<"Se seteo el overlay";
-        miBotonera->start(tipoBuque);
+        myBotonera->start(tipoBuque);
         qDebug()<< "se empezo la botonera";
         this->close();
-        miBotonera->show();
+        myBotonera->show();
 
         decoderLPD = new class decoderLPD(this);
         decoderAND = new class decoderAND(this);
-        andGui = new class andGui(this, botonera, decoderAND);
+        andGui = new class andGui(this, myBotonera, decoderAND);
 
         comunicationSystem = new transcieverFPGA(
             this,
             decoderAND,
-            static_cast<BotoneraMaster*>(botonera),
+            static_cast<BotoneraMaster*>(myBotonera),
             decoderLPD);
     }
 }
@@ -139,11 +139,11 @@ void InitMenu::leerArchivos()
 
 void InitMenu::iniciarConexión(){
     if(master){ //Si es maestro creo una botonera master
-        miBotonera = new BotoneraMaster();
-        // BotoneraMaster* miBotoneraMaster = new BotoneraMaster();
+        myBotonera = new BotoneraMaster();
+        // BotoneraMaster* myBotoneraMaster = new BotoneraMaster();
         qDebug()<<"Se creo bien la botonera Master";
         srcNode = new QRemoteObjectHost(QUrl (QStringLiteral("tcp://0.0.0.0:5000")));
-        auto source = dynamic_cast<botoneraMasterSource *>(miBotonera); //fuente, toma el objeto miBotonera y lo muestra en el puerto
+        auto source = dynamic_cast<botoneraMasterSource *>(myBotonera); //fuente, toma el objeto myBotonera y lo muestra en el puerto
 
         if(source){
             if(srcNode->enableRemoting(source)) //habilita el remoto
@@ -151,7 +151,7 @@ void InitMenu::iniciarConexión(){
             else
                 qDebug()<<"No se habilito el servidor";
         }else{
-            qDebug()<<"Error: miBotonera no es del tipo BotoneraMasterSource";
+            qDebug()<<"Error: myBotonera no es del tipo BotoneraMasterSource";
         }
     }
     else{
@@ -178,7 +178,7 @@ void InitMenu::iniciarConexión(){
                 pantallaCarga->accept();
 
                 // Crear la botonera slave
-                miBotonera = new BotoneraSlave(nullptr, ptr);
+                myBotonera = new BotoneraSlave(nullptr, ptr);
             } else {
                 qDebug() << "Intentando conectar con la master...";
             }

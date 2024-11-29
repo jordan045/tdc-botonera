@@ -6,7 +6,7 @@
 transcieverFPGA::transcieverFPGA(QObject *parent, class decoderAND *decoderAND, BotoneraMaster *botonera, class decoderLPD *decoderLPD) : QObject(parent){
     //Crear el socket y conectarlo al puerto de la FPGA
     udpSocket = new QUdpSocket(this);
-    udpSocket->bind(QHostAddress::Any, PORT);
+    udpSocket->bind(QHostAddress::Any, PORT_NOTEBOOK);
 
     //Conectar la llegada de mensajes nuevos con la clasificación de mensajes
     connect(udpSocket, &QUdpSocket::readyRead, this, &transcieverFPGA::readPendingDatagrams);
@@ -132,7 +132,7 @@ void transcieverFPGA::sendConcentrator(QByteArray data){
     bufferConcentrador.first = data;
     bufferConcentrador.second = sequenceNumber;
 
-    if (udpSocket->writeDatagram(message, QHostAddress(IP_FPGA), PORT) == -1) {
+    if (udpSocket->writeDatagram(message, QHostAddress(IP_FPGA), PORT_FPGA) == -1) {
         qWarning() << "Failed to send datagram:" << udpSocket->errorString();
     }
     timerConcentrador.start(200);
@@ -146,7 +146,7 @@ void transcieverFPGA::AND1(QByteArray data, quint16 sequenceNumber){
     ack_message[0] = DA_AND1;
     ack_message[1] = (sequenceNumber >> 8) & 0xFF;
     ack_message[2] = sequenceNumber & 0xFF;
-    udpSocket->writeDatagram(ack_message, QHostAddress(IP_FPGA), PORT);
+    udpSocket->writeDatagram(ack_message, QHostAddress(IP_FPGA), PORT_FPGA);
 
     decoderAND->processAndMessage(invertedData);
 }
@@ -162,7 +162,7 @@ void transcieverFPGA::AND2(QByteArray data, quint16 sequenceNumber){
     ack_message[0] = DA_AND1;
     ack_message[1] = (sequenceNumber >> 8) & 0xFF;
     ack_message[2] = sequenceNumber & 0xFF;
-    udpSocket->writeDatagram(ack_message, QHostAddress(IP_FPGA), PORT);
+    udpSocket->writeDatagram(ack_message, QHostAddress(IP_FPGA), PORT_FPGA);
 
     decoderAND->processAndMessage(invertedData);
     /*

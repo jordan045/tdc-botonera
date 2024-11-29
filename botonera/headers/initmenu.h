@@ -19,7 +19,7 @@ public:
     explicit InitMenu(QWidget *parent = nullptr);
 
 private:
-    Botonera *botonera;
+    Botonera *myBotonera;
     decoderLPD *decoderLPD;
     decoderAND *decoderAND;
     transcieverFPGA *comunicationSystem;

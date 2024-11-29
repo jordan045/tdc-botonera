@@ -40,7 +40,7 @@ public:
         void sendCodeToIcm(QString boton) override;
 
         void sendCharToMIK(QString caracter) override;
-        void sendMessage();
+
 
         //Los metodo que son slots de .rep
         void sendCodeToRangeFromSlave(QString code);
