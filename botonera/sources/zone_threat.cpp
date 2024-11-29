@@ -65,6 +65,12 @@ QString zone_threat::getName(){
     return "THREAT";
 }
 
+void zone_threat::interact(QString boton)
+{
+    QPushButton *button = this->findChild<QPushButton*>(boton);
+    button->toggle();
+}
+
 zone_threat::~zone_threat(){
     delete ui;
 }

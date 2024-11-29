@@ -54,6 +54,7 @@ void BotoneraSlave::removeCodeFromIcm(QString boton)
 
 void BotoneraSlave::setOverlay(QString codigo)
 {
+    overlay = codigo.toInt();
     emit emitCodeToOverlay(codigo);
 }
 
@@ -115,15 +116,15 @@ void BotoneraSlave::initConnections()
 {
     //Conectar los sendCodeTo.
     QObject::connect(this,&BotoneraSlave::emitCodeToRange,reptr.data(),&botoneraMasterReplica::sendCodeToRangeFromSlave);
-    QObject::connect(this,&BotoneraSlave::emitCodeToLabelSelection,reptr.data(),&botoneraMasterReplica::sendCodeToLabelSelection);
+    QObject::connect(this,&BotoneraSlave::emitCodeToLabelSelection,reptr.data(),&botoneraMasterReplica::sendCodeToLabelSelectionFromSlave);
     QObject::connect(this,&BotoneraSlave::emitCodeToQek,reptr.data(),&botoneraMasterReplica::sendCodeToQekSlave);
-    QObject::connect(this,&BotoneraSlave::emitCodeToThreat,reptr.data(),&botoneraMasterReplica::sendCodeToThreat);
+    QObject::connect(this,&BotoneraSlave::emitCodeToThreat,reptr.data(),&botoneraMasterReplica::sendCodeToThreatFromSlave);
     QObject::connect(this,&BotoneraSlave::emitCodeToCenter,reptr.data(),&botoneraMasterReplica::sendCodeToCenterSlave);
-    QObject::connect(this,&BotoneraSlave::emitCodeToDisplayMode,reptr.data(),&botoneraMasterReplica::sendCodeToDisplayMode);
-    QObject::connect(this,&BotoneraSlave::emitCodeToDisplaySelection,reptr.data(),&botoneraMasterReplica::sendCodeToDisplaySelection);
+    QObject::connect(this,&BotoneraSlave::emitCodeToDisplayMode,reptr.data(),&botoneraMasterReplica::sendCodeToDisplayModeFromSlave);
+    QObject::connect(this,&BotoneraSlave::emitCodeToDisplaySelection,reptr.data(),&botoneraMasterReplica::sendCodeToDisplaySelectionFromSlave);
     QObject::connect(this,&BotoneraSlave::emitCodeToIcm,reptr.data(),&botoneraMasterReplica::sendCodeToIcmSlave);
     QObject::connect(this,&BotoneraSlave::emitCodeToOverlay,reptr.data(),&botoneraMasterReplica::sendCodeToOverlaySlave);
-    QObject::connect(this,&BotoneraSlave::emitCharToMik,reptr.data(),&botoneraMasterReplica::sendCharToMIK);
+    QObject::connect(this,&BotoneraSlave::emitCharToMik,reptr.data(),&botoneraMasterReplica::sendCharToMIKSlave);
 
     //Conecta los removeFrom
     QObject::connect(this,&BotoneraSlave::emitRemoveFromRange,reptr.data(),&botoneraMasterReplica::removeCodeFromRange);

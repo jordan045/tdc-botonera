@@ -17,6 +17,7 @@ public:
     void sendCode(QString code) override;
     void removeCode(QString code) override;
     QString getName() override;
+    void interact(QString boton) override;
 
 private:
     Ui::zone_label *ui;

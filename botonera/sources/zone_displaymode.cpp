@@ -43,3 +43,9 @@ QString zone_displayMode::getName(){
 zone_displayMode::~zone_displayMode(){
     delete ui;
 }
+
+void zone_displayMode::interact(QString boton)
+{
+    QPushButton *button = this->findChild<QPushButton*>(boton);
+    button->toggle();
+}

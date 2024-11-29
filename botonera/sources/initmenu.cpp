@@ -156,7 +156,7 @@ void InitMenu::iniciarConexión(){
         QTimer *timer = new QTimer(this);
 
         connect(timer, &QTimer::timeout, [this, pantallaCarga, timer]() {
-            nodoReplica.connectToNode(QUrl(QStringLiteral("tcp://192.168.1.1:8080"))); // Intentar conectar
+            nodoReplica.connectToNode(QUrl(QStringLiteral("tcp://192.168.1.2:5000"))); // Intentar conectar
             ptr.reset(nodoReplica.acquire<botoneraMasterReplica>()); // Adquirir réplica
 
             if (ptr->isInitialized()) {

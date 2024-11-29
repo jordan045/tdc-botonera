@@ -43,6 +43,12 @@ public:
 
         //Los metodo que son slots de .rep
         void sendCodeToRangeFromSlave(QString code);
+        void sendCodeToLabelSelectionFromSlave(QString boton);
+        void sendCodeToThreatFromSlave(QString boton);
+        void sendCodeToDisplayModeFromSlave(QString boton);
+        void sendCodeToDisplaySelectionFromSlave(QString boton);
+
+
 
         //-- Los Setters de Slave //
         void sendCodeToCenterSlave(QString boton);

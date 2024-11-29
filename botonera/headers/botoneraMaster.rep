@@ -7,15 +7,15 @@
 class botoneraMaster
 {
     SLOT(sendCodeToRangeFromSlave(QString boton));
-    SLOT(sendCodeToLabelSelection(QString boton));
+    SLOT(sendCodeToLabelSelectionFromSlave(QString boton));
     SLOT(sendCodeToQekSlave(QString boton));
-    SLOT(sendCodeToThreat(QString boton));
+    SLOT(sendCodeToThreatFromSlave(QString boton));
     SLOT(sendCodeToCenterSlave(QString boton));
-    SLOT(sendCodeToDisplayMode(QString boton));
-    SLOT(sendCodeToDisplaySelection(QString boton));
+    SLOT(sendCodeToDisplayModeFromSlave(QString boton));
+    SLOT(sendCodeToDisplaySelectionFromSlave(QString boton));
     SLOT(sendCodeToIcmSlave(QString boton));
     SLOT(sendCodeToOverlaySlave(QString codigo));
-    SLOT(sendCharToMIK(QString caracter));
+    SLOT(sendCharToMIKSlave(QString caracter));
 
     SLOT(removeCodeFromRange(QString boton));
     SLOT(removeCodeFromLabelSelection(QString boton));

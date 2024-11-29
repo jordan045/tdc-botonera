@@ -85,7 +85,26 @@ void BotoneraMaster::removeCodeFromQekSlave(QString boton)
 
 void BotoneraMaster::sendCodeToRangeFromSlave(QString boton){
     range_widget->interact(boton);
-    sendMessage();
+}
+
+void BotoneraMaster::sendCodeToLabelSelectionFromSlave(QString boton)
+{
+    label_selection_widget->interact(boton);
+}
+
+void BotoneraMaster::sendCodeToThreatFromSlave(QString boton)
+{
+    threat_assesment_widget->interact(boton);
+}
+
+void BotoneraMaster::sendCodeToDisplayModeFromSlave(QString boton)
+{
+    display_mode_widget->interact(boton);
+}
+
+void BotoneraMaster::sendCodeToDisplaySelectionFromSlave(QString boton)
+{
+    display_selection_widget->interact(boton);
 }
 
 void BotoneraMaster::sendCodeToRange(QString boton){
