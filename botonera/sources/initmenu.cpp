@@ -116,18 +116,19 @@ void InitMenu::seleccion()
         botonera->setOverlay(overlay);
         botonera->start(tipoBuque);
 
-        decoderLPD = new class decoderLPD(this);
-        decoderAND = new class decoderAND(this);
-        andGui = new class andGui(this, botonera, decoderAND);
+        decoderLPD_ = new class decoderLPD(this);
+        decoderAND_ = new class decoderAND(this);
+
 
         comunicationSystem = new transcieverFPGA(
             this,
-            decoderAND,
+            decoderAND_,
             static_cast<BotoneraMaster*>(botonera),
-            decoderLPD);
+            decoderLPD_);
 
         this->close();
         botonera->show();
+        andGui_ = new class andGui(this, botonera, decoderAND_);
     }
 }
 

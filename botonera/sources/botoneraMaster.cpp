@@ -43,7 +43,7 @@ void BotoneraMaster::removeCodeFromCenter(QString boton){
 void BotoneraMaster::removeCodeFromDisplayMode(QString boton){
     estadoActual->removeDisplayMode(boton);
     concentrator->removeDisplayMode(boton);
-    //getConcentrator();
+    //getConcentra0tor();
 }
 void BotoneraMaster::removeCodeFromDisplaySelection(QString boton){
     estadoActual->removeDisplaySelection(boton);
@@ -98,7 +98,9 @@ void BotoneraMaster::sendCodeToIcm(QString boton){
 
 
 QByteArray BotoneraMaster::getConcentrator(){
+    qDebug() << "\n---SE PIDE CONCENTRATOR---\n" ;
     QByteArray DCLCONC = concentrator->getMessage(estadoActual);
+    qDebug()<< "SE MANDA DESDE BOTONERA MASTER: "<< DCLCONC;
     return DCLCONC;
 }
 

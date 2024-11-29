@@ -133,6 +133,7 @@ andGui::andGui(QWidget *parent, Botonera *b, decoderAND *translator)
     // Esto hace que se abra en una ventana aparte
     this->setWindowFlag(Qt::Window);
     this->setWindowTitle("AND");
+    qDebug()<< "---INICIO AND---";
     this->show();
 }
 

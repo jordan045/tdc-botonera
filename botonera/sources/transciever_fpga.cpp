@@ -12,9 +12,9 @@ transcieverFPGA::transcieverFPGA(QObject *parent, class decoderAND *decoderAND, 
     connect(udpSocket, &QUdpSocket::readyRead, this, &transcieverFPGA::readPendingDatagrams);
     connect(&timerConcentrador, &QTimer::timeout, this, &transcieverFPGA::reenviarDCLCONC);
 
-    this->decoderAND = decoderAND;
+    this->decoderAND_ = decoderAND;
     this->botonera = botonera;
-    this->decoderLPD = decoderLPD;
+    this->decoderLPD_ = decoderLPD;
 
     /* TEST INYECTION
         QFile file(":/binary/and_raw_onepage.bin");
@@ -72,7 +72,7 @@ void transcieverFPGA::readDeviceAddress(QByteArray datagram){
         if (datagram.size() > 3) {
             payload = datagram.mid(3);
         }
-        qDebug() << "pay " << payload;
+        qDebug() << "pay "; //<< payload;
         int wordLength;
 
         switch (deviceAddress) {
@@ -116,6 +116,7 @@ QByteArray negateData(const QByteArray &data) {
 void transcieverFPGA::generateConcentrator(){
     QByteArray concentrator = botonera->getConcentrator();
     concentrator = negateData(concentrator);
+    qDebug()<< "SE MANDA NEGADO: "<< concentrator;
     sendConcentrator(concentrator);
 }
 
@@ -132,7 +133,7 @@ void transcieverFPGA::sendConcentrator(QByteArray data){
     bufferConcentrador.first = data;
     bufferConcentrador.second = sequenceNumber;
 
-    if (udpSocket->writeDatagram(message, QHostAddress(IP_FPGA), PORT) == -1) {
+    if (udpSocket->writeDatagram(message, QHostAddress::Any, PORT) == -1) {
         qWarning() << "Failed to send datagram:" << udpSocket->errorString();
     }
     timerConcentrador.start(200);
@@ -148,11 +149,11 @@ void transcieverFPGA::AND1(QByteArray data, quint16 sequenceNumber){
     ack_message[2] = sequenceNumber & 0xFF;
     udpSocket->writeDatagram(ack_message, QHostAddress(IP_FPGA), PORT);
 
-    decoderAND->processAndMessage(invertedData);
+    decoderAND_->processAndMessage(invertedData);
 }
 
 void transcieverFPGA::sendToLPD(QByteArray d, int wordLength){
-    decoderLPD->processLPDMessage(d, wordLength);
+    decoderLPD_->processLPDMessage(d, wordLength);
 }
 
 void transcieverFPGA::AND2(QByteArray data, quint16 sequenceNumber){
@@ -164,7 +165,7 @@ void transcieverFPGA::AND2(QByteArray data, quint16 sequenceNumber){
     ack_message[2] = sequenceNumber & 0xFF;
     udpSocket->writeDatagram(ack_message, QHostAddress(IP_FPGA), PORT);
 
-    decoderAND->processAndMessage(invertedData);
+    decoderAND_->processAndMessage(invertedData);
     /*
      * Aca hay que mandar a TCP-Slave, merge con SC-TCP
      * Para despues mandarlo a converter
@@ -183,5 +184,6 @@ void transcieverFPGA::recieveACK(QByteArray ack, quint16 sequenceNumber){
 }
 
 void transcieverFPGA::reenviarDCLCONC(){
+    qDebug()<< "\n---SE REENVIA CONC---\n";
     sendConcentrator(bufferConcentrador.first);//envia el mismo numero de secuencia?
 }

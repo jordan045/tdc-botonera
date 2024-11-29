@@ -271,6 +271,8 @@ void FormatConcentrator::setMIK(IEstado *estado)
 {
     int palabra = WORD_SIZE * 2;
     int offset = 0;
+
+    //estado->setMIK("S");
     QString mikPalabra = estado->getMIK();
 
     qDebug()<<"Se invocó a setMIK, palabra mik:" <<mikPalabra;

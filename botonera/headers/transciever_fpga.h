@@ -8,7 +8,7 @@
 #include <QUdpSocket>
 #include <QTimer>
 
-#define PORT 9000
+#define PORT 8001
 #define IP_FPGA "172.16.0.100"
 #define IP_MASTER "172.16.0.99"
 #define MAC_ADDRESS "34BDFA99B530"
@@ -54,8 +54,8 @@ private:
     QPair<QByteArray,quint16> bufferConcentrador;
     QTimer timerConcentrador;
 
-    decoderAND *decoderAND;
-    decoderLPD *decoderLPD;
+    decoderAND *decoderAND_;
+    decoderLPD *decoderLPD_;
     BotoneraMaster *botonera;
 };
 
