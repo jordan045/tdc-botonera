@@ -15,10 +15,22 @@ FormatConcentrator::FormatConcentrator()
     leerJson();
 }
 
-QBitArray* FormatConcentrator::getMessage(IEstado *estado)
+QByteArray FormatConcentrator::getMessage(IEstado *estado)
 {
     setMessage(estado);
-    return message;
+    QByteArray byteArrayMessage = bitArrayToByteArray(*message);
+    return byteArrayMessage;
+}
+
+QByteArray FormatConcentrator::bitArrayToByteArray(const QBitArray &bitArray) {
+    QByteArray byteArray((bitArray.size() + 7) / 8, 0); // Inicializa el QByteArray al tamaño necesario
+
+    // Itera sobre cada bit y usa operaciones de desplazamiento para obtener su valor
+    for (int i = 0; i < bitArray.size(); ++i) {
+        byteArray[i / 8] |= (bitArray.testBit(i) ? 1 : 0) << (7 - (i % 8));
+    }
+
+    return byteArray;
 }
 
 void FormatConcentrator::setMessage(IEstado *estado)
@@ -238,8 +250,6 @@ void FormatConcentrator::setIcmS(IEstado *estado)
         }
     }
 }
-
-
 
 
 void FormatConcentrator::setOverlay(IEstado *estado){

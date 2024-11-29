@@ -15,7 +15,7 @@ class FormatConcentrator
 
 public:
     FormatConcentrator();
-    QBitArray* getMessage(IEstado *estadoActual);
+    QByteArray getMessage(IEstado *estadoActual);
 
     void removeCenter(QString estado);
     void removeThreat(QString estado);
@@ -55,6 +55,8 @@ private:
     void getMessage();
 
     void leerJson();
+
+    QByteArray bitArrayToByteArray(const QBitArray &bitArray);
 
     QJsonObject buttonJson;
     QJsonObject MIKJson;

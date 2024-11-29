@@ -36,6 +36,16 @@ void InitMenu::seleccion()
         qDebug()<< "se empezo la botonera";
         this->close();
         miBotonera->show();
+
+        decoderLPD = new class decoderLPD(this);
+        decoderAND = new class decoderAND(this);
+        andGui = new class andGui(this, botonera, decoderAND);
+
+        comunicationSystem = new transcieverFPGA(
+            this,
+            decoderAND,
+            static_cast<BotoneraMaster*>(botonera),
+            decoderLPD);
     }
 }
 
@@ -79,6 +89,7 @@ void InitMenu::iniciarInterfaz(){
     QObject::connect(ui.continue_button, &QPushButton::clicked, this, &InitMenu::seleccion);
 }
 
+
 void InitMenu::leerArchivos()
 {
     QMessageBox::StandardButton reply;
@@ -89,6 +100,7 @@ void InitMenu::leerArchivos()
         reply = QMessageBox::warning(this, "Error", "No se pudo abrir el archivo de configuración de overlay.");
         if (reply == QMessageBox::Ok)
             QCoreApplication::exit(0);
+
     }
 
     // Lee el archivo JSON con la información de los botones
@@ -101,7 +113,6 @@ void InitMenu::leerArchivos()
             QCoreApplication::exit(0);
         }
     }
-
     QByteArray archivo = file.readAll();
     QJsonDocument document = QJsonDocument::fromJson(archivo);
     file.close();

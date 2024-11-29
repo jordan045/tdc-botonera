@@ -38,6 +38,7 @@ public:
         void sendCodeToDisplayMode(QString boton) override;
         void sendCodeToDisplaySelection(QString boton)override;
         void sendCodeToIcm(QString boton) override;
+
         void sendCharToMIK(QString caracter) override;
         void sendMessage();
 
@@ -57,6 +58,7 @@ public:
         void sendCodeToQekSlave(QString boton);
         void sendCodeToOverlaySlave(QString codigo);
 
+        QByteArray getConcentrator();
         QString getOverlay();
 
 };

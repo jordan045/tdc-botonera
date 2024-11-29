@@ -1,7 +1,9 @@
 #ifndef BOTONERASLAVE_H
 #define BOTONERASLAVE_H
+
 #include <botonera.h>
 #include "rep_botoneraMaster_replica.h"
+
 class BotoneraSlave: public Botonera{
     Q_OBJECT
 

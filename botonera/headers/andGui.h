@@ -7,7 +7,7 @@
 #include "qstackedwidget.h"
 #include "mik.h"
 #include "ui_andGui.h"
-#include "andTranslator.h"
+#include "decoderAND.h"
 #include "QLabel"
 #include "botonera.h"
 
@@ -21,13 +21,13 @@ class andGui : public QWidget
 {
     Q_OBJECT
 public:
-    explicit andGui(QWidget *parent = nullptr,Botonera *b = nullptr);
+    explicit andGui(QWidget *parent = nullptr,Botonera *b = nullptr, decoderAND *translator = nullptr);
 
 private:
     Botonera *miBotonera;
     Ui::andGui *ui;
     Ui::andGrilla *grilla;
-    AndTranslator converter;
+    decoderAND *converter;
     QVector<QLabel*> labels;
     void setLine(QPair<int,QString>);
     MIK *mik;
