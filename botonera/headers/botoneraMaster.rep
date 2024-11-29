@@ -1,0 +1,30 @@
+#ifndef BOTONERAMASTER_REP
+#define BOTONERAMASTER_REP
+
+#include "Botonera.h"
+#include <QString>
+
+class botoneraMaster
+{
+    SLOT(sendCodeToRangeFromSlave(QString boton));
+    SLOT(sendCodeToLabelSelectionFromSlave(QString boton));
+    SLOT(sendCodeToQekSlave(QString boton));
+    SLOT(sendCodeToThreatFromSlave(QString boton));
+    SLOT(sendCodeToCenterSlave(QString boton));
+    SLOT(sendCodeToDisplayModeFromSlave(QString boton));
+    SLOT(sendCodeToDisplaySelectionFromSlave(QString boton));
+    SLOT(sendCodeToIcmSlave(QString boton));
+    SLOT(sendCodeToOverlaySlave(QString codigo));
+    SLOT(sendCharToMIKSlave(QString caracter));
+
+    SLOT(removeCodeFromRange(QString boton));
+    SLOT(removeCodeFromLabelSelection(QString boton));
+    SLOT(removeCodeFromQekSlave(QString boton)); //implentar
+    SLOT(removeCodeFromThreat(QString boton));
+    SLOT(removeCodeFromCenterSlave(QString boton));//implmentar
+    SLOT(removeCodeFromDisplayMode(QString boton));
+    SLOT(removeCodeFromDisplaySelection(QString boton));
+    SLOT(removeCodeFromIcmSlave(QString boton));//Implemeentar
+};
+
+#endif // BOTONERAMASTER_REP

@@ -28,10 +28,29 @@ zone_displaySelection::zone_displaySelection(Botonera *b)
 
 
 void zone_displaySelection::sendCode(QString code){
+
+    qDebug()<<"El codigo displaySelection es:" <<code;
+    QPushButton *button = this->findChild<QPushButton*>(code);
+    if(button){
+        button->setChecked(true);
+        qDebug()<<"se activó el boton visual del displaySelection";
+    }else
+    {
+        qDebug()<<"No se encontró el boton del displaySelection";
+    }
+
     miBotonera->sendCodeToDisplaySelection(code);
 }
 
 void zone_displaySelection::removeCode(QString code){
+    QPushButton *button = this->findChild<QPushButton*>(code);
+    if(button){
+        button->setChecked(false);
+        qDebug()<<"se desactivó el boton visual del displaySelection";
+    }else
+    {
+        qDebug()<<"No se encontró el boton del displaySelection";
+    }
     miBotonera->removeCodeFromDisplaySelection(code);
 }
 
@@ -43,3 +62,10 @@ QString zone_displaySelection::getName(){
 zone_displaySelection::~zone_displaySelection(){
     delete ui;
 }
+
+void zone_displaySelection::interact(QString boton)
+{
+    QPushButton *button = this->findChild<QPushButton*>(boton);
+    button->toggle();
+}
+

@@ -27,7 +27,6 @@
 Botonera::Botonera(QWidget *parent) :
     QWidget(parent)
 {
-    miEstado = new Estado(this);
     concentrator = new FormatConcentrator();
 
     range_widget = new zone_range(this);

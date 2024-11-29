@@ -1,6 +1,6 @@
 #include "botoneraMaster.h"
 #include "estado.h"
-BotoneraMaster::BotoneraMaster(QWidget *parent): Botonera(parent)
+BotoneraMaster::BotoneraMaster(QWidget *parent): Botonera(parent),botoneraMasterSource(parent)
 {
     qDebug()<< "estoy en el contructor de botonera Master";
     concentrator = new FormatConcentrator();
@@ -55,7 +55,57 @@ void BotoneraMaster::removeCodeFromIcm(QString boton){
     //getConcentrator();
 }
 
+void BotoneraMaster::removeCodeFromCenterSlave(QString boton)
+{
+    estadoActual->removeCenterS(boton);
+    sendMessage();
+}
+
+void BotoneraMaster::removeCodeFromMIKSlave(QString caracter)
+{
+    estadoActual->removeMIK(caracter); //TODO CAMBIAR
+    sendMessage();
+}
+
+void BotoneraMaster::removeCodeFromIcmSlave(QString boton)
+{
+    estadoActual->removeICMS(boton);
+    sendMessage();
+}
+
+void BotoneraMaster::removeCodeFromQekSlave(QString boton)
+{
+    estadoActual->removeQEKS(boton);
+    sendMessage();
+}
+
+
+
 /* ------------------SETTERS-----------------------*/
+
+void BotoneraMaster::sendCodeToRangeFromSlave(QString boton){
+    range_widget->interact(boton);
+}
+
+void BotoneraMaster::sendCodeToLabelSelectionFromSlave(QString boton)
+{
+    label_selection_widget->interact(boton);
+}
+
+void BotoneraMaster::sendCodeToThreatFromSlave(QString boton)
+{
+    threat_assesment_widget->interact(boton);
+}
+
+void BotoneraMaster::sendCodeToDisplayModeFromSlave(QString boton)
+{
+    display_mode_widget->interact(boton);
+}
+
+void BotoneraMaster::sendCodeToDisplaySelectionFromSlave(QString boton)
+{
+    display_selection_widget->interact(boton);
+}
 
 void BotoneraMaster::sendCodeToRange(QString boton){
     estadoActual->setRange(boton);
@@ -102,8 +152,36 @@ QByteArray BotoneraMaster::getConcentrator(){
     return DCLCONC;
 }
 
-void Botonera::sendCharToMIK(QString c){
-    miEstado->setMIK(c);
+void BotoneraMaster::sendCodeToCenterSlave(QString boton)
+{
+    estadoActual->setCenterS(boton);
+}
+
+void BotoneraMaster::sendCharToMIKSlave(QString caracter)
+{
+    estadoActual->setMIK(caracter); //TODO hay que implementar el seMIKS();
+}
+
+void BotoneraMaster::sendCodeToIcmSlave(QString boton)
+{
+    estadoActual->setICMS(boton);
+}
+
+void BotoneraMaster::sendCodeToQekSlave(QString boton)
+{
+    estadoActual->setQEKS(boton);
+}
+
+void BotoneraMaster::sendCodeToOverlaySlave(QString codigo)
+{
+    estadoActual->setOverlayS(codigo);
+    sendMessage();
+}
+
+
+
+void BotoneraMaster::sendCharToMIK(QString c){
+    estadoActual->setMIK(c);
 }
 
 QString BotoneraMaster::getOverlay(){

@@ -18,6 +18,7 @@ public:
     void removeCode(QString code) override;
     QString getName() override;
     ~zone_displayMode();
+    void interact(QString boton) override;
 
 private:
     Ui::zone_displayMode *ui;

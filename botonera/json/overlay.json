@@ -10,5 +10,5 @@
     {"EW":"1000"}
     ],
     "tipo":"360",
-    "master":false
+    "master":true
 }

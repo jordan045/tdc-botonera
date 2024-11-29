@@ -12,7 +12,7 @@
 #include "botonera.h"
 
 namespace Ui {
-    class andGrilla;
+class andGrilla;
 
 }
 

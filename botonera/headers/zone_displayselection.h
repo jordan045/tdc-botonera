@@ -18,6 +18,7 @@ public:
     void removeCode(QString code) override;
     QString getName() override;
     ~zone_displaySelection();
+    void interact(QString boton) override;
 
 private:
     Ui::zone_displaySelection *ui;

@@ -13,6 +13,7 @@ class Zone : public QWidget{
         virtual void sendCode(QString){}
         virtual void removeCode(QString){}
         virtual QString getName(){return "";}
+        virtual void interact(QString){}
 
     protected:
         Botonera *miBotonera;

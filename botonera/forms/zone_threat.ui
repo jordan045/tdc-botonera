@@ -35,14 +35,14 @@
     </rect>
    </property>
    <property name="frameShape">
-    <enum>QFrame::Box</enum>
+    <enum>QFrame::Shape::Box</enum>
    </property>
    <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
+    <enum>QFrame::Shadow::Plain</enum>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <widget class="QPushButton" name="THREAT_1_12SEC">
+     <widget class="QPushButton" name="THREAT_12_SEC">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -80,7 +80,7 @@ QPushButton:checked {image: url(':/threat/img/Threat/12_sec_pressed.png')}</stri
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="THREAT_2_30SEC">
+     <widget class="QPushButton" name="THREAT_30_SEC">
       <property name="minimumSize">
        <size>
         <width>50</width>
@@ -115,7 +115,7 @@ QPushButton:checked {image: url(':/threat/img/Threat/30_sec_pressed.png')}</stri
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="THREAT_3_6MIN">
+     <widget class="QPushButton" name="THREAT_6_MIN">
       <property name="minimumSize">
        <size>
         <width>50</width>
@@ -150,7 +150,7 @@ QPushButton:checked {image: url(':/threat/img/Threat/6_min_pressed.png')}</strin
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="THREAT_4_15MIN">
+     <widget class="QPushButton" name="THREAT_15_MIN">
       <property name="minimumSize">
        <size>
         <width>50</width>
@@ -185,7 +185,7 @@ QPushButton:checked {image: url(':/threat/img/Threat/15_min_pressed.png')}</stri
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="THREAT_5_RESET">
+     <widget class="QPushButton" name="THREAT_RESET">
       <property name="minimumSize">
        <size>
         <width>50</width>
@@ -242,7 +242,7 @@ QPushButton:checked {image: url(':/threat/img/Threat/reset_pressed.png')}</strin
     <string>THREAT ASSESS</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignHCenter|Qt::AlignTop</set>
+    <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
    </property>
    <property name="wordWrap">
     <bool>true</bool>

@@ -40,10 +40,33 @@ zone_range::zone_range(Botonera *b)
 
 void zone_range::sendCode(QString code)
 {
+    QPushButton *button = this->findChild<QPushButton*>(code);
+    if(button){
+        button->setChecked(true);
+        qDebug()<<"se activó el boton visual del rango";
+    }else
+    {
+        qDebug()<<"No se encontró el boton del rango";
+    }
     miBotonera->sendCodeToRange(code);
+
+    qDebug()<<"CODIGO RANGE"<<code;
 }
 void zone_range::removeCode(QString code){
+    QPushButton *button = this->findChild<QPushButton*>(code);
+    if(button){
+        button->setChecked(false);
+        qDebug()<<"se desactivo el boton visual del rango";
+    }else
+    {
+        qDebug()<<"No se encontró el boton del rango";
+    }
     miBotonera->removeCodeFromRange(code);
+
+}
+void zone_range::interact(QString code){
+    QPushButton *button = this->findChild<QPushButton*>(code);
+    button->toggle();
 }
 
 

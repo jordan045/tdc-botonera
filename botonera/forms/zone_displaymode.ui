@@ -35,14 +35,14 @@
     </rect>
    </property>
    <property name="frameShape">
-    <enum>QFrame::Box</enum>
+    <enum>QFrame::Shape::Box</enum>
    </property>
    <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
+    <enum>QFrame::Shadow::Plain</enum>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QPushButton" name="pushButton_6">
+     <widget class="QPushButton" name="HM">
       <property name="minimumSize">
        <size>
         <width>50</width>
@@ -71,7 +71,7 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/HM_pressed.png'
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="RR">
       <property name="minimumSize">
        <size>
         <width>50</width>
@@ -100,7 +100,7 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/RR_pressed.png'
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="OWN_CURS">
       <property name="minimumSize">
        <size>
         <width>50</width>
@@ -129,7 +129,7 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/OWN_CURS_presse
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_7">
+     <widget class="QPushButton" name="SYMB_LARGE">
       <property name="minimumSize">
        <size>
         <width>50</width>
@@ -158,7 +158,7 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/SYMB_LARGE_pres
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="TM">
       <property name="minimumSize">
        <size>
         <width>50</width>
@@ -187,7 +187,7 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/TM_pressed.png'
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="EMERG">
       <property name="minimumSize">
        <size>
         <width>50</width>
@@ -216,7 +216,7 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/EMERG_pressed.p
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_5">
+     <widget class="QPushButton" name="SYST_ALARM">
       <property name="minimumSize">
        <size>
         <width>50</width>
@@ -270,7 +270,7 @@ QPushButton:checked {image: url(':/display_mode/img/Display Mode/SYST_ALARM_pres
     <string>DISPLAY MODE</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <set>Qt::AlignmentFlag::AlignCenter</set>
    </property>
   </widget>
  </widget>

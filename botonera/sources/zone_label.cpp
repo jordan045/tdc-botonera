@@ -41,3 +41,9 @@ void zone_label::removeCode(QString code){
 QString zone_label::getName(){
     return "LABEL_SELECTION";
 }
+
+void zone_label::interact(QString boton)
+{
+    QPushButton *button = this->findChild<QPushButton*>(boton);
+    button->toggle();
+}

@@ -1,4 +1,6 @@
+QT       += remoteobjects
 QT       += core gui network
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -12,6 +14,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    sources/ConnectionScreen.cpp \
     sources/andGui.cpp \
     sources/AndTranslator.cpp \
     sources/boton.cpp \
@@ -49,11 +52,13 @@ SOURCES += \
     sources/transciever_fpga.cpp \
 
 HEADERS += \
+    headers/ConnectionScreen.h \
     headers/Zone.h \
     headers/andGui.h \
     headers/boton.h \
     headers/botonera.h \
     headers/botoneraMaster.h \
+    headers/botoneraMaster.rep \
     headers/botoneraSlave.h \
     headers/decoderAND.h \
     headers/decoderLPD.h \
@@ -115,6 +120,9 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+REPC_SOURCE = headers/botoneraMaster.rep
+REPC_REPLICA = headers/botoneraMaster.rep
 
 RESOURCES += \
     resources.qrc
