@@ -41,6 +41,9 @@ public:
         void sendCharToMIK(QString caracter) override;
         void sendMessage();
 
+        //Los metodo que son slots de .rep
+        void sendCodeToRangeFromSlave(QString code);
+
         //-- Los Setters de Slave //
         void sendCodeToCenterSlave(QString boton);
         void sendCharToMIKSlave(QString caracter);

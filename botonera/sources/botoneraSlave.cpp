@@ -114,7 +114,7 @@ QString BotoneraSlave::getOverlay()
 void BotoneraSlave::initConnections()
 {
     //Conectar los sendCodeTo.
-    QObject::connect(this,&BotoneraSlave::emitCodeToRange,reptr.data(),&botoneraMasterReplica::sendCodeToRange);
+    QObject::connect(this,&BotoneraSlave::emitCodeToRange,reptr.data(),&botoneraMasterReplica::sendCodeToRangeFromSlave);
     QObject::connect(this,&BotoneraSlave::emitCodeToLabelSelection,reptr.data(),&botoneraMasterReplica::sendCodeToLabelSelection);
     QObject::connect(this,&BotoneraSlave::emitCodeToQek,reptr.data(),&botoneraMasterReplica::sendCodeToQekSlave);
     QObject::connect(this,&BotoneraSlave::emitCodeToThreat,reptr.data(),&botoneraMasterReplica::sendCodeToThreat);

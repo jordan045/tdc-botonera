@@ -83,6 +83,11 @@ void BotoneraMaster::removeCodeFromQekSlave(QString boton)
 
 /* ------------------SETTERS-----------------------*/
 
+void BotoneraMaster::sendCodeToRangeFromSlave(QString boton){
+    range_widget->interact(boton);
+    sendMessage();
+}
+
 void BotoneraMaster::sendCodeToRange(QString boton){
     estadoActual->setRange(boton);
     sendMessage();

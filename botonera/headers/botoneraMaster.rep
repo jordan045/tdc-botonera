@@ -6,7 +6,7 @@
 
 class botoneraMaster
 {
-    SLOT(sendCodeToRange(QString boton));
+    SLOT(sendCodeToRangeFromSlave(QString boton));
     SLOT(sendCodeToLabelSelection(QString boton));
     SLOT(sendCodeToQekSlave(QString boton));
     SLOT(sendCodeToThreat(QString boton));

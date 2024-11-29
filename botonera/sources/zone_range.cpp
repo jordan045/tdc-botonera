@@ -64,6 +64,13 @@ void zone_range::removeCode(QString code){
     miBotonera->removeCodeFromRange(code);
 
 }
+void zone_range::interact(QString code){
+    QPushButton *button = this->findChild<QPushButton*>(code);
+    if(button->isChecked())
+        button->setChecked(false);
+    else
+        button->setChecked(true);
+}
 
 
 
