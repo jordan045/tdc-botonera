@@ -147,10 +147,16 @@ void BotoneraMaster::sendCodeToQekSlave(QString boton)
     estadoActual->setQEKS(boton);
 }
 
+void BotoneraMaster::sendCodeToOverlaySlave(QString codigo)
+{
+    estadoActual->setOverlayS(codigo);
+    sendMessage();
+}
 
 
-void Botonera::sendCharToMIK(QString c){
-    miEstado->setMIK(c);
+
+void BotoneraMaster::sendCharToMIK(QString c){
+    estadoActual->setMIK(c);
 }
 
 QString BotoneraMaster::getOverlay(){

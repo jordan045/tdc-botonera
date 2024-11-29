@@ -26,6 +26,7 @@ public:
     void sendCodeToDisplayMode(QString boton) override;
     void sendCodeToDisplaySelection(QString boton)override;
     void sendCodeToIcm(QString boton) override;
+    void sendCharToMIK(QString caracter) override;
     void sendMessage();
     QString getOverlay();
 
@@ -41,7 +42,8 @@ signals:
     void emitCodeToDisplaySelection(QString boton);
     void emitCodeToIcm(QString boton);
     void emitCodeTo(QString boton);
-    void emitCodeToOverlay();
+    void emitCodeToOverlay(QString codigo);
+    void emitCharToMik(QString codigo);
 
     void emitRemoveFromRange(QString boton);
     void emitRemoveFromLabelSelection(QString boton);

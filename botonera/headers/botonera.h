@@ -33,7 +33,7 @@ public:
     virtual void sendCodeToDisplayMode(QString boton)       = 0;
     virtual void sendCodeToDisplaySelection(QString boton)  = 0;
     virtual void sendCodeToIcm(QString boton)               = 0;
-    virtual void sendCharToMIK(QString c);
+    virtual void sendCharToMIK(QString c)                   = 0;
 
     virtual void removeCodeFromRange(QString boton)             = 0;
     virtual void removeCodeFromLabelSelection(QString boton)    = 0;

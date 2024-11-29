@@ -180,7 +180,8 @@ void Estado::setICM(QString s){
 }
 
 void Estado::setMIK(QString s){
-    s.append(" ");
+    this->mik.append(" ");
+    // s.append(" ");
     this->mik.append(s);
     qDebug()<<"agregue a" << s;
     qDebug()<<"la mik es:" << mik;

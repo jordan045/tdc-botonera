@@ -14,6 +14,8 @@ class botoneraMaster
     SLOT(sendCodeToDisplayMode(QString boton));
     SLOT(sendCodeToDisplaySelection(QString boton));
     SLOT(sendCodeToIcmSlave(QString boton));
+    SLOT(sendCodeToOverlaySlave(QString codigo));
+    SLOT(sendCharToMIK(QString caracter));
 
     SLOT(removeCodeFromRange(QString boton));
     SLOT(removeCodeFromLabelSelection(QString boton));

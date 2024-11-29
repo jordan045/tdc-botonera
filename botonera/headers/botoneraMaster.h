@@ -38,6 +38,7 @@ public:
         void sendCodeToDisplayMode(QString boton) override;
         void sendCodeToDisplaySelection(QString boton)override;
         void sendCodeToIcm(QString boton) override;
+        void sendCharToMIK(QString caracter) override;
         void sendMessage();
 
         //-- Los Setters de Slave //
@@ -45,6 +46,7 @@ public:
         void sendCharToMIKSlave(QString caracter);
         void sendCodeToIcmSlave(QString boton);
         void sendCodeToQekSlave(QString boton);
+        void sendCodeToOverlaySlave(QString codigo);
 
         QString getOverlay();
 

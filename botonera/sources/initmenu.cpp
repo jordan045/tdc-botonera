@@ -11,6 +11,7 @@
 #include <ui_initmenu.h>
 #include "botoneraMaster.h"
 #include "botoneraSlave.h"
+#include "ConnectionScreen.cpp"
 
 InitMenu::InitMenu(QWidget *parent) :
     QWidget(parent)
@@ -18,8 +19,8 @@ InitMenu::InitMenu(QWidget *parent) :
     QCoreApplication::setApplicationName("Botonera AR-TDC");
 
     leerArchivos();
-    iniciarInterfaz();
     iniciarConexión();
+    iniciarInterfaz();
 
 }
 
@@ -144,17 +145,36 @@ void InitMenu::iniciarConexión(){
     }
     else{
         //sino creo una botonera slave
-        qDebug()<< "Se creó la slave";
-        nodoReplica.connectToNode(QUrl(QStringLiteral("tcp://192.168.1.1:8080"))); // conectar con el host remoto
-        ptr.reset(nodoReplica.acquire<botoneraMasterReplica>()); //adquiere la replica de la fuente desde el nodo host;
 
-        if (!ptr->isInitialized()) {
-            qDebug() << "La réplica no está inicializada.";
-        }else{
-            qDebug() << "La réplica se inicializó correctamente.";
-        }
+        //Muestro pantalla de carga por si aun no esta la conexión.
+        ConnectionScreen *pantallaCarga = new ConnectionScreen(nullptr);
+        pantallaCarga->show();
 
-        miBotonera = new BotoneraSlave(nullptr,ptr);
+        connect(pantallaCarga, &QDialog::rejected, this, &QWidget::close);
+
+        //Uso un temporizador para ir tratando de establecer conexiópn
+        QTimer *timer = new QTimer(this);
+
+        connect(timer, &QTimer::timeout, [this, pantallaCarga, timer]() {
+            nodoReplica.connectToNode(QUrl(QStringLiteral("tcp://192.168.1.1:8080"))); // Intentar conectar
+            ptr.reset(nodoReplica.acquire<botoneraMasterReplica>()); // Adquirir réplica
+
+            if (ptr->isInitialized()) {
+                qDebug() << "La réplica se inicializó correctamente.";
+
+                // Detener el temporizador y cerrar el diálogo
+                timer->stop();
+                pantallaCarga->accept();
+
+                // Crear la botonera slave
+                miBotonera = new BotoneraSlave(nullptr, ptr);
+            } else {
+                qDebug() << "Intentando conectar con la master...";
+            }
+        });
+
+        // Iniciar el temporizador con un intervalo de 2 segundos
+        timer->start(2000);
     }
 
 }

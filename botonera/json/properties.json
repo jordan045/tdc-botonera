@@ -52,6 +52,14 @@
         "RESET_OBM":"4",
         "DATA_REQ":"5"
     },
+    "CENTER_SLAVE":{
+        "CU_OR_OFF_CENT":"8",
+        "CU_OR_CENT":"9",
+        "OFF_CENT":"10",
+        "CENT":"11",
+        "RESET_OBM":"12",
+        "DATA_REQ":"13"
+    },
     "DISPLAY_MODE":{
         "HM":"",
         "RR":"15",

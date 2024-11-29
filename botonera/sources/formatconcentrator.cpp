@@ -357,7 +357,10 @@ void FormatConcentrator::removeDisplaySelection(QString estado)
 }
 void FormatConcentrator::removeCenterS(QString estado)
 {
-
+    int offset = WORD_SIZE * 1;
+    QJsonObject center = buttonJson["CENTER"].toObject();
+    QString centerActual = center[estado].toString();
+    message->setBit(offset + centerActual.toInt(),false);
 }
 void FormatConcentrator::removeCenter(QString estado)
 {

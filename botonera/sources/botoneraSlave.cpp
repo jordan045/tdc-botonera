@@ -54,7 +54,7 @@ void BotoneraSlave::removeCodeFromIcm(QString boton)
 
 void BotoneraSlave::setOverlay(QString codigo)
 {
-    overlay =codigo.toInt();
+    emit emitCodeToOverlay(codigo);
 }
 
 void BotoneraSlave::sendCodeToRange(QString boton)
@@ -97,6 +97,11 @@ void BotoneraSlave::sendCodeToIcm(QString boton)
     emit emitCodeToIcm(boton);
 }
 
+void BotoneraSlave::sendCharToMIK(QString caracter)
+{
+    emit emitCharToMik(caracter);
+}
+
 void BotoneraSlave::sendMessage()
 {
 }
@@ -117,6 +122,8 @@ void BotoneraSlave::initConnections()
     QObject::connect(this,&BotoneraSlave::emitCodeToDisplayMode,reptr.data(),&botoneraMasterReplica::sendCodeToDisplayMode);
     QObject::connect(this,&BotoneraSlave::emitCodeToDisplaySelection,reptr.data(),&botoneraMasterReplica::sendCodeToDisplaySelection);
     QObject::connect(this,&BotoneraSlave::emitCodeToIcm,reptr.data(),&botoneraMasterReplica::sendCodeToIcmSlave);
+    QObject::connect(this,&BotoneraSlave::emitCodeToOverlay,reptr.data(),&botoneraMasterReplica::sendCodeToOverlaySlave);
+    QObject::connect(this,&BotoneraSlave::emitCharToMik,reptr.data(),&botoneraMasterReplica::sendCharToMIK);
 
     //Conecta los removeFrom
     QObject::connect(this,&BotoneraSlave::emitRemoveFromRange,reptr.data(),&botoneraMasterReplica::removeCodeFromRange);
