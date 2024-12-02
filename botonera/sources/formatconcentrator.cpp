@@ -85,7 +85,7 @@ void FormatConcentrator::setDisplaySelection(IEstado *estado)
     foreach(const QString &word,wordListDSelection){
         QJsonObject display = buttonJson["DISPLAY_SELECTION"].toObject();
         QString displayActual = display[word].toString();
-        qDebug()<<"Posicion display Actual" + displayActual;
+        // qDebug()<<"Posicion display Actual" + displayActual;
         int posicion = displayActual.toInt();
         message->setBit(posicion,true);
     }
@@ -204,7 +204,7 @@ void FormatConcentrator::setICM(IEstado *estado){
     int palabra= WORD_SIZE * 4; //Está en la quinta palabra;
     int offset = 0;
     QStringList wordListICM = estado->getICM().split(" ", Qt::SkipEmptyParts);
-    qDebug()<<"Posicion donde comienza ICM:"+ palabra;
+    // qDebug()<<"Posicion donde comienza ICM:"+ palabra;
     if(wordListICM.size() == 0)
     {
         for(offset;offset<3;offset++)
@@ -230,7 +230,7 @@ void FormatConcentrator::setIcmS(IEstado *estado)
     int palabra= WORD_SIZE * 3; //Está en la cuarta palabra;
     int offset = 8;
     QStringList wordListICMS = estado->getICMS().split(" ", Qt::SkipEmptyParts);
-    qDebug()<<"Posicion donde comienza ICM:"+ palabra;
+    // qDebug()<<"Posicion donde comienza ICM:"+ palabra;
     if(wordListICMS.size() == 0)
     {
         for(offset;offset<3;offset++)
@@ -273,13 +273,13 @@ void FormatConcentrator::setMIK(IEstado *estado)
     int offset = 0;
     QString mikPalabra = estado->getMIK();
 
-    qDebug()<<"Se invocó a setMIK, palabra mik:" <<mikPalabra;
+    // qDebug()<<"Se invocó a setMIK, palabra mik:" <<mikPalabra;
     if(mikPalabra != ""){
         QJsonObject teclasMik = MIKJson["teclas"].toObject();
-        qDebug()<< "la letra es: "<< mikPalabra;
+        // qDebug()<< "la letra es: "<< mikPalabra;
         QJsonObject mikBinario = teclasMik[mikPalabra].toObject();
         QString mik = mikBinario["ASCII_Binario"].toString();
-        qDebug()<< "La letra representa: "<< mik;
+        // qDebug()<< "La letra representa: "<< mik;
         for (QChar caracter:mik) {
             if(caracter == '1'){
                 message->setBit(palabra+offset,true);
@@ -299,7 +299,16 @@ void FormatConcentrator::setMIK(IEstado *estado)
             offset++;
         }
     }
-    qDebug() << "\nMI:\t " << "-" << mikPalabra  << "-";
+    // qDebug() << "\nMI:\t " << "-" << mikPalabra  << "-";
+
+    for(char caracter:"01000000"){
+        if(caracter == '1'){
+            message->setBit(palabra+offset,true);
+        } else {
+            message->setBit(palabra+offset,false);
+        }
+        offset++;
+    }
 }
 
 void FormatConcentrator::setOverlayS(IEstado *estado){
@@ -307,7 +316,8 @@ void FormatConcentrator::setOverlayS(IEstado *estado){
     int palabra = WORD_SIZE*4;
     int offset = 12;
 
-    QString overlay = estado->getOverlayS();
+    // QString overlay = estado->getOverlayS();
+    QString overlay = "1000";
     for(QChar caracter:overlay)
     {
         if (caracter == '1')
@@ -363,7 +373,7 @@ void FormatConcentrator::removeDisplaySelection(QString estado)
     QJsonObject display = buttonJson["DISPLAY_SELECTION"].toObject();
     QString displayActual = display[estado].toString();
     message->setBit(displayActual.toInt(),false);
-    qDebug()<<"Borre el display Selection desde Concentrator de la posicion: "<< displayActual;
+    // qDebug()<<"Borre el display Selection desde Concentrator de la posicion: "<< displayActual;
 }
 void FormatConcentrator::removeCenterS(QString estado)
 {
@@ -405,11 +415,11 @@ void FormatConcentrator::guardarMensaje(IEstado *estado)
 
         //Se generan nuevos buttonJsons en cada ejecución con la fecha y hora
         QString mensajeFilePath = dir.absolutePath() + "/" + formattedFile + ".log";
-        qDebug() << "Format Concentrator: buttonJson de log creado en " +mensajeFilePath;
+        // qDebug() << "Format Concentrator: buttonJson de log creado en " +mensajeFilePath;
         mensajeFile.setFileName(mensajeFilePath);
 
         if (!mensajeFile.open(QIODevice::Append | QIODevice::Text)) {
-            qDebug() << "ERROR al abrir el buttonJson de mensajes.";
+            // qDebug() << "ERROR al abrir el buttonJson de mensajes.";
             return;  // Salir si no se puede abrir el buttonJson
         }
 
@@ -457,14 +467,14 @@ void FormatConcentrator::leerJson()
         QJsonParseError JsonError;
         QJsonDocument Document = QJsonDocument::fromJson(Bytes,&JsonError);
         if(JsonError.error != QJsonParseError::NoError){
-            qDebug()<<"ERROR in Json Data";
+            // qDebug()<<"ERROR in Json Data";
             return;
         }
         if(Document.isObject())
         buttonJson = Document.object();
     }
-    else
-        qDebug()<<"Hubo un error, no se abrio el buttonJson";
+    // else
+        // qDebug()<<"Hubo un error, no se abrio el buttonJson";
 
 
     QString MIKFilePath = ":/json/json/mik.json";

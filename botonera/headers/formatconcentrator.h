@@ -50,6 +50,7 @@ private:
     void setDisplayModeS(IEstado    *estado);
     void setOverlayS(IEstado        *estado);
 
+
     void guardarMensaje(IEstado *estado);
 
     void getMessage();

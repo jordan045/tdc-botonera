@@ -159,8 +159,6 @@ void andGui::saltoDeLineaTecla(){
 }
 
 
-
-
 void andGui::keyPressEvent(QKeyEvent *event){
 
     QString keyText = event->text();
@@ -213,10 +211,10 @@ void andGui::keyPressEvent(QKeyEvent *event){
             }
             break;
     }
-
 }
 
 void andGui::tocarBoton(const QString &mensaje){
+    //slice de palabras para mandar toda la palabra se esta mandando por caracter.
     for(int i = 0; i < mensaje.length(); i++){
         mik->pressKey(mensaje[i]);
     }
@@ -391,8 +389,6 @@ void andGui::on_S04_button_clicked(){
     tocarBoton("S 0 4 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
-
-
 
 void andGui::on_pushButton_Del_clicked(){
     tocarBoton("- EXECUTE");

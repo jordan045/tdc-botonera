@@ -42,6 +42,7 @@ protected:
 private slots:
     void tocarBoton(const QString &mensaje);
 
+    //TODO CAMEL CASE
     void on_A_Button_clicked();
     void on_B_Button_clicked();
     void on_C_Button_clicked();

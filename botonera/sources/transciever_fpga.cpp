@@ -53,7 +53,7 @@ void transcieverFPGA::readPendingDatagrams(){
         quint16 senderPort;
 
         udpSocket->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
-        qDebug() << "llego algo" << datagram.size();
+        //qDebug() << "llego algo" << datagram.size();
         readDeviceAddress(datagram);
     }
 }
@@ -75,7 +75,7 @@ void transcieverFPGA::readDeviceAddress(QByteArray datagram){
         if (datagram.size() > 3) {
             payload = datagram.mid(3);
         }
-        qDebug() << "pay " << payload;
+        //qDebug() << "pay " << payload;
         int wordLength;
 
         switch (deviceAddress) {
@@ -89,7 +89,7 @@ void transcieverFPGA::readDeviceAddress(QByteArray datagram){
                 break;
 
             case DA_AND1:
-                qDebug() << "vamo a AND!";
+                //qDebug() << "--------------- LLEGA AND -------------------";
                 AND1(payload, sequenceNumber);
                 break;
 
@@ -138,10 +138,7 @@ void transcieverFPGA::sendConcentrator(QByteArray data){
     if (udpSocket->writeDatagram(message, QHostAddress(IP_FPGA), PORT_FPGA) == -1) {
         qWarning() << "Failed to send datagram:" << udpSocket->errorString();
     }
-    else
-        qDebug() << "que onda mande";
     timerConcentrator->start(200);
-    qDebug() << "timer: " << timerConcentrator->isActive();
 }
 
 void transcieverFPGA::AND1(QByteArray data, quint16 sequenceNumber){
@@ -150,8 +147,9 @@ void transcieverFPGA::AND1(QByteArray data, quint16 sequenceNumber){
     // Generar el mensaje ACK para devolver a la FPGA
     QByteArray ack_message = QByteArray(3,0x0);
 
+
     ack_message[0] = DA_AND1;
-    ack_message[1] = (sequenceNumber >> 8) & 0xFF;
+    ack_message[1] = ((sequenceNumber >> 8) & 0xFF) | 0x80;
     ack_message[2] = sequenceNumber & 0xFF;
     udpSocket->writeDatagram(ack_message, QHostAddress(IP_FPGA), PORT_FPGA);
 
@@ -166,8 +164,8 @@ void transcieverFPGA::AND2(QByteArray data, quint16 sequenceNumber){
     QByteArray invertedData = negateData(data);
     QByteArray ack_message = QByteArray(3,0x0);
 
-    ack_message[0] = DA_AND1;
-    ack_message[1] = (sequenceNumber >> 8) & 0xFF;
+    ack_message[0] = DA_ACK_AND_2;
+    ack_message[1] = ((sequenceNumber >> 8) & 0xFF) | 0x80;
     ack_message[2] = sequenceNumber & 0xFF;
     udpSocket->writeDatagram(ack_message, QHostAddress(IP_FPGA), PORT_FPGA);
 
@@ -183,7 +181,10 @@ void transcieverFPGA::recieveACK(QByteArray ack, quint16 sequenceNumber){
     bool flagAck = ack[0] & 0x80;
 
     if(flagAck && (sequenceNumber == bufferConcentrador.second)){
+
+
         timerConcentrator->stop();
+        //qDebug() << "Coincide SECUENCIA: " << timerConcentrator->isActive();
         bufferConcentrador.first = 0x0;
         bufferConcentrador.second = 0;
     }

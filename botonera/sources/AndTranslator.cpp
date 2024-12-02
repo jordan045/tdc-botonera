@@ -12,7 +12,7 @@ void decoderAND::processAndMessage(QByteArray data)
     QPair<int, QString> result;
     result = processMessage(data);
     emit conversionResult(result);
-    qDebug() << "emitimos";
+    //qDebug() << "emitimos";
 }
 
 QByteArray decoderAND::getArray(QString &message){
@@ -43,8 +43,7 @@ QPair<int,QString> decoderAND::processMessage(QByteArray &message){
     int num_row = static_cast<int>(row);
 
     // Convertir el valor de 'row' a hexadecimal
-    char rowH = message[2];
-    QString rowHex = QString::number(rowH, 16).toUpper().rightJustified(2, '0');
+    QString rowHex = QString::number(row, 16).toUpper().rightJustified(2, '0');
 
     qDebug() << "Row en hexadecimal:" << rowHex;
 

@@ -16,6 +16,8 @@
 
 #define DA_CONCENTRADOR 0x04
 #define DA_AND1 0x02
+#define DA_ACK_AND_1 0x82
+#define DA_ACK_AND_2 0x83
 #define DA_AND2 0x03
 #define DA_LPD 0x00
 #define DA_PEDIDO_CONCENTRADOR 0x01
