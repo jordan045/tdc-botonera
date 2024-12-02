@@ -7,7 +7,7 @@
 #define LOG true
 
 #define WORD_SIZE 24
-#define WORD_COUNT 8
+#define WORD_COUNT 9
 
 FormatConcentrator::FormatConcentrator()
 {

@@ -53,7 +53,7 @@ private:
     quint16 sequenceCounter = 0;
 
     QPair<QByteArray,quint16> bufferConcentrador;
-    QTimer timerConcentrador;
+    QTimer *timerConcentrator;
 
     decoderAND *decoderAND;
     decoderLPD *decoderLPD;
