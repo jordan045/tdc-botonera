@@ -37,15 +37,15 @@ void InitMenu::seleccion()
         this->close();
         myBotonera->show();
 
-        decoderLPD = new class decoderLPD(this);
-        decoderAND = new class decoderAND(this);
-        andGui = new class andGui(this, myBotonera, decoderAND);
+        myDecoderLPD = new class decoderLPD(this);
+        myDecoderAND = new class decoderAND(this);
+        myAndGui = new class andGui(this, myBotonera, myDecoderAND);
 
         comunicationSystem = new transcieverFPGA(
             this,
-            decoderAND,
+            myDecoderAND,
             static_cast<BotoneraMaster*>(myBotonera),
-            decoderLPD);
+            myDecoderLPD);
     }
 }
 
