@@ -14,9 +14,9 @@ transcieverFPGA::transcieverFPGA(QObject *parent, class decoderAND *decoderAND, 
     connect(udpSocket, &QUdpSocket::readyRead, this, &transcieverFPGA::readPendingDatagrams);
     connect(timerConcentrator, &QTimer::timeout, this, &transcieverFPGA::reenviarDCLCONC);
 
-    this->decoderAND = decoderAND;
+    this->myDecoderAND = decoderAND;
     this->botonera = botonera;
-    this->decoderLPD = decoderLPD;
+    this->myDecoderLPD = decoderLPD;
 
     /* TEST INYECTION
         QFile file(":/binary/and_raw_onepage.bin");
@@ -153,11 +153,11 @@ void transcieverFPGA::AND1(QByteArray data, quint16 sequenceNumber){
     ack_message[2] = sequenceNumber & 0xFF;
     udpSocket->writeDatagram(ack_message, QHostAddress(IP_FPGA), PORT_FPGA);
 
-    decoderAND->processAndMessage(invertedData);
+    myDecoderAND->processAndMessage(invertedData);
 }
 
 void transcieverFPGA::sendToLPD(QByteArray d, int wordLength){
-    decoderLPD->processLPDMessage(d, wordLength);
+    myDecoderLPD->processLPDMessage(d, wordLength);
 }
 
 void transcieverFPGA::AND2(QByteArray data, quint16 sequenceNumber){
@@ -169,7 +169,7 @@ void transcieverFPGA::AND2(QByteArray data, quint16 sequenceNumber){
     ack_message[2] = sequenceNumber & 0xFF;
     udpSocket->writeDatagram(ack_message, QHostAddress(IP_FPGA), PORT_FPGA);
 
-    decoderAND->processAndMessage(invertedData);
+    myDecoderAND->processAndMessage(invertedData);
     /*
      * Aca hay que mandar a TCP-Slave, merge con SC-TCP
      * Para despues mandarlo a converter

@@ -124,10 +124,10 @@ void decoderLPD::processMessage(QByteArray &message, int wordLength, QList<Marke
             if (isNegative) {
                 // Si es negativo, tomar el complemento a dos para obtener la magnitud
                 angleRaw = (~angleRaw + 1) & 0xFFF; // Limitar a 12 bits
-                cursorAngle = -static_cast<qfloat16>(angleRaw) * 180.0f / 2048.0f; // Escalar a grados
+                cursorAngle = -static_cast<qfloat16>(angleRaw) * static_cast<qfloat16>(180.0f / 2048.0f); // Escalar a grados
             } else {
                 // Si es positivo, calcular directamente
-                cursorAngle = static_cast<qfloat16>(angleRaw) * 180.0f / 2048.0f; // Escalar a grados
+                cursorAngle = static_cast<qfloat16>(angleRaw) * static_cast<qfloat16>(180.0f / 2048.0f); // Escalar a grados
             }
 
             // Extraer los 17 bits del mensaje para la longitud del cursor
@@ -137,7 +137,7 @@ void decoderLPD::processMessage(QByteArray &message, int wordLength, QList<Marke
             lengthRaw |= (message[offset + 5] & 0x80) >> 7;  // Bit 7
 
             // Convertir a valor decimal (escala en la unidad específica)
-            cursorLength = static_cast<qfloat16>(lengthRaw) / 256.0f;
+            cursorLength = static_cast<qfloat16>(lengthRaw / 256.0f);
 
             //Extraer el tipo de linea en 3 bits
             int lineType = message[offset + 5] & 0x70;
@@ -186,9 +186,9 @@ QPair<qfloat16,qfloat16> decoderLPD::getCoords(QByteArray message, int offset){
     // Determinar signo y convertir a valor real
     if (coordXRaw & 0x10000) { // Si el bit más significativo (24 en términos de 17 bits) es 1
         coordXRaw = (~coordXRaw + 1) & 0x1FFFF; // Complemento a dos para 17 bits
-        coordX = -static_cast<qfloat16>(coordXRaw) / 256.0f; // Escalar por DM
+        coordX = -static_cast<qfloat16>(coordXRaw) / static_cast<qfloat16>(256.0f); // Escalar por DM
     } else {
-        coordX = static_cast<qfloat16>(coordXRaw) / 256.0f; // Escalar por DM
+        coordX = static_cast<qfloat16>(coordXRaw) / static_cast<qfloat16>(256.0f); // Escalar por DM
     }
 
     // Extraer coordenada Y (17 bits desde los siguientes 3 bytes a partir de offset + 3)
@@ -200,9 +200,9 @@ QPair<qfloat16,qfloat16> decoderLPD::getCoords(QByteArray message, int offset){
     // Determinar signo y convertir a valor real
     if (coordYRaw & 0x10000) { // Si el bit más significativo (24 en términos de 17 bits) es 1
         coordYRaw = (~coordYRaw + 1) & 0x1FFFF; // Complemento a dos para 17 bits
-        coordY = -static_cast<qfloat16>(coordYRaw) / 256.0f; // Escalar por DM
+        coordY = -static_cast<qfloat16>(coordYRaw) / static_cast<qfloat16>(256.0f); // Escalar por DM
     } else {
-        coordY = static_cast<qfloat16>(coordYRaw) / 256.0f; // Escalar por DM
+        coordY = static_cast<qfloat16>(coordYRaw) / static_cast<qfloat16>(256.0f); // Escalar por DM
     }
 
     QPair<qfloat16, qfloat16> coordinates(coordX, coordY);
