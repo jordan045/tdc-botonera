@@ -74,12 +74,12 @@
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>80</y>
+      <y>70</y>
       <width>411</width>
-      <height>371</height>
+      <height>381</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
+    <layout class="QVBoxLayout" name="verticalLayoutAND">
      <property name="spacing">
       <number>0</number>
      </property>
@@ -1170,7 +1170,7 @@ QPushButton:checked {image: url(':/and/img/AND/F_pressed.png')}</string>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton{
-	backgrounf-color: transparent;
+	background-color: transparent;
 	border: none;
 }
 QPushButton:focus{outline: none}
@@ -1443,7 +1443,7 @@ QPushButton:checked {image: url(':/and/img/AND/W03_pressed.png')}</string>
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="workspaces"/>
   <buttongroup name="selGroup"/>
+  <buttongroup name="workspaces"/>
  </buttongroups>
 </ui>

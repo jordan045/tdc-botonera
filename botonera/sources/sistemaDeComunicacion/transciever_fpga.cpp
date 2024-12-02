@@ -7,6 +7,7 @@ transcieverFPGA::transcieverFPGA(QObject *parent, class decoderAND *decoderAND, 
     //Crear el socket y conectarlo al puerto de la FPGA
     udpSocket = new QUdpSocket(this);
     udpSocket->bind(QHostAddress::Any, PORT_NOTEBOOK);
+    qDebug() << "TRANSCIEVER: Socket UDP abierto en el puerto: " << PORT_NOTEBOOK << " desde " << IP_MASTER;
 
     timerConcentrator = new QTimer(this);
 
@@ -61,7 +62,7 @@ void transcieverFPGA::readPendingDatagrams(){
 void transcieverFPGA::readDeviceAddress(QByteArray datagram){
     if(!datagram.isNull()){
         if (datagram.size() < 3) {
-            qWarning() << "Datagrama muy pequeño para procesar. Tamaño:" << datagram.size();
+            qWarning() << "TRANSCIEVER: Datagrama muy pequeño para procesar. Tamaño:" << datagram.size();
             return;
         }
 
@@ -89,7 +90,6 @@ void transcieverFPGA::readDeviceAddress(QByteArray datagram){
                 break;
 
             case DA_AND1:
-                //qDebug() << "--------------- LLEGA AND -------------------";
                 AND1(payload, sequenceNumber);
                 break;
 
@@ -136,7 +136,7 @@ void transcieverFPGA::sendConcentrator(QByteArray data){
     bufferConcentrador.second = sequenceNumber;
 
     if (udpSocket->writeDatagram(message, QHostAddress(IP_FPGA), PORT_FPGA) == -1) {
-        qWarning() << "Failed to send datagram:" << udpSocket->errorString();
+        qWarning() << "TRANSCIEVER: Failed to send datagram:" << udpSocket->errorString();
     }
     timerConcentrator->start(200);
 }
@@ -146,8 +146,6 @@ void transcieverFPGA::AND1(QByteArray data, quint16 sequenceNumber){
 
     // Generar el mensaje ACK para devolver a la FPGA
     QByteArray ack_message = QByteArray(3,0x0);
-
-
     ack_message[0] = DA_AND1;
     ack_message[1] = ((sequenceNumber >> 8) & 0xFF) | 0x80;
     ack_message[2] = sequenceNumber & 0xFF;
@@ -181,16 +179,13 @@ void transcieverFPGA::recieveACK(QByteArray ack, quint16 sequenceNumber){
     bool flagAck = ack[0] & 0x80;
 
     if(flagAck && (sequenceNumber == bufferConcentrador.second)){
-
-
         timerConcentrator->stop();
-        //qDebug() << "Coincide SECUENCIA: " << timerConcentrator->isActive();
         bufferConcentrador.first = 0x0;
         bufferConcentrador.second = 0;
     }
 }
 
 void transcieverFPGA::reenviarDCLCONC(){
-    qDebug() << "reenviamos";
+    qDebug() << "TRANSCIEVER: Reenviando Concentrador";
     sendConcentrator(bufferConcentrador.first);//envia el mismo numero de secuencia?
 }

@@ -11,7 +11,7 @@
 #include <ui_initmenu.h>
 #include "botoneraMaster.h"
 #include "botoneraSlave.h"
-#include "ConnectionScreen.cpp"
+#include "ConnectionScreen.h"
 
 InitMenu::InitMenu(QWidget *parent) :
     QWidget(parent)
@@ -30,10 +30,10 @@ void InitMenu::seleccion()
         QMessageBox::warning(this, "Advertencia", "Seleccione un ambiente de trabajo");
     }else {
         auto overlay = group->checkedButton()->objectName();
+
         myBotonera->setOverlay(overlay);
-        qDebug()<<"Se seteo el overlay";
         myBotonera->start(tipoBuque);
-        qDebug()<< "se empezo la botonera";
+
         this->close();
         myBotonera->show();
 
@@ -141,13 +141,12 @@ void InitMenu::iniciarConexión(){
     if(master){ //Si es maestro creo una botonera master
         myBotonera = new BotoneraMaster();
         // BotoneraMaster* myBotoneraMaster = new BotoneraMaster();
-        qDebug()<<"Se creo bien la botonera Master";
         srcNode = new QRemoteObjectHost(QUrl (QStringLiteral("tcp://0.0.0.0:5000")));
         auto source = dynamic_cast<botoneraMasterSource *>(myBotonera); //fuente, toma el objeto myBotonera y lo muestra en el puerto
 
         if(source){
             if(srcNode->enableRemoting(source)) //habilita el remoto
-                qDebug() << "Servidor remoto habilitado en:" << srcNode->hostUrl();
+                qDebug() << "INIT MENU: Servidor remoto para interconexión habilitado en: " << srcNode->hostUrl();
             else
                 qDebug()<<"No se habilito el servidor";
         }else{
@@ -158,6 +157,7 @@ void InitMenu::iniciarConexión(){
         //sino creo una botonera slave
 
         //Muestro pantalla de carga por si aun no esta la conexión.
+
         ConnectionScreen *pantallaCarga = new ConnectionScreen(nullptr);
         pantallaCarga->show();
 

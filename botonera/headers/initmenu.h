@@ -9,7 +9,10 @@
 #include "botoneraSlave.h"
 
 #include "decoderLPD.h"
+#include "qremoteobjectnode.h"
+#include "rep_botoneraMaster_replica.h"
 #include "transciever_fpga.h"
+
 
 
 class InitMenu : public QWidget

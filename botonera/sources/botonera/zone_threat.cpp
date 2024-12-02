@@ -33,13 +33,9 @@ void zone_threat::sendCode(QString code)
     codigo.append(code);
     qDebug()<<"El codigo threatAssesment es:" <<codigo;
     QPushButton *button = this->findChild<QPushButton*>(codigo);
-    if(button){
+    if(button)
         button->setChecked(true);
-        qDebug()<<"se activó el boton visual del displaySelection";
-    }else
-    {
-        qDebug()<<"No se encontró el boton del displaySelection";
-    }
+
     miBotonera->sendCodeToThreat(code);
 }
 
@@ -78,52 +74,57 @@ zone_threat::~zone_threat(){
     delete ui;
 }
 
-void zone_threat::on_THREAT_4_15MIN_toggled(bool checked){
+void zone_threat::on_THREAT_12_SEC_toggled(bool checked)
+{
     if (checked){
-        ui->THREAT_12_SEC->setChecked(false);
-        ui->THREAT_30_SEC->setChecked(false);
-        ui->THREAT_6_MIN->setChecked(false);
         ui->THREAT_RESET->setChecked(false);
-    }
-}
-
-void zone_threat::on_THREAT_3_6MIN_toggled(bool checked){
-    if (checked){
-        ui->THREAT_12_SEC->setChecked(false);
-        ui->THREAT_30_SEC->setChecked(false);
-        ui->THREAT_15_MIN->setChecked(false);
-        ui->THREAT_RESET->setChecked(false);
-    }
-}
-
-
-void zone_threat::on_THREAT_2_30SEC_toggled(bool checked){
-    if (checked){
-        ui->THREAT_12_SEC->setChecked(false);
-        ui->THREAT_15_MIN->setChecked(false);
-        ui->THREAT_6_MIN->setChecked(false);
-        ui->THREAT_RESET->setChecked(false);
-    }
-}
-
-
-void zone_threat::on_THREAT_1_12SEC_toggled(bool checked){
-    if (checked){
         ui->THREAT_15_MIN->setChecked(false);
         ui->THREAT_30_SEC->setChecked(false);
         ui->THREAT_6_MIN->setChecked(false);
-        ui->THREAT_RESET->setChecked(false);
     }
 }
 
 
-void zone_threat::on_THREAT_5_RESET_toggled(bool checked)
+void zone_threat::on_THREAT_30_SEC_toggled(bool checked)
 {
     if (checked){
         ui->THREAT_12_SEC->setChecked(false);
         ui->THREAT_15_MIN->setChecked(false);
+        ui->THREAT_6_MIN->setChecked(false);
+        ui->THREAT_RESET->setChecked(false);
+    }
+}
+
+
+void zone_threat::on_THREAT_6_MIN_toggled(bool checked)
+{
+    if (checked){
+        ui->THREAT_12_SEC->setChecked(false);
+        ui->THREAT_30_SEC->setChecked(false);
+        ui->THREAT_15_MIN->setChecked(false);
+        ui->THREAT_RESET->setChecked(false);
+    }
+}
+
+
+void zone_threat::on_THREAT_15_MIN_toggled(bool checked)
+{
+    if (checked){
+        ui->THREAT_12_SEC->setChecked(false);
         ui->THREAT_30_SEC->setChecked(false);
         ui->THREAT_6_MIN->setChecked(false);
+        ui->THREAT_RESET->setChecked(false);
+    }
+}
+
+
+void zone_threat::on_THREAT_RESET_toggled(bool checked)
+{
+    if (checked){
+        ui->THREAT_12_SEC->setChecked(false);
+        ui->THREAT_30_SEC->setChecked(false);
+        ui->THREAT_6_MIN->setChecked(false);
+        ui->THREAT_15_MIN->setChecked(false);
     }
 }
 

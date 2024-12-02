@@ -14,42 +14,41 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    sources/ConnectionScreen.cpp \
-    sources/andGui.cpp \
-    sources/AndTranslator.cpp \
-    sources/boton.cpp \
-    sources/botonera.cpp \
-    sources/botoneraMaster.cpp \
-    sources/botoneraSlave.cpp \
-    sources/cursorMessage.cpp \
-    sources/decenteredimage.cpp \
-    sources/estado.cpp \
-    sources/formatconcentrator.cpp \
+    sources/AND/andGui.cpp \
+    sources/AND/AndTranslator.cpp \
+    sources/botonera/boton.cpp \
+    sources/botonera/botonera.cpp \
+    sources/botonera/botoneraMaster.cpp \
+    sources/botonera/botoneraSlave.cpp \
+    sources/LPD/cursorMessage.cpp \
+    sources/LPD/decenteredimage.cpp \
+    sources/botonera/estado.cpp \
+    sources/botonera/formatconcentrator.cpp \
     sources/initmenu.cpp \
-    sources/lpdDecoder.cpp \
+    sources/LPD/lpdDecoder.cpp \
     sources/main.cpp \
-    sources/markerMessage.cpp \
-    sources/mik.cpp \
-    sources/overlay_140_0001.cpp \
-    sources/overlay_140_0010.cpp \
-    sources/overlay_140_0011.cpp \
-    sources/overlay_140_0100.cpp \
-    sources/overlay_360_0001.cpp \
-    sources/overlay_360_0010.cpp \
-    sources/overlay_360_0011.cpp \
-    sources/overlay_360_0100.cpp \
-    sources/overlay_360_0101.cpp \
-    sources/overlay_360_0110.cpp \
-    sources/overlay_360_0111.cpp \
-    sources/overlay_360_1000.cpp \
-    sources/zone_center.cpp \
-    sources/zone_displaymode.cpp \
-    sources/zone_displayselection.cpp \
-    sources/zone_icm.cpp \
-    sources/zone_label.cpp \
-    sources/zone_range.cpp \
-    sources/zone_threat.cpp \
-    sources/transciever_fpga.cpp \
+    sources/LPD/markerMessage.cpp \
+    sources/AND/mik.cpp \
+    sources/overlays/overlay_140_0001.cpp \
+    sources/overlays/overlay_140_0010.cpp \
+    sources/overlays/overlay_140_0011.cpp \
+    sources/overlays/overlay_140_0100.cpp \
+    sources/overlays/overlay_360_0001.cpp \
+    sources/overlays/overlay_360_0010.cpp \
+    sources/overlays/overlay_360_0011.cpp \
+    sources/overlays/overlay_360_0100.cpp \
+    sources/overlays/overlay_360_0101.cpp \
+    sources/overlays/overlay_360_0110.cpp \
+    sources/overlays/overlay_360_0111.cpp \
+    sources/overlays/overlay_360_1000.cpp \
+    sources/botonera/zone_center.cpp \
+    sources/botonera/zone_displaymode.cpp \
+    sources/botonera/zone_displayselection.cpp \
+    sources/botonera/zone_icm.cpp \
+    sources/botonera/zone_label.cpp \
+    sources/botonera/zone_range.cpp \
+    sources/botonera/zone_threat.cpp \
+    sources/sistemaDeComunicacion/transciever_fpga.cpp \
 
 HEADERS += \
     headers/ConnectionScreen.h \

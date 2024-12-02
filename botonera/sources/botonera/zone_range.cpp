@@ -6,17 +6,14 @@
 zone_range::zone_range(Botonera *b)
     : ui(new Ui::zone_range)
 {
-
-    qDebug() << "Estoy en el constructor de rango";
     ui->setupUi(this);
     miBotonera = b;
-    qDebug()<< "ya ligue la botonera desde rango";
+
     QList<QString> labels = {"2","4","8","16","32","64","128","256"};
     QList<const char*> shortcuts = {"f2","f3","f4","f5","f6","f7","f8","f9"};
 
     QList<QPushButton *> gui_buttons = this->findChildren<QPushButton *>();
 
-    qDebug()<<"agarre los gui buttons";
     QList<Boton*> logic_buttons = *new QList<Boton*>;
     for(int i=1;i<=8;i++){
         QString code = *new QString("RANGE");
@@ -35,7 +32,6 @@ zone_range::zone_range(Botonera *b)
                                                                              "    border: none;"  // Mantén el borde oculto al presionar
                                                                              "}");
     }
-    qDebug()<< "ya cree el rango";
 }
 
 void zone_range::sendCode(QString code)
@@ -43,14 +39,12 @@ void zone_range::sendCode(QString code)
     QPushButton *button = this->findChild<QPushButton*>(code);
     if(button){
         button->setChecked(true);
-        qDebug()<<"se activó el boton visual del rango";
     }else
     {
         qDebug()<<"No se encontró el boton del rango";
     }
     miBotonera->sendCodeToRange(code);
 
-    qDebug()<<"CODIGO RANGE"<<code;
 }
 void zone_range::removeCode(QString code){
     QPushButton *button = this->findChild<QPushButton*>(code);
