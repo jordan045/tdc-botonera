@@ -55,8 +55,8 @@ private:
     QPair<QByteArray,quint16> bufferConcentrador;
     QTimer *timerConcentrator;
 
-    decoderAND *decoderAND;
-    decoderLPD *decoderLPD;
+    decoderAND *myDecoderAND;
+    decoderLPD *myDecoderLPD;
     BotoneraMaster *botonera;
 };
 

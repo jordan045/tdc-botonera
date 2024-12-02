@@ -20,10 +20,10 @@ public:
 
 private:
     Botonera *myBotonera;
-    decoderLPD *decoderLPD;
-    decoderAND *decoderAND;
+    decoderLPD *myDecoderLPD;
+    decoderAND *myDecoderAND;
     transcieverFPGA *comunicationSystem;
-    andGui *andGui;
+    andGui *myAndGui;
 
     void start();
     QButtonGroup *group;
