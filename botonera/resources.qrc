@@ -247,4 +247,119 @@
         <file>binaries/one_page2.bin</file>
         <file>binaries/output_binary.txt</file>
     </qresource>
+    <qresource prefix="/simbolos">
+        <file>img/Simbolos/Aire Amigo.png</file>
+        <file>img/Simbolos/Aire Desconocido.png</file>
+        <file>img/Simbolos/Aire Hostil.png</file>
+        <file>img/Simbolos/Aire Neutral.png</file>
+        <file>img/Simbolos/Aire Pendiente.png</file>
+        <file>img/Simbolos/Aire Posible Amigo2.png</file>
+        <file>img/Simbolos/Aire Posible Hostil.png</file>
+        <file>img/Simbolos/C1F02.png</file>
+        <file>img/Simbolos/C1F02 (2).png</file>
+        <file>img/Simbolos/C1F03.png</file>
+        <file>img/Simbolos/C1F04.png</file>
+        <file>img/Simbolos/C1F05.png</file>
+        <file>img/Simbolos/C1F06.png</file>
+        <file>img/Simbolos/C1F07.png</file>
+        <file>img/Simbolos/C1F08.png</file>
+        <file>img/Simbolos/C1F09.png</file>
+        <file>img/Simbolos/C1F10.png</file>
+        <file>img/Simbolos/C1F11.png</file>
+        <file>img/Simbolos/C1F12.png</file>
+        <file>img/Simbolos/C1F13.png</file>
+        <file>img/Simbolos/C1F14.png</file>
+        <file>img/Simbolos/C1F15.png</file>
+        <file>img/Simbolos/C1F16.png</file>
+        <file>img/Simbolos/C2F01.png</file>
+        <file>img/Simbolos/C2F02.png</file>
+        <file>img/Simbolos/C2F03.png</file>
+        <file>img/Simbolos/C2F04.png</file>
+        <file>img/Simbolos/C2F05.png</file>
+        <file>img/Simbolos/C2F06.png</file>
+        <file>img/Simbolos/C2F07.png</file>
+        <file>img/Simbolos/C2F09.png</file>
+        <file>img/Simbolos/C2F10.png</file>
+        <file>img/Simbolos/C2F11.png</file>
+        <file>img/Simbolos/C2F12.png</file>
+        <file>img/Simbolos/C2F13.png</file>
+        <file>img/Simbolos/C2F14.png</file>
+        <file>img/Simbolos/C2F15.png</file>
+        <file>img/Simbolos/C2F16 Superficie Hostil.png</file>
+        <file>img/Simbolos/C3F01_25px.png</file>
+        <file>img/Simbolos/C3F01_50px.png</file>
+        <file>img/Simbolos/C3F02.png</file>
+        <file>img/Simbolos/C3F03_25px right.png</file>
+        <file>img/Simbolos/C3F04.png</file>
+        <file>img/Simbolos/C3F05.png</file>
+        <file>img/Simbolos/C3F06.png</file>
+        <file>img/Simbolos/C3F07.png</file>
+        <file>img/Simbolos/C3F09.png</file>
+        <file>img/Simbolos/C3F10.png</file>
+        <file>img/Simbolos/C3F11.png</file>
+        <file>img/Simbolos/C3F12.png</file>
+        <file>img/Simbolos/C3F13 down.png</file>
+        <file>img/Simbolos/C3F14_25px center.png</file>
+        <file>img/Simbolos/C3F15 down.png</file>
+        <file>img/Simbolos/C3F16.png</file>
+        <file>img/Simbolos/C4F01.png</file>
+        <file>img/Simbolos/C4F02.png</file>
+        <file>img/Simbolos/C4F03.png</file>
+        <file>img/Simbolos/C4F04.png</file>
+        <file>img/Simbolos/C4F05.png</file>
+        <file>img/Simbolos/C4F06.png</file>
+        <file>img/Simbolos/C4F07.png</file>
+        <file>img/Simbolos/C4F08.png</file>
+        <file>img/Simbolos/C4F09.png</file>
+        <file>img/Simbolos/C4F10.png</file>
+        <file>img/Simbolos/C4F11.png</file>
+        <file>img/Simbolos/C4F12.png</file>
+        <file>img/Simbolos/C4F14.png</file>
+        <file>img/Simbolos/C4F15.png</file>
+        <file>img/Simbolos/C4F16.png</file>
+        <file>img/Simbolos/C5F02.png</file>
+        <file>img/Simbolos/C5F03.png</file>
+        <file>img/Simbolos/C5F04.png</file>
+        <file>img/Simbolos/C5F05.png</file>
+        <file>img/Simbolos/C5F06.png</file>
+        <file>img/Simbolos/C5F07.png</file>
+        <file>img/Simbolos/C5F08.png</file>
+        <file>img/Simbolos/C5F09.png</file>
+        <file>img/Simbolos/C5F10.png</file>
+        <file>img/Simbolos/C5F11.png</file>
+        <file>img/Simbolos/C5F12.png</file>
+        <file>img/Simbolos/C5F13.png</file>
+        <file>img/Simbolos/C5F14.png</file>
+        <file>img/Simbolos/C5F15.png</file>
+        <file>img/Simbolos/C5F16.png</file>
+        <file>img/Simbolos/C6F01.png</file>
+        <file>img/Simbolos/C6F02.png</file>
+        <file>img/Simbolos/C6F03.png</file>
+        <file>img/Simbolos/C6F04.png</file>
+        <file>img/Simbolos/C6F05.png</file>
+        <file>img/Simbolos/C6F06.png</file>
+        <file>img/Simbolos/C6F07.png</file>
+        <file>img/Simbolos/C6F08.png</file>
+        <file>img/Simbolos/C6F09.png</file>
+        <file>img/Simbolos/C6F10.png</file>
+        <file>img/Simbolos/C6F11.png</file>
+        <file>img/Simbolos/C6F13.png</file>
+        <file>img/Simbolos/C6F14.png</file>
+        <file>img/Simbolos/C6F15.png</file>
+        <file>img/Simbolos/C6F16 down.png</file>
+        <file>img/Simbolos/Submarino Amigo.png</file>
+        <file>img/Simbolos/Submarino Desconocido.png</file>
+        <file>img/Simbolos/Submarino Hostil.png</file>
+        <file>img/Simbolos/Submarino Neutral.png</file>
+        <file>img/Simbolos/Submarino Pendiente.png</file>
+        <file>img/Simbolos/Submarino Posible Amigo.png</file>
+        <file>img/Simbolos/Submarino Posible Hostil.png</file>
+        <file>img/Simbolos/Superficie Amigo.png</file>
+        <file>img/Simbolos/Superficie Desconocido.png</file>
+        <file>img/Simbolos/Superficie Hostil.png</file>
+        <file>img/Simbolos/Superficie Neutral.png</file>
+        <file>img/Simbolos/Superficie Pendiente.png</file>
+        <file>img/Simbolos/Superficie Posible Amigo.png</file>
+        <file>img/Simbolos/Superficie Posible Hostil.png</file>
+    </qresource>
 </RCC>
