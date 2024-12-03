@@ -14,6 +14,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    infomessage.cpp \
     sources/AND/andGui.cpp \
     sources/AND/AndTranslator.cpp \
     sources/botonera/boton.cpp \
@@ -89,7 +90,8 @@ HEADERS += \
     headers/transciever_fpga.h \
     headers/cursorMessage.h \
     headers/decenteredimage.h \
-    headers/markerMessage.h
+    headers/markerMessage.h \
+    infomessage.h
 
 FORMS += \
     forms/andGrilla.ui \
@@ -113,6 +115,7 @@ FORMS += \
     forms/zone_label.ui \
     forms/zone_range.ui \
     forms/zone_threat.ui \
+    infomessage.ui \
     initmenu.ui
 
 # Default rules for deployment.

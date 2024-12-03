@@ -3,6 +3,8 @@
 
 #include "estado.h"
 #include <QWidget>
+#include "infomessage.h"
+#include "qdialog.h"
 #include "qpushbutton.h"
 #include "qshortcut.h"
 #include "formatconcentrator.h"
@@ -43,7 +45,6 @@ public:
 
 public slots:
     void start(int tipo);
-    void infoMessage();
 
 protected:
     int overlay;
@@ -61,7 +62,9 @@ protected:
     QPushButton *help_button = new QPushButton("");
     void crearBotonHelp();
     void distribucionLayout();
+    void info();
 
+    infoMessage *uiInfo;
 };
 
 #endif // BOTONERA_H

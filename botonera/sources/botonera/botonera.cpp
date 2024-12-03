@@ -21,6 +21,7 @@
 #include "overlay_360_0110.h"
 #include "overlay_360_0111.h"
 #include "overlay_360_1000.h"
+#include "infomessage.h""
 #include "QFontDatabase"
 #include <QScreen>
 
@@ -113,31 +114,11 @@ void Botonera::setOverlay(QString codigo)
 }
 
 
-void Botonera::infoMessage(){
-    // // Genera el mensaje de ayuda con los atajos de teclado
-    // QMessageBox msg;
+void Botonera::info(){
 
-    // msg.setWindowTitle("ATAJOS DE TECLADO");
-    // QString text = "<table style='border-collapse: collapse;'>"
-    //                "<tr><td style='text-align: left; padding: 8px;'>WIPE</td><td style='text-align: right; padding: 8px;'>Ctrl+R</td></tr>"
-    //                "<tr><td style='text-align: left; padding: 8px;'>CLOSE CONTROL</td><td style='text-align: right; padding: 8px;'>Ctrl+E</td></tr>"
-    //                "<tr><td style='text-align: left; padding: 8px;'>CORRECT</td><td style='text-align: right; padding: 8px;'>Ctrl+W</td></tr>"
-    //                "<tr><td style='text-align: left; padding: 8px;'>NEXT TRACK</td><td style='text-align: right; padding: 8px;'>Ctrl+Q</td></tr>"
-    //                "<tr><td style='text-align: left; padding: 8px;'>DATA REQUEST</td><td style='text-align: right; padding: 8px;'>Ctrl+D</td></tr>"
-    //                "<tr><td style='text-align: left; padding: 8px;'>CENTER</td><td style='text-align: right; padding: 8px;'>Ctrl+S</td></tr>"
-    //                "<tr><td style='text-align: left; padding: 8px;'>OFF CENTER</td><td style='text-align: right; padding: 8px;'>Ctrl+A</td></tr>"
-    //                "<tr><td style='text-align: left; padding: 8px;'>2 DM</td><td style='text-align: right; padding: 8px;'>F2</td></tr>"
-    //                "<tr><td style='text-align: left; padding: 8px;'>4 DM</td><td style='text-align: right; padding: 8px;'>F3</td></tr>"
-    //                "<tr><td style='text-align: left; padding: 8px;'>8 DM</td><td style='text-align: right; padding: 8px;'>F4</td></tr>"
-    //                "<tr><td style='text-align: left; padding: 8px;'>16 DM</td><td style='text-align: right; padding: 8px;'>F5</td></tr>"
-    //                "<tr><td style='text-align: left; padding: 8px;'>32 DM</td><td style='text-align: right; padding: 8px;'>F6</td></tr>"
-    //                "<tr><td style='text-align: left; padding: 8px;'>64 DM</td><td style='text-align: right; padding: 8px;'>F7</td></tr>"
-    //                "<tr><td style='text-align: left; padding: 8px;'>128 DM</td><td style='text-align: right; padding: 8px;'>F8</td></tr>"
-    //                "<tr><td style='text-align: left; padding: 8px;'>256 DM</td><td style='text-align: right; padding: 8px;'>F9</td></tr>"
+    uiInfo = new infoMessage(this);
 
-    //                "</table>";
-    // msg.setText(text);
-    // msg.exec();
+    uiInfo->exec();
 
 }
 
@@ -153,8 +134,8 @@ void Botonera::crearBotonHelp()
     help_button->setMaximumSize(40,40);
     shortcut = new QShortcut(QKeySequence(Qt::Key_0), this);
 
-    connect(shortcut, SIGNAL(activated()), this, SLOT(infoMessage()));
-    connect(help_button, &QPushButton::clicked, this, &Botonera::infoMessage);
+    connect(shortcut, SIGNAL(activated()), this, SLOT(info()));
+    connect(help_button, &QPushButton::clicked, this, &Botonera::info);
 }
 
 void Botonera::distribucionLayout()
