@@ -8,15 +8,15 @@ class MIK
 {
 public:
     MIK(Botonera *b);
-    void selectLine(int t);
+    void goToLine(int t);
     void pressKey(QString c);
     void releaseKey(QString c);
-    int getTab();
+    int getActualLine();
 
 private:
     Botonera *miBotonera;
-    QJsonObject teclasObj;
-    int tab;
+    QJsonObject dataKeys;
+    int actualLine;
 
 };
 

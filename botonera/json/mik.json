@@ -15,11 +15,15 @@
       "ASCII_Binario": "00100011",
       "ASCII_Octal": "043"
     },
+    "WIPE_WARN": {
+      "ASCII_Binario": "00111011",
+      "ASCII_Octal": "073"
+    },
     "RB": {
       "ASCII_Binario": "00100100",
       "ASCII_Octal": "044"
     },
-    "%": {
+    "NEXT_FIELD": {
       "ASCII_Binario": "00100101",
       "ASCII_Octal": "045"
     },
@@ -87,10 +91,6 @@
       "ASCII_Binario": "00111010",
       "ASCII_Octal": "072"
     },
-    ";": {
-      "ASCII_Binario": "00111011",
-      "ASCII_Octal": "073"
-    },
     "<": {
       "ASCII_Binario": "00111100",
       "ASCII_Octal": "074"
@@ -99,11 +99,11 @@
       "ASCII_Binario": "00111101",
       "ASCII_Octal": "075"
     },
-    ">": {
+    "%": {
       "ASCII_Binario": "00111110",
       "ASCII_Octal": "076"
     },
-    "@": {
+    "/": {
       "ASCII_Binario": "01000000",
       "ASCII_Octal": "100"
     },

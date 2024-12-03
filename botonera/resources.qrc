@@ -153,6 +153,7 @@
     </qresource>
     <qresource prefix="/fonts">
         <file>fonts/bahnschrift.TTF</file>
+        <file>fonts/pixelmix.ttf</file>
     </qresource>
     <qresource prefix="/and">
         <file>img/AND/A.png</file>

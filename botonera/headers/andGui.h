@@ -11,6 +11,8 @@
 #include "QLabel"
 #include "botonera.h"
 
+#define FONTSIZE 17
+
 namespace Ui {
 class andGrilla;
 
@@ -23,24 +25,29 @@ class andGui : public QWidget
 public:
     explicit andGui(QWidget *parent = nullptr,Botonera *b = nullptr, decoderAND *translator = nullptr);
 
+    enum Letras { A = 0, B, C, D, E, F, G, H, I, J, K, L };
+
 private:
     Botonera *miBotonera;
     Ui::andGui *ui;
     Ui::andGrilla *grilla;
     decoderAND *converter;
     QVector<QLabel*> labels;
-    void setLine(QPair<int,QString>);
+    void writeToLine(QPair<int,QString>);
     MIK *mik;
     QStackedWidget *stackedWidget;
-    void saltoDeLineaTecla();
+    void selectNextLine();
 
+    void handleSelectLine(Letras letra);
+
+    int actualLine = 0;
 
 protected:
     void keyPressEvent(QKeyEvent *event);
 
 
 private slots:
-    void tocarBoton(const QString &mensaje);
+    void executeMacro(const QString &mensaje);
 
     //TODO CAMEL CASE
     void on_A_Button_clicked();
