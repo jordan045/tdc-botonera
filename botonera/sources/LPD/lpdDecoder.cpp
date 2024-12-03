@@ -15,9 +15,9 @@ void decoderLPD::processLPDMessage(QByteArray data, int wordLength)
     QList<MarkerMessage> markerList;
     QList<CursorMessage> cursorList;
 
-    QFile file(":/binary/LPD2_inverted.bin");
+    QFile file(":/binary/binaries/LPD2_inverted.bin");
     if (!file.open(QIODevice::ReadOnly)) {
-        qWarning() << "No se pudo abrir el archivo";
+        qWarning() << "LPD DECODER: No se pudo abrir el archivo de prueba";
         return;
     }
 

@@ -2,66 +2,45 @@
 
 MIK::MIK(Botonera *b){
     miBotonera = b;
-    tab = 1; //Linea actual
+    actualLine = 1; //Linea actual
+}
 
-    //QMessageBox::StandardButton reply;
-    // Lee el archivo JSON con la información de los overlays
-    QFile file(":/json/json/mik.json");
-    if (!file.open(QIODevice::ReadOnly)) {
-        qDebug("\nERROR al abrir json de MIK\n");
-    }
-
-    QByteArray data = file.readAll();
-    QJsonParseError jsonError;
-    QJsonDocument document = QJsonDocument::fromJson(data, &jsonError);
-    file.close();
-
-    if (jsonError.error != QJsonParseError::NoError) {
-        qDebug("Error Error al parsear JSON");
+void MIK::goToLine(int newLine) {
+    // Validar entrada
+    if (newLine < 0 || newLine > 11) {
+        qWarning() << "Línea inválida solicitada:" << newLine;
         return;
     }
 
-    // Verificar si el documento es un objeto
-    if (!document.isObject()) {
-        qWarning("El documento JSON no es un objeto.");
+    // Validar estado inicial
+    if (actualLine < 0 || actualLine > 11) {
+        qWarning() << "Estado de actualLine inválido. Reiniciando a 0.";
+        actualLine = 0;
+    }
+
+    // Si ya estamos en la línea deseada, no hacer nada
+    if (actualLine == newLine) {
+        qDebug() << "Ya estás en la línea:" << actualLine;
         return;
     }
 
-    QJsonObject rootObj = document.object();
-    teclasObj = rootObj["teclas"].toObject();
+    // Avanzar hasta la línea deseada
+    while (actualLine != newLine) {
+        qDebug() << "Actual:" << actualLine << ", avanzando a:" << (actualLine + 1) % 12;
 
-
-}
-
-void MIK::selectLine(int t){
-    int i= t;
-
-    //Guardar en octal
-    while (i != tab) {
-        if(tab > 13){
-            tab = 0;
-        }
-        else{
-            pressKey("SEL");
-            //releaseKey(' ');
-            tab++;
-        }
+        pressKey("SEL");
+        pressKey("/");
+        actualLine = (actualLine + 1) % 12; // Mantener siempre en el rango [0, 12]
     }
-    tab = t;
+
+    qDebug() << "Línea alcanzada:" << actualLine;
 }
+
 
 void MIK::pressKey(QString c){
-    //QJsonObject caracter = teclasObj[c].toObject();
-    //QString toSend = caracter["ASCII_Octal"].toString();
     miBotonera->sendCharToMIK(c);
 }
 
-void MIK::releaseKey(QString c){
-    //QJsonObject caracter = teclasObj[c].toObject();
-    //QString toSend = caracter["ASCII_Octal"].toString();
-    //miBotonera->removeCharToMIK(toSend);
-}
-
-int MIK::getTab(){
-    return tab;
+int MIK::getActualLine(){
+    return actualLine;
 }

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>543</width>
-    <height>468</height>
+    <width>627</width>
+    <height>603</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,8 +21,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>541</width>
-     <height>461</height>
+     <width>631</width>
+     <height>601</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -51,7 +51,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>521</width>
+      <width>611</width>
       <height>51</height>
      </rect>
     </property>
@@ -135,8 +135,8 @@
      <rect>
       <x>10</x>
       <y>60</y>
-      <width>521</width>
-      <height>391</height>
+      <width>611</width>
+      <height>531</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">

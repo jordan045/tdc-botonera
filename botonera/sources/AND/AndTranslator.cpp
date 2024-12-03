@@ -45,7 +45,7 @@ QPair<int,QString> decoderAND::processMessage(QByteArray &message){
     // Convertir el valor de 'row' a hexadecimal
     QString rowHex = QString::number(row, 16).toUpper().rightJustified(2, '0');
 
-    qDebug() << "Row en hexadecimal:" << rowHex;
+    //qDebug() << "Row en hexadecimal:" << rowHex;
 
     while(nextChar != END_OF_TEXT){
 

@@ -279,7 +279,7 @@ void FormatConcentrator::setMIK(IEstado *estado)
         // qDebug()<< "la letra es: "<< mikPalabra;
         QJsonObject mikBinario = teclasMik[mikPalabra].toObject();
         QString mik = mikBinario["ASCII_Binario"].toString();
-        // qDebug()<< "La letra representa: "<< mik;
+        qDebug()<< "La letra representa: "<< mik;
         for (QChar caracter:mik) {
             if(caracter == '1'){
                 message->setBit(palabra+offset,true);
