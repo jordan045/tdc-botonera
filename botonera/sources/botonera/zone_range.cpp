@@ -32,6 +32,8 @@ zone_range::zone_range(Botonera *b)
                                                                              "    border: none;"  // Mantén el borde oculto al presionar
                                                                              "}");
     }
+
+
 }
 
 void zone_range::sendCode(QString code)

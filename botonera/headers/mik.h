@@ -4,6 +4,8 @@
 #include "botonera.h"
 #include <QObject>
 
+#define SELECTABLE_LINES 13
+
 class MIK
 {
 public:
