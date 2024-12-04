@@ -69,7 +69,7 @@ andGui::andGui(QWidget *parent, Botonera *b, decoderAND *translator)
         qWarning() << "No se pudo cargar la fuente desde recursos.";
     }
 
-    //QButtonGroup *group = ui->selGroup;
+    ui->selGroup->setId(ui->noLine,0);
     ui->selGroup->setId(ui->AButton,1);
     ui->selGroup->setId(ui->BButton,2);
     ui->selGroup->setId(ui->CButton,3);
@@ -104,6 +104,7 @@ andGui::andGui(QWidget *parent, Botonera *b, decoderAND *translator)
     connect(ui->JButton,&QPushButton::clicked,this,&andGui::on_J_Button_clicked);
     connect(ui->KButton,&QPushButton::clicked,this,&andGui::on_K_Button_clicked);
     connect(ui->LButton,&QPushButton::clicked,this,&andGui::on_L_Button_clicked);
+    connect(ui->noLine,&QPushButton::clicked,this,&andGui::on_noLine_clicked);
 
     connect(grilla->P01_button, &QPushButton::clicked,this,&andGui::on_P01_button_clicked);
     connect(grilla->P02_button, &QPushButton::clicked,this,&andGui::on_P02_button_clicked);
@@ -130,6 +131,12 @@ andGui::andGui(QWidget *parent, Botonera *b, decoderAND *translator)
     // Conecta la señal de conversión de AndTranslator a una función lambda que actualiza el QLabel
     QObject::connect(converter, &decoderAND::conversionResult, [this](const QPair<int,QString> line) {
         writeToLine(line);
+        if (line.first == 0){
+            QString dataLine = line.second;
+            updateWButton(dataLine);
+        }
+        if (line.first == 14)
+            updateLineButton(line);
     });
 
     // Esto hace que se abra en una ventana aparte
@@ -142,13 +149,44 @@ void andGui::writeToLine(QPair<int,QString> line){
     labels[line.first]->setText(line.second);
 }
 
-void andGui::selectNextLine(){
-    int i = (mik->getActualLine() == 12) ? 1 : mik->getActualLine() + 1;
-    QAbstractButton *b = ui->selGroup->button(i);
-    b->setDown(true);
-    b->click();
+void andGui::updateWButton(QString line){
+    //el Workspace es el 3er caracter de la linea recibida con fila 0 -> [W02]
+    QChar workspace = line[2];
+    if(workspace == '1'){
+        ui->pushButton_W1->toggle();
+    }
+    else if(workspace == '2'){
+        ui->pushButton_W2->toggle();
+    }
+    else if(workspace == '3'){
+        ui->pushButton_W3->toggle();
+    }
 }
 
+void andGui::updateLineButton(QPair<int, QString> line) {
+    QChar andLine = line.second[0];
+    int lineIndex;
+
+    if(andLine == ' ')
+        lineIndex = 0;
+    else
+        lineIndex = static_cast<int>(andLine.unicode() - 'A');
+
+    QAbstractButton *buttonToPress = ui->selGroup->button(lineIndex);
+    buttonToPress->toggle();
+}
+
+void andGui::selectNextLine(){
+    int i = (mik->getActualLine() == 12) ? 0 : mik->getActualLine() + 1;
+    QAbstractButton *buttonToPress = ui->selGroup->button(i);
+    buttonToPress->click();
+}
+
+void andGui::selectPreviousLine(){
+    int i = (mik->getActualLine() == 0) ? 12 : mik->getActualLine() - 1;
+    QAbstractButton *buttonToPress = ui->selGroup->button(i);
+    buttonToPress->click();
+}
 
 void andGui::keyPressEvent(QKeyEvent *event){
     QString keyText = event->text();
@@ -193,6 +231,10 @@ void andGui::keyPressEvent(QKeyEvent *event){
             selectNextLine();
             break;
 
+        case Qt::Key_Up:
+            selectPreviousLine();
+            break;
+
         default:
             //Para devolver caracteres alfanuméricos
             if(!keyText.isEmpty()){
@@ -211,8 +253,7 @@ void andGui::executeMacro(const QString &message){
 }
 
 void andGui::handleSelectLine(Letras letra) {
-    qDebug() << "Letra seleccionada:" << letra;
-    mik->goToLine(static_cast<int>(letra) + 1);
+    mik->goToLine(static_cast<int>(letra));
 }
 
 // Declaración de las funciones
@@ -251,6 +292,9 @@ void andGui::on_K_Button_clicked(){
 }
 void andGui::on_L_Button_clicked(){
     handleSelectLine(L);
+}
+void andGui::on_noLine_clicked(){
+    handleSelectLine(noLine);
 }
 
 //Declaracion de las funciones de los works spaces
@@ -376,4 +420,7 @@ void andGui::on_S04_button_clicked(){
 void andGui::on_pushButton_Del_clicked(){
     executeMacro("- EXECUTE");
 }
+
+
+
 

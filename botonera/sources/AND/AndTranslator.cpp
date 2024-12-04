@@ -54,14 +54,14 @@ QPair<int,QString> decoderAND::processMessage(QByteArray &message){
         nextChar = message[index];
     }
 
+    // Si estamos pintando la fila numero 15, tendremos un pequeño mensaje al final (con STX,VT, etc.)
+    // Leemos esa pequeña porción para pintar el asterisco donde corresponda
     if(num_row == 15){
         char asterix_column = message[TRAILING_OFFSET + 4] & 0x1F; //Extremos la columna donde va el asterisco, solo necesitamos los primeros 5 bits
         int num_asterix_column = static_cast<int>(asterix_column);
         text[num_asterix_column] = message[TRAILING_OFFSET + 5];
     }
 
-    // Si estamos pintando la fila numero 15, tendremos un pequeño mensaje al final (con STX,VT, etc.)
-    // Leemos esa pequeña porción para pintar el asterisco donde corresponda
 
     result.first = num_row;
     result.second = text;

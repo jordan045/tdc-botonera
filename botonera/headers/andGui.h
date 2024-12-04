@@ -25,7 +25,7 @@ class andGui : public QWidget
 public:
     explicit andGui(QWidget *parent = nullptr,Botonera *b = nullptr, decoderAND *translator = nullptr);
 
-    enum Letras { A = 0, B, C, D, E, F, G, H, I, J, K, L };
+    enum Letras { noLine = 0,A, B, C, D, E, F, G, H, I, J, K, L};
 
 private:
     Botonera *miBotonera;
@@ -37,10 +37,15 @@ private:
     MIK *mik;
     QStackedWidget *stackedWidget;
     void selectNextLine();
+    void selectPreviousLine();
 
     void handleSelectLine(Letras letra);
 
     int actualLine = 0;
+
+    void updateWButton(QString line);
+
+    void updateLineButton(QPair<int,QString> line);
 
 protected:
     void keyPressEvent(QKeyEvent *event);
@@ -90,6 +95,7 @@ private slots:
     void on_S03_button_clicked();
     void on_S04_button_clicked();
     void on_pushButton_Del_clicked();
+    void on_noLine_clicked();
 };
 
 #endif // ANDGUI_H
