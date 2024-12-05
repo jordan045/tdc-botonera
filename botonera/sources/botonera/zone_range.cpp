@@ -85,7 +85,7 @@ void zone_range::interactVisual(QString code)
     QPushButton* button = this-> findChild<QPushButton*>(code);
     qDebug()<<"zone_range::interactVisual";
     blockAllButtonSignals(true);
-    button->click();
+    button->toggle();
     blockAllButtonSignals(false);
 }
 void zone_range::blockAllButtonSignals(bool block){
