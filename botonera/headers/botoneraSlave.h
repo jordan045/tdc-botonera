@@ -54,6 +54,8 @@ signals:
 
 public slots:
     void changeRange(QString boton);
+    void changeThreat(QString boton);
+    void changeDisplaySelection(QString boton);
 private:
     QSharedPointer<botoneraMasterReplica> reptr;
 };

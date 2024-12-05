@@ -27,6 +27,9 @@ class botoneraMaster
     SLOT(removeCodeFromIcmSlave(QString boton));//Implemeentar
 
     SIGNAL(changeRangeSlave(QString boton));
+    SIGNAL(changeDisplaySelectionSlave(QString boton));
+    SIGNAL(changeThreatAssesmentSlave(QString boton));
+
 };
 
 #endif // BOTONERAMASTER_REP

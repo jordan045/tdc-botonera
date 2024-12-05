@@ -32,9 +32,6 @@ void zone_threat::sendCode(QString code)
     QString codigo = "THREAT_";
     codigo.append(code);
     qDebug()<<"El codigo threatAssesment es:" <<codigo;
-    QPushButton *button = this->findChild<QPushButton*>(codigo);
-    if(button)
-        button->setChecked(true);
 
     miBotonera->sendCodeToThreat(code);
 }
@@ -44,14 +41,6 @@ void zone_threat::removeCode(QString code)
     QString codigo = "THREAT_";
     codigo.append(code);
     qDebug()<<"El codigo threatAssesment es:" <<codigo;
-    QPushButton *button = this->findChild<QPushButton*>(codigo);
-    if(button){
-        button->setChecked(false);
-        qDebug()<<"se activó el boton visual del displaySelection";
-    }else
-    {
-        qDebug()<<"No se encontró el boton del displaySelection";
-    }
     miBotonera->sendCodeToThreat(code);
 
     miBotonera->removeCodeFromThreat(code);
@@ -69,6 +58,26 @@ void zone_threat::interact(QString boton)
     QPushButton *button = this->findChild<QPushButton*>(codigo);
     button->toggle();
 }
+
+void zone_threat::interactVisual(QString boton)
+{
+    QPushButton* button = this-> findChild<QPushButton*>(boton);
+    qDebug()<<"zone_range::interactVisual";
+    blockAllButtonSignals(true);
+    button->toggle();
+    blockAllButtonSignals(false);
+}
+
+void zone_threat::blockAllButtonSignals(bool block)
+{
+    const QList<QPushButton*> &buttons = this->findChildren<QPushButton*>();
+    for(QPushButton * button:buttons){
+        if(button){
+            button->blockSignals(block);
+        }
+    }
+}
+
 
 zone_threat::~zone_threat(){
     delete ui;

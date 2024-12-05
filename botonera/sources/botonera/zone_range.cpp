@@ -38,14 +38,20 @@ zone_range::zone_range(Botonera *b)
 
 void zone_range::sendCode(QString code)
 {
+    qDebug()<<"ZONA RANGE presionaron boton local";
     QPushButton *button = this->findChild<QPushButton*>(code);
-    if(button){
-        button->setChecked(true);
-    }else
-    {
-        qDebug()<<"No se encontró el boton del rango";
-    }
+    qDebug() << "ZONA RANGE: encontre los pibes";
+    // if(button){
+    //     qDebug() << "por hacer check";
+    //     button->setChecked(true);
+    //     qDebug() << "hice check";
+    // }else
+    // {
+    //     qDebug()<<"No se encontró el boton del rango";
+    // }
+    // qDebug() << "por ir a botonera";
     miBotonera->sendCodeToRange(code);
+    qDebug() << "VOLVI DE BOTONERA";
 
 }
 void zone_range::removeCode(QString code){
@@ -64,8 +70,6 @@ void zone_range::interact(QString code){
     QPushButton *button = this->findChild<QPushButton*>(code);
     button->toggle();
 }
-
-
 
 QString zone_range::getName(){
     return "Range";

@@ -21,7 +21,7 @@ public:
     QString getName() override;
     ~zone_range();
     void start();
-    void interactVisual(QString code);
+    void interactVisual(QString code) override;
 
 private:
     Ui::zone_range *ui;

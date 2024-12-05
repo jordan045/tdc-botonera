@@ -18,6 +18,8 @@ public:
     void removeCode(QString code) override;
     QString getName() override;
     void interact(QString boton) override;
+    void interactVisual(QString boton) override;
+    void blockAllButtonSignals(bool block) override;
     ~zone_threat();
 
 private slots:

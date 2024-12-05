@@ -81,7 +81,8 @@ void BotoneraMaster::sendCodeToLabelSelectionFromSlave(QString boton)
 
 void BotoneraMaster::sendCodeToThreatFromSlave(QString boton)
 {
-    threat_assesment_widget->interact(boton);
+    threat_assesment_widget->interactVisual(boton);
+    estadoActual->setThreat(boton);
 }
 
 void BotoneraMaster::sendCodeToDisplayModeFromSlave(QString boton)
@@ -91,14 +92,16 @@ void BotoneraMaster::sendCodeToDisplayModeFromSlave(QString boton)
 
 void BotoneraMaster::sendCodeToDisplaySelectionFromSlave(QString boton)
 {
-    display_selection_widget->interact(boton);
+    display_selection_widget->interactVisual(boton);
+    estadoActual->setDisplaySelection(boton);
 }
 
 void BotoneraMaster::sendCodeToRange(QString boton){
+    qDebug() << "BOTONERA MASTER: estoy por hacer set";
     estadoActual->setRange(boton);
-
+    qDebug() << "BOTONERA MASTER: tamo por emitir!!! YA HICE SET";
     emit changeRangeSlave(boton);
-    qDebug()<<"botoneraMaster::sendCodeToRange emiti señal a botonera slave";
+    qDebug()<<"BOTONERA MASTER::sendCodeToRange emiti señal a botonera slave";
 }
 void BotoneraMaster::sendCodeToLabelSelection(QString boton){
     estadoActual->setLabel(boton);
@@ -110,6 +113,7 @@ void BotoneraMaster::sendCodeToQek(QString boton){
 
 void BotoneraMaster::sendCodeToThreat(QString boton){
     estadoActual->setThreat(boton);
+    emit changeThreatAssesmentSlave(boton);
 }
 
 void BotoneraMaster::sendCodeToCenter(QString boton){
@@ -122,6 +126,7 @@ void BotoneraMaster::sendCodeToDisplayMode(QString boton){
 
 void BotoneraMaster::sendCodeToDisplaySelection(QString boton){
     estadoActual->setDisplaySelection(boton);
+    emit changeDisplaySelectionSlave(boton);
 }
 
 void BotoneraMaster::sendCodeToIcm(QString boton){
