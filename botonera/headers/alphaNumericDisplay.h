@@ -23,7 +23,7 @@ class AlphaNumericDisplay : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AlphaNumericDisplay(QWidget *parent = nullptr,Botonera *b = nullptr, decoderAND *translator = nullptr);
+    explicit AlphaNumericDisplay(QWidget *parent = nullptr,Botonera *b = nullptr, decoderAND *decoder = nullptr);
 
 private:
     MIK *myMIK;

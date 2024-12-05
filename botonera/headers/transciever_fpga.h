@@ -36,30 +36,23 @@ private slots:
 
 private:
     QUdpSocket *udpSocket;
-    //QByteArray datagram;
-    void readDeviceAddress(QByteArray d);
-
-    QByteArray bitwise(const QByteArray &data);
-    QBitArray byteArrayToBitArray(const QByteArray &byteArray);
-
-    void recieveACK(QByteArray ack, quint16 sequenceNumber);
-    void generateConcentrator();
-    void sendConcentrator(QByteArray data);
-    void AND1(QByteArray data, quint16 sequenceNumber);
-    void AND2(QByteArray data, quint16 sequenceNumber);
-    void sendToLPD(QByteArray data, int wordLength);
-    quint16 getNextSequenceNumber();
-
-    QHostAddress *FPGA;
-
     quint16 sequenceCounter = 0;
-
+    QHostAddress *FPGA;
     QPair<QByteArray,quint16> bufferConcentrador;
     QTimer *timerConcentrator;
-
     decoderAND *myDecoderAND;
     decoderLPD *myDecoderLPD;
     BotoneraMaster *botonera;
+
+    void readDeviceAddress(QByteArray d);
+    QBitArray byteArrayToBitArray(const QByteArray &byteArray);
+    void recieveACK(QByteArray ack, quint16 sequenceNumber);
+    void generateConcentrator();
+    void sendConcentrator(QByteArray data);
+    void sendToAND1(QByteArray data, quint16 sequenceNumber);
+    void sendToAND2(QByteArray data, quint16 sequenceNumber);
+    void sendToLPD(QByteArray data, int wordLength);
+    quint16 getNextSequenceNumber();
 };
 
 #endif // TRANSCIEVER_FPGA_H

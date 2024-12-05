@@ -11,7 +11,6 @@
 AlphaNumericDisplay::AlphaNumericDisplay(QWidget *parent, Botonera *b, decoderAND *decoder)
     : QWidget(parent),ui(new Ui::andGui)
 {
-
     // Crear QStackedWidget
     stackedWidget = new QStackedWidget(this);
 

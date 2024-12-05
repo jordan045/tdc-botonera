@@ -21,7 +21,7 @@
 #include "overlay_360_0110.h"
 #include "overlay_360_0111.h"
 #include "overlay_360_1000.h"
-#include "infomessage.h""
+#include "infomessage.h"
 #include "QFontDatabase"
 #include <QScreen>
 

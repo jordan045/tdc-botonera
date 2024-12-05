@@ -90,7 +90,7 @@ void transcieverFPGA::readDeviceAddress(QByteArray datagram){
                 break;
 
             case DA_AND1:
-                AND1(payload, sequenceNumber);
+                sendToAND1(payload, sequenceNumber);
                 break;
 
             case DA_AND2:
@@ -141,7 +141,7 @@ void transcieverFPGA::sendConcentrator(QByteArray data){
     timerConcentrator->start(200);
 }
 
-void transcieverFPGA::AND1(QByteArray data, quint16 sequenceNumber){
+void transcieverFPGA::sendToAND1(QByteArray data, quint16 sequenceNumber){
     QByteArray invertedData = negateData(data);
 
     // Generar el mensaje ACK para devolver a la FPGA
@@ -158,7 +158,7 @@ void transcieverFPGA::sendToLPD(QByteArray d, int wordLength){
     myDecoderLPD->processLPDMessage(d, wordLength);
 }
 
-void transcieverFPGA::AND2(QByteArray data, quint16 sequenceNumber){
+void transcieverFPGA::sendToAND2(QByteArray data, quint16 sequenceNumber){
     QByteArray invertedData = negateData(data);
     QByteArray ack_message = QByteArray(3,0x0);
 
