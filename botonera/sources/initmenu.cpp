@@ -18,9 +18,9 @@ InitMenu::InitMenu(QWidget *parent) :
 {
     QCoreApplication::setApplicationName("Botonera AR-TDC");
 
-    leerArchivos();
-    iniciarConexión();
-    iniciarInterfaz();
+    readFiles();
+    startConnection();
+    startInterface();
 
 }
 
@@ -32,14 +32,14 @@ void InitMenu::seleccion()
         auto overlay = group->checkedButton()->objectName();
 
         myBotonera->setOverlay(overlay);
-        myBotonera->start(tipoBuque);
+        myBotonera->start(meko);
 
         this->close();
         myBotonera->show();
 
         myDecoderLPD = new class decoderLPD(this);
         myDecoderAND = new class decoderAND(this);
-        myAndGui = new class andGui(this, myBotonera, myDecoderAND);
+        myAndGui = new class AlphaNumericDisplay(this, myBotonera, myDecoderAND);
 
         comunicationSystem = new transcieverFPGA(
             this,
@@ -49,7 +49,7 @@ void InitMenu::seleccion()
     }
 }
 
-void InitMenu::iniciarInterfaz(){
+void InitMenu::startInterface(){
     Ui::InitMenu ui;
     ui.setupUi(this);
 
@@ -90,7 +90,7 @@ void InitMenu::iniciarInterfaz(){
 }
 
 
-void InitMenu::leerArchivos()
+void InitMenu::readFiles()
 {
     QMessageBox::StandardButton reply;
 
@@ -132,12 +132,12 @@ void InitMenu::leerArchivos()
     jsonArray = OverlayJson["overlay"].toArray();
 
     // Modal para mensajes de error
-    tipoBuque = OverlayJson["tipo"].toString().toInt(); // obtengo el tipoDeBuque
+    meko = OverlayJson["tipo"].toString().toInt(); // obtengo el tipoDeBuque
 
     master = OverlayJson["master"].toBool(); //obtengo el valor de master.
 }
 
-void InitMenu::iniciarConexión(){
+void InitMenu::startConnection(){
     if(master){ //Si es maestro creo una botonera master
         myBotonera = new BotoneraMaster();
         // BotoneraMaster* myBotoneraMaster = new BotoneraMaster();

@@ -1,5 +1,5 @@
-#ifndef ANDGUI_H
-#define ANDGUI_H
+#ifndef ALPHANUMERICDISPLAY_H
+#define ALPHANUMERICDISPLAY_H
 
 #include <QWidget>
 #include <QKeyEvent>
@@ -19,11 +19,11 @@ class andGrilla;
 }
 
 class Botonera;
-class andGui : public QWidget
+class AlphaNumericDisplay : public QWidget
 {
     Q_OBJECT
 public:
-    explicit andGui(QWidget *parent = nullptr,Botonera *b = nullptr, decoderAND *translator = nullptr);
+    explicit AlphaNumericDisplay(QWidget *parent = nullptr,Botonera *b = nullptr, decoderAND *translator = nullptr);
 
     enum Letras { noLine = 0,A, B, C, D, E, F, G, H, I, J, K, L};
 
@@ -31,7 +31,7 @@ private:
     Botonera *miBotonera;
     Ui::andGui *ui;
     Ui::andGrilla *grilla;
-    decoderAND *converter;
+    decoderAND *myDecoderAND;
     QVector<QLabel*> labels;
     void writeToLine(QPair<int,QString>);
     MIK *mik;
@@ -98,4 +98,4 @@ private slots:
     void on_noLine_clicked();
 };
 
-#endif // ANDGUI_H
+#endif // ALPHANUMERICDISPLAY_H

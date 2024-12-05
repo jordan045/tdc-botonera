@@ -8,7 +8,7 @@
 #include <QFontDatabase>
 #include <QFont>
 
-andGui::andGui(QWidget *parent, Botonera *b, decoderAND *translator)
+AlphaNumericDisplay::AlphaNumericDisplay(QWidget *parent, Botonera *b, decoderAND *translator)
     : QWidget(parent),ui(new Ui::andGui)
 {
     converter = translator;
@@ -83,50 +83,50 @@ andGui::andGui(QWidget *parent, Botonera *b, decoderAND *translator)
     ui->selGroup->setId(ui->KButton,11);
     ui->selGroup->setId(ui->LButton,12);
 
-    connect(ui->pushButton_grilla, &QPushButton::clicked, this, &andGui::on_pushButton_grilla_clicked);
-    connect(grilla->pushButton_back, &QPushButton::clicked, this, &andGui::on_pushButton_back_clicked);
-    connect(ui->pushButton_Del, &QPushButton::clicked, this, &andGui::on_pushButton_Del_clicked);
+    connect(ui->pushButton_grilla, &QPushButton::clicked, this, &AlphaNumericDisplay::on_pushButton_grilla_clicked);
+    connect(grilla->pushButton_back, &QPushButton::clicked, this, &AlphaNumericDisplay::on_pushButton_back_clicked);
+    connect(ui->pushButton_Del, &QPushButton::clicked, this, &AlphaNumericDisplay::on_pushButton_Del_clicked);
 
-    connect(ui->pushButton_W1,&QPushButton::clicked,this,&andGui::on_pushButton_W1_pressed);
-    connect(ui->pushButton_W2,&QPushButton::clicked,this,&andGui::on_pushButton_W2_pressed);
-    connect(ui->pushButton_W3,&QPushButton::clicked,this,&andGui::on_pushButton_W3_pressed);
+    connect(ui->pushButton_W1,&QPushButton::clicked,this,&AlphaNumericDisplay::on_pushButton_W1_pressed);
+    connect(ui->pushButton_W2,&QPushButton::clicked,this,&AlphaNumericDisplay::on_pushButton_W2_pressed);
+    connect(ui->pushButton_W3,&QPushButton::clicked,this,&AlphaNumericDisplay::on_pushButton_W3_pressed);
 
     //Conecta botones de lineas con su funcionalidad correspondiente
-    connect(ui->AButton,&QPushButton::clicked,this,&andGui::on_A_Button_clicked);
-    connect(ui->BButton,&QPushButton::clicked,this,&andGui::on_B_Button_clicked);
-    connect(ui->CButton,&QPushButton::clicked,this,&andGui::on_C_Button_clicked);
-    connect(ui->DButton,&QPushButton::clicked,this,&andGui::on_D_Button_clicked);
-    connect(ui->EButton,&QPushButton::clicked,this,&andGui::on_E_Button_clicked);
-    connect(ui->FButton,&QPushButton::clicked,this,&andGui::on_F_Button_clicked);
-    connect(ui->GButton,&QPushButton::clicked,this,&andGui::on_G_Button_clicked);
-    connect(ui->HButton,&QPushButton::clicked,this,&andGui::on_H_Button_clicked);
-    connect(ui->IButton,&QPushButton::clicked,this,&andGui::on_I_Button_clicked);
-    connect(ui->JButton,&QPushButton::clicked,this,&andGui::on_J_Button_clicked);
-    connect(ui->KButton,&QPushButton::clicked,this,&andGui::on_K_Button_clicked);
-    connect(ui->LButton,&QPushButton::clicked,this,&andGui::on_L_Button_clicked);
-    connect(ui->noLine,&QPushButton::clicked,this,&andGui::on_noLine_clicked);
+    connect(ui->AButton,&QPushButton::clicked,this,&AlphaNumericDisplay::on_A_Button_clicked);
+    connect(ui->BButton,&QPushButton::clicked,this,&AlphaNumericDisplay::on_B_Button_clicked);
+    connect(ui->CButton,&QPushButton::clicked,this,&AlphaNumericDisplay::on_C_Button_clicked);
+    connect(ui->DButton,&QPushButton::clicked,this,&AlphaNumericDisplay::on_D_Button_clicked);
+    connect(ui->EButton,&QPushButton::clicked,this,&AlphaNumericDisplay::on_E_Button_clicked);
+    connect(ui->FButton,&QPushButton::clicked,this,&AlphaNumericDisplay::on_F_Button_clicked);
+    connect(ui->GButton,&QPushButton::clicked,this,&AlphaNumericDisplay::on_G_Button_clicked);
+    connect(ui->HButton,&QPushButton::clicked,this,&AlphaNumericDisplay::on_H_Button_clicked);
+    connect(ui->IButton,&QPushButton::clicked,this,&AlphaNumericDisplay::on_I_Button_clicked);
+    connect(ui->JButton,&QPushButton::clicked,this,&AlphaNumericDisplay::on_J_Button_clicked);
+    connect(ui->KButton,&QPushButton::clicked,this,&AlphaNumericDisplay::on_K_Button_clicked);
+    connect(ui->LButton,&QPushButton::clicked,this,&AlphaNumericDisplay::on_L_Button_clicked);
+    connect(ui->noLine,&QPushButton::clicked,this,&AlphaNumericDisplay::on_noLine_clicked);
 
-    connect(grilla->P01_button, &QPushButton::clicked,this,&andGui::on_P01_button_clicked);
-    connect(grilla->P02_button, &QPushButton::clicked,this,&andGui::on_P02_button_clicked);
-    connect(grilla->P03_button, &QPushButton::clicked,this,&andGui::on_P03_button_clicked);
-    connect(grilla->P04_button, &QPushButton::clicked,this,&andGui::on_P04_button_clicked);
-    connect(grilla->P05_button, &QPushButton::clicked,this,&andGui::on_P05_button_clicked);
-    connect(grilla->P06_button, &QPushButton::clicked,this,&andGui::on_P06_button_clicked);
-    connect(grilla->P07_button, &QPushButton::clicked,this,&andGui::on_P07_button_clicked);
-    connect(grilla->P08_button, &QPushButton::clicked,this,&andGui::on_P08_button_clicked);
-    connect(grilla->P09_button, &QPushButton::clicked,this,&andGui::on_P09_button_clicked);
-    connect(grilla->P10_button, &QPushButton::clicked,this,&andGui::on_P10_button_clicked);
-    connect(grilla->P11_button, &QPushButton::clicked,this,&andGui::on_P11_button_clicked);
-    connect(grilla->P12_button, &QPushButton::clicked,this,&andGui::on_P12_button_clicked);
-    connect(grilla->P13_button, &QPushButton::clicked,this,&andGui::on_P13_button_clicked);
-    connect(grilla->P14_button, &QPushButton::clicked,this,&andGui::on_P14_button_clicked);
-    connect(grilla->P15_button, &QPushButton::clicked,this,&andGui::on_P15_button_clicked);
-    connect(grilla->P16_button, &QPushButton::clicked,this,&andGui::on_P16_button_clicked);
-    connect(grilla->P17_button, &QPushButton::clicked,this,&andGui::on_P17_button_clicked);
-    connect(grilla->S01_button, &QPushButton::clicked,this,&andGui::on_S01_button_clicked);
-    connect(grilla->S02_button, &QPushButton::clicked,this,&andGui::on_S02_button_clicked);
-    connect(grilla->S03_button, &QPushButton::clicked,this,&andGui::on_S03_button_clicked);
-    connect(grilla->S04_button, &QPushButton::clicked,this,&andGui::on_S04_button_clicked);
+    connect(grilla->P01_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_P01_button_clicked);
+    connect(grilla->P02_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_P02_button_clicked);
+    connect(grilla->P03_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_P03_button_clicked);
+    connect(grilla->P04_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_P04_button_clicked);
+    connect(grilla->P05_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_P05_button_clicked);
+    connect(grilla->P06_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_P06_button_clicked);
+    connect(grilla->P07_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_P07_button_clicked);
+    connect(grilla->P08_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_P08_button_clicked);
+    connect(grilla->P09_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_P09_button_clicked);
+    connect(grilla->P10_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_P10_button_clicked);
+    connect(grilla->P11_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_P11_button_clicked);
+    connect(grilla->P12_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_P12_button_clicked);
+    connect(grilla->P13_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_P13_button_clicked);
+    connect(grilla->P14_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_P14_button_clicked);
+    connect(grilla->P15_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_P15_button_clicked);
+    connect(grilla->P16_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_P16_button_clicked);
+    connect(grilla->P17_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_P17_button_clicked);
+    connect(grilla->S01_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_S01_button_clicked);
+    connect(grilla->S02_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_S02_button_clicked);
+    connect(grilla->S03_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_S03_button_clicked);
+    connect(grilla->S04_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_S04_button_clicked);
 
     // Conecta la señal de conversión de AndTranslator a una función lambda que actualiza el QLabel
     QObject::connect(converter, &decoderAND::conversionResult, [this](const QPair<int,QString> line) {
@@ -145,11 +145,11 @@ andGui::andGui(QWidget *parent, Botonera *b, decoderAND *translator)
     this->show();
 }
 
-void andGui::writeToLine(QPair<int,QString> line){
+void AlphaNumericDisplay::writeToLine(QPair<int,QString> line){
     labels[line.first]->setText(line.second);
 }
 
-void andGui::updateWButton(QString line){
+void AlphaNumericDisplay::updateWButton(QString line){
     //el Workspace es el 3er caracter de la linea recibida con fila 0 -> [W02]
     QChar workspace = line[2];
     if(workspace == '1'){
@@ -163,7 +163,7 @@ void andGui::updateWButton(QString line){
     }
 }
 
-void andGui::updateLineButton(QPair<int, QString> line) {
+void AlphaNumericDisplay::updateLineButton(QPair<int, QString> line) {
     QChar andLine = line.second[0];
     int lineIndex;
 
@@ -176,19 +176,19 @@ void andGui::updateLineButton(QPair<int, QString> line) {
     buttonToPress->toggle();
 }
 
-void andGui::selectNextLine(){
+void AlphaNumericDisplay::selectNextLine(){
     int i = (mik->getActualLine() == 12) ? 0 : mik->getActualLine() + 1;
     QAbstractButton *buttonToPress = ui->selGroup->button(i);
     buttonToPress->click();
 }
 
-void andGui::selectPreviousLine(){
+void AlphaNumericDisplay::selectPreviousLine(){
     int i = (mik->getActualLine() == 0) ? 12 : mik->getActualLine() - 1;
     QAbstractButton *buttonToPress = ui->selGroup->button(i);
     buttonToPress->click();
 }
 
-void andGui::keyPressEvent(QKeyEvent *event){
+void AlphaNumericDisplay::keyPressEvent(QKeyEvent *event){
     QString keyText = event->text();
 
     switch (event->key()) {
@@ -245,179 +245,179 @@ void andGui::keyPressEvent(QKeyEvent *event){
     }
 }
 
-void andGui::executeMacro(const QString &message){
+void AlphaNumericDisplay::executeMacro(const QString &message){
     QStringList commands = message.split(' ', Qt::SkipEmptyParts);
     for (const QString &command : commands) {
         mik->pressKey(command);
     }
 }
 
-void andGui::handleSelectLine(Letras letra) {
+void AlphaNumericDisplay::handleSelectLine(Letras letra) {
     mik->goToLine(static_cast<int>(letra));
 }
 
 // Declaración de las funciones
-void andGui::on_A_Button_clicked(){
+void AlphaNumericDisplay::on_A_Button_clicked(){
     handleSelectLine(A);
 }
-void andGui::on_B_Button_clicked(){
+void AlphaNumericDisplay::on_B_Button_clicked(){
     handleSelectLine(B);
 }
-void andGui::on_C_Button_clicked(){
+void AlphaNumericDisplay::on_C_Button_clicked(){
     handleSelectLine(C);
 }
-void andGui::on_D_Button_clicked(){
+void AlphaNumericDisplay::on_D_Button_clicked(){
     handleSelectLine(D);
 }
-void andGui::on_E_Button_clicked(){
+void AlphaNumericDisplay::on_E_Button_clicked(){
     handleSelectLine(E);
 }
-void andGui::on_F_Button_clicked(){
+void AlphaNumericDisplay::on_F_Button_clicked(){
     handleSelectLine(F);
 }
-void andGui::on_G_Button_clicked(){
+void AlphaNumericDisplay::on_G_Button_clicked(){
     handleSelectLine(G);
 }
-void andGui::on_H_Button_clicked(){
+void AlphaNumericDisplay::on_H_Button_clicked(){
     handleSelectLine(H);
 }
-void andGui::on_I_Button_clicked(){
+void AlphaNumericDisplay::on_I_Button_clicked(){
     handleSelectLine(I);
 }
-void andGui::on_J_Button_clicked(){
+void AlphaNumericDisplay::on_J_Button_clicked(){
     handleSelectLine(J);
 }
-void andGui::on_K_Button_clicked(){
+void AlphaNumericDisplay::on_K_Button_clicked(){
     handleSelectLine(K);
 }
-void andGui::on_L_Button_clicked(){
+void AlphaNumericDisplay::on_L_Button_clicked(){
     handleSelectLine(L);
 }
-void andGui::on_noLine_clicked(){
+void AlphaNumericDisplay::on_noLine_clicked(){
     handleSelectLine(noLine);
 }
 
 //Declaracion de las funciones de los works spaces
-void andGui::on_pushButton_W1_pressed(){executeMacro("W 0 1 EXECUTE");}
-void andGui::on_pushButton_W2_pressed(){executeMacro("W 0 2 EXECUTE");}
-void andGui::on_pushButton_W3_pressed(){executeMacro("W 0 3 EXECUTE");}
+void AlphaNumericDisplay::on_pushButton_W1_pressed(){executeMacro("W 0 1 EXECUTE");}
+void AlphaNumericDisplay::on_pushButton_W2_pressed(){executeMacro("W 0 2 EXECUTE");}
+void AlphaNumericDisplay::on_pushButton_W3_pressed(){executeMacro("W 0 3 EXECUTE");}
 
-void andGui::on_pushButton_grilla_clicked(){
+void AlphaNumericDisplay::on_pushButton_grilla_clicked(){
     qDebug() << "Cambiando a la grilla";
     stackedWidget->setCurrentIndex(1);  // Cambiar a la página con la grilla
 }
 
-void andGui::on_pushButton_back_clicked(){
+void AlphaNumericDisplay::on_pushButton_back_clicked(){
     qDebug() << "Cambiando a la principal";
     stackedWidget->setCurrentIndex(0);  // Cambiar a PRINCIPAL
 }
 
-void andGui::on_P01_button_clicked(){
+void AlphaNumericDisplay::on_P01_button_clicked(){
     executeMacro("P 0 1 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_P02_button_clicked(){
+void AlphaNumericDisplay::on_P02_button_clicked(){
     executeMacro("P 0 2 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_P03_button_clicked(){
+void AlphaNumericDisplay::on_P03_button_clicked(){
     executeMacro("P 0 3 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_P04_button_clicked(){
+void AlphaNumericDisplay::on_P04_button_clicked(){
     executeMacro("P 0 4 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_P05_button_clicked(){
+void AlphaNumericDisplay::on_P05_button_clicked(){
     executeMacro("P 0 5 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_P06_button_clicked(){
+void AlphaNumericDisplay::on_P06_button_clicked(){
     executeMacro("P 0 6 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_P07_button_clicked(){
+void AlphaNumericDisplay::on_P07_button_clicked(){
     executeMacro("P 0 7 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_P08_button_clicked(){
+void AlphaNumericDisplay::on_P08_button_clicked(){
     executeMacro("P 0 8 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_P09_button_clicked(){
+void AlphaNumericDisplay::on_P09_button_clicked(){
     executeMacro("P 0 9 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_P10_button_clicked(){
+void AlphaNumericDisplay::on_P10_button_clicked(){
     executeMacro("P 1 0 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_P11_button_clicked(){
+void AlphaNumericDisplay::on_P11_button_clicked(){
     executeMacro("P 1 1 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_P12_button_clicked(){
+void AlphaNumericDisplay::on_P12_button_clicked(){
     executeMacro("P 1 2 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_P13_button_clicked(){
+void AlphaNumericDisplay::on_P13_button_clicked(){
     executeMacro("P 1 3 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_P14_button_clicked(){
+void AlphaNumericDisplay::on_P14_button_clicked(){
     executeMacro("P 1 4 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_P15_button_clicked(){
+void AlphaNumericDisplay::on_P15_button_clicked(){
     executeMacro("P 1 5 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_P16_button_clicked(){
+void AlphaNumericDisplay::on_P16_button_clicked(){
     executeMacro("P 1 6 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_P17_button_clicked(){
+void AlphaNumericDisplay::on_P17_button_clicked(){
     executeMacro("P 1 7 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_S01_button_clicked(){
+void AlphaNumericDisplay::on_S01_button_clicked(){
     executeMacro("S 0 1 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_S02_button_clicked(){
+void AlphaNumericDisplay::on_S02_button_clicked(){
     executeMacro("S 0 2 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_S03_button_clicked(){
+void AlphaNumericDisplay::on_S03_button_clicked(){
     executeMacro("S 0 3 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_S04_button_clicked(){
+void AlphaNumericDisplay::on_S04_button_clicked(){
     executeMacro("S 0 4 EXECUTE + EXECUTE");
     stackedWidget->setCurrentIndex(0);
 }
 
-void andGui::on_pushButton_Del_clicked(){
+void AlphaNumericDisplay::on_pushButton_Del_clicked(){
     executeMacro("- EXECUTE");
 }
 

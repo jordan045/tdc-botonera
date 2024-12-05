@@ -30,7 +30,7 @@ private:
 
     void start();
     QButtonGroup *group;
-    int tipoBuque;
+    int meko;
         //TODO Fijarse si no desaparece al cerrar el initMenu
     QRemoteObjectHost* srcNode;
     QRemoteObjectNode nodoReplica;

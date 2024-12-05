@@ -15,8 +15,8 @@ CONFIG += c++17
 
 SOURCES += \
     infomessage.cpp \
-    sources/AND/andGui.cpp \
-    sources/AND/AndTranslator.cpp \
+    sources/AND/alphaNumericDisplay.cpp \
+    sources/AND/decoderAND.cpp \
     sources/botonera/boton.cpp \
     sources/botonera/botonera.cpp \
     sources/botonera/botoneraMaster.cpp \
@@ -54,7 +54,7 @@ SOURCES += \
 HEADERS += \
     headers/ConnectionScreen.h \
     headers/Zone.h \
-    headers/andGui.h \
+    headers/alphaNumericDisplay.h \
     headers/boton.h \
     headers/botonera.h \
     headers/botoneraMaster.h \

@@ -1,7 +1,7 @@
 
 #include <QApplication>
 #include <initmenu.h>
-#include <andGui.h>
+#include <alphaNumericDisplay.h>
 
 #include<QLabel>
 #include <QWidget>
