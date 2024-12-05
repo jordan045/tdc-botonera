@@ -80,3 +80,19 @@ void zone_range::start()
    boton4->interact();
    boton4->setState(true);
 }
+void zone_range::interactVisual(QString code)
+{
+    QPushButton* button = this-> findChild<QPushButton*>(code);
+    qDebug()<<"zone_range::interactVisual";
+    blockAllButtonSignals(true);
+    button->click();
+    blockAllButtonSignals(false);
+}
+void zone_range::blockAllButtonSignals(bool block){
+    const QList<QPushButton*> &buttons = this->findChildren<QPushButton*>();
+    for(QPushButton * button:buttons){
+        if(button){
+            button->blockSignals(block);
+        }
+    }
+}

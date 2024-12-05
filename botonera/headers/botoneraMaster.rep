@@ -25,6 +25,8 @@ class botoneraMaster
     SLOT(removeCodeFromDisplayMode(QString boton));
     SLOT(removeCodeFromDisplaySelection(QString boton));
     SLOT(removeCodeFromIcmSlave(QString boton));//Implemeentar
+
+    SIGNAL(changeRangeSlave(QString boton));
 };
 
 #endif // BOTONERAMASTER_REP

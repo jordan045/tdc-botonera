@@ -21,11 +21,13 @@ public:
     QString getName() override;
     ~zone_range();
     void start();
-
+    void interactVisual(QString code);
 
 private:
     Ui::zone_range *ui;
     Boton *boton4;
+    void blockAllButtonSignals(bool block);
+
 };
 
 #endif // ZONE_RANGE_H

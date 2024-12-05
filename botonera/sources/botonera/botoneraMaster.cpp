@@ -70,7 +70,8 @@ void BotoneraMaster::removeCodeFromQekSlave(QString boton)
 /* ------------------SETTERS-----------------------*/
 
 void BotoneraMaster::sendCodeToRangeFromSlave(QString boton){
-    range_widget->interact(boton);
+    range_widget->interactVisual(boton);
+    estadoActual->setRange(boton);
 }
 
 void BotoneraMaster::sendCodeToLabelSelectionFromSlave(QString boton)
@@ -95,6 +96,9 @@ void BotoneraMaster::sendCodeToDisplaySelectionFromSlave(QString boton)
 
 void BotoneraMaster::sendCodeToRange(QString boton){
     estadoActual->setRange(boton);
+
+    emit changeRangeSlave(boton);
+    qDebug()<<"botoneraMaster::sendCodeToRange emiti señal a botonera slave";
 }
 void BotoneraMaster::sendCodeToLabelSelection(QString boton){
     estadoActual->setLabel(boton);
