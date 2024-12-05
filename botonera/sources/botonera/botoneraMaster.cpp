@@ -40,6 +40,7 @@ void BotoneraMaster::removeCodeFromDisplayMode(QString boton){
 void BotoneraMaster::removeCodeFromDisplaySelection(QString boton){
     estadoActual->removeDisplaySelection(boton);
     concentrator->removeDisplaySelection(boton);
+    emit changeDisplaySelectionSlave(boton);
 }
 void BotoneraMaster::removeCodeFromIcm(QString boton){
     estadoActual->removeIcm(boton);
