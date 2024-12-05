@@ -248,22 +248,22 @@ void Estado::refresh()
     QDateTime date = QDateTime::currentDateTime();
     QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
 
-    // qDebug()        << "---------------------- " << formattedTime << " -----------------------";
-    // qDebug()        << "\nRange Scale:\t " << range
-    //                 << "\nLabel Selection:\t " << label
-    //                 << "\nQEK:\t\t " << qek
-    //                 << "\nThreat Assesment:\t " << threat
-    //                 << "\nCenter:\t\t " << center
-    //                 << "\nDisplay Mode:\t " << displayMode
-    //                 << "\nDisplay Selection:\t " << displaySelection
-    //                 << "\nICM:\t\t " << icm
-    //                 << "\nMIK:\t\t " << mik
-    //                 << "\nSLAVE"
-    //                 << "\nLabels Selection:\t " << labelS
-    //                 << "\nQEKs:\t\t " << qekS
-    //                 << "\nCenters:\t\t " << centerS
-    //                 << "\nDisplay Mode:\t " << displayModeS
-    //                 << "\nICM:\t\t " << icm
-    //                 <<  "\nOverlayS \t\t"<< overlayS
-    //                 << "\n";
+     qDebug()        << "---------------------- " << formattedTime << " -----------------------";
+     qDebug()        << "\nRange Scale:\t " << range
+                     << "\nLabel Selection:\t " << label
+                     << "\nQEK:\t\t " << qek
+                     << "\nThreat Assesment:\t " << threat
+                     << "\nCenter:\t\t " << center
+                     << "\nDisplay Mode:\t " << displayMode
+                     << "\nDisplay Selection:\t " << displaySelection
+                     << "\nICM:\t\t " << icm
+                     << "\nMIK:\t\t " << mik
+                     << "\nSLAVE"
+                     << "\nLabels Selection:\t " << labelS
+                     << "\nQEKs:\t\t " << qekS
+                     << "\nCenters:\t\t " << centerS
+                     << "\nDisplay Mode:\t " << displayModeS
+                     << "\nICM:\t\t " << icm
+                     <<  "\nOverlayS \t\t"<< overlayS
+                     << "\n";
 }

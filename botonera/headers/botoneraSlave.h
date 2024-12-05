@@ -52,7 +52,8 @@ signals:
     void emitRemoveFromCenter(QString boton);
     void emitRemoveFromIcm(QString boton);
 
-
+public slots:
+    void changeRange(QString boton);
 private:
     QSharedPointer<botoneraMasterReplica> reptr;
 };

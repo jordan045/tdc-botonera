@@ -134,6 +134,13 @@ void BotoneraSlave::initConnections()
     QObject::connect(this,&BotoneraSlave::emitRemoveFromCenter,reptr.data(),&botoneraMasterReplica::removeCodeFromCenterSlave);
     QObject::connect(this,&BotoneraSlave::emitRemoveFromIcm,reptr.data(),&botoneraMasterReplica::removeCodeFromIcmSlave);
 
+    QObject::connect(reptr.data(),&botoneraMasterReplica::changeRangeSlave,this, &BotoneraSlave::changeRange);
 
 
+
+}
+
+void BotoneraSlave::changeRange(QString boton)
+{
+    range_widget->interactVisual(boton);
 }
