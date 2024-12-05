@@ -1,4 +1,4 @@
-#include "andGui.h"
+#include "alphaNumericDisplay.h"
 #include "ui_andGui.h"
 #include "decoderAND.h"
 #include "ui_andGrilla.h"
@@ -8,10 +8,9 @@
 #include <QFontDatabase>
 #include <QFont>
 
-AlphaNumericDisplay::AlphaNumericDisplay(QWidget *parent, Botonera *b, decoderAND *translator)
+AlphaNumericDisplay::AlphaNumericDisplay(QWidget *parent, Botonera *b, decoderAND *decoder)
     : QWidget(parent),ui(new Ui::andGui)
 {
-    converter = translator;
 
     // Crear QStackedWidget
     stackedWidget = new QStackedWidget(this);
@@ -34,8 +33,7 @@ AlphaNumericDisplay::AlphaNumericDisplay(QWidget *parent, Botonera *b, decoderAN
 
     this->setFixedSize(627, 603);  // Establecer tamaño fijo opcional
 
-    miBotonera = b;
-    mik = new MIK(b);
+    myMIK = new MIK(b);
 
     // Creamos un array de labels para guardarlos
     labels.append(ui->TitleLabel);
@@ -129,7 +127,7 @@ AlphaNumericDisplay::AlphaNumericDisplay(QWidget *parent, Botonera *b, decoderAN
     connect(grilla->S04_button, &QPushButton::clicked,this,&AlphaNumericDisplay::on_S04_button_clicked);
 
     // Conecta la señal de conversión de AndTranslator a una función lambda que actualiza el QLabel
-    QObject::connect(converter, &decoderAND::conversionResult, [this](const QPair<int,QString> line) {
+    QObject::connect(decoder, &decoderAND::conversionResult, [this](const QPair<int,QString> line) {
         writeToLine(line);
         if (line.first == 0){
             QString dataLine = line.second;
@@ -177,13 +175,13 @@ void AlphaNumericDisplay::updateLineButton(QPair<int, QString> line) {
 }
 
 void AlphaNumericDisplay::selectNextLine(){
-    int i = (mik->getActualLine() == 12) ? 0 : mik->getActualLine() + 1;
+    int i = (myMIK->getActualLine() == 12) ? 0 : myMIK->getActualLine() + 1;
     QAbstractButton *buttonToPress = ui->selGroup->button(i);
     buttonToPress->click();
 }
 
 void AlphaNumericDisplay::selectPreviousLine(){
-    int i = (mik->getActualLine() == 0) ? 12 : mik->getActualLine() - 1;
+    int i = (myMIK->getActualLine() == 0) ? 12 : myMIK->getActualLine() - 1;
     QAbstractButton *buttonToPress = ui->selGroup->button(i);
     buttonToPress->click();
 }
@@ -193,38 +191,38 @@ void AlphaNumericDisplay::keyPressEvent(QKeyEvent *event){
 
     switch (event->key()) {
         case Qt::Key_Return:
-            mik->pressKey("EXECUTE");
+            myMIK->pressKey("EXECUTE");
             break;
         case Qt::Key_Enter://Enter de teclado numerico
-            mik->pressKey("EXECUTE");
+            myMIK->pressKey("EXECUTE");
             break;
 
         case Qt::Key_Space:
-            mik->pressKey("SPACE");
+            myMIK->pressKey("SPACE");
             break;
 
         case Qt::Key_Backspace:
-            mik->pressKey("ERASE_LINE");
+            myMIK->pressKey("ERASE_LINE");
             break;
 
         case Qt::Key_Left:
-            mik->pressKey("MARK_BWD");
+            myMIK->pressKey("MARK_BWD");
             break;
 
         case Qt::Key_Right:
-            mik->pressKey("MARK_FWD");
+            myMIK->pressKey("MARK_FWD");
             break;
 
         case Qt::Key_F2:
-            mik->pressKey("RB");
+            myMIK->pressKey("RB");
             break;
 
         case Qt::Key_F3:
-            mik->pressKey("DR_OBM");
+            myMIK->pressKey("DR_OBM");
             break;
 
         case Qt::Key_F4:
-            mik->pressKey("WIPE_WARN");
+            myMIK->pressKey("WIPE_WARN");
             break;
 
         case Qt::Key_Down:
@@ -239,7 +237,7 @@ void AlphaNumericDisplay::keyPressEvent(QKeyEvent *event){
             //Para devolver caracteres alfanuméricos
             if(!keyText.isEmpty()){
                 QChar caracter = event->text().front().toUpper();
-                mik->pressKey(caracter);
+                myMIK->pressKey(caracter);
             }
             break;
     }
@@ -248,12 +246,12 @@ void AlphaNumericDisplay::keyPressEvent(QKeyEvent *event){
 void AlphaNumericDisplay::executeMacro(const QString &message){
     QStringList commands = message.split(' ', Qt::SkipEmptyParts);
     for (const QString &command : commands) {
-        mik->pressKey(command);
+        myMIK->pressKey(command);
     }
 }
 
 void AlphaNumericDisplay::handleSelectLine(Letras letra) {
-    mik->goToLine(static_cast<int>(letra));
+    myMIK->goToLine(static_cast<int>(letra));
 }
 
 // Declaración de las funciones

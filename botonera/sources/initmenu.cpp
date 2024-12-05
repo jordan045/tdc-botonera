@@ -39,7 +39,7 @@ void InitMenu::seleccion()
 
         myDecoderLPD = new class decoderLPD(this);
         myDecoderAND = new class decoderAND(this);
-        myAndGui = new class AlphaNumericDisplay(this, myBotonera, myDecoderAND);
+        myAlphaNumericDisplay = new class AlphaNumericDisplay(this, myBotonera, myDecoderAND);
 
         comunicationSystem = new transcieverFPGA(
             this,

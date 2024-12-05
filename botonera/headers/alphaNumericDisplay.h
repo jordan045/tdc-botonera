@@ -25,26 +25,23 @@ class AlphaNumericDisplay : public QWidget
 public:
     explicit AlphaNumericDisplay(QWidget *parent = nullptr,Botonera *b = nullptr, decoderAND *translator = nullptr);
 
-    enum Letras { noLine = 0,A, B, C, D, E, F, G, H, I, J, K, L};
-
 private:
-    Botonera *miBotonera;
-    Ui::andGui *ui;
-    Ui::andGrilla *grilla;
-    decoderAND *myDecoderAND;
-    QVector<QLabel*> labels;
-    void writeToLine(QPair<int,QString>);
-    MIK *mik;
-    QStackedWidget *stackedWidget;
-    void selectNextLine();
-    void selectPreviousLine();
-
-    void handleSelectLine(Letras letra);
+    MIK *myMIK;
 
     int actualLine = 0;
+    enum Letras { noLine = 0,A, B, C, D, E, F, G, H, I, J, K, L};
 
+    QStackedWidget *stackedWidget;
+    Ui::andGui *ui;
+    Ui::andGrilla *grilla;
+
+    QVector<QLabel*> labels;
+
+    void writeToLine(QPair<int,QString>);
+    void selectNextLine();
+    void selectPreviousLine();
+    void handleSelectLine(Letras letra);
     void updateWButton(QString line);
-
     void updateLineButton(QPair<int,QString> line);
 
 protected:

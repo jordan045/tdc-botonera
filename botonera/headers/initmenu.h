@@ -3,10 +3,7 @@
 
 #include <QWidget>
 #include "botonera.h"
-#include "andGui.h"
-
-#include "botoneraMaster.h"
-#include "botoneraSlave.h"
+#include "alphaNumericDisplay.h"
 
 #include "decoderLPD.h"
 #include "qremoteobjectnode.h"
@@ -26,7 +23,7 @@ private:
     decoderLPD *myDecoderLPD;
     decoderAND *myDecoderAND;
     transcieverFPGA *comunicationSystem;
-    andGui *myAndGui;
+    AlphaNumericDisplay *myAlphaNumericDisplay;
 
     void start();
     QButtonGroup *group;
@@ -40,9 +37,9 @@ private:
 
     bool master;
 
-    void leerArchivos();
-    void iniciarInterfaz();
-    void iniciarConexión();
+    void readFiles();
+    void startInterface();
+    void startConnection();
 
 private slots:
     void seleccion();
