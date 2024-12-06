@@ -3,7 +3,6 @@
 
 #include "estado.h"
 #include <QWidget>
-#include "infomessage.h"
 #include "qdialog.h"
 #include "qpushbutton.h"
 #include "qshortcut.h"
@@ -62,9 +61,7 @@ protected:
     QPushButton *help_button = new QPushButton("");
     void crearBotonHelp();
     void distribucionLayout();
-    void info();
 
-    infoMessage *uiInfo;
 };
 
 #endif // BOTONERA_H
