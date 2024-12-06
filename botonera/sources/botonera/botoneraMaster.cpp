@@ -20,6 +20,7 @@ void BotoneraMaster::removeCodeFromRange(QString boton){
 void BotoneraMaster::removeCodeFromLabelSelection(QString boton){
     estadoActual->removeLabel(boton);
     concentrator->removeDisplaySelection(boton);
+    emit changeLabelSelectionSlave(boton);
 }
 void BotoneraMaster::removeCodeFromQek(QString boton){
     estadoActual->removeQek(boton);
@@ -28,6 +29,7 @@ void BotoneraMaster::removeCodeFromQek(QString boton){
 void BotoneraMaster::removeCodeFromThreat(QString boton){
     estadoActual->removeThreat(boton);
     concentrator->removeThreat(boton);
+    emit changeThreatAssesmentSlave(boton);
 }
 void BotoneraMaster::removeCodeFromCenter(QString boton){
     estadoActual->removeCenter(boton);
@@ -36,6 +38,7 @@ void BotoneraMaster::removeCodeFromCenter(QString boton){
 void BotoneraMaster::removeCodeFromDisplayMode(QString boton){
     estadoActual->removeDisplayMode(boton);
     concentrator->removeDisplayMode(boton);
+    emit changeDisplayModeSlave(boton);
 }
 void BotoneraMaster::removeCodeFromDisplaySelection(QString boton){
     estadoActual->removeDisplaySelection(boton);
@@ -77,7 +80,8 @@ void BotoneraMaster::sendCodeToRangeFromSlave(QString boton){
 
 void BotoneraMaster::sendCodeToLabelSelectionFromSlave(QString boton)
 {
-    label_selection_widget->interact(boton);
+    label_selection_widget->interactVisual(boton);
+    estadoActual->setLabel(boton);
 }
 
 void BotoneraMaster::sendCodeToThreatFromSlave(QString boton)
@@ -88,7 +92,8 @@ void BotoneraMaster::sendCodeToThreatFromSlave(QString boton)
 
 void BotoneraMaster::sendCodeToDisplayModeFromSlave(QString boton)
 {
-    display_mode_widget->interact(boton);
+    display_mode_widget->interactVisual(boton);
+    estadoActual->setDisplayMode(boton);
 }
 
 void BotoneraMaster::sendCodeToDisplaySelectionFromSlave(QString boton)

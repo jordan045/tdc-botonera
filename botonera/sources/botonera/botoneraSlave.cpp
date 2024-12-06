@@ -135,8 +135,8 @@ void BotoneraSlave::initConnections()
     QObject::connect(this,&BotoneraSlave::emitRemoveFromIcm,reptr.data(),&botoneraMasterReplica::removeCodeFromIcmSlave);
 
     QObject::connect(reptr.data(),&botoneraMasterReplica::changeRangeSlave,this, &BotoneraSlave::changeRange);
-    QObject::connect(reptr.data(),&botoneraMasterReplica::changeThreatAssesmentSlave,this, &BotoneraSlave::changeDisplaySelection);
-    QObject::connect(reptr.data(),&botoneraMasterReplica::changeDisplaySelectionSlave,this, &BotoneraSlave::changeThreat);
+    QObject::connect(reptr.data(),&botoneraMasterReplica::changeThreatAssesmentSlave,this, &BotoneraSlave::changeThreat);
+    QObject::connect(reptr.data(),&botoneraMasterReplica::changeDisplaySelectionSlave,this, &BotoneraSlave::changeDisplaySelection);
     QObject::connect(reptr.data(),&botoneraMasterReplica::changeLabelSelectionSlave,this, &BotoneraSlave::changeLabelSelection);
     QObject::connect(reptr.data(),&botoneraMasterReplica::changeDisplayModeSlave,this, &BotoneraSlave::changeDisplayMode);
 
