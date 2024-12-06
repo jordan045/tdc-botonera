@@ -14,6 +14,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    infopanel.cpp \
     sources/AND/alphaNumericDisplay.cpp \
     sources/AND/decoderAND.cpp \
     sources/botonera/boton.cpp \
@@ -89,7 +90,8 @@ HEADERS += \
     headers/transciever_fpga.h \
     headers/cursorMessage.h \
     headers/decenteredimage.h \
-    headers/markerMessage.h
+    headers/markerMessage.h \
+    infopanel.h
 
 FORMS += \
     forms/andGrilla.ui \
@@ -113,6 +115,7 @@ FORMS += \
     forms/zone_label.ui \
     forms/zone_range.ui \
     forms/zone_threat.ui \
+    infopanel.ui \
     initmenu.ui
 
 # Default rules for deployment.

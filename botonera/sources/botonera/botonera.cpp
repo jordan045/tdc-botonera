@@ -1,5 +1,6 @@
 #include "botonera.h"
 #include "alphaNumericDisplay.h"
+#include "infopanel.h"
 #include "overlay_140_0001.h"
 #include "overlay_140_0010.h"
 #include "overlay_140_0011.h"
@@ -107,6 +108,14 @@ void Botonera::start(int tipo)
     this->show();
 }
 
+void Botonera::info()
+{
+   // if(!infoP){
+
+   // }
+    infoP->exec();
+}
+
 void Botonera::setOverlay(QString codigo)
 {
     overlay = codigo.toInt();
@@ -125,7 +134,8 @@ void Botonera::crearBotonHelp()
     shortcut = new QShortcut(QKeySequence(Qt::Key_0), this);
 
     connect(shortcut, SIGNAL(activated()), this, SLOT(info()));
-    //connect(help_button, &QPushButton::clicked, this, &Botonera::info);
+    connect(help_button, &QPushButton::clicked, this, &Botonera::info);
+    infoP = new infoPanel(this);
 }
 
 void Botonera::distribucionLayout()
