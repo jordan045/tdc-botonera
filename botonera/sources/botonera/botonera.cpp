@@ -21,7 +21,6 @@
 #include "overlay_360_0110.h"
 #include "overlay_360_0111.h"
 #include "overlay_360_1000.h"
-#include "infomessage.h"
 #include "QFontDatabase"
 #include <QScreen>
 
@@ -113,15 +112,6 @@ void Botonera::setOverlay(QString codigo)
     overlay = codigo.toInt();
 }
 
-
-void Botonera::info(){
-
-    uiInfo = new infoMessage(this);
-
-    uiInfo->exec();
-
-}
-
 void Botonera::crearBotonHelp()
 {
 
@@ -135,7 +125,7 @@ void Botonera::crearBotonHelp()
     shortcut = new QShortcut(QKeySequence(Qt::Key_0), this);
 
     connect(shortcut, SIGNAL(activated()), this, SLOT(info()));
-    connect(help_button, &QPushButton::clicked, this, &Botonera::info);
+    //connect(help_button, &QPushButton::clicked, this, &Botonera::info);
 }
 
 void Botonera::distribucionLayout()
