@@ -134,6 +134,25 @@ void BotoneraSlave::initConnections()
     QObject::connect(this,&BotoneraSlave::emitRemoveFromCenter,reptr.data(),&botoneraMasterReplica::removeCodeFromCenterSlave);
     QObject::connect(this,&BotoneraSlave::emitRemoveFromIcm,reptr.data(),&botoneraMasterReplica::removeCodeFromIcmSlave);
 
+    QObject::connect(reptr.data(),&botoneraMasterReplica::changeRangeSlave,this, &BotoneraSlave::changeRange);
+    QObject::connect(reptr.data(),&botoneraMasterReplica::changeThreatAssesmentSlave,this, &BotoneraSlave::changeDisplaySelection);
+    QObject::connect(reptr.data(),&botoneraMasterReplica::changeDisplaySelectionSlave,this, &BotoneraSlave::changeThreat);
 
 
 }
+
+void BotoneraSlave::changeRange(QString boton)
+{
+    range_widget->interactVisual(boton);
+}
+
+void BotoneraSlave::changeThreat(QString boton)
+{
+    threat_assesment_widget->interactVisual(boton);
+}
+
+void BotoneraSlave::changeDisplaySelection(QString boton)
+{
+    display_selection_widget->interactVisual(boton);
+}
+

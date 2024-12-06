@@ -49,8 +49,6 @@ public:
         void sendCodeToDisplayModeFromSlave(QString boton);
         void sendCodeToDisplaySelectionFromSlave(QString boton);
 
-
-
         //-- Los Setters de Slave //
         void sendCodeToCenterSlave(QString boton);
         void sendCharToMIKSlave(QString caracter);

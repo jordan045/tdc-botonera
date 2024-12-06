@@ -4,7 +4,7 @@
 #include <QDebug>
 
 //Setear en true para generar los logs
-#define LOG true
+#define LOG false
 
 #define WORD_SIZE 24
 #define WORD_COUNT 9

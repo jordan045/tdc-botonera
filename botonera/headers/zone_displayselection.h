@@ -19,6 +19,8 @@ public:
     QString getName() override;
     ~zone_displaySelection();
     void interact(QString boton) override;
+    void interactVisual(QString boton)override;
+    void blockAllButtonSignals(bool block)override;
 
 private:
     Ui::zone_displaySelection *ui;

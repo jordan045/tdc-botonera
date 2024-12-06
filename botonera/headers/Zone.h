@@ -14,6 +14,9 @@ class Zone : public QWidget{
         virtual void removeCode(QString){}
         virtual QString getName(){return "";}
         virtual void interact(QString){}
+        virtual void interactVisual(QString){}
+        virtual void blockAllButtonSignals(bool){}
+
 
     protected:
         Botonera *miBotonera;
