@@ -29,6 +29,8 @@ class botoneraMaster
     SIGNAL(changeRangeSlave(QString boton));
     SIGNAL(changeDisplaySelectionSlave(QString boton));
     SIGNAL(changeThreatAssesmentSlave(QString boton));
+    SIGNAL(changeLabelSelection(QString boton));
+    SIGNAL(changeDisplayMode(QString boton));
 
 };
 

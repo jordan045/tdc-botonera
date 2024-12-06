@@ -18,9 +18,11 @@ public:
     void removeCode(QString code) override;
     QString getName() override;
     void interact(QString boton) override;
+    void interactVisual(QString code) override;
 
 private:
     Ui::zone_label *ui;
+    void blockAllButtonSignals(bool block)override;
 };
 
 #endif // ZONE_LABEL_H

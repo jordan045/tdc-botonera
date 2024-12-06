@@ -19,10 +19,12 @@ public:
     QString getName() override;
     ~zone_displayMode();
     void interact(QString boton) override;
+    void interactVisual(QString code) override;
 
 private:
     Ui::zone_displayMode *ui;
     Botonera *miBotonera;
+    void blockAllButtonSignals(bool block)override;
 };
 
 #endif // ZONE_DISPLAYMODE_H

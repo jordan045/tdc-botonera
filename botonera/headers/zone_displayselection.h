@@ -25,6 +25,7 @@ public:
 private:
     Ui::zone_displaySelection *ui;
     Botonera *miBotonera;
+
 };
 
 #endif // ZONE_DISPLAYSELECTION_H

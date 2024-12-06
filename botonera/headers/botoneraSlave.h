@@ -56,6 +56,9 @@ public slots:
     void changeRange(QString boton);
     void changeThreat(QString boton);
     void changeDisplaySelection(QString boton);
+    void changeLabelSelection(QString boton);
+    void changeDisplayMode(QString boton);
+
 private:
     QSharedPointer<botoneraMasterReplica> reptr;
 };

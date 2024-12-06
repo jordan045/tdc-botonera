@@ -60,7 +60,10 @@ void zone_displaySelection::interactVisual(QString boton)
     blockAllButtonSignals(true);
     button->toggle();
     blockAllButtonSignals(false);
+
 }
+
+
 
 void zone_displaySelection::blockAllButtonSignals(bool block)
 {

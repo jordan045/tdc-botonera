@@ -50,3 +50,23 @@ void zone_displayMode::interact(QString boton)
     QPushButton *button = this->findChild<QPushButton*>(boton);
     button->toggle();
 }
+
+void zone_displayMode::interactVisual(QString code)
+{
+    QPushButton* button = this-> findChild<QPushButton*>(code);
+    qDebug()<<"zone_range::interactVisual";
+    blockAllButtonSignals(true);
+    button->toggle();
+    blockAllButtonSignals(false);
+}
+
+void zone_displayMode::blockAllButtonSignals(bool block)
+{
+    const QList<QPushButton*> &buttons = this->findChildren<QPushButton*>();
+    for(QPushButton * button:buttons){
+        if(button){
+            button->blockSignals(block);
+        }
+    }
+}
+
