@@ -106,6 +106,7 @@ void BotoneraMaster::sendCodeToRange(QString boton){
 }
 void BotoneraMaster::sendCodeToLabelSelection(QString boton){
     estadoActual->setLabel(boton);
+    emit changeLabelSelectionSlave(boton);
 }
 
 void BotoneraMaster::sendCodeToQek(QString boton){
@@ -123,6 +124,7 @@ void BotoneraMaster::sendCodeToCenter(QString boton){
 
 void BotoneraMaster::sendCodeToDisplayMode(QString boton){
     estadoActual->setDisplayMode(boton);
+    emit changeDisplayModeSlave(boton);
 }
 
 void BotoneraMaster::sendCodeToDisplaySelection(QString boton){
