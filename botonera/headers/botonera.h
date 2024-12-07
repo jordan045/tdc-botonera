@@ -42,6 +42,7 @@ public:
     virtual void removeCodeFromDisplaySelection(QString boton)  = 0;
     virtual void removeCodeFromIcm(QString boton)               = 0;
 
+    virtual void synchronize() = 0;
 public slots:
     void start(int tipo);
 

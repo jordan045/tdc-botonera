@@ -113,6 +113,13 @@ QString BotoneraSlave::getOverlay()
     return "q";
 }
 
+void BotoneraSlave::synchronize()
+{
+    reptr.data()->synchronize();
+}
+
+
+
 void BotoneraSlave::initConnections()
 {
     //Conectar los sendCodeTo.

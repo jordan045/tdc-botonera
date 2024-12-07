@@ -182,4 +182,32 @@ QString BotoneraMaster::getOverlay(){
     return estadoActual->getOverlay();
 }
 
+void BotoneraMaster::synchronize()
+{
+    QString rango = estadoActual->getRange();
+    emit changeRangeSlave(rango);
+
+    QStringList wordListDSelection = estadoActual->getDisplaySelection().split(" ", Qt::SkipEmptyParts);
+    foreach(const QString &word,wordListDSelection){
+        emit changeDisplaySelectionSlave(word);
+    }
+
+    QStringList wordListThreatAssesment = estadoActual->getThreat().split(" ",Qt::SkipEmptyParts);
+    foreach(const QString &word,wordListThreatAssesment){
+        emit changeThreatAssesmentSlave(word);
+    }
+
+    QStringList wordListLabelSelectionSlave = estadoActual->getLabel() .split(" ",Qt::SkipEmptyParts);
+    foreach(const QString &word,wordListLabelSelectionSlave){
+        emit changeLabelSelectionSlave(word);
+    }
+
+
+    QStringList wordListDisplayMode = estadoActual->getLabel() .split(" ",Qt::SkipEmptyParts);
+    foreach(const QString &word,wordListDisplayMode){
+        emit changeDisplayModeSlave(word);
+    }
+
+}
+
 

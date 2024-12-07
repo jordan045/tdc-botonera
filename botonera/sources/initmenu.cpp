@@ -180,6 +180,9 @@ void InitMenu::startConnection(){
 
                 // Crear la botonera slave
                 myBotonera = new BotoneraSlave(nullptr, ptr);
+
+                myBotonera->synchronize();
+
             } else {
                 qDebug() << "Intentando conectar con la master...";
             }

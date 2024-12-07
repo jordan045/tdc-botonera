@@ -32,6 +32,7 @@ public:
     void sendMessage();
     QString getOverlay();
 
+    void synchronize() override;
 
     void initConnections();
 

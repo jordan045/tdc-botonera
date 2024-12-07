@@ -59,5 +59,7 @@ public:
         QByteArray getConcentrator();
         QString getOverlay();
 
+        void synchronize() override;
+
 };
 #endif // BOTONERAMASTER_H

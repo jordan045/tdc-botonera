@@ -32,6 +32,7 @@ class botoneraMaster
     SIGNAL(changeLabelSelectionSlave(QString boton));
     SIGNAL(changeDisplayModeSlave(QString boton));
 
-};
+    SIGNAL(synchronize());
+}
 
 #endif // BOTONERAMASTER_REP
