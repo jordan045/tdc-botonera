@@ -8,11 +8,11 @@ CONFIG -= app_bundle
 
 INCLUDEPATH += \
     $$PWD/../botonera/headers \
-    $$PWD/../botonera/sources
+    $$PWD/../botonera/botonera/sources
 
 DEPENDPATH += \
     $$PWD/../botonera/headers \
-    $$PWD/../botonera/sources
+    $$PWD/../botonera/botonera/sources
 
 TEMPLATE = app
 
@@ -26,7 +26,7 @@ SOURCES +=  \
     bitarrayutils.cpp \
     stubestado.cpp \
     tst_formatconcentratortest.cpp \
-    $$PWD/../botonera/sources/formatconcentrator.cpp
+    $$PWD/../botonera/sources/botonera/formatconcentrator.cpp
 
 RESOURCES += \
     $$PWD/../botonera/resources.qrc

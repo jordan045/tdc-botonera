@@ -22,15 +22,35 @@ void StubEstado::setOverlay(QString codigo){
     this->overlay = codigo;
 }
 
-void StubEstado::removeIcm(QString codigo){
+void StubEstado::removeIcm(QString boton){
     this->icm = "";
 }
 
-void StubEstado::removeCenter(QString codigo){
+void StubEstado::removeCenter(QString boton){
     this->center = "";
 }
 
-void StubEstado::removeThreat(QString codigo){
+void StubEstado::removeDisplayMode(QString boton){
+    this->displayMode = "";
+}
+
+void StubEstado::removeDisplaySelection(QString boton){
+    this->displaySelection = "";
+}
+
+void StubEstado::removeLabel(QString boton){
+    this->label = "";
+}
+
+void StubEstado::removeQek(QString boton){
+    this->qek = "";
+}
+
+void StubEstado::removeRange(QString boton){
+    this->range = "";
+}
+
+void StubEstado::removeThreat(QString boton){
     this->threat = "";
 }
 
@@ -38,37 +58,41 @@ void StubEstado::removeMIK(QString c){
     this->mik = "";
 }
 
-void StubEstado::removeDisplayMode(QString codigo){
-    this->displayMode = "";
+void StubEstado::removeLabelS(QString l){
+    this->labelS = "";
 }
 
-void StubEstado::removeDisplaySelection(QString codigo){
-    this->displaySelection = "";
+void StubEstado::removeQEKS(QString q){
+    this->qekS = "";
 }
 
-void StubEstado::removeLabel(QString codigo){
-    this->label = "";
+void StubEstado::removeCenterS(QString c){
+    this->centerS = "";
 }
 
-void StubEstado::removeQek(QString codigo){
-    this->qek = "";
+void StubEstado::removeICMS(QString i){
+    this->icmS = "";
 }
 
-void StubEstado::removeRange(QString codigo){
-    this->range = "";
+void StubEstado::removeDisplayModeS(QString d){
+    this->displayModeS = "";
 }
 
+void StubEstado::removeOverlayS(QString o){
+    this->displayModeS = "";
+}
+
+QString StubEstado::getRange(){             return range;}
 QString StubEstado::getLabel(){             return label;}
 QString StubEstado::getQEK(){               return qek;}
 QString StubEstado::getThreat(){            return threat;}
 QString StubEstado::getCenter(){            return center;}
 QString StubEstado::getDisplayMode(){       return displayMode;}
+QString StubEstado::getDisplaySelection(){  return displaySelection;}
 QString StubEstado::getICM(){               return icm;}
 QString StubEstado::getModos(){             return displayMode;}
 QString StubEstado::getOverlay(){           return overlay;}
 QString StubEstado::getMIK(){               return mik;}
-QString StubEstado::getDisplaySelection(){  return displaySelection;}
-QString StubEstado::getRange(){             return range;}
 
 QString StubEstado::getLabelS(){            return labelS;}
 QString StubEstado::getQEKS(){              return qekS;}
@@ -77,27 +101,35 @@ QString StubEstado::getICMS(){              return icmS;}
 QString StubEstado::getDisplayModeS(){      return displayModeS;}
 QString StubEstado::getOverlayS(){          return overlayS;}
 
-void StubEstado::setLabel(QString s){
+void StubEstado::setRange(QString r){
+    this->range = s;
+}
+
+void StubEstado::setLabel(QString l){
     this->label = s;
 }
 
-void StubEstado::setQEK(QString s){
+void StubEstado::setQEK(QString q){
     this->qek = s;
 }
 
-void StubEstado::setThreat(QString s){
+void StubEstado::setThreat(QString t){
     this->threat = s;
 }
 
-void StubEstado::setCenter(QString s){
+void StubEstado::setCenter(QString c){
     this->center = s;
 }
 
-void StubEstado::setDisplayMode(QString s){
+void StubEstado::setDisplayMode(QString d){
     this->displayMode = s;
 }
 
-void StubEstado::setICM(QString s){
+void StubEstado::setDisplaySelection(QString d){
+    this->displaySelection = s;
+}
+
+void StubEstado::setICM(QString i){
     this->icm = s;
 }
 
@@ -127,12 +159,4 @@ void StubEstado::setDisplayModeS(QString d){
 
 void StubEstado::setOverlayS(QString o){
     this->overlayS = o;
-}
-
-void StubEstado::setDisplaySelection(QString s){
-    this->displaySelection = s;
-}
-
-void StubEstado::setRange(QString s){
-    this->range = s;
 }

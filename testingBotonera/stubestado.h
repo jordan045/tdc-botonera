@@ -27,6 +27,13 @@ public:
     void removeThreat(QString boton) override;
     void removeMIK(QString c) override;
 
+    void removeLabelS(QString l) override;
+    void removeQEKS(QString q) override;
+    void removeCenterS(QString c) override;
+    void removeICMS(QString i) override;
+    void removeDisplayModeS(QString d) override;
+    void removeOverlayS(QString o) override;
+
     QString getRange() override;
     QString getLabel() override;
     QString getQEK() override;
@@ -38,13 +45,13 @@ public:
     QString getModos() override;
     QString getOverlay() override;
     QString getMIK() override;
+
     QString getLabelS() override;
     QString getQEKS() override;
     QString getCenterS() override;
     QString getICMS() override;
     QString getDisplayModeS() override;
     QString getOverlayS() override;
-
 
     void setRange(QString r) override;
     void setLabel(QString l) override;
@@ -55,6 +62,7 @@ public:
     void setDisplaySelection(QString d) override;
     void setICM(QString i) override;
     void setMIK(QString m) override;
+
     void setLabelS(QString l) override;
     void setQEKS(QString q) override;
     void setCenterS(QString c) override;
